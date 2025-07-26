@@ -1,5 +1,5 @@
 import "./globals.css";
-import Navbar from "./layouts/Navbar";
+import Navbar from "./layouts/Navbar.jsx";
 import { Space_Grotesk } from "next/font/google";
 import { Mulish } from "next/font/google";
 
@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${mulish.variable} ${space.variable} text-zinc-900 bg-bg-light dark:bg-bg-dark
+        className={`${mulish.variable} ${space.variable} text-zinc-900 bg-bg-light dark:bg-black overflow-x-hidden
         `}
       >
         <Navbar />

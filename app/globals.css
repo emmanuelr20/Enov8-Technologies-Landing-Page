@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:is(.dark *));
 
 :root {
   --light-primary: #0070f3;
@@ -170,5 +170,9 @@ body {
   will-change: transform;
   backface-visibility: hidden;
   transform-style: preserve-3d;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
