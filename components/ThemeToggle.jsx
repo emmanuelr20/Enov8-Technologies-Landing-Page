@@ -8,7 +8,6 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
   const [dark, setDark] = useState(false);
 
-  // 1. Check system and saved preference on mount
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
 
@@ -21,10 +20,9 @@ export default function ThemeToggle() {
       setDark(prefersDark);
     }
 
-    setMounted(true); // avoid SSR mismatch
+    setMounted(true);
   }, []);
 
-  // 2. Apply theme to document root and save to localStorage
   useEffect(() => {
     if (!mounted) return;
 
@@ -39,7 +37,6 @@ export default function ThemeToggle() {
     }
   }, [dark, mounted]);
 
-  // 3. Avoid rendering until mounted (prevents flicker)
   if (!mounted) return null;
 
   return (
