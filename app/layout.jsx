@@ -20,6 +20,11 @@ const mulish = Mulish({
 export const metadata = {
   title: "Enov8 Technologies",
   description: "Building custom solutions that drive business growth.",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({ children }) {
