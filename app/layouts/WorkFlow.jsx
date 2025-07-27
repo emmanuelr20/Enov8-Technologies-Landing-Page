@@ -53,7 +53,7 @@ export default function WorkFlow() {
             <article
               key={i}
               className="group overflow-hidden flex flex-col items-center py-24 px-8 min-h-[420px] 
-            bg-white dark:bg-black max-w-[360px] rounded-br-4xl relative space-y-4 
+            bg-white dark:bg-[#141414] max-w-[360px] rounded-br-4xl relative space-y-4 
             hover:rounded-bl-4xl hover:rounded-br-none transition-all duration-300 *:"
             >
               <div className="absolute h-full inset-0 bg-dark-primary transform -translate-x-full 
