@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Smartphone, Globe, Database, GraduationCap, Palette, Rocket, CheckCircle, } from "lucide-react";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, } from "@/components/ui/card";
 
 const services = [
   {
@@ -106,9 +107,11 @@ export default function Services() {
   const [activeCard, setActiveCard] = useState(null);
 
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
+    <section className="py-24 px-6 max-w-7xl mx-auto" id="services">
       <div className="text-center space-y-4">
-        <h2 className="text-3xl md:text-5xl font-bold dark:text-gray-100">Our Services</h2>
+        <h2 className="text-3xl md:text-5xl font-bold dark:text-gray-100">
+          Our Services
+        </h2>
         <p className="text-lg max-w-xl mx-auto text-zinc-700 dark:text-gray-200">
           Comprehensive technology solutions tailored to drive innovation and
           growth across industries.
@@ -118,75 +121,80 @@ export default function Services() {
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-16">
         {services.map((service) => {
           const Icon = service.icon;
-          const isThisCardActive = activeCard === service.id;
+          const isActive = activeCard === service.id;
 
           return (
-            <div
+            <Card
               key={service.id}
               onMouseEnter={() => setActiveCard(service.id)}
               onMouseLeave={() => setActiveCard(null)}
-              className="bg-white dark:bg-[#141414] border border-gray-200 dark:border-zinc-800 rounded-3xl p-6 shadow-md transition-all duration-300 hover:shadow-xl"
+              className="rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-zinc-800 dark:bg-[#141414]"
             >
-              <div className="flex items-center justify-between mb-4">
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center bg-light-primary dark:bg-bg-dark"
-                >
-                  <Icon className="text-white dark:text-light-primary w-6 h-6" />
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-light-primary dark:bg-bg-dark">
+                    <Icon className="text-white dark:text-light-primary w-6 h-6" />
+                  </div>
                 </div>
-              </div>
+                <CardTitle className="text-xl font-bold text-gray-900 dark:text-white">
+                  {service.title}
+                </CardTitle>
+                <CardDescription className="text-sm text-gray-600 dark:text-gray-400">
+                  {service.subtitle}
+                </CardDescription>
+              </CardHeader>
 
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white" style={{fontFamily: "var(--font-space)"}}>
-                {service.title}
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                {service.subtitle}
-              </p>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
-                {service.description}
-              </p>
+              <CardContent>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  {service.description}
+                </p>
 
-              <div className="flex flex-wrap gap-2 mb-4">
-                {service.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-xs px-2 py-1 bg-gray-100 dark:bg-zinc-700 text-gray-800 dark:text-white rounded-full"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <div className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                isThisCardActive 
-                  ? 'max-h-96 opacity-100 mt-4' 
-                  : 'max-h-0 opacity-0 mt-0'
-              }`}>
-                <div className="space-y-2">
-                  {service.features.map((feature, i) => (
-                    <div 
-                      key={i} 
-                      className={`flex items-center gap-2 text-sm transform transition-all duration-300 ease-out ${
-                        isThisCardActive 
-                          ? 'translate-y-0 opacity-100' 
-                          : 'translate-y-2 opacity-0'
-                      }`}
-                      style={{ transitionDelay: `${i * 50}ms` }}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {service.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-xs px-2 py-1 bg-gray-100 dark:bg-zinc-700 text-gray-800 dark:text-white rounded-full"
                     >
-                      <CheckCircle className="w-4 h-4 text-dark-primary flex-shrink-0" />
-                      <span className="text-gray-700 dark:text-gray-300">{feature}</span>
-                    </div>
+                      {tech}
+                    </span>
                   ))}
                 </div>
-              </div>
 
-              <div className="flex justify-between items-center mt-6 pt-4 border-t border-gray-200 dark:border-zinc-700"/>
-            </div>
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    isActive ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0 mt-0"
+                  }`}
+                >
+                  <div className="space-y-2">
+                    {service.features.map((feature, i) => (
+                      <div
+                        key={i}
+                        className={`flex items-center gap-2 text-sm transform transition-all duration-300 ease-out ${
+                          isActive
+                            ? "translate-y-0 opacity-100"
+                            : "translate-y-2 opacity-0"
+                        }`}
+                        style={{ transitionDelay: `${i * 50}ms` }}
+                      >
+                        <CheckCircle className="w-4 h-4 text-dark-primary" />
+                        <span className="text-gray-700 dark:text-gray-300">
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-gray-200 dark:border-zinc-700" />
+              </CardContent>
+            </Card>
           );
         })}
       </div>
     </section>
   );
-};
+}
+
 
 
 

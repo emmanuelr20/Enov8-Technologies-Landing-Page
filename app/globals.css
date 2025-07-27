@@ -156,7 +156,7 @@ body {
   }
 }
 
-@keyframes slideIn {
+/* @keyframes slideIn {
   0% {
     transform: translateY(-50%);
   }
@@ -168,9 +168,7 @@ body {
 .slide-in {
   animation: slideIn 0.3s ease forwards;
   will-change: transform;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-}
+} */
 
 html {
   scroll-behavior: smooth;

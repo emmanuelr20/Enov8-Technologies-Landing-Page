@@ -3,13 +3,11 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-  const [isDropdown, setIsDropdown] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -31,18 +29,10 @@ export default function Navbar() {
     setTimeout(() => setIsOpen(false), 100);
   };
 
-  const toggleDropdown = () => {
-    setIsDropdown((prev) => !prev);
-  };
-
   return (
     <header
-      className={`z-50 w-full transition-all duration-300 shadow-md
-        ${
-          isSticky
-            ? "fixed top-0 bg-white shadow-md slide-in dark:bg-black"
-            : "relative bg-transparent"
-        }`}
+      className={`z-50 w-full transition-transform duration-300 fixed top-0 bg-white dark:bg-black
+        ${isSticky ? "shadow-md" : ""}`}
     >
       <nav className="container mx-auto py-6 px-3.5 flex justify-between items-center">
         <a
@@ -155,3 +145,5 @@ export default function Navbar() {
     </header>
   );
 }
+
+
