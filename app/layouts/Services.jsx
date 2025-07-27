@@ -109,7 +109,7 @@ export default function Services() {
   return (
     <section className="py-24 px-6 max-w-7xl mx-auto" id="services">
       <div className="text-center space-y-4">
-        <h2 className="text-3xl md:text-5xl font-bold dark:text-gray-100">
+        <h2 className="text-3xl md:text-5xl font-bold dark:text-gray-100" style={{fontFamily: "var(--font-space)"}}>
           Our Services
         </h2>
         <p className="text-lg max-w-xl mx-auto text-zinc-700 dark:text-gray-200">

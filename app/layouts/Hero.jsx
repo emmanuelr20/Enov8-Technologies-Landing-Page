@@ -64,7 +64,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/60  z-[-10]" />
 
       <div className="container mx-auto px-3.5 h-full z-10 flex flex-col justify-center items-center lg:items-start">
-        <div className="grid grid-cols-1 gap-y-6 md:px-3">
+        <div className="grid grid-cols-1 gap-y-6 md:px-3 pt-20">
           <h1
             className="text-5xl text-center lg:text-start md:text-7xl font-bold capitalize  "
             style={{ fontFamily: "var(--font-space)" }}
