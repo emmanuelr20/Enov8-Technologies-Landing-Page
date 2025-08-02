@@ -2,7 +2,10 @@ import { CircleCheckBig, Target, Users, Award, Lightbulb } from "lucide-react"
 
 export default function About() {
     return(
-        <section className="h-full z-50 text-black pt-13 lg:pt-30" id="about">
+        <section 
+        aria-label="About Enov8 Technologies"
+        className="h-full z-50 text-black pt-13 lg:pt-30" 
+        id="about">
             <h2 
             className="text-center text-3xl md:text-5xl max-w-[600px] mx-auto leading-snug
             dark:text-gray-100"
@@ -60,10 +63,11 @@ export default function About() {
                     </div>
                 </div>
 
-                <img 
+                <img
                 src="/about.jpg" 
-                alt="about image" 
+                alt="Enov8 Technologies staff working on a project" 
                 width={500}
+                height={500}
                 loading="lazy"
                 />
             </div>

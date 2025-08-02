@@ -28,7 +28,10 @@ export default function WorkFlow() {
   ];
 
   return (
-    <section className="min-h-screen text-white relative mt-30" style={clipPathStyle}>
+    <section 
+    aria-label="Enov8 Technologies Workflow"
+    className="min-h-screen text-white relative mt-30" 
+    style={clipPathStyle}>
       <Image
         src="/workflowImage.jpg"
         alt="Workflow background"

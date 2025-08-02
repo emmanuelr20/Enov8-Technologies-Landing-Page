@@ -1,12 +1,23 @@
 import { Mail, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FaWhatsapp } from "react-icons/fa6";
+import Image from "next/image";
 
 export default function Contact() {
   return (
-    <section className="min-h-[70vh] text-black z-50 flex justify-center items-center" id="contact">
+    <section 
+    aria-label="Enov8 Technologies Contact"
+    className="min-h-[70vh] text-black z-50 flex justify-center items-center" 
+    id="contact">
       <div className="container mx-auto py-12 px-3.5 flex flex-col lg:flex-row items-center justify-between">
-        <img src="/contact.png" alt="contact us" width={500} height={500} />
+        <Image
+        src="/contact.png" 
+        alt="contact Enov8 Technologies" 
+        width={500} 
+        height={500} 
+        priority={false}
+        loading="lazy"
+        />
 
         <div className="flex flex-col max-sm:items-center items-start gap-6 w-full sm:max-w-[600px] px-3">
           <div className="grid grid-cols-1 gap-y-3">
@@ -51,7 +62,12 @@ export default function Contact() {
           </div>
           <div className="justify-self-center">
             <Button variant={"background"} size="lg" className="bg-light-primary text-[15px] font-medium">
-              <a href="" className="flex gap-2 items-center">
+              <a 
+              href="https://wa.me/2347064838988?text=Hi%20there!%20I'm%20interested%20in%20your%20services" 
+              rel="noopener noreferrer"
+              aria-label="Contact us on WhatsApp"
+              className="flex gap-2 items-center"
+              >
                 <Send />
                 Send Message
               </a>

@@ -88,7 +88,10 @@ export default function Navbar() {
         </div>
 
         {/* Hamburger */}
-        <button className="lg:hidden dark:text-white" onClick={toggleMenu}>
+        <button 
+        aria-label="Toggle navigation menu"
+        className="lg:hidden dark:text-white" 
+        onClick={toggleMenu}>
           {isOpen ? "" : <Menu size={30} />}
         </button>
 

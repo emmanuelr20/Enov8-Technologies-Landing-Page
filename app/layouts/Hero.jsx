@@ -53,11 +53,12 @@ export default function Hero() {
     <section className="h-screen relative bg-gray-950/30 text-white" id="home">
       <Image
         src="/HomeImage.jpeg"
-        alt="home background"
+        alt="Enov8 Technologies team developing software solutions"
         fill
-        quality={100}
+        quality={85}
         priority
         className="object-cover -z-10"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
 
       {/* Gradient Overlay */}
@@ -80,7 +81,10 @@ export default function Hero() {
           <div className="flex justify-center lg:justify-start space-x-6">
             <a 
             href="https://wa.me/2347064838988?text=Hi%20there!%20I'm%20interested%20in%20your%20services"
-            target="_blank">
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Contact us on WhatsApp"
+            >
               <Button
                 variant="background"
                 size="lg"
