@@ -1,9 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import dynamic from "next/dynamic";
+
+const ScrollReveal = dynamic(() => import("scrollreveal"), { ssr: false });
 
 export default function Hero() {
   const [typeText, setTypeText] = useState("");
@@ -12,6 +15,7 @@ export default function Hero() {
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const heroRef = useRef(null);
 
   useEffect(() => {
     let timeout;
@@ -49,8 +53,26 @@ export default function Hero() {
     texts,
   ]);
 
+  useEffect(() => {
+    if (typeof window !== "undefined" && heroRef.current) {
+      const sr = require("scrollreveal").default;
+      sr().reveal(heroRef.current, {
+        origin: "left",
+        distance: "60px",
+        duration: 800,
+        easing: "ease-in-out",
+        delay: 1000,
+        reset: false,
+      });
+    }
+  }, []);
+
   return (
-    <section className="h-screen relative bg-gray-950/30 text-white" id="home">
+    <section
+      aria-label="Home Enov8 Technologies"
+      className="h-screen relative bg-gray-950/30 text-white"
+      id="home"
+    >
       <Image
         src="/HomeImage.jpeg"
         alt="Enov8 Technologies team developing software solutions"
@@ -62,10 +84,10 @@ export default function Hero() {
       />
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-black/60  z-[-10]" />
+      <div className="absolute inset-0 bg-black/60 z-[-10]" />
 
       <div className="container mx-auto px-3.5 h-full z-10 flex flex-col justify-center items-center lg:items-start">
-        <div className="grid grid-cols-1 gap-y-6 md:px-3 pt-20">
+        <div className="grid grid-cols-1 gap-y-6 md:px-3 pt-20" ref={heroRef}>
           <h1
             className="text-5xl text-center lg:text-start md:text-7xl font-bold capitalize  "
             style={{ fontFamily: "var(--font-space)" }}
@@ -79,11 +101,11 @@ export default function Hero() {
             education, and more.
           </p>
           <div className="flex justify-center lg:justify-start space-x-6">
-            <a 
-            href="https://wa.me/2347064838988?text=Hi%20there!%20I'm%20interested%20in%20your%20services"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Contact us on WhatsApp"
+            <a
+              href="https://wa.me/2347064838988?text=Hi%20there!%20I'm%20interested%20in%20your%20services"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Contact us on WhatsApp"
             >
               <Button
                 variant="background"

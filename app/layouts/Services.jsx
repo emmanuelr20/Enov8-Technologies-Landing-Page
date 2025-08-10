@@ -3,6 +3,13 @@
 import { useState } from "react";
 import { Smartphone, Globe, Database, GraduationCap, Palette, Rocket, CheckCircle, } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, } from "@/components/ui/card";
+import { useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
+
+const ScrollReveal = dynamic(
+  () => import('scrollreveal'),
+  { ssr: false }
+)
 
 const services = [
   {
@@ -105,6 +112,49 @@ const services = [
 
 export default function Services() {
   const [activeCard, setActiveCard] = useState(null);
+  const titleRef = useRef(null);
+  const textRef = useRef(null);
+  const servicesRef = useRef([]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const sr = require('scrollreveal').default;
+
+      const revealOptions = {
+        origin: 'bottom',
+        distance: '80px',
+        duration: 800,
+        easing: 'ease-in',
+        delay: 200,
+        reset: false
+      }
+
+      if(titleRef.current) {
+        sr().reveal(titleRef.current, revealOptions)
+      }
+
+      if (textRef.current) {
+        sr().reveal(textRef.current, {
+          ...revealOptions,
+          delay: 300,
+          duration: 900
+        })
+      }
+
+      servicesRef.current.forEach((ref, i)=> {
+        if (ref) {
+          sr().reveal(ref, {
+            origin: 'bottom',
+            distance: '100px',
+            duration: 800,
+            delay: i * 100,
+            easing: 'ease-in',
+            reset: false,
+          })
+        }
+      })
+    }
+  }, []);
 
   return (
     <section 
@@ -112,26 +162,27 @@ export default function Services() {
     className="py-24 px-6 max-w-7xl mx-auto" 
     id="services">
       <div className="text-center space-y-4">
-        <h2 className="text-3xl md:text-5xl font-bold dark:text-gray-100" style={{fontFamily: "var(--font-space)"}}>
+        <h2  ref={titleRef} className="text-3xl md:text-5xl font-bold dark:text-gray-100" style={{fontFamily: "var(--font-space)"}}>
           Our Services
         </h2>
-        <p className="text-lg max-w-xl mx-auto text-zinc-700 dark:text-gray-200">
+        <p ref={textRef} className="text-lg max-w-xl mx-auto text-zinc-700 dark:text-gray-200">
           Comprehensive technology solutions tailored to drive innovation and
           growth across industries.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-16">
-        {services.map((service) => {
+        {services.map((service, i) => {
           const Icon = service.icon;
           const isActive = activeCard === service.id;
 
           return (
             <Card
-              key={service.id}
-              onMouseEnter={() => setActiveCard(service.id)}
-              onMouseLeave={() => setActiveCard(null)}
-              className="rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-zinc-800 dark:bg-[#141414]"
+            key={service.id}
+            ref={(el) => (servicesRef.current[i] = el)}
+            onMouseEnter={() => setActiveCard(service.id)}
+            onMouseLeave={() => setActiveCard(null)}
+            className="rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-zinc-800 dark:bg-[#141414]"
             >
               <CardHeader>
                 <div className="flex items-center justify-between">

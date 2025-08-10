@@ -1,13 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+import logo from '../../public/icon.png';
+
+const ScrollReveal = dynamic(() => import("scrollreveal"), { ssr: false });
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const logoRef = useRef(null);
+  const navItemRef = useRef(null);
+  const buttonRef = useRef(null);
+  const toggleRef = useRef(null);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -18,6 +27,49 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const isPagedScroll = window.scrollY > 40;
+      if (isPagedScroll) return;
+
+      const sr = require("scrollreveal").default;
+
+      const revealOptions = {
+        origin: "top",
+        distance: "50px",
+        duration: 1000,
+        easing: "ease-in-out",
+        delay: 100,
+        reset: false,
+      };
+
+      if (logoRef.current) {
+        sr().reveal(logoRef.current, revealOptions);
+      }
+
+      if (navItemRef.current) {
+        sr().reveal(navItemRef.current, {
+          ...revealOptions,
+          delay: 200,
+        });
+      }
+
+      if (buttonRef.current) {
+        sr().reveal(buttonRef.current, {
+          ...revealOptions,
+          delay: 300,
+        });
+      }
+
+      if (toggleRef.current) {
+        sr().reveal(toggleRef.current, {
+          ...revealOptions,
+          delay: 300,
+        });
+      }
+    }
   }, []);
 
   const handleNavClick = (e, id) => {
@@ -31,56 +83,71 @@ export default function Navbar() {
 
   return (
     <header
-      className={`z-50 w-full transition-transform duration-300 fixed top-0 bg-white dark:bg-black
+      className={`z-50 w-full transition-transform duration-300 h-22 fixed top-0 bg-white dark:bg-black
         ${isSticky ? "shadow-md" : ""}`}
     >
       <nav className="container mx-auto py-6 px-3.5 flex justify-between items-center">
-        <a
-          href="#home"
-          className="capitalize text-2xl font-bold text-light-primary dark:text-white"
-          style={{ fontFamily: "var(--font-space)" }}
-          onClick={(e) => handleNavClick(e, "#home")}
-        >
-          enov8 technologies
-        </a>
+        <div className="flex items-center gap-0">
+          {/* <Image 
+          src={logo}
+          alt="Enov8 Technologies Logo"
+          width={80}
+          height={80}
+          className="object-contain"
+          quality={100}
+          /> */}
+          <a
+            ref={logoRef}
+            href="#home"
+            className="capitalize text-xl font-bold text-[#23252d] dark:text-white"
+            style={{ fontFamily: "var(--font-space)" }}
+            onClick={(e) => handleNavClick(e, "#home")}
+          >
+            enov8 technologies
+          </a>
+        </div>
 
         {/* Desktop Nav */}
-        <ul className="hidden lg:flex items-center gap-6 text-base uppercase font-medium dark:text-white">
+        <ul
+          ref={navItemRef}
+          className="hidden lg:flex items-center gap-6 text-base uppercase font-medium dark:text-white"
+        >
           <li>
-            <a 
-            href="#services" 
-            className="block"
-            onClick={(e) => handleNavClick(e, "#services")}>
+            <a
+              href="#services"
+              className="block"
+              onClick={(e) => handleNavClick(e, "#services")}
+            >
               our services
             </a>
           </li>
           <li>
-            <a 
-            href="#about" 
-            className="block"
-            onClick={(e) => handleNavClick(e, "#about")}>
+            <a
+              href="#about"
+              className="block"
+              onClick={(e) => handleNavClick(e, "#about")}
+            >
               about us
             </a>
           </li>
           <li>
-            <a 
-            href="#contact"
-            className="block"
-            onClick={(e) => handleNavClick(e, "#contact")}>
+            <a
+              href="#contact"
+              className="block"
+              onClick={(e) => handleNavClick(e, "#contact")}
+            >
               contact us
             </a>
           </li>
         </ul>
 
-        <div className="hidden lg:flex items-center gap-2">
+        <div ref={buttonRef} className="hidden lg:flex items-center gap-2">
           <Button
             variant="background"
             size="lg"
             className="font-black text-base"
           >
-            <a 
-            href="#contact"
-            onClick={(e) => handleNavClick(e, "#contact")}>
+            <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")}>
               Start a Project
             </a>
           </Button>
@@ -88,10 +155,12 @@ export default function Navbar() {
         </div>
 
         {/* Hamburger */}
-        <button 
-        aria-label="Toggle navigation menu"
-        className="lg:hidden dark:text-white" 
-        onClick={toggleMenu}>
+        <button
+          ref={toggleRef}
+          aria-label="Toggle navigation menu"
+          className="lg:hidden dark:text-white"
+          onClick={toggleMenu}
+        >
           {isOpen ? "" : <Menu size={30} />}
         </button>
 
@@ -99,11 +168,7 @@ export default function Navbar() {
         <div
           className={`fixed left-0 top-0 h-screen inset-0 w-full bg-black/90 
           transition-transform duration-500 z-40 ease-in-out
-          ${
-            isOpen
-            ? "translate-x-0"
-            : "translate-x-full duration-1000"
-          }`}
+          ${isOpen ? "translate-x-0" : "translate-x-full duration-1000"}`}
           onClick={toggleMenu}
         ></div>
 
@@ -119,25 +184,27 @@ export default function Navbar() {
               <X size={30} />
             </div>
 
-            <a 
-            href="#services" 
-            className="font-bold text-lg capitalize"
-            onClick={(e) => handleNavClick(e, "#services")}>
+            <a
+              href="#services"
+              className="font-bold text-lg capitalize"
+              onClick={(e) => handleNavClick(e, "#services")}
+            >
               our services
             </a>
 
-            <a 
-            href="#about" 
-            className="font-bold text-lg capitalize"
-            onClick={(e) => handleNavClick(e, "#about")}
+            <a
+              href="#about"
+              className="font-bold text-lg capitalize"
+              onClick={(e) => handleNavClick(e, "#about")}
             >
               about us
             </a>
 
-            <a 
-            href="#contact" 
-            className="font-bold text-lg capitalize"
-            onClick={(e) => handleNavClick(e, "#contact")}>
+            <a
+              href="#contact"
+              className="font-bold text-lg capitalize"
+              onClick={(e) => handleNavClick(e, "#contact")}
+            >
               contact us
             </a>
 
@@ -148,5 +215,3 @@ export default function Navbar() {
     </header>
   );
 }
-
-

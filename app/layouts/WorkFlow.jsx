@@ -1,9 +1,53 @@
+"use client"
+
 import Image from "next/image";
 import { FaPaintBrush } from "react-icons/fa";
 import { IoCodeSlash } from "react-icons/io5";
 import { CgLaptop } from "react-icons/cg";
+import dynamic from "next/dynamic";
+import { useEffect, useRef } from "react";
+
+const ScrollReveal = dynamic(
+  () => import('scrollreveal'),
+  { ssr: false }
+);
 
 export default function WorkFlow() {
+  const workRefs = useRef([]);
+  const titleRef = useRef(null);
+
+  useEffect(() => {
+    if(typeof window !== 'undefined') {
+      const sr = require('scrollreveal').default;
+
+      const revealOptions = {
+        origin: "bottom",
+        distance: "60px",
+        duration: 800,
+        easing: "ease-in",
+        delay: 100,
+        reset: false,
+      }
+
+      if (titleRef.current) {
+        sr().reveal(titleRef.current, revealOptions)
+      }
+
+      workRefs.current.forEach((ref, i)=> {
+        if (ref) {
+          sr().reveal(ref, {
+            origin: 'bottom',
+            distance: '100px',
+            duration: 800,
+            delay: i * 200,
+            easing: 'ease-in',
+            reset: false,
+          })
+        }
+      })
+    }
+  }, []);
+
   const clipPathStyle = {
     clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 85%)",
     WebkitClipPath: "polygon(0 0, 100% 0, 100% 100%, 0 85%)",
@@ -44,7 +88,7 @@ export default function WorkFlow() {
       <div className="absolute inset-0 bg-black/60  z-[-10]" />
 
       <div className="flex flex-col justify-center items-center pt-20 md:pb-36 pb-58">
-        <h3 className="text-base sm:text-xl font-bold text-center max-w-[600px] mx-auto dark:text-gray-200">
+        <h3 ref={titleRef} className="text-base sm:text-xl font-bold text-center max-w-[600px] mx-auto dark:text-gray-200">
           From concept to deployment, we design applications that align with
           your goals, ensuring seamless functionality and lasting value.
         </h3>
@@ -55,6 +99,7 @@ export default function WorkFlow() {
           {Work.map(({ icon, title, desc }, i) => (
             <article
               key={i}
+              ref={(el)=> (workRefs.current[i] = el)}
               className="group overflow-hidden flex flex-col items-center py-24 px-8 min-h-[420px] 
             bg-white dark:bg-[#141414] max-w-[360px] rounded-br-4xl relative space-y-4 
             hover:rounded-bl-4xl hover:rounded-br-none transition-all duration-300 *:"

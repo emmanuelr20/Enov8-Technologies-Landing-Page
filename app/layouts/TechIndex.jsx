@@ -1,6 +1,60 @@
+"use client"
+
 import Image from "next/image";
+import dynamic from "next/dynamic";
+import { useState, useEffect, useRef } from "react";
+
+const ScrollReveal = dynamic(
+  () => import('scrollreveal'),
+  { ssr: false }
+);
 
 export default function TechIndex() {
+  const titleRef = useRef(null);
+  const textRef = useRef(null);
+  const techRef = useRef([]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const sr = require('scrollreveal').default;
+
+      const revealOptions = {
+        origin: 'left',
+        distance: '60px',
+        duration: 800,
+        easing: 'ease-in',
+        delay: 200,
+        reset: false
+      }
+
+      if (titleRef.current) {
+        sr().reveal(titleRef.current, revealOptions)
+      }
+
+      if (textRef.current) {
+        sr().reveal(textRef.current, {
+          ...revealOptions,
+          delay: 300
+        })
+      }
+
+      techRef.current.forEach((ref, i) => {
+        if (ref) {
+          sr().reveal(ref, {
+            origin: 'right',
+            distance: '70px',
+            duration: 800,
+            delay: i * 150,
+            easing: 'ease-in',
+            reset: false,
+            once: true,
+            scale: 0.95
+          });
+        }
+      });
+    }
+  }, []);
+
   const clipPathStyle = {
     clipPath: "polygon(0 15%, 100% 0, 100% 100%, 0 100%)",
     WebkitClipPath: "polygon(0 15%, 100% 0, 100% 100%, 0 100%)",
@@ -15,37 +69,30 @@ export default function TechIndex() {
     {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg",
       alt: "Node.js runtime",
-      name: "Node.js"
     },
     {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg",
       alt: "Flutter framework",
-      name: "Flutter"
     },
     {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactnative/reactnative-original-wordmark.svg",
       alt: "React Native framework",
-      name: "React Native"
     },
     {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original-wordmark.svg",
       alt: "Laravel framework",
-      name: "Laravel"
     },
     {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg",
       alt: "MySQL database",
-      name: "MySQL"
     },
     {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
       alt: "Amazon Web Services",
-      name: "AWS"
     },
     {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg",
       alt: "Flask framework",
-      name: "Flask"
     },
   ];
 
@@ -68,8 +115,8 @@ export default function TechIndex() {
 
       <div className="container mx-auto px-6 py-20 flex flex-col lg:flex-row items-center gap-12 pt-50">
         <div className="flex-1 max-w-xl pt-6">
-          <h2 className="text-3xl font-black uppercase">Technology Index</h2>
-          <p className="text-lg font-bold leading-snug mt-2 text-zinc-200">
+          <h2 ref={titleRef} className="text-3xl font-black uppercase">Technology Index</h2>
+          <p ref={textRef} className="text-lg font-bold leading-snug mt-2 text-zinc-200">
             Our curated index of innovative technologies driving next-generation
             products and solutions across industries.
           </p>
@@ -80,6 +127,7 @@ export default function TechIndex() {
             {techStack.slice(0, 6).map((tech, index) => (
               <div
                 key={index}
+                ref={(el) => (techRef.current[index] = el)}
                 className="bg-white w-[140px] h-[110px] flex flex-col justify-center items-center rounded-xl shadow-md p-4"
               >
                 <div className="relative w-[80px] h-[80px]">
@@ -91,7 +139,6 @@ export default function TechIndex() {
                     loading="lazy"
                   />
                 </div>
-                <span className="text-xs text-black mt-2 font-medium">{tech.name}</span>
               </div>
             ))}
 
@@ -99,6 +146,7 @@ export default function TechIndex() {
               {techStack.slice(6).map((tech, index) => (
                 <div
                   key={index + 6}
+                  ref={(el) => (techRef.current[index + 6] = el)}
                   className="bg-white w-[140px] h-[110px] flex flex-col justify-center items-center rounded-xl shadow-md p-4"
                 >
                   <div className="relative w-[60px] h-[60px]">
@@ -110,7 +158,6 @@ export default function TechIndex() {
                       loading="lazy"
                     />
                   </div>
-                  <span className="text-xs text-black mt-2 font-medium">{tech.name}</span>
                 </div>
               ))}
             </div>

@@ -38,9 +38,9 @@ export const metadata = {
   creator: "Enov8 Technologies",
   publisher: "Enov8 Technologies",
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
   openGraph: {
     title: "Enov8 Technologies",
