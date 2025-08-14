@@ -20,7 +20,7 @@ export default function Home() {
       <Contact />
       <Footer />
       <a
-        href="https://wa.me/2347064838988?text=Hi%20there!%20I'm%20interested%20in%20your%20services"
+        href="https://wa.me/23409133632465?text=Hi%20there!%20I'm%20interested%20in%20your%20services"
         className="fixed bottom-5 right-5 bg-green-500 text-white p-3 rounded-full shadow-lg"
         target="_blank"
         rel="noopener noreferrer"
