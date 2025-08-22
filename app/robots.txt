@@ -2,5 +2,10 @@ User-agent: *
 Allow: /
 Disallow: /private/
 Disallow: /admin/
+Disallow: /_next/
+Disallow: /api/
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
 
 Sitemap: https://enov8technologies.com/sitemap.xml

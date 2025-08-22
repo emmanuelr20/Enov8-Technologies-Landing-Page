@@ -1,0 +1,27 @@
+{
+  "name": "Enov8 Technologies - Custom Software Development",
+  "short_name": "Enov8 Tech",
+  "description": "Leading software development company specializing in custom mobile apps, web applications, and enterprise solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#3B82F6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["business", "productivity", "technology"],
+  "lang": "en-US",
+  "dir": "ltr"
+}

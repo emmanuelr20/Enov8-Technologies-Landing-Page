@@ -8,9 +8,19 @@ import Contact from "./layouts/Contact";
 import Footer from "./layouts/Footer";
 import { FaWhatsapp } from "react-icons/fa6";
 
+export const metadata = {
+  title: "Home - Custom Software Development & Digital Solutions",
+  description: "Transform your business with custom software solutions. Expert mobile app development, web applications, enterprise systems, and digital transformation services.",
+  openGraph: {
+    title: "Enov8 Technologies - Custom Software Development & Digital Solutions",
+    description: "Transform your business with custom software solutions. Expert mobile app development, web applications, enterprise systems, and digital transformation services.",
+    type: "website",
+  },
+};
+
 export default function Home() {
   return (
-    <>
+    <main role="main">
       <Hero />
       <About />
       <WorkFlow />
@@ -19,14 +29,21 @@ export default function Home() {
       <Action />
       <Contact />
       <Footer />
-      <a
-        href="https://wa.me/23409133632465?text=Hi%20there!%20I'm%20interested%20in%20your%20services"
-        className="fixed bottom-5 right-5 bg-green-500 text-white p-3 rounded-full shadow-lg"
-        target="_blank"
-        rel="noopener noreferrer"
+      <aside 
+        className="fixed bottom-5 right-5 z-50"
+        aria-label="WhatsApp Contact"
       >
-        <FaWhatsapp size={30} />
-      </a>
-    </>
+        <a
+          href="https://wa.me/2347064838988?text=Hi%20there!%20I'm%20interested%20in%20your%20services"
+          className="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-200 flex items-center justify-center"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Contact us on WhatsApp"
+          title="Chat with us on WhatsApp"
+        >
+          <FaWhatsapp size={30} />
+        </a>
+      </aside>
+    </main>
   );
 }

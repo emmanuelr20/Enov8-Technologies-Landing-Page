@@ -116,6 +116,29 @@ export default function Services() {
   const textRef = useRef(null);
   const servicesRef = useRef([]);
 
+  // Structured data for services
+  const servicesJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Enov8 Technologies Services",
+    "description": "Comprehensive technology solutions offered by Enov8 Technologies",
+    "itemListElement": services.map((service, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Service",
+        "name": service.title,
+        "description": service.description,
+        "provider": {
+          "@type": "Organization",
+          "name": "Enov8 Technologies"
+        },
+        "serviceType": service.subtitle,
+        "category": "Software Development"
+      }
+    }))
+  };
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const sr = require('scrollreveal').default;
@@ -157,10 +180,15 @@ export default function Services() {
   }, []);
 
   return (
-    <section 
-    aria-label="Enov8 Technologies Services"
-    className="py-24 px-6 max-w-7xl mx-auto" 
-    id="services">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
+      />
+      <section 
+        aria-label="Enov8 Technologies Services"
+        className="py-24 px-6 max-w-7xl mx-auto" 
+        id="services">
       <div className="text-center space-y-4">
         <h2  ref={titleRef} className="text-3xl md:text-5xl font-bold dark:text-gray-100" style={{fontFamily: "var(--font-space)"}}>
           Our Services
@@ -245,7 +273,8 @@ export default function Services() {
           );
         })}
       </div>
-    </section>
+      </section>
+    </>
   );
 }
 
