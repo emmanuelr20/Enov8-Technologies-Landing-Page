@@ -1,43 +1,26 @@
 "use client";
 
-import { Mail, Phone, Send } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FaWhatsapp } from "react-icons/fa6";
-import Image from "next/image";
-import dynamic from "next/dynamic";
-import { useEffect, useRef } from "react";
+import OptimizedImage from "@/components/OptimizedImage";
+import { useScrollRevealMultiple } from "@/hooks/useScrollReveal";
+import { memo } from "react";
 
-const ScrollReveal = dynamic(() => import("scrollreveal"), { ssr: false });
-
-export default function Contact() {
-  const imgRef = useRef(null);
-  const contactRef = useRef(null);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const sr = require("scrollreveal").default;
-
-      const revealOptions = {
-        origin: "left",
-        distance: "80px",
-        duration: 900,
-        delay: 200,
-        easing: "ease-in",
-        reset: false,
-      };
-
-      if (imgRef.current) {
-        sr().reveal(imgRef.current, revealOptions);
-      }
-
-      if (contactRef.current) {
-        sr().reveal(contactRef.current, {
-          ...revealOptions,
-          origin: "right",
-        });
-      }
+const Contact = memo(function Contact() {
+  const elementsRef = useScrollRevealMultiple(
+    [
+      { origin: "left" }, // image
+      { origin: "right" }, // contact form
+    ],
+    {
+      distance: "40px",
+      duration: 400,
+      delay: 100,
+      easing: "ease-out",
+      reset: false,
     }
-  }, []);
+  );
 
   return (
     <section
@@ -46,18 +29,20 @@ export default function Contact() {
       id="contact"
     >
       <div className="container mx-auto py-12 px-3.5 flex flex-col lg:flex-row items-center justify-between">
-        <Image
-          ref={imgRef}
-          src="/contact.png"
-          alt="contact Enov8 Technologies"
-          width={500}
-          height={500}
-          priority={false}
-          loading="lazy"
-        />
+        <div ref={(el) => (elementsRef.current[0] = el)}>
+          <OptimizedImage
+            src="/contact.png"
+            alt="Contact Enov8 Technologies - Professional software development team"
+            width={500}
+            height={500}
+            priority={false}
+            sizes="(max-width: 768px) 100vw, 500px"
+            className="rounded-lg"
+          />
+        </div>
 
         <div
-          ref={contactRef}
+          ref={(el) => (elementsRef.current[1] = el)}
           className="flex flex-col max-sm:items-center items-start gap-6 w-full sm:max-w-[600px] px-3"
         >
           <div className="grid grid-cols-1 gap-y-3">
@@ -132,4 +117,6 @@ export default function Contact() {
       </div>
     </section>
   );
-}
+});
+
+export default Contact;

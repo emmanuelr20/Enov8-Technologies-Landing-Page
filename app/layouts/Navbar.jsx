@@ -1,74 +1,48 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, memo } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
-import dynamic from "next/dynamic";
-import Image from "next/image";
+import { useScrollRevealMultiple } from "@/hooks/useScrollReveal";
 
-const ScrollReveal = dynamic(() => import("scrollreveal"), { ssr: false });
-
-export default function Navbar() {
+const Navbar = memo(function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-  const logoRef = useRef(null);
-  const navItemRef = useRef(null);
-  const buttonRef = useRef(null);
-  const toggleRef = useRef(null);
+
+  const elementsRef = useScrollRevealMultiple(
+    [
+      { delay: 50 }, // logo
+      { delay: 100 }, // nav items
+      { delay: 150 }, // button
+      { delay: 150 }, // toggle
+    ],
+    {
+      origin: "top",
+      distance: "30px",
+      duration: 400,
+      easing: "ease-out",
+      reset: false,
+    }
+  );
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsSticky(window.scrollY > 40);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setIsSticky(window.scrollY > 40);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const isPagedScroll = window.scrollY > 40;
-      if (isPagedScroll) return;
-
-      const sr = require("scrollreveal").default;
-
-      const revealOptions = {
-        origin: "top",
-        distance: "50px",
-        duration: 1000,
-        easing: "ease-in-out",
-        delay: 100,
-        reset: false,
-      };
-
-      if (logoRef.current) {
-        sr().reveal(logoRef.current, revealOptions);
-      }
-
-      if (navItemRef.current) {
-        sr().reveal(navItemRef.current, {
-          ...revealOptions,
-          delay: 200,
-        });
-      }
-
-      if (buttonRef.current) {
-        sr().reveal(buttonRef.current, {
-          ...revealOptions,
-          delay: 300,
-        });
-      }
-
-      if (toggleRef.current) {
-        sr().reveal(toggleRef.current, {
-          ...revealOptions,
-          delay: 300,
-        });
-      }
-    }
   }, []);
 
   const handleNavClick = (e, id) => {
@@ -88,7 +62,7 @@ export default function Navbar() {
       <nav className="container mx-auto py-6 px-3.5 flex justify-between items-center">
         <div className="flex items-center gap-2">
           <a
-            ref={logoRef}
+            ref={(el) => (elementsRef.current[0] = el)}
             href="#home"
             className="flex items-center gap-2"
             onClick={(e) => handleNavClick(e, "#home")}
@@ -125,7 +99,7 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <ul
-          ref={navItemRef}
+          ref={(el) => (elementsRef.current[1] = el)}
           className="hidden lg:flex items-center gap-6 text-base uppercase font-medium dark:text-white"
         >
           <li>
@@ -157,7 +131,10 @@ export default function Navbar() {
           </li>
         </ul>
 
-        <div ref={buttonRef} className="hidden lg:flex items-center gap-2">
+        <div
+          ref={(el) => (elementsRef.current[2] = el)}
+          className="hidden lg:flex items-center gap-2"
+        >
           <Button
             variant="background"
             size="lg"
@@ -172,7 +149,7 @@ export default function Navbar() {
 
         {/* Hamburger */}
         <button
-          ref={toggleRef}
+          ref={(el) => (elementsRef.current[3] = el)}
           aria-label="Toggle navigation menu"
           className="lg:hidden dark:text-white"
           onClick={toggleMenu}
@@ -183,16 +160,16 @@ export default function Navbar() {
         {/* overlay */}
         <div
           className={`fixed left-0 top-0 h-screen inset-0 w-full bg-black/90 
-          transition-transform duration-500 z-40 ease-in-out
-          ${isOpen ? "translate-x-0" : "translate-x-full duration-1000"}`}
+          transition-all duration-300 z-40 ease-out
+          ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
           onClick={toggleMenu}
         ></div>
 
         {/* Mobile Nav */}
         <div
           className={`fixed top-0 right-0 h-screen bg-[#161616] w-80 text-white z-50 
-                transform transition-transform duration-500 ease-in-out shadow-2xl 
-                ${isOpen ? "translate-x-0 duration-1000" : "translate-x-full"}`}
+                transform transition-transform duration-300 ease-out shadow-2xl 
+                ${isOpen ? "translate-x-0" : "translate-x-full"}`}
         >
           <div className="flex flex-col space-y-4 p-6">
             <div className="flex justify-between mb-4" onClick={toggleMenu}>
@@ -230,4 +207,6 @@ export default function Navbar() {
       </nav>
     </header>
   );
-}
+});
+
+export default Navbar;

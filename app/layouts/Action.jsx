@@ -16,10 +16,10 @@ export default function Action() {
 
       const revealOptions = {
         origin: "left",
-        distance: "70px",
-        duration: 800,
-        easing: "ease-in",
-        delay: 200,
+        distance: "40px",
+        duration: 400,
+        easing: "ease-out",
+        delay: 100,
         reset: false,
       };
 

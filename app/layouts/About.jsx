@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { CircleCheckBig, Target, Users, Award, Lightbulb } from "lucide-react";
 import dynamic from "next/dynamic";
@@ -17,10 +17,10 @@ export default function About() {
 
       const revealOptions = {
         origin: "bottom",
-        distance: "80px",
-        duration: 800,
-        easing: "ease-in",
-        delay: 200,
+        distance: "40px",
+        duration: 400,
+        easing: "ease-out",
+        delay: 100,
         reset: false,
       };
 
@@ -31,15 +31,15 @@ export default function About() {
       if (textOneRef.current) {
         sr().reveal(textOneRef.current, {
           ...revealOptions,
-          origin: 'left',
-        })
+          origin: "left",
+        });
       }
 
       if (imgRef.current) {
         sr().reveal(imgRef.current, {
           ...revealOptions,
-          origin: 'right',
-        })
+          origin: "right",
+        });
       }
     }
   });
@@ -50,7 +50,7 @@ export default function About() {
       id="about"
     >
       <h2
-      ref={titleRef}
+        ref={titleRef}
         className="text-center text-3xl md:text-5xl max-w-[600px] mx-auto leading-snug
             dark:text-gray-100"
         style={{ fontFamily: "var(--font-space)" }}
@@ -61,7 +61,10 @@ export default function About() {
         className="container mx-auto flex flex-col items-center lg:flex-row justify-between 
             lg:items-start gap-8 px-3 pt-15 dark:text-gray-200"
       >
-        <div ref={textOneRef} className="flex flex-col text-start sm:text-center lg:text-start gap-y-6 lg:pt-10 max-w-3xl w-full">
+        <div
+          ref={textOneRef}
+          className="flex flex-col text-start sm:text-center lg:text-start gap-y-6 lg:pt-10 max-w-3xl w-full"
+        >
           <p className="text-lg font-medium">
             We are a forward-thinking technology company committed to delivering
             innovative software solutions that transform businesses and empower
@@ -100,12 +103,12 @@ export default function About() {
         </div>
 
         <img
-        ref={imgRef}
-        src="/about.jpg"
-        alt="Enov8 Technologies staff working on a project"
-        width={500}
-        height={500}
-        loading="lazy"
+          ref={imgRef}
+          src="/about.jpg"
+          alt="Enov8 Technologies staff working on a project"
+          width={500}
+          height={500}
+          loading="lazy"
         />
       </div>
     </section>

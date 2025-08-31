@@ -1,13 +1,10 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useState, useEffect, useRef } from "react";
 
-const ScrollReveal = dynamic(
-  () => import('scrollreveal'),
-  { ssr: false }
-);
+const ScrollReveal = dynamic(() => import("scrollreveal"), { ssr: false });
 
 export default function TechIndex() {
   const titleRef = useRef(null);
@@ -15,40 +12,40 @@ export default function TechIndex() {
   const techRef = useRef([]);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const sr = require('scrollreveal').default;
+    if (typeof window !== "undefined") {
+      const sr = require("scrollreveal").default;
 
       const revealOptions = {
-        origin: 'left',
-        distance: '60px',
-        duration: 800,
-        easing: 'ease-in',
-        delay: 200,
-        reset: false
-      }
+        origin: "left",
+        distance: "40px",
+        duration: 400,
+        easing: "ease-out",
+        delay: 100,
+        reset: false,
+      };
 
       if (titleRef.current) {
-        sr().reveal(titleRef.current, revealOptions)
+        sr().reveal(titleRef.current, revealOptions);
       }
 
       if (textRef.current) {
         sr().reveal(textRef.current, {
           ...revealOptions,
-          delay: 300
-        })
+          delay: 150,
+        });
       }
 
       techRef.current.forEach((ref, i) => {
         if (ref) {
           sr().reveal(ref, {
-            origin: 'right',
-            distance: '70px',
-            duration: 800,
-            delay: i * 150,
-            easing: 'ease-in',
+            origin: "right",
+            distance: "40px",
+            duration: 400,
+            delay: i * 75,
+            easing: "ease-out",
             reset: false,
             once: true,
-            scale: 0.95
+            scale: 0.98,
           });
         }
       });
@@ -61,10 +58,10 @@ export default function TechIndex() {
   };
 
   const techStack = [
-    { 
+    {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original-wordmark.svg",
       alt: "Next.js framework",
-      name: "Next.js"
+      name: "Next.js",
     },
     {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg",
@@ -97,9 +94,9 @@ export default function TechIndex() {
   ];
 
   return (
-    <section 
+    <section
       aria-label="Technology Stack"
-      className="min-h-screen text-white relative" 
+      className="min-h-screen text-white relative"
       style={clipPathStyle}
     >
       <Image
@@ -115,13 +112,18 @@ export default function TechIndex() {
 
       <div className="container mx-auto px-6 py-20 flex flex-col lg:flex-row items-center gap-12 pt-50">
         <div className="flex-1 max-w-xl pt-6">
-          <h2 ref={titleRef} className="text-3xl font-black uppercase">Technology Index</h2>
-          <p ref={textRef} className="text-lg font-bold leading-snug mt-2 text-zinc-200">
+          <h2 ref={titleRef} className="text-3xl font-black uppercase">
+            Technology Index
+          </h2>
+          <p
+            ref={textRef}
+            className="text-lg font-bold leading-snug mt-2 text-zinc-200"
+          >
             Our curated index of innovative technologies driving next-generation
             products and solutions across industries.
           </p>
         </div>
-        
+
         <div className="flex-1 w-full lg:pt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center max-w-5xl mx-auto">
             {techStack.slice(0, 6).map((tech, index) => (

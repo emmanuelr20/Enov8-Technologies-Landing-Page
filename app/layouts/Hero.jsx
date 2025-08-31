@@ -58,10 +58,10 @@ export default function Hero() {
       const sr = require("scrollreveal").default;
       sr().reveal(heroRef.current, {
         origin: "left",
-        distance: "60px",
-        duration: 800,
-        easing: "ease-in-out",
-        delay: 1000,
+        distance: "40px",
+        duration: 500,
+        easing: "ease-out",
+        delay: 200,
         reset: false,
       });
     }

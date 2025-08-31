@@ -1,4 +1,5 @@
 import "./globals.css";
+import "../styles/performance.css";
 import Navbar from "./layouts/Navbar.jsx";
 import Analytics from "@/components/Analytics";
 import { Space_Grotesk } from "next/font/google";
