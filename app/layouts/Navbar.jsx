@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import logo from '../../public/icon.png';
 
 const ScrollReveal = dynamic(() => import("scrollreveal"), { ssr: false });
 
@@ -87,23 +86,40 @@ export default function Navbar() {
         ${isSticky ? "shadow-md" : ""}`}
     >
       <nav className="container mx-auto py-6 px-3.5 flex justify-between items-center">
-        <div className="flex items-center gap-0">
-          {/* <Image 
-          src={logo}
-          alt="Enov8 Technologies Logo"
-          width={80}
-          height={80}
-          className="object-contain"
-          quality={100}
-          /> */}
+        <div className="flex items-center gap-2">
           <a
             ref={logoRef}
             href="#home"
-            className="capitalize text-xl font-bold text-[#23252d] dark:text-white"
-            style={{ fontFamily: "var(--font-space)" }}
+            className="flex items-center gap-2"
             onClick={(e) => handleNavClick(e, "#home")}
+            aria-label="Enov8 Technologies Home"
           >
-            enov8 technologies
+            <div className="relative w-10 h-10 -mt-2">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 300 301"
+                className="w-full h-full"
+                aria-hidden="true"
+              >
+                <g transform="translate(0.000000,301.000000) scale(0.100000,-0.100000)">
+                  <path
+                    d="M682 2446 c2 -8 84 -136 183 -285 l180 -271 639 0 c547 0 637 2 633 14 -3 8 -87 136 -186 285 l-181 271 -636 0 c-537 0 -635 -2 -632 -14z"
+                    className="fill-[#007bff] dark:fill-white transition-colors duration-200"
+                  />
+                  <path
+                    d="M462 938 l3 -693 929 -3 c800 -2 927 0 923 12 -3 8 -87 136 -186 285 l-181 271 -460 0 -460 0 0 130 0 130 375 0 375 0 -188 280 -187 280 -473 0 -472 0 2 -692z"
+                    className="fill-[#007bff] dark:fill-white transition-colors duration-200"
+                  />
+                </g>
+              </svg>
+            </div>
+            <span
+              className="capitalize text-xl font-bold text-[#23252d] dark:text-white transition-colors duration-200"
+              style={{ fontFamily: "var(--font-space)" }}
+            >
+              enov8 technologies
+            </span>
           </a>
         </div>
 

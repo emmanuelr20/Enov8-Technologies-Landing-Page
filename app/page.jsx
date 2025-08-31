@@ -10,10 +10,13 @@ import { FaWhatsapp } from "react-icons/fa6";
 
 export const metadata = {
   title: "Home - Custom Software Development & Digital Solutions",
-  description: "Transform your business with custom software solutions. Expert mobile app development, web applications, enterprise systems, and digital transformation services.",
+  description:
+    "Transform your business with custom software solutions. Expert mobile app development, web applications, enterprise systems, and digital transformation services.",
   openGraph: {
-    title: "Enov8 Technologies - Custom Software Development & Digital Solutions",
-    description: "Transform your business with custom software solutions. Expert mobile app development, web applications, enterprise systems, and digital transformation services.",
+    title:
+      "Enov8 Technologies - Custom Software Development & Digital Solutions",
+    description:
+      "Transform your business with custom software solutions. Expert mobile app development, web applications, enterprise systems, and digital transformation services.",
     type: "website",
   },
 };
@@ -29,7 +32,7 @@ export default function Home() {
       <Action />
       <Contact />
       <Footer />
-      <aside 
+      <aside
         className="fixed bottom-5 right-5 z-50"
         aria-label="WhatsApp Contact"
       >

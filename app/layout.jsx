@@ -21,10 +21,12 @@ const mulish = Mulish({
 
 export const metadata = {
   title: {
-    default: "Enov8 Technologies - Custom Software Development & Digital Solutions",
+    default:
+      "Enov8 Technologies - Custom Software Development & Digital Solutions",
     template: "%s | Enov8 Technologies",
   },
-  description: "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation. Expert React Native, Next.js, and full-stack development services.",
+  description:
+    "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation. Expert React Native, Next.js, and full-stack development services.",
   keywords: [
     "custom software development",
     "mobile app development",
@@ -40,27 +42,33 @@ export const metadata = {
     "full-stack development",
     "software consulting",
     "Nigeria software company",
-    "African tech solutions"
+    "African tech solutions",
   ],
-  authors: [{ name: "Enov8 Technologies", url: "https://enov8technologies.com" }],
+  authors: [
+    { name: "Enov8 Technologies", url: "https://enov8technologies.com" },
+  ],
   creator: "Enov8 Technologies",
   publisher: "Enov8 Technologies",
   category: "Technology",
   classification: "Software Development Company",
   icons: {
     icon: [
+      { url: "/logo.svg", type: "image/svg+xml" },
       { url: "/icon.png", sizes: "32x32", type: "image/png" },
-      { url: "/icon.png", sizes: "16x16", type: "image/png" }
+      { url: "/icon.png", sizes: "16x16", type: "image/png" },
     ],
-    shortcut: "/icon.png",
+    shortcut: "/logo.svg",
     apple: [
-      { url: "/icon.png", sizes: "180x180", type: "image/png" }
+      { url: "/logo.svg", type: "image/svg+xml" },
+      { url: "/icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "Enov8 Technologies - Custom Software Development & Digital Solutions",
-    description: "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
+    title:
+      "Enov8 Technologies - Custom Software Development & Digital Solutions",
+    description:
+      "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
     url: "https://enov8technologies.com",
     siteName: "Enov8 Technologies",
     locale: "en_US",
@@ -71,13 +79,15 @@ export const metadata = {
         width: 1200,
         height: 630,
         alt: "Enov8 Technologies - Custom Software Development",
-      }
+      },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Enov8 Technologies - Custom Software Development & Digital Solutions",
-    description: "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
+    title:
+      "Enov8 Technologies - Custom Software Development & Digital Solutions",
+    description:
+      "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
     images: ["https://enov8technologies.com/image.png"],
     creator: "@enov8tech",
   },
@@ -114,38 +124,39 @@ const jsonLd = {
   url: "https://enov8technologies.com",
   logo: {
     "@type": "ImageObject",
-    url: "https://enov8technologies.com/icon.png",
-    width: 512,
-    height: 512
+    url: "https://enov8technologies.com/logo.svg",
+    width: 300,
+    height: 301,
   },
   image: "https://enov8technologies.com/image.png",
-  description: "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
+  description:
+    "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
   foundingDate: "2020",
   slogan: "Building custom solutions that drive business growth",
   knowsAbout: [
     "Software Development",
-    "Mobile App Development", 
+    "Mobile App Development",
     "Web Development",
     "Enterprise Solutions",
     "Digital Transformation",
     "UI/UX Design",
     "React Native",
-    "Next.js"
+    "Next.js",
   ],
   serviceArea: {
     "@type": "Place",
-    name: "Global"
+    name: "Global",
   },
   areaServed: [
     {
       "@type": "Country",
-      name: "Nigeria"
+      name: "Nigeria",
     },
     {
-      "@type": "Continent", 
-      name: "Africa"
+      "@type": "Continent",
+      name: "Africa",
     },
-    "Global"
+    "Global",
   ],
   contactPoint: [
     {
@@ -155,19 +166,24 @@ const jsonLd = {
       email: "contact@enov8technologies.com",
       areaServed: "Global",
       availableLanguage: ["English"],
-      contactOption: "TollFree"
+      contactOption: "TollFree",
     },
     {
       "@type": "ContactPoint",
       url: "https://wa.me/2347064838988",
       contactType: "customer support",
-      availableLanguage: ["English"]
-    }
+      availableLanguage: ["English"],
+    },
   ],
   sameAs: [
     "https://linkedin.com/company/enov8technologies",
     "https://twitter.com/enov8tech",
-    "https://github.com/enov8technologies"
+    "https://github.com/enov8technologies",
+    "https://youtube.com/@enov8technologies",
+    "https://medium.com/@enov8technologies",
+    "https://dribbble.com/enov8technologies",
+    "https://clutch.co/profile/enov8-technologies",
+    "https://www.goodfirms.co/company/enov8-technologies",
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -178,35 +194,35 @@ const jsonLd = {
         itemOffered: {
           "@type": "Service",
           name: "Mobile App Development",
-          description: "Custom iOS and Android mobile applications"
-        }
-      },
-      {
-        "@type": "Offer", 
-        itemOffered: {
-          "@type": "Service",
-          name: "Web Application Development",
-          description: "Scalable web applications and websites"
-        }
+          description: "Custom iOS and Android mobile applications",
+        },
       },
       {
         "@type": "Offer",
         itemOffered: {
-          "@type": "Service", 
+          "@type": "Service",
+          name: "Web Application Development",
+          description: "Scalable web applications and websites",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
           name: "Enterprise Solutions",
-          description: "Custom enterprise software and systems"
-        }
+          description: "Custom enterprise software and systems",
+        },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
           name: "Digital Transformation",
-          description: "End-to-end digital transformation consulting"
-        }
-      }
-    ]
-  }
+          description: "End-to-end digital transformation consulting",
+        },
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
