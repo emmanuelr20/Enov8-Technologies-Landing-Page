@@ -113,6 +113,7 @@ export const metadata = {
     yandex: "your-yandex-verification-code",
     other: {
       "msvalidate.01": "your-bing-verification-code",
+      "facebook-domain-verification": "74co610l5o1qwid0ar9la9hk4s0qmn",
     },
   },
 };
