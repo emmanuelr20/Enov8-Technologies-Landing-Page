@@ -24,6 +24,11 @@ const Services = dynamic(() => import("../app/layouts/Services"), {
   ssr: false,
 });
 
+const Reviews = dynamic(() => import("../app/layouts/Reviews"), {
+  loading: () => <SectionLoader height="500px" />,
+  ssr: false,
+});
+
 const Action = dynamic(() => import("../app/layouts/Action"), {
   loading: () => <SectionLoader height="300px" />,
   ssr: false,
@@ -61,6 +66,10 @@ export default function DynamicSections() {
 
       <Suspense fallback={<SectionLoader height="600px" />}>
         <Partners />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader height="500px" />}>
+        <Reviews />
       </Suspense>
 
       <Suspense fallback={<SectionLoader height="500px" />}>
