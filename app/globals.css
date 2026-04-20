@@ -160,3 +160,17 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@utility animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+@keyframes heroProgress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+

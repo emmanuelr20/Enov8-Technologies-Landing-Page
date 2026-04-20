@@ -1,10 +1,11 @@
 import "./globals.css";
+import Script from "next/script";
 import "../styles/performance.css";
 import Navbar from "./layouts/Navbar.jsx";
 import Analytics from "@/components/Analytics";
-import { Space_Grotesk } from "next/font/google";
-import { Mulish } from "next/font/google";
-import Head from "next/head";
+import TawkChat from "@/components/TawkChat";
+import { Toaster } from "@/components/ui/sonner";
+import { Space_Grotesk, Poppins } from "next/font/google";
 
 const space = Space_Grotesk({
   variable: "--font-space",
@@ -13,9 +14,9 @@ const space = Space_Grotesk({
   display: "swap",
 });
 
-const mulish = Mulish({
-  variable: "--font-mulish",
-  weight: ["400", "500"],
+const poppins = Poppins({
+  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -230,21 +231,19 @@ const jsonLd = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="canonical" href="https://enov8technologies.com" />
+      <body
+        className={`${poppins.variable} ${space.variable} text-zinc-900 bg-bg-light dark:bg-black overflow-x-hidden`}
+      >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           key="organization-jsonld"
         />
-      </Head>
-      <body
-        className={`${mulish.variable} ${space.variable} text-zinc-900 bg-bg-light dark:bg-black overflow-x-hidden
-        `}
-      >
         <Analytics />
         <Navbar />
         {children}
+        <TawkChat />
+        <Toaster position="top-right" richColors />
       </body>
     </html>
   );

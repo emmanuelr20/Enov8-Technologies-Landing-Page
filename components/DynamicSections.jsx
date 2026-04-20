@@ -19,23 +19,18 @@ const About = dynamic(() => import("../app/layouts/About"), {
   ssr: false,
 });
 
-const WorkFlow = dynamic(() => import("../app/layouts/WorkFlow"), {
-  loading: () => <SectionLoader height="600px" />,
-  ssr: false,
-});
-
 const Services = dynamic(() => import("../app/layouts/Services"), {
   loading: () => <SectionLoader height="800px" />,
   ssr: false,
 });
 
-const TechIndex = dynamic(() => import("../app/layouts/TechIndex"), {
-  loading: () => <SectionLoader height="600px" />,
+const Action = dynamic(() => import("../app/layouts/Action"), {
+  loading: () => <SectionLoader height="300px" />,
   ssr: false,
 });
 
-const Action = dynamic(() => import("../app/layouts/Action"), {
-  loading: () => <SectionLoader height="300px" />,
+const Partners = dynamic(() => import("../app/layouts/Partners"), {
+  loading: () => <SectionLoader height="600px" />,
   ssr: false,
 });
 
@@ -56,20 +51,16 @@ export default function DynamicSections() {
         <About />
       </Suspense>
 
-      <Suspense fallback={<SectionLoader height="600px" />}>
-        <WorkFlow />
-      </Suspense>
-
       <Suspense fallback={<SectionLoader height="800px" />}>
         <Services />
       </Suspense>
 
-      <Suspense fallback={<SectionLoader height="600px" />}>
-        <TechIndex />
-      </Suspense>
-
       <Suspense fallback={<SectionLoader height="300px" />}>
         <Action />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader height="600px" />}>
+        <Partners />
       </Suspense>
 
       <Suspense fallback={<SectionLoader height="500px" />}>
