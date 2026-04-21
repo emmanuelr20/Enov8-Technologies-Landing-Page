@@ -214,7 +214,7 @@ export default function PartnersSection() {
                     ))}
                   </div>
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 mb-4 italic">
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
                   "{testimonial.text}"
                 </p>
                 <div className="border-t pt-4">

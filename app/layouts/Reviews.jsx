@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { Quote } from "lucide-react";
+import { MessageSquareQuote } from "lucide-react";
 import dynamic from "next/dynamic";
 
 // Import Swiper styles
@@ -16,12 +16,12 @@ const ScrollReveal = dynamic(() => import("scrollreveal"), { ssr: false });
 const REVIEWS = [
   {
     id: 1,
-    text: "Enov8 Technologies completely transformed how we manage our digital infrastructure. Their team's technical depth is unmatched — they identified critical gaps in our systems that we had overlooked for years and delivered a seamless solution within weeks. We strongly recommend them to any organization serious about growth.",
+    text: "Enov8 Technologies completely transformed how we manage our digital infrastructure. Their team's technical depth is unmatched they identified critical gaps in our systems that we had overlooked for years and delivered a seamless solution within weeks. We strongly recommend them to any organization serious about growth.",
     name: "Adebayo Segun",
   },
   {
     id: 2,
-    text: "Working with Enov8 was a turning point for our business. They didn't just build software — they understood our business process and engineered a platform that actually fits how we work. The team was professional, communicative, and delivered beyond our expectations. A truly world-class partner.",
+    text: "Working with Enov8 Technologies was a turning point for our business. They didn't just build software, they understood our business process and engineered a platform that actually fits how we work. The team was professional, communicative, and delivered beyond our expectations. A truly world class partner.",
     name: "Chioma Nwosu",
   },
   {
@@ -31,12 +31,12 @@ const REVIEWS = [
   },
   {
     id: 4,
-    text: "Enov8 Technologies handled our complete cloud migration with zero downtime. Their attention to security and data integrity throughout the process gave us confidence at every stage. They are the kind of technology partner every enterprise needs — reliable, skilled, and genuinely invested in your success.",
+    text: "Enov8 Technologies handled our complete cloud migration with zero downtime. Their attention to security and data integrity throughout the process gave us confidence at every stage. They are the kind of technology partner every enterprise needs, reliable, skilled, and genuinely invested in your success.",
     name: "Fatima Rasheed",
   },
   {
     id: 5,
-    text: "We engaged Enov8 for UI/UX redesign and enterprise integration, and the results speak for themselves. Our platform engagement increased by 45% within the first quarter post-launch. Their design team took the time to understand our users deeply, and the technical team executed flawlessly.",
+    text: "We engaged Enov8 Technologies for UI/UX redesign and enterprise integration, and the results speak for themselves. Our platform engagement increased by 45% within the first quarter post launch. Their design team took the time to understand our users deeply, and the technical team executed flawlessly.",
     name: "Tunde Adeyemi",
   },
 ];
@@ -81,6 +81,7 @@ export default function Reviews() {
             src="/review.jpg"
             alt="Reviews Background"
             className="w-full h-full object-cover"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-black/60" />
         </div>
@@ -123,22 +124,22 @@ export default function Reviews() {
               <SwiperSlide key={review.id}>
                 {/* Image-style: bright red card centered & overlapping */}
                 <div className="flex justify-center mt-10 px-4">
-                  <div className="relative max-w-3xl w-full bg-light-primary p-8 md:p-12 lg:p-16 shadow-md h-[450px]">
+                  <div className="relative max-w-3xl w-full bg-light-primary p-8 md:p-12 lg:p-16 shadow-md h-[500px]">
                     {/* Quote icon - solid and smaller like the image */}
-                    <Quote
-                      className="text-white mb-6 fill-white opacity-40"
+                    <MessageSquareQuote
+                      className="text-white mb-6 fill-white"
                       size={48}
                       strokeWidth={0}
                     />
 
                     {/* Review text - properly weighted */}
-                    <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed font-poppins italic mb-8 font-medium">
+                    <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed font-poppins mb-8 font-medium">
                       {review.text}
                     </p>
 
                     {/* Client name + company */}
                     <div className="mt-auto">
-                      <p className="text-white font-semibold font-space text-lg md:text-xl tracking-wide">
+                      <p className="text-white font-semibold font-poppins text-lg md:text-xl tracking-wide">
                         {review.name}
                       </p>
                     </div>

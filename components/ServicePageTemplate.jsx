@@ -41,7 +41,7 @@ const navItems = [
   { id: "onboarding",      label: "Customer Onboarding & ID Verification" },
   { id: "security",        label: "Security" },
   { id: "software-dev",    label: "Software Development" },
-  { id: "consulting",      label: "Consulting" },
+  { id: "consulting",      label: "IT Consulting" },
   { id: "erp-deployment",   label: "ERP Deployment" },
   { id: "ai-deployment",    label: "AI Deployment" },
   { id: "networking",       label: "Networking" },
@@ -69,12 +69,13 @@ export default function ServicePageTemplate({ serviceId, children }) {
             fill
             priority
             className="object-cover"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-[#1A1A37]/80" />
         </div>
 
         <div className="relative z-10 container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-black text-white font-space mb-6 uppercase tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-black text-white font-space mb-6 tracking-tight">
             {service.title}
           </h1>
           {/* Breadcrumb */}
@@ -145,10 +146,12 @@ export default function ServicePageTemplate({ serviceId, children }) {
               </p>
               <div className="flex items-center gap-3 mb-6">
                 <Phone size={18} className="text-light-primary shrink-0" />
-                <p className="text-light-primary font-bold font-space text-base">+234 706 483 8988</p>
+                <p className="text-light-primary font-bold font-poppins text-base">+234 913 363 2465</p>
               </div>
               <Link
-                href="/#contact"
+                href="https://api.whatsapp.com/send?phone=2349133632465"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-light-primary hover:bg-light-primary/90 text-white font-bold text-sm px-6 py-3 transition-all w-full justify-center"
               >
                 Start Consultation

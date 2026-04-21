@@ -87,15 +87,15 @@ export default function AutomationPage() {
       </div>
 
       {/* Feature Image */}
-      <div className="relative h-[300px] md:h-[450px] w-full mt-10">
+      <div className="relative h-[300px] md:h-[500px] w-full mt-10">
         <Image
-          src="/business2.jpg"
+          src="/automation-showcase.jpg"
           alt="Business Automation showcase"
           fill
           priority
-          className="object-contain"
+          className="object-cover"
         />
-      </div>
+      </div> 
     </ServicePageTemplate>
   );
 }

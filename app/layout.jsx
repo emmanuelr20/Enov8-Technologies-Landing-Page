@@ -4,6 +4,7 @@ import "../styles/performance.css";
 import Navbar from "./layouts/Navbar.jsx";
 import Analytics from "@/components/Analytics";
 import TawkChat from "@/components/TawkChat";
+import CookieBanner from "@/components/CookieBanner";
 import { Toaster } from "@/components/ui/sonner";
 import { Space_Grotesk, Poppins } from "next/font/google";
 
@@ -243,6 +244,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
         <TawkChat />
+        <CookieBanner />
         <Toaster position="top-right" richColors />
       </body>
     </html>

@@ -38,8 +38,7 @@ const Footer = memo(function Footer() {
             className="lg:col-span-1"
           >
             <div
-              className="text-2xl font-bold mb-4"
-              style={{ fontFamily: "var(--font-space)" }}
+              className="text-2xl font-bold mb-4 font-space"
             >
               Enov8 Technologies
             </div>
@@ -158,7 +157,7 @@ const Footer = memo(function Footer() {
                   href="/services/consulting"
                   className="hover:text-white transition-colors"
                 >
-                  Consulting
+                  IT Consulting
                 </a>
               </li>
             </ul>
@@ -218,7 +217,7 @@ const Footer = memo(function Footer() {
                   href="tel:+2347064838988"
                   className="hover:text-white transition-colors"
                 >
-                  +234 706 483 8988
+                  +234 913 363 2465
                 </a>
               </div>
               <div className="flex items-start space-x-3">
@@ -245,6 +244,14 @@ const Footer = memo(function Footer() {
                     className="hover:text-white transition-colors"
                   >
                     Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/accessibility"
+                    className="hover:text-white transition-colors"
+                  >
+                    Accessibility Statement
                   </a>
                 </li>
                 <li>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, memo } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import {
   Menu,
   X,
@@ -11,6 +12,7 @@ import {
   Instagram,
   PhoneCall,
   Mail,
+  ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -57,6 +59,12 @@ const Navbar = memo(function Navbar() {
   }, []);
 
   const handleNavClick = (e, id) => {
+    // If the id is not an anchor (doesn't start with #), it's a normal link
+    if (!id.startsWith("#")) {
+      setIsOpen(false);
+      return;
+    }
+
     // If we're not on the homepage, let the link navigate normally to "/#section"
     if (pathname !== "/") {
       setIsOpen(false);
@@ -65,9 +73,13 @@ const Navbar = memo(function Navbar() {
 
     // If we are on the homepage, do the smooth scroll
     e.preventDefault();
-    const section = document.querySelector(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+    try {
+      const section = document.querySelector(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    } catch (err) {
+      console.error("Invalid selector:", id);
     }
     setTimeout(() => setIsOpen(false), 100);
   };
@@ -75,7 +87,7 @@ const Navbar = memo(function Navbar() {
   return (
     <>
       {/* Section: TOP BAR (Contact & Socials) */}
-      <div className="hidden lg:flex bg-white dark:bg-zinc-950 border-b border-[#ebebeb] dark:border-zinc-800 py-3 relative z-60">
+      <div className="hidden md:flex bg-white dark:bg-zinc-950 border-b border-[#ebebeb] dark:border-zinc-800 py-3 relative z-40">
         <div className="container mx-auto px-6 md:px-12 lg:px-24 flex justify-between items-center text-xs text-gray-700 dark:text-zinc-400">
           <div className="flex items-center gap-6">
             <a
@@ -85,39 +97,39 @@ const Navbar = memo(function Navbar() {
               <span className="text-light-primary">
                 <PhoneCall size={20} />
               </span>
-              +234 706 483 8988
+              +234 913 363 2465
             </a>
             <a
-              href="mailto:contact@enov8technologies.com"
+              href="mailto:sales@enov8technologies.com "
               className="flex items-center gap-2 hover:text-light-primary transition-colors"
             >
               <span className="text-light-primary">
                 <Mail size={20} />
               </span>
-              contact@enov8technologies.com
+              sales@enov8technologies.com 
             </a>
           </div>
           <div className="flex items-center gap-4 font-bold uppercase tracking-wider text-[10px]">
             <a
-              href=""
+              href="https://web.facebook.com/Enov8Technologies"
               className="text-light-primary hover:text-light-hover transition-colors"
             >
               <Facebook size={20} />
             </a>
-            <a
+            {/* <a
               href=""
               className="text-light-primary hover:text-light-hover transition-colors"
             >
               <Twitter size={20} />
-            </a>
+            </a> */}
             <a
-              href=""
+              href="https://www.linkedin.com/company/enov8-technologies/"
               className="text-light-primary hover:text-light-hover transition-colors"
             >
               <Linkedin size={20} />
             </a>
             <a
-              href=""
+              href="https://www.instagram.com/enov8_technologies?igsh=YWZtNHNia2syanE1"
               className="text-light-primary hover:text-light-hover transition-colors"
             >
               <Instagram size={20} />
@@ -127,7 +139,11 @@ const Navbar = memo(function Navbar() {
       </div>
 
       <header
-        className={`z-50 w-full transition-all duration-300 py-3 bg-white/95 dark:bg-black/95 backdrop-blur-sm`}
+        className={`sticky top-0 z-100 w-full transition-all duration-300 ${
+          isSticky 
+            ? "py-3 bg-white/95 dark:bg-black/95 backdrop-blur-md shadow-sm border-b border-gray-100 dark:border-white/5" 
+            : "py-6 bg-white dark:bg-black border-b border-gray-100 dark:border-zinc-500"
+        }`}
       >
         <nav className="container mx-auto h-full px-6 md:px-12 lg:px-24 flex justify-between items-center">
           <div className="flex items-center gap-2">
@@ -158,8 +174,7 @@ const Navbar = memo(function Navbar() {
                 </svg>
               </div>
               <span
-                className="capitalize text-lg font-bold text-[#23252d] dark:text-white transition-colors duration-200"
-                style={{ fontFamily: "var(--font-space)" }}
+                className="capitalize text-lg font-bold text-[#23252d] dark:text-white transition-colors duration-200 font-space"
               >
                 enov8 technologies
               </span>
@@ -169,34 +184,92 @@ const Navbar = memo(function Navbar() {
           {/* Desktop Nav */}
           <ul
             ref={(el) => (elementsRef.current[1] = el)}
-            className="hidden lg:flex items-center gap-6 text-[12px] uppercase font-bold tracking-widest dark:text-white"
+            className="hidden lg:flex items-center gap-6 text-[12px] uppercase font-bold tracking-widest dark:text-white relative"
           >
-            <li>
-              <a
+            <li className="relative group/menu">
+              <Link
                 href="/services"
-                className="hover:text-light-primary transition-colors"
+                className="flex items-center gap-1 py-4 hover:text-light-primary transition-colors"
                 onClick={(e) => handleNavClick(e, "/services")}
               >
                 Services
-              </a>
+                <ChevronDown size={14} className="transition-transform group-hover/menu:rotate-180" />
+              </Link>
+              
+              {/* Mega Menu Dropdown */}
+              <div className="absolute top-full left-1 -translate-x-1 w-[600px] bg-white dark:bg-zinc-900 shadow-3xl
+              py-10 px-8 grid grid-cols-3 gap-8 opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible 
+              transition-all duration-300 translate-y-2 group-hover/menu:translate-y-0 z-200">
+                {/* Column 1: Automation */}
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1 h-5 bg-light-primary block" />
+                    <h4 className="font-space font-bold text-sm uppercase tracking-wider text-[#1A1A37] dark:text-white">Automation</h4>
+                  </div>
+                  <ul className="space-y-3 pl-3 font-poppins">
+                    <li><Link href="/services/automation" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Business automation</Link></li>
+                    <li><Link href="/services/erp-deployment" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">ERP deployment</Link></li>
+                    <li><Link href="/services/document-management" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Document management</Link></li>
+                    <li><Link href="/services/zoho-partner" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Zoho one ecosystem</Link></li>
+                  </ul>
+                </div>
+
+                {/* Column 2: Digital & AI */}
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1 h-5 bg-light-primary block" />
+                    <h4 className="font-space font-bold text-sm uppercase tracking-wider text-[#1A1A37] dark:text-white">Digital & AI</h4>
+                  </div>
+                  <ul className="space-y-3 pl-3 font-poppins">
+                    <li><Link href="/services/software-dev" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Software development</Link></li>
+                    <li><Link href="/services/ai-deployment" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">AI deployment</Link></li>
+                    <li><Link href="/services/digital-signage" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Digital signage</Link></li>
+                  </ul>
+                </div>
+
+                {/* Column 3: Security */}
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1 h-5 bg-light-primary block" />
+                    <h4 className="font-space font-bold text-sm uppercase tracking-wider text-[#1A1A37] dark:text-white">Security</h4>
+                  </div>
+                  <ul className="space-y-3 pl-3 font-poppins">
+                    <li><Link href="/services/onboarding" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">KYC & verification</Link></li>
+                    <li><Link href="/services/security" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Digital security</Link></li>
+                  </ul>
+                </div>
+
+                {/* Column 4: Infrastructure */}
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1 h-5 bg-light-primary block" />
+                    <h4 className="font-space font-bold text-sm uppercase tracking-wider text-[#1A1A37] dark:text-white">Infrastructure</h4>
+                  </div>
+                  <ul className="space-y-3 pl-3 font-poppins">
+                    <li><Link href="/services/networking" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Networking</Link></li>
+                    <li><Link href="/services/hardware-procurement" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Hardware procurement</Link></li>
+                    <li><Link href="/services/consulting" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">IT consulting</Link></li>
+                  </ul>
+                </div>
+              </div>
             </li>
             <li>
-              <a
+              <Link
                 href="/#about"
-                className="hover:text-light-primary transition-colors"
+                className="hover:text-light-primary transition-colors py-4"
                 onClick={(e) => handleNavClick(e, "#about")}
               >
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/#contact"
-                className="hover:text-light-primary transition-colors"
+                className="hover:text-light-primary transition-colors py-4"
                 onClick={(e) => handleNavClick(e, "#contact")}
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
 
@@ -206,11 +279,11 @@ const Navbar = memo(function Navbar() {
           >
             <ThemeToggle />
             <Button
-              size="default"
-              className="bg-light-primary text-white px-8 font-bold text-[10px] tracking-widest uppercase 
-              transition-all shadow-lg shadow-light-primary/20"
+              asChild
+              className="bg-light-primary text-white px-10 h-14 font-bold text-[12px] tracking-widest uppercase 
+              transition-all shadow-lg shadow-light-primary/20 rounded-none hover:bg-light-primary/90"
             >
-              <a href="/#contact" onClick={(e) => handleNavClick(e, "#contact")}>
+              <a href="https://api.whatsapp.com/send?phone=2349133632465" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
                 Start a Project
               </a>
             </Button>
@@ -234,14 +307,14 @@ const Navbar = memo(function Navbar() {
       {/* ── MOBILE NAV DRAWER (Outside Header) ────────────────────────────────── */}
       {/* Overlay */}
       <div
-        className={`fixed inset-0 bg-black/80 backdrop-blur-sm transition-all duration-300 z-60
+        className={`fixed inset-0 bg-black/80 backdrop-blur-sm transition-all duration-300 z-110
         ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
         onClick={toggleMenu}
       />
 
       {/* Drawer */}
       <div
-        className={`fixed top-0 right-0 h-full w-full sm:w-80 bg-[#141414] text-white z-70 
+        className={`fixed top-0 right-0 h-full w-full sm:w-80 bg-[#141414] text-white z-120 
               transform transition-transform duration-500 ease-in-out shadow-2xl 
               ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
@@ -297,7 +370,7 @@ const Navbar = memo(function Navbar() {
             <a href="mailto:contact@enov8technologies.com" className="block text-lg font-medium mb-1 hover:text-light-primary transition-colors">
               contact@enov8technologies.com
             </a>
-            <p className="text-lg font-medium">+234 706 483 8988</p>
+            <p className="text-lg font-medium">+234 913 363 2465</p>
             
             <div className="mt-8 flex gap-4">
               {/* Simple icons placeholder if needed */}

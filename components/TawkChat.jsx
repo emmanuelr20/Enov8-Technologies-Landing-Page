@@ -7,6 +7,13 @@ export default function TawkChat() {
     // Ensure we only run on client
     if (typeof window === "undefined") return;
 
+    // Suppress Tawk.to's internal console.error(true) noise in dev
+    const originalError = console.error.bind(console);
+    console.error = (...args) => {
+      if (args.length === 1 && args[0] === true) return;
+      originalError(...args);
+    };
+
     // Tawk.to script initialization
     window.Tawk_API = window.Tawk_API || {};
     window.Tawk_LoadStart = new Date();
@@ -25,14 +32,9 @@ export default function TawkChat() {
       document.head.appendChild(s1);
     }
 
-    // Cleanup function to avoid multiple instances in dev HMR
+    // Cleanup: restore console.error and suppress duplicate script loads on HMR
     return () => {
-      if (window.Tawk_API && typeof window.Tawk_API.hideWidget === "function") {
-        try {
-          // Some widgets have a destroy or hide method
-          // Tawk.to doesn't have a reliable 'destroy' so we just let it be
-        } catch (e) {}
-      }
+      console.error = originalError;
     };
   }, []);
 

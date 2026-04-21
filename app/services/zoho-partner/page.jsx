@@ -20,26 +20,21 @@ export default function ZohoPartnerPage() {
             </h2>
           </div>
           {/* Feature Image */}
-          <div className="relative h-[300px] mb-5 md:h-[400px] overflow-hidden shadow-2xl">
+          <div className="relative h-[300px] mb-5 md:h-[460px] overflow-hidden">
             <Image
-              src="/zoho1.jpg"
+              src="/zohoerp.jpeg"
               alt="Zoho Ecosystem showcase"
               fill
               priority
-              className="object-cover"
+              className="object-fit"
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
-            <div className="absolute bottom-6 left-8">
-              <p className="text-white font-space font-bold text-xl tracking-wide uppercase">
-                Official Zoho Implementation Experts
-              </p>
-            </div>
           </div>
           <p className="text-gray-600 dark:text-zinc-400 text-lg leading-relaxed font-poppins">
-            Unlock the full potential of the Zoho ecosystem. As certified
+            Unlock the full potential of the ZohoOne ecosystem. As certified
             partners, we provide expert implementation, customization, and
             training for Zoho's comprehensive suite of business applications,
-            from CRM and Books to People and Creator.
+            from CRM to help desk, to Zoho Books, Zoho People and Zoho Creator.
           </p>
         </div>
 

@@ -64,10 +64,12 @@ export default function Action() {
         <Button
           ref={(el) => (buttonRef.current = el)}
           variant={"background"}
-          className="text-lg font-black bg-light-primary py-7 px-10 rounded shadow-2xl transition-transform hover:-translate-y-1"
-          size="lg"
+          className="text-lg font-black bg-light-primary py-8 px-10 shadow-lg rounded-none"
+          asChild
         >
-          Start a Project
+          <a href="https://api.whatsapp.com/send?phone=2349133632465" target="_blank" rel="noopener noreferrer">
+            Start a Project
+          </a>
         </Button>
       </div>
     </section>

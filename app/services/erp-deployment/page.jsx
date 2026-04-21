@@ -69,7 +69,7 @@ export default function ERPDeploymentPage() {
         {/* Additional Detail */}
         <div className="bg-gray-50 dark:bg-zinc-900 p-8 border-l-4 border-light-primary">
           <h4 className="text-xl font-bold text-[#1A1A37] dark:text-white font-space mb-4">Why ERP for your business?</h4>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed italic">
+          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed">
             "An integrated ERP system provides the visibility and control necessary to make 
             informed decisions in real-time. It is the foundation of modern digital enterprise."
           </p>

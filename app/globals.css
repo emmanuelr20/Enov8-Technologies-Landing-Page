@@ -107,7 +107,11 @@
 }
 
 body {
-  font-family: var(--font-mulish);
+  font-family: var(--font-poppins), sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-space), sans-serif;
 }
 
 .dark {
@@ -157,7 +161,6 @@ body {
 }
 
 html {
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
 }
 

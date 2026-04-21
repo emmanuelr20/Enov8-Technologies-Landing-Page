@@ -81,13 +81,13 @@ const Contact = memo(function Contact() {
       <div className="container mx-auto py-12 px-4 md:px-12 lg:px-24 flex flex-col lg:flex-row items-center justify-between">
         <div ref={(el) => (elementsRef.current[0] = el)}>
           <OptimizedImage
-            src="/contact.png"
+            src="/customer.jpg"
             alt="Contact Enov8 Technologies - Professional software development team"
-            width={500}
+            width={530}
             height={500}
             priority={false}
             sizes="(max-width: 768px) 100vw, 500px"
-            className="rounded-lg"
+            className="hidden xl:block"
           />
         </div>
 
@@ -120,7 +120,7 @@ const Contact = memo(function Contact() {
               />
               <label
                 htmlFor="name"
-                className="absolute left-0 top-2 text-zinc-400 font-medium transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-light-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs"
+                className="absolute left-0 top-2 text-[#1A1A37] dark:text-white font-medium transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-light-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs"
               >
                 Full Name
               </label>
@@ -138,7 +138,7 @@ const Contact = memo(function Contact() {
               />
               <label
                 htmlFor="email"
-                className="absolute left-0 top-2 text-zinc-400 font-medium transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-light-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs"
+                className="absolute left-0 top-2 text-[#1A1A37] dark:text-white font-medium transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-light-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs"
               >
                 Email Address
               </label>
@@ -156,7 +156,7 @@ const Contact = memo(function Contact() {
               />
               <label
                 htmlFor="message"
-                className="absolute left-0 top-2 text-zinc-400 font-medium transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-light-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs"
+                className="absolute left-0 top-2 text-[#1A1A37] dark:text-white font-medium transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-light-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs"
               >
                 Project Details
               </label>
@@ -174,8 +174,8 @@ const Contact = memo(function Contact() {
             </div>
           </form>
 
-          <div className="mt-16 flex items-center gap-6">
-            <span className="text-xs font-bold uppercase tracking-widest text-zinc-400">
+          <div className="mt-4 flex items-center gap-2">
+            <span className="text-xs font-bold font-space tracking-widest">
               Direct Mail:
             </span>
             <a

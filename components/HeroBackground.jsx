@@ -6,19 +6,19 @@ const SLIDES = [
   {
     id: 1,
     video: "/videos/hero1_compressed.mp4",
-    headline: "ACCELERATING YOUR\nBUSINESS GROWTH",
+    headline: "Accelerating Your\nBusiness Growth",
     sub: "Digital Precision, Engineered for Scale",
   },
   {
     id: 2,
     video: "/videos/hero2_compressed.mp4",
-    headline: "SECURING YOUR\nDIGITAL FUTURE",
+    headline: "Securing Your\nDigital Future",
     sub: "Enterprise-grade protection across identity, data, and infrastructure",
   },
   {
     id: 3,
     video: "/videos/hero3_compressed.mp4",
-    headline: "TRANSFORMING BUSINESSES\nTHROUGH TECHNOLOGY",
+    headline: "Transforming Businesses\nThrough Smart Technology",
     sub: "We build the digital infrastructure that powers tomorrow's leaders",
   },
 ];
@@ -26,7 +26,6 @@ const SLIDES = [
 const HOLD_DURATION = 3500;
 const TRANSITION_MS = 900;
 const TOTAL = SLIDES.length;
-
 
 const VARIATIONS = [
   {
@@ -56,14 +55,18 @@ const VARIATIONS = [
   {
     // 5. Page turn — thick book page flip with strong lateral perspective warp
     name: "page-turn",
-    exit: (d) => `perspective(800px) rotateY(${d * -120}deg) translateX(${d * -30}%) scale(0.75)`,
-    enter: (d) => `perspective(800px) rotateY(${d * 120}deg) translateX(${d * 30}%) scale(0.75)`,
+    exit: (d) =>
+      `perspective(800px) rotateY(${d * -120}deg) translateX(${d * -30}%) scale(0.75)`,
+    enter: (d) =>
+      `perspective(800px) rotateY(${d * 120}deg) translateX(${d * 30}%) scale(0.75)`,
   },
   {
     // 6. Tilt drop — slide tips back on X+Z and falls away; next tips in from above
     name: "tilt-drop",
-    exit: (d) => `rotateX(40deg) rotateZ(${d * -8}deg) translateY(${d * -80}%) scale(0.6)`,
-    enter: (d) => `rotateX(-40deg) rotateZ(${d * 8}deg) translateY(${d * 80}%) scale(0.6)`,
+    exit: (d) =>
+      `rotateX(40deg) rotateZ(${d * -8}deg) translateY(${d * -80}%) scale(0.6)`,
+    enter: (d) =>
+      `rotateX(-40deg) rotateZ(${d * 8}deg) translateY(${d * 80}%) scale(0.6)`,
   },
 ];
 
@@ -98,7 +101,8 @@ export default function HeroBackground() {
       clearInterval(timerRef.current);
 
       // 1. Advance variation in a ping-pong sequence (0→5→0…)
-      let nextVarIndex = variationIndexRef.current + variationDirectionRef.current;
+      let nextVarIndex =
+        variationIndexRef.current + variationDirectionRef.current;
       if (nextVarIndex >= VARIATIONS.length) {
         nextVarIndex = VARIATIONS.length - 2;
         variationDirectionRef.current = -1;
@@ -282,7 +286,8 @@ export default function HeroBackground() {
                 void el.offsetWidth; // Force browser repaint — crucial for transitions
 
                 // Animate TO the centre (the resting state)
-                el.style.transform = "translateZ(0px) rotateX(0deg) rotateY(0deg) scale(1)";
+                el.style.transform =
+                  "translateZ(0px) rotateX(0deg) rotateY(0deg) scale(1)";
                 el.style.opacity = "1";
               }
             }}
@@ -320,7 +325,7 @@ export default function HeroBackground() {
             <div className="max-w-4xl w-full">
               {/* Headline */}
               <h1
-                className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase leading-[1.05] text-white tracking-tighter font-space mb-6"
+                className="text-4xl md:text-6xl lg:text-7xl font-bold capitalize leading-[1.05] text-white tracking-tighter font-space mb-6"
                 style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
               >
                 {slide.headline}
@@ -328,9 +333,8 @@ export default function HeroBackground() {
 
               {/* Subtitle */}
               <div className="flex items-center justify-center gap-4 max-w-xl mx-auto">
-                <span className="w-1 h-10 bg-light-primary block shrink-0" />
                 <p
-                  className="text-gray-50 text-base md:text-lg leading-relaxed font-poppins text-left"
+                  className="text-gray-50 text-base md:text-lg leading-relaxed font-poppins text-center"
                   style={{ textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}
                 >
                   {slide.sub}
@@ -373,7 +377,7 @@ export default function HeroBackground() {
 
       {/* Progress bar */}
       {!isPaused && phase === "idle" && (
-        <div className="absolute bottom-0 left-0 right-0 z-30 h-[3px]">
+        <div className="absolute bottom-0 left-0 right-0 z-30">
           <div
             key={`${current}-bar`}
             className="h-full"

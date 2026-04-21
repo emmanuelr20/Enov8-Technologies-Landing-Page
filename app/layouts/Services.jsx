@@ -67,7 +67,7 @@ const services = [
   {
     id: "consulting",
     icon: LuHandshake, // Matches the 'Handshake' icon from the image
-    title: "Consulting",
+    title: "IT Consulting",
     subtitle: "Strategy • Infrastructure • Growth",
     description:
       "Optimize your technical strategy with expert guidance. We provide the roadmaps and insights you need for long-term growth.",
@@ -156,7 +156,7 @@ export default function Services() {
                   ref={titleRef}
                   className="text-3xl md:text-4xl font-bold text-[#1A1A37] dark:text-white leading-tight font-space"
                 >
-                  Awesome Services We Offer
+                  Amazing Services We Offer
                 </h2>
               </div>
             </div>
@@ -172,7 +172,7 @@ export default function Services() {
             <div className="flex items-start md:pt-8">
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 bg-light-primary hover:bg-light-primary/90 text-white font-bold text-sm px-6 py-3.5 rounded-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg font-poppins whitespace-nowrap"
+                className="inline-flex items-center gap-2 bg-light-primary hover:bg-light-primary/90 text-white font-bold text-sm px-6 py-5 shadow-lg font-poppins whitespace-nowrap"
               >
                 See All Services
                 <ArrowRight size={16} />
