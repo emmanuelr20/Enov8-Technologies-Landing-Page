@@ -163,7 +163,7 @@ export default function Reviews() {
           border-radius: 50%;
           margin: 0 4px;
           cursor: pointer;
-          transition: all 0.3s ease;
+          transition: all 0.5s ease;
         }
         .reviews-swiper .swiper-pagination-bullet-active {
           background: white;

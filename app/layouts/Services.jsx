@@ -212,7 +212,7 @@ export default function Services() {
 
                     {/* Read More Link */}
                     <Link
-                      href={`#contact`}
+                      href={`/services/${service.id}`}
                       className="group/link inline-flex items-center gap-2 text-light-primary font-bold text-sm md:text-base transition-colors hover:text-light-primary/80 font-poppins mt-auto"
                     >
                       <div className="w-6 h-6 rounded-full border-2 border-light-primary flex items-center justify-center group-hover/link:bg-light-primary group-hover/link:text-white transition-all">

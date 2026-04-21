@@ -56,7 +56,7 @@ const Footer = memo(function Footer() {
                   href="https://linkedin.com/company/enov8technologies"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-background/80 hover:text-white dark:text-white hover:text-blue-400 transition-colors"
+                  className="text-background/80 dark:text-white hover:text-blue-600 transition-colors"
                   aria-label="Follow us on LinkedIn"
                 >
                   <FaLinkedin size={24} />
@@ -65,7 +65,7 @@ const Footer = memo(function Footer() {
                   href="https://twitter.com/enov8tech"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-background/80 hover:text-white dark:text-white hover:text-blue-400 transition-colors"
+                  className="text-background/80 hover:text-white dark:text-white transition-colors"
                   aria-label="Follow us on Twitter"
                 >
                   <FaTwitter size={24} />
@@ -74,7 +74,7 @@ const Footer = memo(function Footer() {
                   href="https://github.com/enov8technologies"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-background/80 hover:text-white dark:text-white hover:text-gray-400 transition-colors"
+                  className="text-background/80 dark:text-white hover:text-gray-600 transition-colors"
                   aria-label="View our GitHub"
                 >
                   <FaGithub size={24} />
@@ -83,7 +83,7 @@ const Footer = memo(function Footer() {
                   href="https://youtube.com/@enov8technologies"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-background/80 hover:text-white dark:text-white hover:text-red-400 transition-colors"
+                  className="text-background/80 dark:text-white hover:text-red-600 transition-colors"
                   aria-label="Subscribe to our YouTube channel"
                 >
                   <FaYoutube size={24} />
@@ -92,7 +92,7 @@ const Footer = memo(function Footer() {
                   href="https://medium.com/@enov8technologies"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-background/80 hover:text-white dark:text-white hover:text-green-400 transition-colors"
+                  className="text-background/80 dark:text-white hover:text-green-600 transition-colors"
                   aria-label="Read our Medium articles"
                 >
                   <FaMedium size={24} />
@@ -101,7 +101,7 @@ const Footer = memo(function Footer() {
                   href="https://dribbble.com/enov8technologies"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-background/80 hover:text-white dark:text-white hover:text-pink-400 transition-colors"
+                  className="text-background/80 dark:text-white hover:text-pink-600 transition-colors"
                   aria-label="View our Dribbble designs"
                 >
                   <FaDribbble size={24} />
@@ -115,50 +115,50 @@ const Footer = memo(function Footer() {
             <ul className="space-y-3 text-background/80 dark:text-white">
               <li>
                 <a
-                  href="#services"
+                  href="/services/digital-signage"
                   className="hover:text-white transition-colors"
                 >
-                  Mobile App Development
+                  Digital Signage Solution
                 </a>
               </li>
               <li>
                 <a
-                  href="#services"
+                  href="/services/automation"
                   className="hover:text-white transition-colors"
                 >
-                  Web Development
+                  Business Automation
                 </a>
               </li>
               <li>
                 <a
-                  href="#services"
+                  href="/services/onboarding"
                   className="hover:text-white transition-colors"
                 >
-                  Enterprise Solutions
+                  Customer Onboarding & ID Verification
                 </a>
               </li>
               <li>
                 <a
-                  href="#services"
+                  href="/services/security"
                   className="hover:text-white transition-colors"
                 >
-                  UI/UX Design
+                  Security
                 </a>
               </li>
               <li>
                 <a
-                  href="#services"
+                  href="/services/software-dev"
                   className="hover:text-white transition-colors"
                 >
-                  Developer Training
+                  Software Development
                 </a>
               </li>
               <li>
                 <a
-                  href="#services"
+                  href="/services/consulting"
                   className="hover:text-white transition-colors"
                 >
-                  Digital Transformation
+                  Consulting
                 </a>
               </li>
             </ul>

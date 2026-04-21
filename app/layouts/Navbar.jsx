@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, memo } from "react";
+import { usePathname } from "next/navigation";
 import {
   Menu,
   X,
@@ -18,6 +19,7 @@ import { useScrollRevealMultiple } from "@/hooks/useScrollReveal";
 const Navbar = memo(function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const pathname = usePathname();
 
   const elementsRef = useScrollRevealMultiple(
     [
@@ -55,6 +57,13 @@ const Navbar = memo(function Navbar() {
   }, []);
 
   const handleNavClick = (e, id) => {
+    // If we're not on the homepage, let the link navigate normally to "/#section"
+    if (pathname !== "/") {
+      setIsOpen(false);
+      return;
+    }
+
+    // If we are on the homepage, do the smooth scroll
     e.preventDefault();
     const section = document.querySelector(id);
     if (section) {
@@ -124,9 +133,8 @@ const Navbar = memo(function Navbar() {
           <div className="flex items-center gap-2">
             <a
               ref={(el) => (elementsRef.current[0] = el)}
-              href="#home"
+              href="/"
               className="flex items-center gap-2 group"
-              onClick={(e) => handleNavClick(e, "#home")}
               aria-label="Enov8 Technologies Home"
             >
               <div className="relative w-8 h-8 transition-transform group-hover:scale-110">
@@ -165,7 +173,7 @@ const Navbar = memo(function Navbar() {
           >
             <li>
               <a
-                href="#services"
+                href="/#services"
                 className="hover:text-light-primary transition-colors"
                 onClick={(e) => handleNavClick(e, "#services")}
               >
@@ -174,8 +182,8 @@ const Navbar = memo(function Navbar() {
             </li>
             <li>
               <a
-                href="#about"
-                className="hover:text-[#007bff] transition-colors"
+                href="/#about"
+                className="hover:text-light-primary transition-colors"
                 onClick={(e) => handleNavClick(e, "#about")}
               >
                 About
@@ -183,8 +191,8 @@ const Navbar = memo(function Navbar() {
             </li>
             <li>
               <a
-                href="#contact"
-                className="hover:text-[#007bff] transition-colors"
+                href="/#contact"
+                className="hover:text-light-primary transition-colors"
                 onClick={(e) => handleNavClick(e, "#contact")}
               >
                 Contact
@@ -202,7 +210,7 @@ const Navbar = memo(function Navbar() {
               className="bg-light-primary text-white px-8 font-bold text-[10px] tracking-widest uppercase 
               transition-all shadow-lg shadow-light-primary/20"
             >
-              <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")}>
+              <a href="/#contact" onClick={(e) => handleNavClick(e, "#contact")}>
                 Start a Project
               </a>
             </Button>
@@ -253,28 +261,28 @@ const Navbar = memo(function Navbar() {
 
           <nav className="flex flex-col space-y-6">
             <a
-              href="#home"
+              href="/"
               className="text-2xl font-bold tracking-tighter hover:text-light-primary transition-colors font-space"
-              onClick={(e) => handleNavClick(e, "#home")}
+              onClick={() => setIsOpen(false)}
             >
               Home
             </a>
             <a
-              href="#services"
+              href="/#services"
               className="text-2xl font-bold tracking-tighter hover:text-light-primary transition-colors font-space"
               onClick={(e) => handleNavClick(e, "#services")}
             >
               Services
             </a>
             <a
-              href="#about"
+              href="/#about"
               className="text-2xl font-bold tracking-tighter hover:text-light-primary transition-colors font-space"
               onClick={(e) => handleNavClick(e, "#about")}
             >
               About Us
             </a>
             <a
-              href="#contact"
+              href="/#contact"
               className="text-2xl font-bold tracking-tighter hover:text-light-primary transition-colors font-space"
               onClick={(e) => handleNavClick(e, "#contact")}
             >
