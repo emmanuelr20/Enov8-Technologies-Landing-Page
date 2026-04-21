@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata = {
@@ -73,10 +74,12 @@ export default function SoftwareDevPage() {
 
       {/* Feature Image */}
       <div className="relative h-[300px] md:h-[400px] overflow-hidden shadow-2xl">
-        <img
+        <Image
           src="/development2.jpg"
           alt="Software Development showcase"
-          className="w-full h-full object-cover"
+          fill
+          priority
+          className="object-cover"
         />
       </div>
     </ServicePageTemplate>

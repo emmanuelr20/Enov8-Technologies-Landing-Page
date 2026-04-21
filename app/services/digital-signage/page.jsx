@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata = {
@@ -19,10 +20,12 @@ export default function DigitalSignagePage() {
         </div>
         {/* Feature Image */}
         <div className="relative h-[300px] mb-12 md:h-[400px] overflow-hidden">
-          <img
-            src="/signage2.jpg"
+          <Image
+            src="/signage1.jpg"
             alt="Digital Signage showcase"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            className="object-cover"
           />
         </div>
         <p className="text-gray-600 dark:text-zinc-400 text-lg leading-relaxed font-poppins">

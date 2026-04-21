@@ -173,9 +173,9 @@ const Navbar = memo(function Navbar() {
           >
             <li>
               <a
-                href="/#services"
+                href="/services"
                 className="hover:text-light-primary transition-colors"
-                onClick={(e) => handleNavClick(e, "#services")}
+                onClick={(e) => handleNavClick(e, "/services")}
               >
                 Services
               </a>
@@ -268,7 +268,7 @@ const Navbar = memo(function Navbar() {
               Home
             </a>
             <a
-              href="/#services"
+              href="/services"
               className="text-2xl font-bold tracking-tighter hover:text-light-primary transition-colors font-space"
               onClick={(e) => handleNavClick(e, "#services")}
             >

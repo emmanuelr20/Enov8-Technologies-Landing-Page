@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata = {
@@ -86,11 +87,13 @@ export default function AutomationPage() {
       </div>
 
       {/* Feature Image */}
-      <div className="">
-        <img
+      <div className="relative h-[300px] md:h-[450px] w-full mt-10">
+        <Image
           src="/business2.jpg"
           alt="Business Automation showcase"
-          className="w-full h-full object-contain"
+          fill
+          priority
+          className="object-contain"
         />
       </div>
     </ServicePageTemplate>

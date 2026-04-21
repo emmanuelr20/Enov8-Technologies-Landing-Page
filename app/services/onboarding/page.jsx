@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata = {
@@ -18,11 +19,13 @@ export default function OnboardingPage() {
           </h2>
         </div>
         {/* Feature Image */}
-        <div className="relative h-[300px] md:h-[400px] overflow-hidden space-y-4">
-          <img
+        <div className="relative h-[300px] md:h-[400px] overflow-hidden">
+          <Image
             src="/verification2.jpg"
             alt="Customer Onboarding showcase"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            className="object-cover"
           />
         </div>
         <p className="text-gray-600 dark:text-zinc-400 text-lg leading-relaxed font-poppins">

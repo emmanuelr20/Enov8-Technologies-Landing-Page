@@ -171,7 +171,7 @@ export default function Services() {
             {/* Right: CTA button */}
             <div className="flex items-start md:pt-8">
               <Link
-                href="#contact"
+                href="/services"
                 className="inline-flex items-center gap-2 bg-light-primary hover:bg-light-primary/90 text-white font-bold text-sm px-6 py-3.5 rounded-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg font-poppins whitespace-nowrap"
               >
                 See All Services

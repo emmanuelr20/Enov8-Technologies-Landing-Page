@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata = {
@@ -28,10 +29,11 @@ export default function SecurityPage() {
       <div className="space-y-10 pt-10 border-t border-gray-100 dark:border-zinc-800">
         {/* Feature Image */}
         <div className="relative h-[300px] md:h-[400px] overflow-hidden">
-          <img
+          <Image
             src="/security.jpg"
             alt="Security showcase"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
           />
         </div>
         <div className="space-y-3">
@@ -63,10 +65,12 @@ export default function SecurityPage() {
             including GDPR and NDPR.
           </p>
           <div className="relative h-[300px] md:h-[400px] overflow-hidden">
-            <img
+            <Image
               src="/security1.jpg"
-              alt="Security showcase"
-              className="w-full h-full object-cover"
+              alt="Data Encryption showcase"
+              fill
+              priority
+              className="object-cover"
             />
           </div>
         </div>

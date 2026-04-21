@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "@/app/layouts/Footer";
 import { ArrowRight, ChevronRight, Phone } from "lucide-react";
 import { servicesData } from "@/lib/servicesData";
@@ -10,7 +11,13 @@ import {
   LuUserPlus, 
   LuShield, 
   LuLayoutGrid, 
-  LuHandshake 
+  LuHandshake,
+  LuChartBar,
+  LuBrainCircuit,
+  LuNetwork,
+  LuLayers,
+  LuFileText,
+  LuHardDrive
 } from "react-icons/lu";
 
 const iconMap = {
@@ -20,6 +27,12 @@ const iconMap = {
   "security": LuShield,
   "software-dev": LuLayoutGrid,
   "consulting": LuHandshake,
+  "erp-deployment": LuChartBar,
+  "ai-deployment": LuBrainCircuit,
+  "networking": LuNetwork,
+  "zoho-partner": LuLayers,
+  "document-management": LuFileText,
+  "hardware-procurement": LuHardDrive,
 };
 
 const navItems = [
@@ -29,6 +42,12 @@ const navItems = [
   { id: "security",        label: "Security" },
   { id: "software-dev",    label: "Software Development" },
   { id: "consulting",      label: "Consulting" },
+  { id: "erp-deployment",   label: "ERP Deployment" },
+  { id: "ai-deployment",    label: "AI Deployment" },
+  { id: "networking",       label: "Networking" },
+  { id: "zoho-partner",     label: "Zoho Certified Partner" },
+  { id: "document-management", label: "Document Management System" },
+  { id: "hardware-procurement", label: "Hardware Procurement" },
 ];
 
 /**
@@ -44,10 +63,12 @@ export default function ServicePageTemplate({ serviceId, children }) {
       {/* ── HERO BANNER ─────────────────────────────────────────────── */}
       <section className="relative h-[350px] md:h-[430px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src={service.heroImage || "/workflowImage.jpg"}
             alt={service.title}
-            className="w-full h-full object-cover"
+            fill
+            priority
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-[#1A1A37]/80" />
         </div>
@@ -65,7 +86,7 @@ export default function ServicePageTemplate({ serviceId, children }) {
               Home
             </Link>
             <ChevronRight size={16} className="text-light-primary"/>
-            <Link href="/#services" className="hover:text-light-primary font-bold transition-colors">
+            <Link href="/services" className="hover:text-light-primary font-bold transition-colors">
               Services
             </Link>
             <ChevronRight size={16} className="text-light-primary" />
@@ -83,7 +104,7 @@ export default function ServicePageTemplate({ serviceId, children }) {
             {/* Services Nav — TBO style */}
             <div className="bg-light-primary shadow-2xl overflow-hidden">
               <div className="my-6 mx-10 py-4 px-5 text-center bg-white text-light-primary">
-                <h3 className="text-sm font-bold font-space tracking-[0.2em] uppercase">
+                <h3 className="text-lg font-bold font-space tracking-[0.2em] uppercase">
                   Our Services
                 </h3>
               </div>
@@ -95,14 +116,14 @@ export default function ServicePageTemplate({ serviceId, children }) {
                       href={`/services/${item.id}`}
                       className={`flex items-center justify-between px-6 py-4 font-poppins text-sm font-semibold transition-all duration-200 ${
                         serviceId === item.id
-                          ? "text-white bg-white/15"
-                          : "text-white hover:bg-white/10"
+                          ? "text-white"
+                          : "text-white hover:text-[#1A1A37]"
                       }`}
                     >
-                      <span className="leading-snug">{item.label}</span>
+                      <span className="leading-snug text-base">{item.label}</span>
                     </Link>
                     {index < navItems.length - 1 && (
-                      <div className="mx-6 border-b border-white/20" />
+                      <div className="mx-6 border-b border-white" />
                     )}
                   </li>
                 ))}
