@@ -27,6 +27,46 @@ const HOLD_DURATION = 3500;
 const TRANSITION_MS = 900;
 const TOTAL = SLIDES.length;
 
+
+const VARIATIONS = [
+  {
+    // 1. Classic 3D cube — rotates out on Y axis like a box face turning away
+    name: "cube-horizontal",
+    exit: (d) => `rotateY(${d * -90}deg) translateZ(50vw)`,
+    enter: (d) => `rotateY(${d * 90}deg) translateZ(50vw)`,
+  },
+  {
+    // 2. Skew slice — shears sideways like a card being swiped off a deck
+    name: "skew-slice",
+    exit: (d) => `translateX(${d * -60}%) skewX(${d * 20}deg) scale(0.85)`,
+    enter: (d) => `translateX(${d * 60}%) skewX(${d * -20}deg) scale(0.85)`,
+  },
+  {
+    // 3. Z depth — current slide slams back into the screen, next erupts forward
+    name: "z-depth",
+    exit: (_d) => `translateZ(-1200px) scale(0.2)`,
+    enter: (_d) => `translateZ(1200px) scale(2.2)`,
+  },
+  {
+    // 4. Spin Z — flat coin-toss spin on the Z axis
+    name: "spin-z",
+    exit: (d) => `rotateZ(${d * 180}deg) scale(0.4)`,
+    enter: (d) => `rotateZ(${d * -180}deg) scale(0.4)`,
+  },
+  {
+    // 5. Page turn — thick book page flip with strong lateral perspective warp
+    name: "page-turn",
+    exit: (d) => `perspective(800px) rotateY(${d * -120}deg) translateX(${d * -30}%) scale(0.75)`,
+    enter: (d) => `perspective(800px) rotateY(${d * 120}deg) translateX(${d * 30}%) scale(0.75)`,
+  },
+  {
+    // 6. Tilt drop — slide tips back on X+Z and falls away; next tips in from above
+    name: "tilt-drop",
+    exit: (d) => `rotateX(40deg) rotateZ(${d * -8}deg) translateY(${d * -80}%) scale(0.6)`,
+    enter: (d) => `rotateX(-40deg) rotateZ(${d * 8}deg) translateY(${d * 80}%) scale(0.6)`,
+  },
+];
+
 export default function HeroBackground() {
   const [current, setCurrent] = useState(0);
   const [nextSlide, setNextSlide] = useState(null);
@@ -35,10 +75,14 @@ export default function HeroBackground() {
   const [direction, setDirection] = useState(1); // 1: forward, -1: backward
   const [isPaused, setIsPaused] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
+  const [activeVariation, setActiveVariation] = useState(VARIATIONS[0]);
 
   const timerRef = useRef(null);
   const videoRefs = useRef([]);
   const phaseRef = useRef("idle");
+  const activeVariationRef = useRef(VARIATIONS[0]);
+  const variationIndexRef = useRef(0);
+  const variationDirectionRef = useRef(1); // 1 = forward, -1 = backward
 
   useEffect(() => {
     phaseRef.current = phase;
@@ -52,12 +96,26 @@ export default function HeroBackground() {
       if (idx === current) return;
 
       clearInterval(timerRef.current);
+
+      // 1. Advance variation in a ping-pong sequence (0→5→0…)
+      let nextVarIndex = variationIndexRef.current + variationDirectionRef.current;
+      if (nextVarIndex >= VARIATIONS.length) {
+        nextVarIndex = VARIATIONS.length - 2;
+        variationDirectionRef.current = -1;
+      } else if (nextVarIndex < 0) {
+        nextVarIndex = 1;
+        variationDirectionRef.current = 1;
+      }
+      variationIndexRef.current = nextVarIndex;
+      const nextVar = VARIATIONS[nextVarIndex];
+      activeVariationRef.current = nextVar;
+      setActiveVariation(nextVar);
+
       setDirection(dir);
       setNextSlide(idx);
       setPhase("sliding");
       phaseRef.current = "sliding";
 
-      // Start next video immediately
       const vid = videoRefs.current[idx];
       if (vid) {
         vid.currentTime = 0;
@@ -71,7 +129,7 @@ export default function HeroBackground() {
         phaseRef.current = "idle";
       }, TRANSITION_MS);
     },
-    [current],
+    [current], // TOTAL is constant, so just current is fine
   );
 
   const goNext = useCallback(
@@ -107,45 +165,56 @@ export default function HeroBackground() {
   }, []);
 
   // ── Compute slide position styles ──────────────────────────────────────────
-  // TBO effect: current slides OUT in direction, next slides IN from opposite
   const getSlideStyle = (i) => {
     const isCur = i === current;
     const isNext = i === nextSlide;
     const isSliding = phase === "sliding";
 
+    const baseStyle = {
+      position: "absolute",
+      inset: 0,
+      backfaceVisibility: "hidden",
+      transformStyle: "preserve-3d",
+    };
+
+    // IDLE STATE: Only the current slide is visible and centered
     if (!isSliding) {
-      // Idle: only current visible
       return {
-        transform: isCur ? "translateX(0%)" : "translateX(100%)",
+        ...baseStyle,
+        transform: isCur
+          ? "translateZ(0px) rotateX(0deg) rotateY(0deg)"
+          : "translateZ(-1000px)",
         opacity: isCur ? 1 : 0,
-        transition: "none",
         zIndex: isCur ? 2 : 0,
+        transition: "none",
       };
     }
 
-    // During slide
-    const outDir = direction === 1 ? "-100%" : "100%";
-    const inStart = direction === 1 ? "100%" : "-100%";
-
+    // EXITING SLIDE (The one leaving)
     if (isCur) {
+      const v = activeVariationRef.current;
       return {
-        transform: `translateX(${outDir})`,
-        opacity: 1,
-        transition: `transform ${TRANSITION_MS}ms cubic-bezier(0.76, 0, 0.24, 1)`,
+        ...baseStyle,
+        transform: v.exit(direction),
+        opacity: 0,
+        transition: `transform ${TRANSITION_MS}ms cubic-bezier(0.7, 0, 0.3, 1), opacity ${TRANSITION_MS}ms ease`,
         zIndex: 2,
       };
     }
+
+    // ENTERING SLIDE (The one coming in)
     if (isNext) {
       return {
-        transform: "translateX(0%)",
+        ...baseStyle,
+        // Note: The initial "from" position is handled by the ref callback in JSX
+        transform: "translateZ(0px) rotateX(0deg) rotateY(0deg) scale(1)",
         opacity: 1,
-        // Start at inStart, animate to 0
-        transition: `transform ${TRANSITION_MS}ms cubic-bezier(0.76, 0, 0.24, 1)`,
+        transition: `transform ${TRANSITION_MS}ms cubic-bezier(0.7, 0, 0.3, 1), opacity ${TRANSITION_MS * 0.5}ms ease`,
         zIndex: 3,
-        // We use a CSS trick below with initial transform
       };
     }
-    return { opacity: 0, zIndex: 0 };
+
+    return { ...baseStyle, opacity: 0, zIndex: 0 };
   };
 
   // For the incoming slide we need it to START offset and animate to 0
@@ -186,7 +255,9 @@ export default function HeroBackground() {
 
   return (
     <div
+      // PERSPECTIVE is the secret sauce here
       className="relative min-h-[75vh] overflow-hidden bg-[#09090b]"
+      style={{ perspective: "1500px" }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -200,15 +271,19 @@ export default function HeroBackground() {
             key={slide.id}
             className="absolute inset-0"
             style={getSlideStyle(i)}
-            // For incoming slide: set initial offset BEFORE transition via wrapper
             ref={(el) => {
-              if (el && isNext && isSliding) {
-                const inStart = direction === 1 ? "100%" : "-100%";
-                el.style.transform = `translateX(${inStart})`;
-                // Force reflow then apply transition
-                void el.offsetWidth;
-                el.style.transition = `transform ${TRANSITION_MS}ms cubic-bezier(0.76, 0, 0.24, 1)`;
-                el.style.transform = "translateX(0%)";
+              if (el && i === nextSlide && phase === "sliding") {
+                const v = activeVariationRef.current;
+
+                // Set the FROM state (where the entering slide starts)
+                el.style.transform = v.enter(direction);
+                el.style.opacity = "0";
+
+                void el.offsetWidth; // Force browser repaint — crucial for transitions
+
+                // Animate TO the centre (the resting state)
+                el.style.transform = "translateZ(0px) rotateX(0deg) rotateY(0deg) scale(1)";
+                el.style.opacity = "1";
               }
             }}
           >
@@ -218,26 +293,18 @@ export default function HeroBackground() {
               muted
               loop
               playsInline
-              preload="auto"
               className="absolute inset-0 w-full h-full object-cover"
-              // ✅ Slow Ken Burns zoom — matches TBO's subtle background movement
               style={{
+                // Subtle zoom-in effect while sitting idle
                 transform:
                   i === current && phase === "idle"
-                    ? "scale(1.06)"
+                    ? "scale(1.1)"
                     : "scale(1.0)",
-                transition: `transform ${HOLD_DURATION}ms linear`,
-                transformOrigin: "center center",
+                transition: `transform ${HOLD_DURATION + 1000}ms ease-out`,
               }}
             />
-            {/* Dark overlay */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(to bottom, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.68) 100%)",
-              }}
-            />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/40" />
           </div>
         );
       })}

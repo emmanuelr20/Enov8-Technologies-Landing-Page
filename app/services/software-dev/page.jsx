@@ -74,7 +74,7 @@ export default function SoftwareDevPage() {
       {/* Feature Image */}
       <div className="relative h-[300px] md:h-[400px] overflow-hidden shadow-2xl">
         <img
-          src="/workflowImage.jpg"
+          src="/development2.jpg"
           alt="Software Development showcase"
           className="w-full h-full object-cover"
         />

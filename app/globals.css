@@ -158,6 +158,13 @@ body {
 
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Fixes backface flashing in Chrome/Safari */
+video {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
 
 @keyframes marquee {
@@ -170,7 +177,8 @@ html {
 }
 
 @keyframes heroProgress {
-  from { width: 0%; }
-  to   { width: 100%; }
+  0% { width: 0%; background-color: rgba(255, 255, 255, 0.2); }
+  100% { width: 100%; background-color: rgba(255, 255, 255, 0.8); }
 }
+
 
