@@ -101,7 +101,7 @@ const Contact = memo(function Contact() {
               <br />
               <span className="text-light-primary">Let’s Talk.</span>
             </h2>
-            <p className="text-zinc-500 dark:text-zinc-400 font-poppins text-lg">
+            <p className="text-zinc-500 dark:text-white/90 font-poppins text-lg">
               Send us a message and we'll get back to you to discuss how we can
               help your business grow.
             </p>

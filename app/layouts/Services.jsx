@@ -161,7 +161,7 @@ export default function Services() {
             </div>
 
             {/* Center: description */}
-            <p className="text-gray-800 dark:text-zinc-400 text-lg sm:text-lg leading-relaxed font-poppins pt-1 md:pt-8 xl:-mt-7">
+            <p className="text-gray-800 dark:text-white/90 text-lg sm:text-lg leading-relaxed font-poppins pt-1 md:pt-8 xl:-mt-7">
               We specialize in navigating organizational change and digital
               evolution. Our technology experts collaborate exclusively with
               clients to architect concrete, high-performance solutions designed
@@ -208,7 +208,7 @@ export default function Services() {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-gray-800 dark:text-zinc-400 text-lg font-medium leading-relaxed font-poppins mb-8">
+                    <p className="text-gray-800 dark:text-white/90 text-lg font-medium leading-relaxed font-poppins mb-8">
                       {service.description}
                     </p>
 

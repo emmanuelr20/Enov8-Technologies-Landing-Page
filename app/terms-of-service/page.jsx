@@ -12,12 +12,12 @@ export default function TermsOfService() {
         <h1 className="text-4xl md:text-5xl font-space font-bold mb-8 dark:text-white uppercase tracking-tighter">
           Terms of Service
         </h1>
-        <p className="text-gray-600 dark:text-zinc-400 mb-12 font-poppins text-lg">
+        <p className="text-gray-600 dark:text-white/90 mb-12 font-poppins text-lg">
           Last updated: April 21, 2026
         </p>
 
         <Card className="rounded-none border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm mb-12">
-          <CardContent className="p-8 md:p-12 space-y-10 font-poppins text-gray-700 dark:text-zinc-300">
+          <CardContent className="p-8 md:p-12 space-y-10 font-poppins text-gray-700 dark:text-white/90">
             <section>
               <h2 className="text-2xl font-space font-bold mb-4 dark:text-white uppercase tracking-tight">1. Agreement to Terms</h2>
               <p className="leading-relaxed">

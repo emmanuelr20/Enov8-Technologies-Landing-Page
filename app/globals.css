@@ -171,8 +171,24 @@ video {
 }
 
 @keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Precise math: translate by 50% of total width PLUS half the gap to maintain alignment */
+    transform: translateX(calc(-50% - 24px)); /* gap-12 = 48px, half = 24px */
+  }
+}
+
+@media (min-width: 768px) {
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - 40px)); /* gap-20 = 80px, half = 40px */
+    }
+  }
 }
 
 @utility animate-marquee {

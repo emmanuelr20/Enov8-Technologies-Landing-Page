@@ -39,10 +39,10 @@ export default function Hero() {
         <div className="container mx-auto flex justify-center">
           <div className="grid grid-cols-1 xl:grid-cols-[1.2fr_0.85fr_0.85fr] gap-5 w-full max-w-6xl -mt-10 md:-mt-[90px]">
             {/* Card 1: Brand Color - Years of Excellence */}
-            <div className="relative group overflow-hidden bg-light-primary/80 p-6 sm:p-8 md:p-10 text-white shadow-2xl flex flex-col min-h-[250px] md:min-h-[280px] lg:text-center">
+            <div className="relative group overflow-hidden bg-light-primary/80 p-6 sm:p-8 md:p-10 text-white shadow-2xl flex flex-col min-h-[250px] md:min-h-[280px] xl:text-center">
               {/* Big number + title inline — TBO style */}
               <div className="flex items-start lg:items-center gap-4 mb-6">
-                <h3 className="text-xl md:text-3xl font-extrabold uppercase font-space leading-tight tracking-wide">
+                <h3 className="text-xl md:text-3xl font-extrabold font-space leading-tight tracking-wide">
                   Years Of
                   <br />
                   Excellence
@@ -71,7 +71,7 @@ export default function Hero() {
                   Collaboration
                 </h3>
               </div>
-              <p className="text-zinc-500 dark:text-zinc-400 text-sm md:text-[20px] xl:text-lg leading-relaxed font-poppins">
+              <p className="text-gray-800 dark:text-white/95 text-sm md:text-[20px] xl:text-lg leading-relaxed font-poppins">
                 We align our goals with yours to amplify impact. Collective
                 intelligence allows us to deliver results that transcend
                 individual effort. Shared success is our core metric.
@@ -88,7 +88,7 @@ export default function Hero() {
                   Clients First
                 </h3>
               </div>
-              <p className="text-zinc-500 dark:text-zinc-400 text-sm md:text-[20px] xl:text-lg leading-relaxed font-poppins">
+              <p className="text-gray-800 dark:text-white/95 text-sm md:text-[20px] xl:text-lg leading-relaxed font-poppins">
                 Our mission is to remove friction. We streamline the complex
                 technical landscape so you can focus entirely on your growth and
                 core vision.

@@ -19,7 +19,7 @@ export default function ERPDeploymentPage() {
               ERP Deployment
             </h2>
           </div>
-          <p className="text-gray-600 dark:text-zinc-400 text-lg leading-relaxed font-poppins">
+          <p className="text-gray-600 dark:text-white/90 text-lg leading-relaxed font-poppins">
             Streamline your entire business operation with our enterprise-grade
             ERP deployment services. We help you integrate finance, HR, supply
             chain, and customer management into a single, unified digital
@@ -44,11 +44,11 @@ export default function ERPDeploymentPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl md:text-2xl font-bold font-space text-light-primary">
+              <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
                 Custom ERP Strategy
               </h4>
             </div>
-            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+            <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
               We don't believe in one-size-fits-all. Our experts analyze your
               unique workflows to recommend and implement the ERP solution that
               best fits your industry and scale.
@@ -58,11 +58,11 @@ export default function ERPDeploymentPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl md:text-2xl font-bold font-space text-light-primary">
+              <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
                 Data Migration & Integration
               </h4>
             </div>
-            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+            <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
               Move your legacy data securely and integrate your new ERP with
               existing tools. We ensure zero data loss and minimal disruption to
               your daily operations.
@@ -75,7 +75,7 @@ export default function ERPDeploymentPage() {
           <h4 className="text-xl font-bold text-[#1A1A37] dark:text-white font-space mb-4">
             Why ERP for your business?
           </h4>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed">
+          <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed">
             "An integrated ERP system provides the visibility and control
             necessary to make informed decisions in real-time. It is the
             foundation of modern digital enterprise."

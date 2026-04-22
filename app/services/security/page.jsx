@@ -18,7 +18,7 @@ export default function SecurityPage() {
             Cyber Security
           </h2>
         </div>
-        <p className="text-gray-600 dark:text-zinc-400 text-lg leading-relaxed font-poppins">
+        <p className="text-gray-600 dark:text-white/90 text-lg leading-relaxed font-poppins">
           Protect your organization's digital ecosystem with our comprehensive
           cyber security suite. We move beyond basic protection, implementing
           zero-trust architectures and proactive threat hunting to ensure your
@@ -40,11 +40,11 @@ export default function SecurityPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space text-light-primary">
+            <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
               Cybersecurity Audits
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+          <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
             We perform comprehensive vulnerability assessments and penetration
             testing to identify potential entry points for attackers. Our
             detailed reports provide actionable insights to harden your security
@@ -55,11 +55,11 @@ export default function SecurityPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space text-light-primary">
+            <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
               Data Encryption & Privacy
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+          <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
             Protect sensitive customer information and proprietary data with
             enterprise-grade encryption protocols. We help you achieve and
             maintain compliance with international data protection standards
@@ -79,11 +79,11 @@ export default function SecurityPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space text-light-primary">
+            <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
               Managed Security Operations
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+          <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
             Our team provides 24/7 monitoring and rapid incident response to
             neutralize advanced threats before they impact your business. We
             leverage AI-driven threat hunting and zero-day protection to keep

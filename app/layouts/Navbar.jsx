@@ -88,7 +88,7 @@ const Navbar = memo(function Navbar() {
     <>
       {/* Section: TOP BAR (Contact & Socials) */}
       <div className="hidden md:flex bg-white dark:bg-zinc-950 border-b border-[#ebebeb] dark:border-zinc-800 py-3 relative z-40">
-        <div className="container mx-auto px-6 md:px-12 lg:px-24 flex justify-between items-center text-xs text-gray-700 dark:text-zinc-400">
+        <div className="container mx-auto px-6 md:px-12 lg:px-24 flex justify-between items-center text-xs text-gray-700 dark:text-white/90">
           <div className="flex items-center gap-6">
             <a
               href="tel:+2347064838988"
@@ -139,7 +139,7 @@ const Navbar = memo(function Navbar() {
       </div>
 
       <header
-        className={`sticky top-0 z-100 w-full transition-all duration-300 ${
+        className={`sticky lg:relative top-0 z-100 w-full transition-all duration-300 ${
           isSticky 
             ? "py-3 bg-white/95 dark:bg-black/95 backdrop-blur-md shadow-sm border-b border-gray-100 dark:border-white/5" 
             : "py-6 bg-white dark:bg-black border-b border-gray-100 dark:border-zinc-500"
@@ -186,7 +186,7 @@ const Navbar = memo(function Navbar() {
             ref={(el) => (elementsRef.current[1] = el)}
             className="hidden lg:flex items-center gap-6 text-[12px] uppercase font-bold tracking-widest dark:text-white relative"
           >
-            <li className="relative group/menu">
+            <li className="relative z-50 group/menu">
               <Link
                 href="/services"
                 className="flex items-center gap-1 py-4 hover:text-light-primary transition-colors"
@@ -197,7 +197,7 @@ const Navbar = memo(function Navbar() {
               </Link>
               
               {/* Mega Menu Dropdown */}
-              <div className="absolute top-full left-1 -translate-x-1 w-[600px] bg-white dark:bg-zinc-900 shadow-3xl
+              <div className="absolute top-16 left-1 -translate-x-1 w-[640px] bg-white dark:bg-zinc-900 shadow-3xl border-2 border-[#1A1A37]
               py-10 px-8 grid grid-cols-3 gap-8 opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible 
               transition-all duration-300 translate-y-2 group-hover/menu:translate-y-0 z-200">
                 {/* Column 1: Automation */}
@@ -207,10 +207,10 @@ const Navbar = memo(function Navbar() {
                     <h4 className="font-space font-bold text-sm uppercase tracking-wider text-[#1A1A37] dark:text-white">Automation</h4>
                   </div>
                   <ul className="space-y-3 pl-3 font-poppins">
-                    <li><Link href="/services/automation" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Business automation</Link></li>
-                    <li><Link href="/services/erp-deployment" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">ERP deployment</Link></li>
-                    <li><Link href="/services/document-management" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Document management</Link></li>
-                    <li><Link href="/services/zoho-partner" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Zoho one ecosystem</Link></li>
+                    <li><Link href="/services/automation" className="text-gray-600 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Business automation</Link></li>
+                    <li><Link href="/services/erp-deployment" className="text-gray-600 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">ERP deployment</Link></li>
+                    <li><Link href="/services/document-management" className="text-gray-600 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Document management</Link></li>
+                    <li><Link href="/services/zoho-partner" className="text-gray-600 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Zoho one ecosystem</Link></li>
                   </ul>
                 </div>
 
@@ -221,9 +221,9 @@ const Navbar = memo(function Navbar() {
                     <h4 className="font-space font-bold text-sm uppercase tracking-wider text-[#1A1A37] dark:text-white">Digital & AI</h4>
                   </div>
                   <ul className="space-y-3 pl-3 font-poppins">
-                    <li><Link href="/services/software-dev" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Software development</Link></li>
-                    <li><Link href="/services/ai-deployment" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">AI deployment</Link></li>
-                    <li><Link href="/services/digital-signage" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Digital signage</Link></li>
+                    <li><Link href="/services/software-dev" className="text-gray-600 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Software development</Link></li>
+                    <li><Link href="/services/ai-deployment" className="text-gray-600 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">AI deployment</Link></li>
+                    <li><Link href="/services/digital-signage" className="text-gray-600 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Digital signage</Link></li>
                   </ul>
                 </div>
 
@@ -234,8 +234,8 @@ const Navbar = memo(function Navbar() {
                     <h4 className="font-space font-bold text-sm uppercase tracking-wider text-[#1A1A37] dark:text-white">Security</h4>
                   </div>
                   <ul className="space-y-3 pl-3 font-poppins">
-                    <li><Link href="/services/onboarding" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">KYC & verification</Link></li>
-                    <li><Link href="/services/security" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Cyber Security</Link></li>
+                    <li><Link href="/services/onboarding" className="text-gray-600 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">KYC & verification</Link></li>
+                    <li><Link href="/services/security" className="text-gray-600 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Cyber Security</Link></li>
                   </ul>
                 </div>
 
@@ -246,9 +246,9 @@ const Navbar = memo(function Navbar() {
                     <h4 className="font-space font-bold text-sm uppercase tracking-wider text-[#1A1A37] dark:text-white">Infrastructure</h4>
                   </div>
                   <ul className="space-y-3 pl-3 font-poppins">
-                    <li><Link href="/services/networking" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Networking</Link></li>
-                    <li><Link href="/services/hardware-procurement" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Hardware procurement</Link></li>
-                    <li><Link href="/services/consulting" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">IT consulting</Link></li>
+                    <li><Link href="/services/networking" className="text-gray-600 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Networking</Link></li>
+                    <li><Link href="/services/hardware-procurement" className="text-gray-600 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Hardware procurement</Link></li>
+                    <li><Link href="/services/consulting" className="text-gray-600 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">IT consulting</Link></li>
                   </ul>
                 </div>
               </div>

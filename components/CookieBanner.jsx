@@ -43,7 +43,7 @@ export default function CookieBanner() {
           </div>
           <div>
             <h3 className="font-space font-bold text-lg mb-1 dark:text-white uppercase tracking-tight">Cookie Consent</h3>
-            <p className="text-sm text-gray-600 dark:text-zinc-400 font-poppins leading-relaxed">
+            <p className="text-sm text-gray-600 dark:text-white/90 font-poppins leading-relaxed">
               We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.
             </p>
           </div>

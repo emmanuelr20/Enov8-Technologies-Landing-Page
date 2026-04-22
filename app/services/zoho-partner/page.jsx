@@ -2,12 +2,12 @@ import Image from "next/image";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata = {
-  title: "Zoho Certified Partner | Enov8 Technologies",
+  title: "ZohoOne Certified Partner | Enov8 Technologies",
   description:
-    "Official Zoho partner helping you implement and optimize the entire Zoho suite for business success.",
+    "Official ZohoOne partner helping you implement and optimize the entire ZohoOne suite for business success.",
 };
 
-export default function ZohoPartnerPage() {
+export default function ZohoOnePartnerPage() {
   return (
     <ServicePageTemplate serviceId="zoho-partner" partnerLogo="/zoho.svg">
       <div className="space-y-12">
@@ -16,25 +16,25 @@ export default function ZohoPartnerPage() {
           <div className="flex items-center gap-3 md:gap-4 mb-10">
             <span className="w-1.5 h-10 bg-light-primary block shrink-0" />
             <h2 className="text-3xl md:text-4xl font-black text-[#1A1A37] dark:text-white font-space tracking-tight">
-              Zoho Certified Partner
+              ZohoOne Certified Partner
             </h2>
           </div>
           {/* Feature Image */}
           <div className="relative h-[300px] mb-5 md:h-[460px] overflow-hidden">
             <Image
               src="/zohoerp.jpeg"
-              alt="Zoho Ecosystem showcase"
+              alt="ZohoOne Ecosystem showcase"
               fill
               priority
               className="object-fit"
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
           </div>
-          <p className="text-gray-600 dark:text-zinc-400 text-lg leading-relaxed font-poppins">
+          <p className="text-gray-600 dark:text-white/90 text-lg leading-relaxed font-poppins">
             Unlock the full potential of the ZohoOne ecosystem. As certified
             partners, we provide expert implementation, customization, and
-            training for Zoho's comprehensive suite of business applications,
-            from CRM to help desk, to Zoho Books, Zoho People and Zoho Creator.
+            training for ZohoOne's comprehensive suite of business applications,
+            from CRM to help desk, to ZohoOne Books, ZohoOne People and ZohoOne Creator.
           </p>
         </div>
 
@@ -44,12 +44,12 @@ export default function ZohoPartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space text-light-primary capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space text-primary-light dark:text-white capitalize tracking-tight">
                 Sales & Process Automation
               </h4>
             </div>
-            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
-              Define and automate your sales framework. We implement Zoho CRM to
+            <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
+              Define and automate your sales framework. We implement ZohoOne CRM to
               help you capture, engage, and convert leads at a consistent pace
               using structured, repeatable processes across all channels.
             </p>
@@ -59,12 +59,12 @@ export default function ZohoPartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space text-light-primary capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space text-primary-light dark:text-white capitalize tracking-tight">
                 Unified Marketing
               </h4>
             </div>
-            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
-              Engage prospects across every digital channel. We optimize Zoho's
+            <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
+              Engage prospects across every digital channel. We optimize ZohoOne's
               marketing automation and email workflows to deliver the right
               message at the right time, maximizing your marketing ROI.
             </p>
@@ -74,13 +74,13 @@ export default function ZohoPartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space text-light-primary capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space text-primary-light dark:text-white capitalize tracking-tight">
                 Customer Experience (CX)
               </h4>
             </div>
-            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+            <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
               Transform your support into a competitive advantage. We deploy
-              Zoho Desk to field inquiries quickly across channels, using
+              ZohoOne Desk to field inquiries quickly across channels, using
               intelligent ticketing and live chat to resolve issues with
               precision.
             </p>
@@ -90,13 +90,13 @@ export default function ZohoPartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space text-light-primary capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space text-primary-light dark:text-white capitalize tracking-tight">
                 Finance & Inventory
               </h4>
             </div>
-            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+            <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
               Modernize your business accounting for real-time accuracy. We
-              implement Zoho Books to manage invoicing, inventory, and tax
+              implement ZohoOne Books to manage invoicing, inventory, and tax
               compliance in one secure, integrated operating system.
             </p>
           </div>
@@ -105,11 +105,11 @@ export default function ZohoPartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space text-light-primary capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space text-primary-light dark:text-white capitalize tracking-tight">
                 HR & Employee Empowerment
               </h4>
             </div>
-            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+            <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
               Empower your workforce from recruitment to retirement. We help you
               manage the full employee lifecycle, including onboarding,
               attendance, and performance, with centralized HR policies.
@@ -120,12 +120,12 @@ export default function ZohoPartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space text-light-primary capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space text-primary-light dark:text-white capitalize tracking-tight">
                 Operations & Projects
               </h4>
             </div>
-            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
-              Optimize fulfillment and project delivery. We use Zoho Projects
+            <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
+              Optimize fulfillment and project delivery. We use ZohoOne Projects
               and Inventory to help you manage internal tasks and fulfill
               customer orders with unmatched speed and precision.
             </p>
@@ -135,12 +135,12 @@ export default function ZohoPartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space text-light-primary capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space text-primary-light dark:text-white capitalize tracking-tight">
                 Ecommerce
               </h4>
             </div>
-            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
-              Build a high-converting digital storefront. We leverage Zoho
+            <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
+              Build a high-converting digital storefront. We leverage ZohoOne
               Commerce and behavioral analytics to turn your website into a
               powerful sales engine that integrates with your entire
               back-office.
@@ -153,9 +153,9 @@ export default function ZohoPartnerPage() {
           <h4 className="text-xl font-bold text-[#1A1A37] dark:text-white font-space mb-4">
             Why Partner with Us?
           </h4>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed">
+          <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed">
             Don't waste time on trial and error. Our certified experts ensure
-            your Zoho setup is optimized from day one, following best practices
+            your ZohoOne setup is optimized from day one, following best practices
             for security, scalability, and user adoption.
           </p>
         </div>

@@ -78,7 +78,7 @@ export default function Partners() {
               Our Partners
             </h2>
           </div>
-          <p className="text-zinc-500 dark:text-zinc-400 text-lg sm:text-lg leading-relaxed font-poppins max-w-2xl">
+          <p className="text-zinc-500 dark:text-white/90 text-lg sm:text-lg leading-relaxed font-poppins max-w-2xl">
             We collaborate with a curated network of trusted partners to deliver
             bespoke solutions that solve your immediate challenges while
             future-proofing your business.
@@ -100,24 +100,22 @@ export default function Partners() {
         <div className="flex overflow-hidden select-none">
           {/* Inner track — CSS marquee animation */}
           <ul
-            className="flex items-center gap-16 py-4 animate-marquee"
+            className="flex items-center gap-12 md:gap-20 py-4 animate-marquee"
             style={{
-              // Width = number of ORIGINAL partners × (item width + gap)
-              // We animate translateX by exactly -1/3 of total (one full set)
               width: "max-content",
             }}
           >
             {scrollItems.map((partner, i) => (
               <li
                 key={`${partner.id}-${i}`}
-                className="shrink-0 flex items-center justify-center w-44 h-20"
+                className="shrink-0 flex items-center justify-center w-36 md:w-44 h-20"
               >
                 <Image
                   src={partner.src}
                   alt={partner.alt}
                   width={130}
                   height={52}
-                  className="object-contain max-h-14 w-auto opacity-100"
+                  className="object-contain max-h-12 md:max-h-14 w-auto dark:invert"
                 />
               </li>
             ))}

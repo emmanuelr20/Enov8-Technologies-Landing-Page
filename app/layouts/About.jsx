@@ -136,7 +136,7 @@ export default function About() {
             </h2>
 
             {/* Body text */}
-            <div className="space-y-8 text-zinc-600 dark:text-zinc-400 leading-relaxed font-poppins">
+            <div className="space-y-8 text-zinc-600 dark:text-white/90 leading-relaxed font-poppins">
               <p className="text-lg font-poppins">
                 <span className="font-bold text-[#1A1A37] dark:text-white">Enov8 Technologies</span>{" "}
                 is more than a service provider; we are architects of digital

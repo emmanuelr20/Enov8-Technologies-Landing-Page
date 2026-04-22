@@ -18,7 +18,7 @@ export default function SoftwareDevPage() {
             Software Development
           </h2>
         </div>
-        <p className="text-gray-600 dark:text-zinc-400 text-lg leading-relaxed font-poppins">
+        <p className="text-gray-600 dark:text-white/90 text-lg leading-relaxed font-poppins">
           Build scalable, custom digital products designed for performance and
           longevity. We deliver user-centric applications using modern tech
           stacks, tailored to your unique business requirements.
@@ -30,11 +30,11 @@ export default function SoftwareDevPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space text-light-primary">
+            <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
               Custom Web Applications
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+          <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
             We build responsive, high-performance web applications tailored to
             your specific business needs. From e-commerce platforms to complex
             SaaS products, we use the latest frameworks to ensure speed,
@@ -45,11 +45,11 @@ export default function SoftwareDevPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space text-light-primary">
+            <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
               Mobile App Development
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+          <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
             Create seamless mobile experiences for iOS and Android. Our
             development team focuses on native performance and intuitive UI/UX
             design to keep your users engaged and coming back to your product.
@@ -59,11 +59,11 @@ export default function SoftwareDevPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space text-light-primary">
+            <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
               Legacy System Modernisation
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+          <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
             Don't let outdated technology hold you back. We help you migrate
             legacy applications to modern architectures, improving scalability,
             security, and long-term maintainability without disrupting your
