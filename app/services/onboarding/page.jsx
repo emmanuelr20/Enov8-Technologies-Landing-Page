@@ -37,7 +37,6 @@ export default function OnboardingPage() {
 
       {/* Sub-sections */}
       <div className="space-y-10 pt-10 border-t border-gray-100 dark:border-zinc-800">
-
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
@@ -45,7 +44,7 @@ export default function OnboardingPage() {
               Seamless KYC Integration
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
+          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
             Our onboarding solutions integrate directly into your existing apps,
             allowing for real-time Know Your Customer (KYC) verification without
             disrupting the user experience. Support regulatory requirements
@@ -60,7 +59,7 @@ export default function OnboardingPage() {
               Biometric Identity Verification
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
+          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
             Utilise advanced facial recognition and liveness detection to ensure
             the person behind the screen is who they claim to be. This reduces
             fraud risk and enhances security across your platform.
@@ -74,7 +73,7 @@ export default function OnboardingPage() {
               Automated Document Validation
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
+          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
             Instantly verify government-issued IDs from over 190 countries. Our
             system automatically extracts data and checks for authenticity,
             significantly speeding up the approval process while maintaining a

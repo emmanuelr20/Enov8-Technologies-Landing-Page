@@ -2,7 +2,8 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata = {
   title: "Document Management System | Enov8 Technologies",
-  description: "Digitalize and automate your document lifecycles with secure, scalable management solutions.",
+  description:
+    "Digitalize and automate your document lifecycles with secure, scalable management solutions.",
 };
 
 export default function DocumentManagementPage() {
@@ -18,9 +19,10 @@ export default function DocumentManagementPage() {
             </h2>
           </div>
           <p className="text-gray-600 dark:text-zinc-400 text-lg leading-relaxed font-poppins">
-            Transform your office into a truly digital workspace. Our Document Management Systems (DMS) 
-            eliminate the chaos of physical filing and unstructured digital folders, providing 
-            a secure, searchable, and automated environment for all your business-critical information.
+            Transform your office into a truly digital workspace. Our Document
+            Management Systems (DMS) eliminate the chaos of physical filing and
+            unstructured digital folders, providing a secure, searchable, and
+            automated environment for all your business-critical information.
           </p>
         </div>
 
@@ -33,10 +35,10 @@ export default function DocumentManagementPage() {
                 Smart Indexing & Search
               </h4>
             </div>
-            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
-              Never lose a file again. Our DMS uses advanced OCR and metadata tagging to ensure 
-              every document is instantly searchable. Find any invoice, contract, or report 
-              in seconds using simple keywords.
+            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+              Never lose a file again. Our DMS uses advanced OCR and metadata
+              tagging to ensure every document is instantly searchable. Find any
+              invoice, contract, or report in seconds using simple keywords.
             </p>
           </div>
 
@@ -47,21 +49,24 @@ export default function DocumentManagementPage() {
                 Workflow Automation
               </h4>
             </div>
-            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
-              Automate document-driven processes like invoice approvals, contract signings, 
-              and HR onboarding. Our system routes documents to the right people at the right 
-              time, ensuring zero bottlenecks.
+            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+              Automate document-driven processes like invoice approvals,
+              contract signings, and HR onboarding. Our system routes documents
+              to the right people at the right time, ensuring zero bottlenecks.
             </p>
           </div>
         </div>
 
         {/* Additional Detail */}
         <div className="p-8 border-l-4 border-light-primary">
-          <h4 className="text-xl font-bold text-[#1A1A37] dark:text-white font-space mb-4">Security & Compliance</h4>
+          <h4 className="text-xl font-bold text-[#1A1A37] dark:text-white font-space mb-4">
+            Security & Compliance
+          </h4>
           <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed">
-            With granular access controls and full audit trails, our DMS ensures that 
-            sensitive information is only seen by authorized personnel. Stay compliant 
-            with data protection laws while maintaining high productivity.
+            With granular access controls and full audit trails, our DMS ensures
+            that sensitive information is only seen by authorized personnel.
+            Stay compliant with data protection laws while maintaining high
+            productivity.
           </p>
         </div>
       </div>

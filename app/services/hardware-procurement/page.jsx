@@ -3,7 +3,8 @@ import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata = {
   title: "Hardware Procurement | Enov8 Technologies",
-  description: "Reliable hardware sourcing and deployment services for enterprise-scale technology needs.",
+  description:
+    "Reliable hardware sourcing and deployment services for enterprise-scale technology needs.",
 };
 
 export default function HardwareProcurementPage() {
@@ -19,9 +20,10 @@ export default function HardwareProcurementPage() {
             </h2>
           </div>
           <p className="text-gray-600 dark:text-zinc-400 text-lg leading-relaxed font-poppins">
-            Equip your business with the best-in-class technology. Our hardware procurement 
-            services provide end-to-end support for sourcing, configuring, and deploying 
-            the physical infrastructure your organization needs to thrive.
+            Equip your business with the best-in-class technology. Our hardware
+            procurement services provide end-to-end support for sourcing,
+            configuring, and deploying the physical infrastructure your
+            organization needs to thrive.
           </p>
         </div>
 
@@ -34,10 +36,11 @@ export default function HardwareProcurementPage() {
                 Global Vendor Network
               </h4>
             </div>
-            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
-              Leverage our partnerships with world-leading hardware manufacturers. We source 
-              servers, workstations, networking equipment, and mobile devices at competitive 
-              enterprise pricing, ensuring you get the best value for your investment.
+            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+              Leverage our partnerships with world-leading hardware
+              manufacturers. We source servers, workstations, networking
+              equipment, and mobile devices at competitive enterprise pricing,
+              ensuring you get the best value for your investment.
             </p>
           </div>
 
@@ -48,21 +51,24 @@ export default function HardwareProcurementPage() {
                 Configuration & Asset Management
               </h4>
             </div>
-            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
-              We don't just deliver boxes. Our team pre-configures every piece of hardware 
-              with your company's software and security protocols, and provides full 
-              asset tracking throughout its operational lifecycle.
+            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+              We don't just deliver boxes. Our team pre-configures every piece
+              of hardware with your company's software and security protocols,
+              and provides full asset tracking throughout its operational
+              lifecycle.
             </p>
           </div>
         </div>
 
         {/* Additional Detail */}
         <div className="bg-light-primary/5 dark:bg-zinc-900/50 p-8 border-l-4 border-light-primary">
-          <h4 className="text-xl font-bold text-[#1A1A37] dark:text-white font-space mb-4">Scalable Logistics</h4>
+          <h4 className="text-xl font-bold text-[#1A1A37] dark:text-white font-space mb-4">
+            Scalable Logistics
+          </h4>
           <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed">
-            Whether you're equipping a single office or a nationwide workforce, 
-            our logistics team ensures timely delivery and professional installation, 
-            so your employees can get to work without delay.
+            Whether you're equipping a single office or a nationwide workforce,
+            our logistics team ensures timely delivery and professional
+            installation, so your employees can get to work without delay.
           </p>
         </div>
 
@@ -77,7 +83,9 @@ export default function HardwareProcurementPage() {
           />
           <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
           <div className="absolute bottom-6 left-8">
-            <p className="text-white font-space font-bold text-xl tracking-wide uppercase">Enterprise Infrastructure Sourcing</p>
+            <p className="text-white font-space font-bold text-xl tracking-wide uppercase">
+              Enterprise Infrastructure Sourcing
+            </p>
           </div>
         </div>
       </div>

@@ -9,11 +9,11 @@ export const metadata = {
 
 export default function ZohoPartnerPage() {
   return (
-    <ServicePageTemplate serviceId="zoho-partner">
+    <ServicePageTemplate serviceId="zoho-partner" partnerLogo="/zoho.svg">
       <div className="space-y-12">
         {/* Intro */}
         <div className="space-y-8">
-          <div className="flex items-center gap-4 mb-10">
+          <div className="flex items-center gap-3 md:gap-4 mb-10">
             <span className="w-1.5 h-10 bg-light-primary block shrink-0" />
             <h2 className="text-3xl md:text-4xl font-black text-[#1A1A37] dark:text-white font-space tracking-tight">
               Zoho Certified Partner
@@ -38,34 +38,112 @@ export default function ZohoPartnerPage() {
           </p>
         </div>
 
-        {/* Sections */}
-        <div className="grid grid-cols-1 gap-10">
+        {/* Core Modules Grid: The Operating System for Business */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {/* Sales */}
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl md:text-2xl font-bold font-space text-light-primary">
-                Zoho CRM Mastery
+              <h4 className="text-xl font-bold font-space text-light-primary capitalize tracking-tight">
+                Sales & Process Automation
               </h4>
             </div>
-            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
-              We transform Zoho CRM into a powerhouse for your sales team. Our
-              custom configurations automate lead nurturing, sales forecasting,
-              and customer engagement, allowing you to close deals faster.
+            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+              Define and automate your sales framework. We implement Zoho CRM to
+              help you capture, engage, and convert leads at a consistent pace
+              using structured, repeatable processes across all channels.
             </p>
           </div>
 
+          {/* Marketing */}
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl md:text-2xl font-bold font-space text-light-primary">
-                Custom Creator Apps
+              <h4 className="text-xl font-bold font-space text-light-primary capitalize tracking-tight">
+                Unified Marketing
               </h4>
             </div>
-            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
-              When standard apps aren't enough, we build custom solutions on
-              Zoho Creator. Our low-code developers create bespoke applications
-              that solve your unique operational challenges within the Zoho
-              environment.
+            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+              Engage prospects across every digital channel. We optimize Zoho's
+              marketing automation and email workflows to deliver the right
+              message at the right time, maximizing your marketing ROI.
+            </p>
+          </div>
+
+          {/* Service */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
+              <h4 className="text-xl font-bold font-space text-light-primary capitalize tracking-tight">
+                Customer Experience (CX)
+              </h4>
+            </div>
+            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+              Transform your support into a competitive advantage. We deploy
+              Zoho Desk to field inquiries quickly across channels, using
+              intelligent ticketing and live chat to resolve issues with
+              precision.
+            </p>
+          </div>
+
+          {/* Finance */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
+              <h4 className="text-xl font-bold font-space text-light-primary capitalize tracking-tight">
+                Finance & Inventory
+              </h4>
+            </div>
+            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+              Modernize your business accounting for real-time accuracy. We
+              implement Zoho Books to manage invoicing, inventory, and tax
+              compliance in one secure, integrated operating system.
+            </p>
+          </div>
+
+          {/* HR */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
+              <h4 className="text-xl font-bold font-space text-light-primary capitalize tracking-tight">
+                HR & Employee Empowerment
+              </h4>
+            </div>
+            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+              Empower your workforce from recruitment to retirement. We help you
+              manage the full employee lifecycle, including onboarding,
+              attendance, and performance, with centralized HR policies.
+            </p>
+          </div>
+
+          {/* Operations */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
+              <h4 className="text-xl font-bold font-space text-light-primary capitalize tracking-tight">
+                Operations & Projects
+              </h4>
+            </div>
+            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+              Optimize fulfillment and project delivery. We use Zoho Projects
+              and Inventory to help you manage internal tasks and fulfill
+              customer orders with unmatched speed and precision.
+            </p>
+          </div>
+
+          {/* Ecommerce */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
+              <h4 className="text-xl font-bold font-space text-light-primary capitalize tracking-tight">
+                Ecommerce
+              </h4>
+            </div>
+            <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+              Build a high-converting digital storefront. We leverage Zoho
+              Commerce and behavioral analytics to turn your website into a
+              powerful sales engine that integrates with your entire
+              back-office.
             </p>
           </div>
         </div>

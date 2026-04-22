@@ -21,7 +21,7 @@ export default function ConsultingPage() {
         {/* Feature Image */}
         <div className="relative h-[300px] mb-5 md:h-[400px] overflow-hidden">
           <Image
-            src="/consulting2.jpg"
+            src="/consultingtech.jpg"
             alt="Consulting showcase"
             fill
             priority
@@ -44,7 +44,7 @@ export default function ConsultingPage() {
               Digital Transformation Roadmap
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
+          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
             We work with your leadership team to define a clear technology
             vision. Our roadmaps outline the specific tools, processes, and
             milestones needed to achieve your long-term business goals while
@@ -59,7 +59,7 @@ export default function ConsultingPage() {
               Infrastructure Strategy
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
+          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
             Optimise your hardware and cloud infrastructure for cost-efficiency
             and peak performance. We provide expert advice on server management,
             network security architecture, and disaster recovery planning to
@@ -74,7 +74,7 @@ export default function ConsultingPage() {
               Technical Feasibility Studies
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
+          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
             Before you invest in a new project or initiative, we evaluate the
             technical risks, resource requirements, and strategic fit. Our
             feasibility studies help you make well-informed decisions and avoid

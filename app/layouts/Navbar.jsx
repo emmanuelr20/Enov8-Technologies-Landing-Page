@@ -235,7 +235,7 @@ const Navbar = memo(function Navbar() {
                   </div>
                   <ul className="space-y-3 pl-3 font-poppins">
                     <li><Link href="/services/onboarding" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">KYC & verification</Link></li>
-                    <li><Link href="/services/security" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Digital security</Link></li>
+                    <li><Link href="/services/security" className="text-gray-600 dark:text-zinc-400 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize">Cyber Security</Link></li>
                   </ul>
                 </div>
 
@@ -314,7 +314,7 @@ const Navbar = memo(function Navbar() {
 
       {/* Drawer */}
       <div
-        className={`fixed top-0 right-0 h-full w-full sm:w-80 bg-[#141414] text-white z-120 
+        className={`fixed top-0 right-0 h-full w-full sm:w-[400px] bg-[#141414] text-white z-120 
               transform transition-transform duration-500 ease-in-out shadow-2xl 
               ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
@@ -343,7 +343,7 @@ const Navbar = memo(function Navbar() {
             <a
               href="/services"
               className="text-2xl font-bold tracking-tighter hover:text-light-primary transition-colors font-space"
-              onClick={(e) => handleNavClick(e, "#services")}
+              onClick={(e) => handleNavClick(e, "/services")}
             >
               Services
             </a>

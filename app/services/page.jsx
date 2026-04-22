@@ -136,13 +136,13 @@ export default function ServicesPage() {
             {/* Breadcrumb */}
             <nav
               aria-label="breadcrumb"
-              className="inline-flex items-center gap-2 text-[#1A1A37] font-poppins text-sm md:text-base bg-white px-6 py-2.5"
+              className="inline-flex items-center gap-2 text-[#1A1A37] font-poppins text-sm md:text-lg bg-white px-6 py-2.5"
             >
               <Link href="/" className="hover:text-light-primary font-bold">
                 Home
               </Link>
               <ChevronRight size={16} className="text-light-primary" />
-              <span className="text-[#1A1A37] font-bold">
+              <span className="text-[#1A1A37] font-bold ">
                 Solutions and Services
               </span>
             </nav>
@@ -150,8 +150,8 @@ export default function ServicesPage() {
         </div>
 
         {/* ── SERVICES GRID SECTION ───────────────────────────────────────── */}
-        <section className="py-24 px-6">
-          <div className="max-w-7xl mx-auto text-center mb-20">
+        <section className="py-24 px-3 md:px-6">
+          <div className="max-w-7xl mx-auto md:text-center mb-20">
             <span className="text-light-primary font-semibold text-sm uppercase tracking-widest font-poppins block mb-4">
               Our Services
             </span>
@@ -163,8 +163,10 @@ export default function ServicesPage() {
                 </h2>
               </div>
               <p className="text-gray-600 dark:text-zinc-400 text-lg leading-relaxed font-poppins">
-                We specialize in driving organizational change and digital transformation. Our experts partner 
-                with clients to develop high-impact, practical solutions that solve real-world challenges.
+                We specialize in driving organizational change and digital
+                transformation. Our experts partner with clients to develop
+                high-impact, practical solutions that solve real-world
+                challenges.
               </p>
             </div>
           </div>
@@ -191,13 +193,13 @@ export default function ServicesPage() {
                     <h3 className="text-2xl font-bold text-[#1A1A37] dark:text-white font-space mb-4 leading-tight">
                       {service.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-zinc-400 text-base font-medium leading-relaxed font-poppins mb-8">
+                    <p className="text-gray-600 dark:text-zinc-400 text-lg font-medium leading-relaxed font-poppins mb-8">
                       {service.description}
                     </p>
 
                     <Link
                       href={`/services/${service.id}`}
-                      className="group/link inline-flex items-center gap-3 text-light-primary font-bold text-base transition-colors hover:text-light-primary/80 font-poppins mt-auto"
+                      className="group/link inline-flex items-center gap-3 text-light-primary font-bold text-lg transition-colors hover:text-light-primary/80 font-poppins mt-auto"
                     >
                       <div className="w-8 h-8 rounded-full border-2 border-light-primary flex items-center justify-center group-hover/link:bg-light-primary group-hover/link:text-white transition-all duration-300">
                         <ArrowRight size={16} />

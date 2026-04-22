@@ -325,7 +325,7 @@ export default function HeroBackground() {
             <div className="max-w-4xl w-full">
               {/* Headline */}
               <h1
-                className="text-4xl md:text-6xl lg:text-7xl font-bold capitalize leading-[1.05] text-white tracking-tighter font-space mb-6"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold capitalize leading-[1.05] text-white tracking-tighter font-space mb-6"
                 style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
               >
                 {slide.headline}
@@ -334,7 +334,7 @@ export default function HeroBackground() {
               {/* Subtitle */}
               <div className="flex items-center justify-center gap-4 max-w-xl mx-auto">
                 <p
-                  className="text-gray-50 text-base md:text-lg leading-relaxed font-poppins text-center"
+                  className="text-gray-50 text-lg md:text-lg leading-relaxed font-poppins text-center"
                   style={{ textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}
                 >
                   {slide.sub}

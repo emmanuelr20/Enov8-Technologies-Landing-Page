@@ -10,13 +10,13 @@ import {
   Rocket,
   ArrowRight,
 } from "lucide-react";
-import { 
-  LuMonitorPlay, 
-  LuBoxes, 
-  LuUserPlus, 
-  LuShield, 
-  LuLayoutGrid, 
-  LuHandshake 
+import {
+  LuMonitorPlay,
+  LuBoxes,
+  LuUserPlus,
+  LuShield,
+  LuLayoutGrid,
+  LuHandshake,
 } from "react-icons/lu";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -135,11 +135,10 @@ export default function Services() {
 
       <section
         aria-label="Enov8 Technologies Services"
-        className="bg-gray-50 dark:bg-zinc-950 py-24 px-6 transition-colors duration-300"
+        className="bg-gray-50 dark:bg-zinc-950 py-16 md:py-24 px-4 sm:px-6 transition-colors duration-300"
         id="services"
       >
         <div className="max-w-7xl mx-auto">
-
           {/* ── HEADER ROW — 3 columns like TBO ─────────────────────────────── */}
           <div
             ref={headerRef}
@@ -150,11 +149,11 @@ export default function Services() {
               <span className="text-light-primary font-semibold text-sm uppercase tracking-widest font-poppins">
                 Our Services
               </span>
-              <div className="flex gap-4 items-start">
+              <div className="flex gap-3 md:gap-4 items-start">
                 <span className="w-1 min-h-20 bg-light-primary block shrink-0 mt-1" />
                 <h2
                   ref={titleRef}
-                  className="text-3xl md:text-4xl font-bold text-[#1A1A37] dark:text-white leading-tight font-space"
+                  className="text-3xl md:text-4xl font-bold text-[#1A1A37] dark:text-white leading-tight font-space max-w-sm"
                 >
                   Amazing Services We Offer
                 </h2>
@@ -162,10 +161,11 @@ export default function Services() {
             </div>
 
             {/* Center: description */}
-            <p className="text-gray-800 dark:text-zinc-400 text-base sm:text-lg leading-relaxed font-poppins pt-1 md:pt-8 xl:-mt-7">
-              We specialize in navigating organizational change and digital evolution. 
-              Our technology experts collaborate exclusively with clients to architect concrete, 
-              high-performance solutions designed for real-world impact.
+            <p className="text-gray-800 dark:text-zinc-400 text-lg sm:text-lg leading-relaxed font-poppins pt-1 md:pt-8 xl:-mt-7">
+              We specialize in navigating organizational change and digital
+              evolution. Our technology experts collaborate exclusively with
+              clients to architect concrete, high-performance solutions designed
+              for real-world impact.
             </p>
 
             {/* Right: CTA button */}
@@ -181,51 +181,54 @@ export default function Services() {
           </div>
 
           {/* ── SERVICE CARDS GRID ───────────────────────────────────────────── */}
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-24 mt-12 md:mt-25">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-24 mt-8 md:mt-25">
             {services.map((service, i) => {
               const Icon = service.icon;
               return (
                 <div
                   key={service.id}
                   ref={(el) => (cardsRef.current[i] = el)}
-                  className="relative flex flex-col bg-white dark:bg-zinc-900 shadow-[0_15px_50px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_15px_50px_-15px_rgba(0,0,0,0.5)] p-8 pt-16 min-h-[300px] md:h-[320px] w-full max-w-[400px] mx-auto transition-colors duration-300"
+                  className="relative flex flex-col bg-white dark:bg-zinc-900 shadow-[0_15px_50px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_15px_50px_-15px_rgba(0,0,0,0.5)] p-8 pt-16 min-h-[300px] md:h-[370px] w-full md:max-w-[400px] md:mx-auto transition-colors duration-300"
                 >
                   {/* Centered Icon box — Overlapping top border */}
                   <div className="absolute top-0 left-14 -translate-x-1/2 -translate-y-1/2">
                     <div className="w-16 h-16 md:w-18 md:h-18 bg-light-primary flex items-center justify-center shadow-lg">
-                      <Icon className="text-white w-7 h-7 md:w-8 md:h-8" strokeWidth={2} />
+                      <Icon
+                        className="text-white w-7 h-7 md:w-8 md:h-8"
+                        strokeWidth={2}
+                      />
                     </div>
                   </div>
 
                   {/* Card body */}
                   <div className="flex flex-col flex-1 items-start">
-                    
                     {/* Title */}
-                    <h3 className="text-xl md:text-[22px] font-bold text-[#1A1A37] dark:text-white font-space mb-4 leading-tight min-h-12 flex items-center">
+                    <h3 className="text-[22px] font-bold text-[#1A1A37] dark:text-white font-space mb-4 leading-tight min-h-12 flex items-center">
                       {service.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-gray-800 dark:text-zinc-400 text-sm md:text-base font-medium leading-relaxed font-poppins mb-8">
+                    <p className="text-gray-800 dark:text-zinc-400 text-lg font-medium leading-relaxed font-poppins mb-8">
                       {service.description}
                     </p>
 
                     {/* Read More Link */}
                     <Link
                       href={`/services/${service.id}`}
-                      className="group/link inline-flex items-center gap-2 text-light-primary font-bold text-sm md:text-base transition-colors hover:text-light-primary/80 font-poppins mt-auto"
+                      className="group/link inline-flex items-center gap-2 text-light-primary font-bold text-sm md:text-lg transition-colors hover:text-light-primary/80 font-poppins mt-auto"
                     >
                       <div className="w-6 h-6 rounded-full border-2 border-light-primary flex items-center justify-center group-hover/link:bg-light-primary group-hover/link:text-white transition-all">
                         <ArrowRight size={14} />
                       </div>
-                      <span className="underline-offset-4 underline">Read More</span>
+                      <span className="underline-offset-4 underline">
+                        Read More
+                      </span>
                     </Link>
                   </div>
                 </div>
               );
             })}
           </div>
-
         </div>
       </section>
     </>

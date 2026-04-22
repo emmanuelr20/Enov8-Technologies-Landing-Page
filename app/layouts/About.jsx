@@ -76,9 +76,9 @@ export default function About() {
   }, [imgLoaded]);
 
   return (
-    <section className="py-24 lg:py-40 overflow-hidden" id="about">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+    <section className="py-16 md:py-24 lg:py-40 overflow-hidden" id="about">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+        <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-12 lg:gap-24">
 
           {/* LEFT COLUMN: IMAGE + BADGE ──────────────────────────────────── */}
           <div className="relative w-full lg:w-1/2" ref={imgRef}>
@@ -153,7 +153,7 @@ export default function About() {
             </div>
 
             {/* Value highlights */}
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div className="flex items-center gap-4 group">
                 <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-900 shadow-sm flex items-center justify-center text-light-primary transition-colors group-hover:bg-light-primary group-hover:text-white">
                   <Target size={24} />
@@ -177,7 +177,7 @@ export default function About() {
               <a
                 href="/enov8technologies-brochure.pdf"
                 download
-                className="inline-flex items-center gap-3 bg-light-primary hover:bg-light-primary/90 text-white font-bold text-sm px-10 py-5 transition-all shadow-lg shadow-light-primary/20 group uppercase tracking-widest"
+                className="inline-flex items-center gap-3 bg-light-primary hover:bg-light-primary/90 text-white font-bold text-base px-10 py-5 transition-all shadow-lg shadow-light-primary/20 group tracking-widest"
               >
                 Download Brochure
                 <svg
@@ -201,14 +201,14 @@ export default function About() {
         </div>
 
         {/* STATS BAND ─────────────────────────────────────────────────────── */}
-        <div className="mt-24 lg:mt-32 pt-20 border-t border-zinc-200 dark:border-zinc-800">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="mt-20 md:mt-24 lg:mt-32 pt-16 md:pt-20 border-t border-zinc-200 dark:border-zinc-800">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {[
               { stat: "50+",  label: "Projects Shipped" },
               { stat: "15+",  label: "Global Partners"  },
               { stat: "99%",  label: "System Uptime"    },
             ].map(({ stat, label }) => (
-              <div key={label} className="text-center group">
+              <div key={label} className="text-start md:text-center group">
                 <h4 className="text-4xl md:text-6xl font-black text-[#1A1A37] dark:text-white font-space tracking-tighter mb-2 transition-colors group-hover:text-light-primary">
                   {stat}
                 </h4>

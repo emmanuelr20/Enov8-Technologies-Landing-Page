@@ -78,7 +78,7 @@ const Contact = memo(function Contact() {
       className="min-h-[70vh] bg-gray-50 dark:bg-zinc-950 text-black dark:text-white z-50 flex justify-center items-center transition-colors duration-300"
       id="contact"
     >
-      <div className="container mx-auto py-12 px-4 md:px-12 lg:px-24 flex flex-col lg:flex-row items-center justify-between">
+      <div className="container mx-auto py-10 md:py-12 px-4 md:px-8 lg:px-12 xl:px-24 flex flex-col xl:flex-row items-center justify-between">
         <div ref={(el) => (elementsRef.current[0] = el)}>
           <OptimizedImage
             src="/customer.jpg"
@@ -93,7 +93,7 @@ const Contact = memo(function Contact() {
 
         <div
           ref={(el) => (elementsRef.current[1] = el)}
-          className="w-full lg:max-w-[500px] py-10 px-4"
+          className="w-full xl:max-w-[500px] py-10 px-4"
         >
           <div className="mb-12">
             <h2 className="text-4xl md:text-5xl font-black text-[#1A1A37] dark:text-white font-space tracking-tighter mb-6">
@@ -174,7 +174,7 @@ const Contact = memo(function Contact() {
             </div>
           </form>
 
-          <div className="mt-4 flex items-center gap-2">
+          <div className="mt-4 flex flex-col items-start md:flex-row md:items-center gap-2">
             <span className="text-xs font-bold font-space tracking-widest">
               Direct Mail:
             </span>

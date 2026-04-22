@@ -5,31 +5,31 @@ import Image from "next/image";
 import Footer from "@/app/layouts/Footer";
 import { ArrowRight, ChevronRight, Phone } from "lucide-react";
 import { servicesData } from "@/lib/servicesData";
-import { 
-  LuMonitorPlay, 
-  LuBoxes, 
-  LuUserPlus, 
-  LuShield, 
-  LuLayoutGrid, 
+import {
+  LuMonitorPlay,
+  LuBoxes,
+  LuUserPlus,
+  LuShield,
+  LuLayoutGrid,
   LuHandshake,
   LuChartBar,
   LuBrainCircuit,
   LuNetwork,
   LuLayers,
   LuFileText,
-  LuHardDrive
+  LuHardDrive,
 } from "react-icons/lu";
 
 const iconMap = {
   "digital-signage": LuMonitorPlay,
-  "automation": LuBoxes,
-  "onboarding": LuUserPlus,
-  "security": LuShield,
+  automation: LuBoxes,
+  onboarding: LuUserPlus,
+  security: LuShield,
   "software-dev": LuLayoutGrid,
-  "consulting": LuHandshake,
+  consulting: LuHandshake,
   "erp-deployment": LuChartBar,
   "ai-deployment": LuBrainCircuit,
-  "networking": LuNetwork,
+  networking: LuNetwork,
   "zoho-partner": LuLayers,
   "document-management": LuFileText,
   "hardware-procurement": LuHardDrive,
@@ -37,15 +37,15 @@ const iconMap = {
 
 const navItems = [
   { id: "digital-signage", label: "Digital Signage Solution" },
-  { id: "automation",      label: "Business Automation" },
-  { id: "onboarding",      label: "Customer Onboarding & ID Verification" },
-  { id: "security",        label: "Security" },
-  { id: "software-dev",    label: "Software Development" },
-  { id: "consulting",      label: "IT Consulting" },
-  { id: "erp-deployment",   label: "ERP Deployment" },
-  { id: "ai-deployment",    label: "AI Deployment" },
-  { id: "networking",       label: "Networking" },
-  { id: "zoho-partner",     label: "Zoho Certified Partner" },
+  { id: "automation", label: "Business Automation" },
+  { id: "onboarding", label: "Customer Onboarding & ID Verification" },
+  { id: "security", label: "Cyber Security" },
+  { id: "software-dev", label: "Software Development" },
+  { id: "consulting", label: "IT Consulting" },
+  { id: "erp-deployment", label: "ERP Deployment" },
+  { id: "ai-deployment", label: "AI Deployment" },
+  { id: "networking", label: "Networking" },
+  { id: "zoho-partner", label: "Zoho Certified Partner" },
   { id: "document-management", label: "Document Management System" },
   { id: "hardware-procurement", label: "Hardware Procurement" },
 ];
@@ -54,7 +54,7 @@ const navItems = [
  * ServicePageTemplate — shared shell (hero, sidebar, footer).
  * Pass the unique page content as `children`.
  */
-export default function ServicePageTemplate({ serviceId, children }) {
+export default function ServicePageTemplate({ serviceId, partnerLogo, children }) {
   const service = servicesData[serviceId];
   const Icon = iconMap[serviceId];
 
@@ -74,20 +74,37 @@ export default function ServicePageTemplate({ serviceId, children }) {
           <div className="absolute inset-0 bg-[#1A1A37]/80" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-6 text-center">
+        <div className="relative z-10 container mx-auto px-6 text-center flex flex-col items-center">
+          {partnerLogo && (
+            <div className="mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+              <div className="px-8 py-4 bg-white">
+                <img
+                  src={partnerLogo}
+                  alt="Partner Logo"
+                  className="h-10 md:h-12 w-auto"
+                />
+              </div>
+            </div>
+          )}
           <h1 className="text-4xl md:text-6xl font-black text-white font-space mb-6 tracking-tight">
             {service.title}
           </h1>
           {/* Breadcrumb */}
           <nav
             aria-label="breadcrumb"
-            className="inline-flex items-center gap-2 text-[#1A1A37] font-poppins text-sm md:text-base bg-white px-6 py-2.5"
+            className="inline-flex items-center gap-2 text-[#1A1A37] font-poppins text-sm md:text-lg bg-white px-6 py-2.5"
           >
-            <Link href="/" className="hover:text-light-primary font-bold transition-colors">
+            <Link
+              href="/"
+              className="hover:text-light-primary font-bold transition-colors"
+            >
               Home
             </Link>
-            <ChevronRight size={16} className="text-light-primary"/>
-            <Link href="/services" className="hover:text-light-primary font-bold transition-colors">
+            <ChevronRight size={16} className="text-light-primary" />
+            <Link
+              href="/services"
+              className="hover:text-light-primary font-bold transition-colors"
+            >
               Services
             </Link>
             <ChevronRight size={16} className="text-light-primary" />
@@ -99,7 +116,6 @@ export default function ServicePageTemplate({ serviceId, children }) {
       {/* ── MAIN LAYOUT ─────────────────────────────────────────────── */}
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-14">
-
           {/* ── SIDEBAR ──────────────────────────────────────────────── */}
           <aside className="space-y-10">
             {/* Services Nav — TBO style */}
@@ -121,7 +137,7 @@ export default function ServicePageTemplate({ serviceId, children }) {
                           : "text-white hover:text-[#1A1A37]"
                       }`}
                     >
-                      <span className="leading-snug text-base">{item.label}</span>
+                      <span className="leading-snug text-lg">{item.label}</span>
                     </Link>
                     {index < navItems.length - 1 && (
                       <div className="mx-6 border-b border-white" />
@@ -146,7 +162,9 @@ export default function ServicePageTemplate({ serviceId, children }) {
               </p>
               <div className="flex items-center gap-3 mb-6">
                 <Phone size={18} className="text-light-primary shrink-0" />
-                <p className="text-light-primary font-bold font-poppins text-base">+234 913 363 2465</p>
+                <p className="text-light-primary font-bold font-poppins text-lg">
+                  +234 913 363 2465
+                </p>
               </div>
               <Link
                 href="https://api.whatsapp.com/send?phone=2349133632465"
@@ -161,10 +179,7 @@ export default function ServicePageTemplate({ serviceId, children }) {
           </aside>
 
           {/* ── PAGE-SPECIFIC CONTENT (passed via children) ──────────── */}
-          <div className="space-y-14">
-            {children}
-          </div>
-
+          <div className="space-y-14">{children}</div>
         </div>
       </section>
 

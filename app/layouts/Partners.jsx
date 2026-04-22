@@ -8,35 +8,41 @@ const ScrollReveal = dynamic(() => import("scrollreveal"), { ssr: false });
 
 // Drop your logo files into /public/logos/ and update filenames here
 const partners = [
-  { id: "cisco",       src: "/cisco.svg",       alt: "Cisco",           w: 130, h: 52 },
-  { id: "dynaAI",      src: "/dyna-ai.png",     alt: "Dyna AI",         w: 130, h: 52 }, // ← use PNG instead
-  { id: "microsoft",   src: "/microsoft.svg",   alt: "Microsoft",       w: 130, h: 52 },
-  { id: "infobip",     src: "/infobip.svg",      alt: "Infobip",         w: 130, h: 52 },
-  { id: "aws",         src: "/aws.svg",          alt: "AWS",             w: 100, h: 52 },
-  { id: "oracle",      src: "/oracle.svg",       alt: "Oracle",          w: 130, h: 52 },
-  { id: "connex",      src: "/connex.svg",       alt: "Connex One",      w: 130, h: 52 },
-  { id: "fico",        src: "/fico.svg",          alt: "FICO",            w: 130, h: 52 },
-  { id: "kissflow",    src: "/kissflow.svg",      alt: "Kissflow",        w: 130, h: 52 },
-  { id: "freshdesk",   src: "/freshdesk.svg",    alt: "Freshdesk",       w: 130, h: 52 }, // ← PNG
-  { id: "temenos",     src: "/temenos.svg",      alt: "Temenos",         w: 130, h: 52 },
-  { id: "acuant",      src: "/acuant.svg",       alt: "Acuant",          w: 130, h: 52 },
-  { id: "ibm",         src: "/ibm.svg",           alt: "IBM",             w: 130, h: 52 }, // ← PNG
-  { id: "sophos",      src: "/sophos.svg",        alt: "Sophos",          w: 130, h: 52 },
-  { id: "azure",       src: "/azure.svg",         alt: "Microsoft Azure", w: 130, h: 52 }, // ← PNG
-  { id: "fortinet",    src: "/fortinet.svg",      alt: "Fortinet",        w: 130, h: 52 },
-  { id: "zoho",        src: "/zoho.svg",          alt: "Zoho",            w: 130, h: 52 },
-  { id: "metamap",     src: "/metamap.png",       alt: "MetaMap",         w: 130, h: 52 },
-  { id: "crowdstrike", src: "/crowdstrike.svg",   alt: "CrowdStrike",     w: 130, h: 52 },
-  { id: "tdafrica",    src: "/tdafrica.jpg",      alt: "TD Africa",       w: 130,  h: 80 }, // ← PNG, square logo
-  { id: "atos",        src: "/atos.svg",           alt: "Atos",            w: 130, h: 52 },
-  { id: "pickcel",     src: "/pickcel.svg",        alt: "Pickcel",         w: 130, h: 52 },
+  { id: "cisco", src: "/cisco.svg", alt: "Cisco", w: 130, h: 52 },
+  { id: "dynaAI", src: "/dyna-ai.png", alt: "Dyna AI", w: 130, h: 52 }, // ← use PNG instead
+  { id: "microsoft", src: "/microsoft.svg", alt: "Microsoft", w: 130, h: 52 },
+  { id: "infobip", src: "/infobip.svg", alt: "Infobip", w: 130, h: 52 },
+  { id: "aws", src: "/aws.svg", alt: "AWS", w: 100, h: 52 },
+  { id: "oracle", src: "/oracle.svg", alt: "Oracle", w: 130, h: 52 },
+  { id: "connex", src: "/connex.svg", alt: "Connex One", w: 130, h: 52 },
+  { id: "fico", src: "/fico.svg", alt: "FICO", w: 130, h: 52 },
+  { id: "kissflow", src: "/kissflow.svg", alt: "Kissflow", w: 130, h: 52 },
+  { id: "freshdesk", src: "/freshdesk.svg", alt: "Freshdesk", w: 130, h: 52 }, // ← PNG
+  { id: "temenos", src: "/temenos.svg", alt: "Temenos", w: 130, h: 52 },
+  { id: "acuant", src: "/acuant.svg", alt: "Acuant", w: 130, h: 52 },
+  { id: "ibm", src: "/ibm.svg", alt: "IBM", w: 130, h: 52 }, // ← PNG
+  { id: "sophos", src: "/sophos.svg", alt: "Sophos", w: 130, h: 52 },
+  { id: "azure", src: "/azure.svg", alt: "Microsoft Azure", w: 130, h: 52 }, // ← PNG
+  { id: "fortinet", src: "/fortinet.svg", alt: "Fortinet", w: 130, h: 52 },
+  { id: "zoho", src: "/zoho.svg", alt: "Zoho", w: 130, h: 52 },
+  { id: "metamap", src: "/metamap.png", alt: "MetaMap", w: 130, h: 52 },
+  {
+    id: "crowdstrike",
+    src: "/crowdstrike.svg",
+    alt: "CrowdStrike",
+    w: 130,
+    h: 52,
+  },
+  { id: "tdafrica", src: "/tdafrica.jpg", alt: "TD Africa", w: 130, h: 80 }, // ← PNG, square logo
+  { id: "atos", src: "/atos.svg", alt: "Atos", w: 130, h: 52 },
+  { id: "pickcel", src: "/pickcel.svg", alt: "Pickcel", w: 130, h: 52 },
 ];
 
 export default function Partners() {
   const headerRef = useRef(null);
 
-  // Triple-duplicate so even on ultra-wide screens the seam is never visible
-  const scrollItems = [...partners, ...partners, ...partners];
+  // Two copies are enough for a perfect loop with -50% translation
+  const scrollItems = [...partners, ...partners];
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -57,14 +63,14 @@ export default function Partners() {
   return (
     <section
       aria-label="Enov8 Technologies Partners"
-      className="bg-white dark:bg-black py-24 overflow-hidden transition-colors duration-300"
+      className="bg-white dark:bg-black py-16 md:py-24 overflow-hidden transition-colors duration-300"
       id="partners"
     >
       {/* ── HEADER ───────────────────────────────────────────────────────────── */}
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div
           ref={headerRef}
-          className="flex flex-col items-center text-center mb-16 gap-4"
+          className="flex flex-col items-center text-center mb-10 md:mb-16 gap-4"
         >
           <div className="flex items-center gap-4">
             <span className="w-1 h-10 bg-light-primary block shrink-0" />
@@ -72,10 +78,10 @@ export default function Partners() {
               Our Partners
             </h2>
           </div>
-          <p className="text-zinc-500 dark:text-zinc-400 text-base sm:text-lg leading-relaxed font-poppins max-w-2xl">
-            We collaborate with a curated network of trusted partners to deliver bespoke 
-            solutions that solve your immediate challenges while future-proofing your 
-            business.
+          <p className="text-zinc-500 dark:text-zinc-400 text-lg sm:text-lg leading-relaxed font-poppins max-w-2xl">
+            We collaborate with a curated network of trusted partners to deliver
+            bespoke solutions that solve your immediate challenges while
+            future-proofing your business.
           </p>
         </div>
       </div>
@@ -94,7 +100,7 @@ export default function Partners() {
         <div className="flex overflow-hidden select-none">
           {/* Inner track — CSS marquee animation */}
           <ul
-            className="flex items-center gap-16 py-4 animate-marquee group-hover:paused"
+            className="flex items-center gap-16 py-4 animate-marquee"
             style={{
               // Width = number of ORIGINAL partners × (item width + gap)
               // We animate translateX by exactly -1/3 of total (one full set)

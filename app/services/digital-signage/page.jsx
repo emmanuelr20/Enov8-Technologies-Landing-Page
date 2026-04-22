@@ -44,7 +44,7 @@ export default function DigitalSignagePage() {
               Dynamic Content Management
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
+          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
             Our digital signage solutions allow you to control multiple displays
             from a single, centralized dashboard. Whether it's promotional
             videos, real-time data feeds, or emergency alerts, you can update
@@ -59,7 +59,7 @@ export default function DigitalSignagePage() {
               High-Impact Visual Displays
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
+          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
             We specialize in designing and deploying high-resolution displays
             that capture attention. From retail storefronts to corporate
             lobbies, our signage solutions are tailored to enhance brand
@@ -74,7 +74,7 @@ export default function DigitalSignagePage() {
               Real-Time Integration
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
+          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
             Connect your screens to live data sources such as weather updates,
             social media feeds, or internal business metrics. Our platform
             ensures that your audience always sees the most relevant and

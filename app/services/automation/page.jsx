@@ -34,7 +34,7 @@ export default function AutomationPage() {
               Enterprise Resource Planning (ERP)
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
+          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
             Integrate your core business processes — finance, HR, supply chain,
             and more — into a unified system. Our ERP solutions provide
             real-time visibility and complete control over your entire
@@ -49,7 +49,7 @@ export default function AutomationPage() {
               Electronic Document Management System (eDMS)
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
+          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
             Transition to a truly digital office with our eDMS. Categorize,
             store, and retrieve documents securely while automating
             compliance-related documentation and workflows. Eliminate
@@ -64,7 +64,7 @@ export default function AutomationPage() {
               Workflow Optimisation
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
+          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
             We analyse your existing processes to identify bottlenecks and
             automate them using intelligent triggers. This reduces human error
             and frees up your team to focus on high-value, strategic tasks.
@@ -78,7 +78,7 @@ export default function AutomationPage() {
               Productivity Tools Integration
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
+          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
             Seamlessly connect your automation workflows with popular
             collaboration tools like Google Workspace, Office 365, and Slack to
             maintain a cohesive and productive work environment.
@@ -89,13 +89,13 @@ export default function AutomationPage() {
       {/* Feature Image */}
       <div className="relative h-[300px] md:h-[500px] w-full mt-10">
         <Image
-          src="/automation-showcase.jpg"
+          src="/business-automation.jpg"
           alt="Business Automation showcase"
           fill
           priority
           className="object-cover"
         />
-      </div> 
+      </div>
     </ServicePageTemplate>
   );
 }

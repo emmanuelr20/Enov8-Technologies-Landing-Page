@@ -48,7 +48,7 @@ export default function Reviews() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const sr = require("scrollreveal").default;
-    
+
     if (headerRef.current) {
       sr().reveal(headerRef.current, {
         origin: "bottom",
@@ -88,7 +88,7 @@ export default function Reviews() {
 
         <div className="relative z-10 container mx-auto px-6" ref={headerRef}>
           {/* Header — Centered exactly like the image */}
-          <div className="flex flex-col items-center justify-center text-center">
+          <div className="flex flex-col items-center justify-center md:text-center">
             <div className="flex items-center gap-4">
               <span className="w-1.5 h-12 bg-light-primary block shrink-0" />
               <h2 className="text-3xl md:text-5xl font-black text-white font-space tracking-tight">
@@ -123,8 +123,8 @@ export default function Reviews() {
             {REVIEWS.map((review) => (
               <SwiperSlide key={review.id}>
                 {/* Image-style: bright red card centered & overlapping */}
-                <div className="flex justify-center mt-10 px-4">
-                  <div className="relative max-w-3xl w-full bg-light-primary p-8 md:p-12 lg:p-16 shadow-md h-[500px]">
+                <div className="flex justify-center mt-10 md:px-4">
+                  <div className="relative max-w-3xl w-full bg-light-primary p-6 sm:p-8 md:p-12 lg:p-16 shadow-md md:h-[500px]">
                     {/* Quote icon - solid and smaller like the image */}
                     <MessageSquareQuote
                       className="text-white mb-6 fill-white"
@@ -133,7 +133,7 @@ export default function Reviews() {
                     />
 
                     {/* Review text - properly weighted */}
-                    <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed font-poppins mb-8 font-medium">
+                    <p className="text-white text-lg md:text-lg lg:text-xl leading-relaxed font-poppins mb-8 font-medium">
                       {review.text}
                     </p>
 

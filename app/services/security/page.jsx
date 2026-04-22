@@ -2,9 +2,9 @@ import Image from "next/image";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 
 export const metadata = {
-  title: "Security | Enov8 Technologies",
+  title: "Cyber Security | Enov8 Technologies",
   description:
-    "Safeguard your digital infrastructure with proactive enterprise-grade protection. From encryption to security audits, Enov8 Technologies ensures your data stays secure.",
+    "Protect your digital assets with advanced cyber security solutions. From threat intelligence to zero-trust architecture, we safeguard your enterprise from evolving digital risks.",
 };
 
 export default function SecurityPage() {
@@ -15,13 +15,14 @@ export default function SecurityPage() {
         <div className="flex items-center gap-4 mb-5">
           <span className="w-1.5 h-10 bg-light-primary block shrink-0" />
           <h2 className="text-3xl md:text-4xl font-black text-[#1A1A37] dark:text-white font-space tracking-tight">
-            Security
+            Cyber Security
           </h2>
         </div>
         <p className="text-gray-600 dark:text-zinc-400 text-lg leading-relaxed font-poppins">
-          Safeguard your digital infrastructure with proactive, enterprise-grade
-          protection. From encryption standards to comprehensive audits, we
-          ensure your data and systems remain secure against evolving threats.
+          Protect your organization's digital ecosystem with our comprehensive
+          cyber security suite. We move beyond basic protection, implementing
+          zero-trust architectures and proactive threat hunting to ensure your
+          operations remain resilient against global cyber threats.
         </p>
       </div>
 
@@ -43,7 +44,7 @@ export default function SecurityPage() {
               Cybersecurity Audits
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
+          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
             We perform comprehensive vulnerability assessments and penetration
             testing to identify potential entry points for attackers. Our
             detailed reports provide actionable insights to harden your security
@@ -58,7 +59,7 @@ export default function SecurityPage() {
               Data Encryption & Privacy
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
+          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
             Protect sensitive customer information and proprietary data with
             enterprise-grade encryption protocols. We help you achieve and
             maintain compliance with international data protection standards
@@ -82,10 +83,11 @@ export default function SecurityPage() {
               Managed Security Operations
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-base pl-5">
-            Our team provides 24/7 monitoring and incident response services to
-            detect and neutralise threats before they can impact your business
-            operations. Stay one step ahead with continuous threat intelligence.
+          <p className="text-gray-700 dark:text-zinc-400 font-poppins leading-relaxed text-lg pl-5">
+            Our team provides 24/7 monitoring and rapid incident response to
+            neutralize advanced threats before they impact your business. We
+            leverage AI-driven threat hunting and zero-day protection to keep
+            your infrastructure resilient.
           </p>
         </div>
       </div>
