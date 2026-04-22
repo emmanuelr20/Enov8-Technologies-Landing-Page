@@ -18,7 +18,7 @@ export default function SoftwareDevPage() {
             Software Development
           </h2>
         </div>
-        <p className="text-gray-600 dark:text-white/90 text-lg leading-relaxed font-poppins">
+        <p className="text-gray-700 dark:text-white/90 text-lg leading-relaxed font-poppins">
           Build scalable, custom digital products designed for performance and
           longevity. We deliver user-centric applications using modern tech
           stacks, tailored to your unique business requirements.

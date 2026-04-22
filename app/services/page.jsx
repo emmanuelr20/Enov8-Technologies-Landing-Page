@@ -129,7 +129,7 @@ export default function ServicesPage() {
           </div>
 
           <div className="relative z-10 text-center px-6">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white uppercase tracking-tighter font-space mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tighter font-space mb-6">
               Solutions and Services
             </h1>
 
@@ -162,7 +162,7 @@ export default function ServicesPage() {
                   Amazing Services We Offer
                 </h2>
               </div>
-              <p className="text-gray-600 dark:text-white/90 text-lg leading-relaxed font-poppins">
+              <p className="text-gray-700 dark:text-white/90 text-lg leading-relaxed font-poppins">
                 We specialize in driving organizational change and digital
                 transformation. Our experts partner with clients to develop
                 high-impact, practical solutions that solve real-world
@@ -193,7 +193,7 @@ export default function ServicesPage() {
                     <h3 className="text-2xl font-bold text-[#1A1A37] dark:text-white font-space mb-4 leading-tight">
                       {service.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-white/90 text-lg font-medium leading-relaxed font-poppins mb-8">
+                    <p className="text-gray-700 dark:text-white/90 text-lg font-medium leading-relaxed font-poppins mb-8">
                       {service.description}
                     </p>
 

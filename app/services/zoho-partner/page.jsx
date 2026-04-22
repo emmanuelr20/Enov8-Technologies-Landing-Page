@@ -30,11 +30,12 @@ export default function ZohoOnePartnerPage() {
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
           </div>
-          <p className="text-gray-600 dark:text-white/90 text-lg leading-relaxed font-poppins">
+          <p className="text-gray-700 dark:text-white/90 text-lg leading-relaxed font-poppins">
             Unlock the full potential of the ZohoOne ecosystem. As certified
             partners, we provide expert implementation, customization, and
             training for ZohoOne's comprehensive suite of business applications,
-            from CRM to help desk, to ZohoOne Books, ZohoOne People and ZohoOne Creator.
+            from CRM to help desk, to ZohoOne Books, ZohoOne People and ZohoOne
+            Creator.
           </p>
         </div>
 
@@ -49,9 +50,9 @@ export default function ZohoOnePartnerPage() {
               </h4>
             </div>
             <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
-              Define and automate your sales framework. We implement ZohoOne CRM to
-              help you capture, engage, and convert leads at a consistent pace
-              using structured, repeatable processes across all channels.
+              Define and automate your sales framework. We implement ZohoOne CRM
+              to capture and convert leads through structured, repeatable
+              processes.
             </p>
           </div>
 
@@ -64,9 +65,9 @@ export default function ZohoOnePartnerPage() {
               </h4>
             </div>
             <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
-              Engage prospects across every digital channel. We optimize ZohoOne's
-              marketing automation and email workflows to deliver the right
-              message at the right time, maximizing your marketing ROI.
+              Engage prospects across every digital channel. We optimize
+              ZohoOne's marketing automation to deliver the right message at the
+              perfect time.
             </p>
           </div>
 
@@ -79,10 +80,9 @@ export default function ZohoOnePartnerPage() {
               </h4>
             </div>
             <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
-              Transform your support into a competitive advantage. We deploy
-              ZohoOne Desk to field inquiries quickly across channels, using
-              intelligent ticketing and live chat to resolve issues with
-              precision.
+              Transform support into a competitive advantage. We deploy ZohoOne
+              Desk to resolve inquiries quickly using intelligent ticketing and
+              live chat.
             </p>
           </div>
 
@@ -95,9 +95,9 @@ export default function ZohoOnePartnerPage() {
               </h4>
             </div>
             <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
-              Modernize your business accounting for real-time accuracy. We
-              implement ZohoOne Books to manage invoicing, inventory, and tax
-              compliance in one secure, integrated operating system.
+              Modernize your accounting with real-time accuracy. We implement
+              ZohoOne Books to manage invoicing, inventory, and compliance in
+              one secure system.
             </p>
           </div>
 
@@ -111,8 +111,8 @@ export default function ZohoOnePartnerPage() {
             </div>
             <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
               Empower your workforce from recruitment to retirement. We help you
-              manage the full employee lifecycle, including onboarding,
-              attendance, and performance, with centralized HR policies.
+              manage the full employee lifecycle with centralized HR policies
+              and tracking.
             </p>
           </div>
 
@@ -126,8 +126,8 @@ export default function ZohoOnePartnerPage() {
             </div>
             <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
               Optimize fulfillment and project delivery. We use ZohoOne Projects
-              and Inventory to help you manage internal tasks and fulfill
-              customer orders with unmatched speed and precision.
+              and Inventory to manage tasks and orders with unmatched speed and
+              precision.
             </p>
           </div>
 
@@ -141,9 +141,8 @@ export default function ZohoOnePartnerPage() {
             </div>
             <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
               Build a high-converting digital storefront. We leverage ZohoOne
-              Commerce and behavioral analytics to turn your website into a
-              powerful sales engine that integrates with your entire
-              back-office.
+              Commerce to turn your website into a powerful sales engine
+              integrated with your back-office.
             </p>
           </div>
         </div>
@@ -155,8 +154,8 @@ export default function ZohoOnePartnerPage() {
           </h4>
           <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed">
             Don't waste time on trial and error. Our certified experts ensure
-            your ZohoOne setup is optimized from day one, following best practices
-            for security, scalability, and user adoption.
+            your ZohoOne setup is optimized from day one, following best
+            practices for security, scalability, and user adoption.
           </p>
         </div>
       </div>

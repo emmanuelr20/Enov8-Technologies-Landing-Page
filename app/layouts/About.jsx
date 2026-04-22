@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import { Target, Award } from "lucide-react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 const ScrollReveal = dynamic(() => import("scrollreveal"), { ssr: false });
 
@@ -85,14 +86,14 @@ export default function About() {
             <div className="relative group">
 
               {/* Main image */}
-              <div className="hidden lg:block relative z-10 overflow-hidden shadow-[0_50px_100px_-30px_rgba(0,0,0,0.15)]">
-                <img
+              <div className="hidden lg:block relative z-10 overflow-hidden shadow-[0_50px_100px_-30px_rgba(0,0,0,0.15)] h-[750px]">
+                <Image
                   src="/about1.jpg"
                   alt="Enov8 Technology Solutions"
-                  className="w-full h-[750px] object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                  // ✅ Only mark loaded once browser has decoded the image
-                  onLoad={() => setImgLoaded(true)}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  onLoadingComplete={() => setImgLoaded(true)}
                 />
               </div>
 

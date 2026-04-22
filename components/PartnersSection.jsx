@@ -86,7 +86,7 @@ export default function PartnersSection() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 dark:text-white">
             Trusted by Industry Leaders
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
             We're proud to work with innovative companies and maintain strategic
             partnerships with leading technology providers.
           </p>
@@ -100,7 +100,7 @@ export default function PartnersSection() {
               className={`px-6 py-2 rounded-md font-medium transition-colors ${
                 activeTab === "clients"
                   ? "bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm"
-                  : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
               }`}
             >
               Our Clients
@@ -110,7 +110,7 @@ export default function PartnersSection() {
               className={`px-6 py-2 rounded-md font-medium transition-colors ${
                 activeTab === "partners"
                   ? "bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm"
-                  : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
               }`}
             >
               Technology Partners
@@ -120,7 +120,7 @@ export default function PartnersSection() {
               className={`px-6 py-2 rounded-md font-medium transition-colors ${
                 activeTab === "testimonials"
                   ? "bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm"
-                  : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
               }`}
             >
               Testimonials
@@ -144,7 +144,7 @@ export default function PartnersSection() {
                 <h3 className="text-xl font-semibold mb-2 dark:text-white">
                   {client.name}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-2">
+                <p className="text-gray-700 dark:text-gray-300 mb-2">
                   {client.industry}
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
@@ -180,7 +180,7 @@ export default function PartnersSection() {
                 <h3 className="text-xl font-semibold mb-2 dark:text-white">
                   {partner.name}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-2">
+                <p className="text-gray-700 dark:text-gray-300 mb-2">
                   {partner.type}
                 </p>
                 <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-3 py-1 rounded-full">
@@ -221,7 +221,7 @@ export default function PartnersSection() {
                   <p className="font-semibold dark:text-white">
                     {testimonial.name}
                   </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-sm text-gray-700 dark:text-gray-400">
                     {testimonial.position}
                   </p>
                   <p className="text-sm text-blue-600 dark:text-blue-400">
@@ -238,7 +238,7 @@ export default function PartnersSection() {
 
         {/* Call to Action */}
         <div className="text-center mt-12">
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+          <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
             Ready to join our growing list of satisfied clients?
           </p>
           <a

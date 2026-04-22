@@ -28,7 +28,7 @@ export default function OnboardingPage() {
             className="object-cover"
           />
         </div>
-        <p className="text-gray-600 dark:text-white/90 text-lg leading-relaxed font-poppins">
+        <p className="text-gray-700 dark:text-white/90 text-lg leading-relaxed font-poppins">
           Streamline the user journey with secure, friction-free verification.
           We integrate robust KYC and compliance protocols to build trust at
           every touchpoint and reduce drop-off rates.

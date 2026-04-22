@@ -18,7 +18,7 @@ export default function SecurityPage() {
             Cyber Security
           </h2>
         </div>
-        <p className="text-gray-600 dark:text-white/90 text-lg leading-relaxed font-poppins">
+        <p className="text-gray-700 dark:text-white/90 text-lg leading-relaxed font-poppins">
           Protect your organization's digital ecosystem with our comprehensive
           cyber security suite. We move beyond basic protection, implementing
           zero-trust architectures and proactive threat hunting to ensure your

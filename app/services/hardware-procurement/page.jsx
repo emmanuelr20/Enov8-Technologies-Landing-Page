@@ -19,7 +19,7 @@ export default function HardwareProcurementPage() {
               Hardware Procurement
             </h2>
           </div>
-          <p className="text-gray-600 dark:text-white/90 text-lg leading-relaxed font-poppins">
+          <p className="text-gray-700 dark:text-white/90 text-lg leading-relaxed font-poppins">
             Equip your business with the best-in-class technology. Our hardware
             procurement services provide end-to-end support for sourcing,
             configuring, and deploying the physical infrastructure your

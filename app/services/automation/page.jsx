@@ -18,7 +18,7 @@ export default function AutomationPage() {
             Business Automation
           </h2>
         </div>
-        <p className="text-gray-600 dark:text-white/90 text-lg leading-relaxed font-poppins">
+        <p className="text-gray-700 dark:text-white/90 text-lg leading-relaxed font-poppins">
           Eliminate repetitive manual tasks with intelligent, seamless
           workflows. We connect your platforms and teams to boost operational
           efficiency across your entire organisation.

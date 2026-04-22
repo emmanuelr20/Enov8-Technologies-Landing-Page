@@ -28,7 +28,7 @@ export default function DigitalSignagePage() {
             className="object-cover"
           />
         </div>
-        <p className="text-gray-600 dark:text-white/90 text-lg leading-relaxed font-poppins">
+        <p className="text-gray-700 dark:text-white/90 text-lg leading-relaxed font-poppins">
           Manage and deploy dynamic visual content across your screens in
           real-time. We provide high-impact signage that transforms physical
           spaces and captivates your audience.

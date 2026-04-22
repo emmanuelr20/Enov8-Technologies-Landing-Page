@@ -78,7 +78,7 @@ export default function Partners() {
               Our Partners
             </h2>
           </div>
-          <p className="text-zinc-500 dark:text-white/90 text-lg sm:text-lg leading-relaxed font-poppins max-w-2xl">
+          <p className="text-gray-800 dark:text-white/90 text-lg sm:text-lg leading-relaxed font-poppins max-w-2xl">
             We collaborate with a curated network of trusted partners to deliver
             bespoke solutions that solve your immediate challenges while
             future-proofing your business.

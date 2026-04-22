@@ -18,7 +18,7 @@ export default function DocumentManagementPage() {
               Document Management System
             </h2>
           </div>
-          <p className="text-gray-600 dark:text-white/90 text-lg leading-relaxed font-poppins">
+          <p className="text-gray-700 dark:text-white/90 text-lg leading-relaxed font-poppins">
             Transform your office into a truly digital workspace. Our Document
             Management Systems (DMS) eliminate the chaos of physical filing and
             unstructured digital folders, providing a secure, searchable, and

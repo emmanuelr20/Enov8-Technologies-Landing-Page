@@ -28,7 +28,7 @@ export default function ConsultingPage() {
             className="object-cover"
           />
         </div>
-        <p className="text-gray-600 dark:text-white/90 text-lg leading-relaxed font-poppins">
+        <p className="text-gray-700 dark:text-white/90 text-lg leading-relaxed font-poppins">
           Optimise your technical strategy with expert guidance from seasoned
           professionals. We provide the clear roadmaps and actionable insights
           your organisation needs for confident, sustainable digital growth.

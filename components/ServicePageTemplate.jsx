@@ -77,11 +77,14 @@ export default function ServicePageTemplate({ serviceId, partnerLogo, children }
         <div className="relative z-10 container mx-auto px-6 text-center flex flex-col items-center">
           {partnerLogo && (
             <div className="mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-              <div className="px-8 py-4 bg-white">
-                <img
+              <div className="px-8 py-4 bg-white relative h-10 md:h-12 w-32 md:w-40">
+                <Image
                   src={partnerLogo}
                   alt="Partner Logo"
-                  className="h-10 md:h-12 w-auto"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 128px, 160px"
+                  priority
                 />
               </div>
             </div>

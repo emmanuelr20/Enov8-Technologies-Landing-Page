@@ -18,7 +18,7 @@ export default function NetworkingPage() {
               Networking
             </h2>
           </div>
-          <p className="text-gray-600 dark:text-white/90 text-lg leading-relaxed font-poppins">
+          <p className="text-gray-700 dark:text-white/90 text-lg leading-relaxed font-poppins">
             Build a foundation for digital success with our enterprise
             networking solutions. We design and deploy secure, high-speed, and
             resilient network infrastructures that keep your team connected and

@@ -19,7 +19,7 @@ export default function AIDeploymentPage() {
               AI Deployment
             </h2>
           </div>
-          <p className="text-gray-600 dark:text-white/90 text-lg leading-relaxed font-poppins">
+          <p className="text-gray-700 dark:text-white/90 text-lg leading-relaxed font-poppins">
             Transform your business with intelligent automation. Our AI
             deployment services focus on integrating machine learning, natural
             language processing, and predictive analytics into your existing

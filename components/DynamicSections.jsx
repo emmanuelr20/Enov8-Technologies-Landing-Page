@@ -9,7 +9,7 @@ const SectionLoader = ({ height = "400px" }) => (
     className="flex items-center justify-center bg-gray-50 dark:bg-gray-900 animate-pulse"
     style={{ minHeight: height }}
   >
-    <div className="text-gray-400 dark:text-gray-600">Loading...</div>
+    <div className="text-gray-400 dark:text-gray-700">Loading...</div>
   </div>
 );
 

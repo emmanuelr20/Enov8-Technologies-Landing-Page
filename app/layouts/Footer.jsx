@@ -26,7 +26,7 @@ const Footer = memo(function Footer() {
       duration: 400,
       easing: "ease-out",
       reset: false,
-    }
+    },
   );
 
   return (
@@ -37,9 +37,7 @@ const Footer = memo(function Footer() {
             ref={(el) => (elementsRef.current[0] = el)}
             className="lg:col-span-1"
           >
-            <div
-              className="text-2xl font-bold mb-4 font-space"
-            >
+            <div className="text-2xl font-bold mb-4 font-space">
               Enov8 Technologies
             </div>
             <p className="text-background/80 mb-6 dark:text-white">
@@ -73,7 +71,7 @@ const Footer = memo(function Footer() {
                   href="https://github.com/enov8technologies"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-background/80 dark:text-white hover:text-gray-600 transition-colors"
+                  className="text-background/80 dark:text-white hover:text-gray-700 transition-colors"
                   aria-label="View our GitHub"
                 >
                   <FaGithub size={24} />

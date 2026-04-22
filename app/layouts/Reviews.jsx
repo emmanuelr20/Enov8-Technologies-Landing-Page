@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { MessageSquareQuote } from "lucide-react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 // Import Swiper styles
 import "swiper/css";
@@ -77,11 +78,12 @@ export default function Reviews() {
       {/* Top Banner with Background Image */}
       <div className="relative h-[400px] md:h-[450px] overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src="/review.jpg"
             alt="Reviews Background"
-            className="w-full h-full object-cover"
-            loading="lazy"
+            fill
+            className="object-cover"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-black/60" />
         </div>
