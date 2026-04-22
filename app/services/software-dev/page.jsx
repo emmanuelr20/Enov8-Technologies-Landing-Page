@@ -78,6 +78,7 @@ export default function SoftwareDevPage() {
           src="/development2.jpg"
           alt="Software Development showcase"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
           priority
           className="object-cover"
         />

@@ -33,6 +33,7 @@ export default function AIDeploymentPage() {
             src="/ai2.jpg"
             alt="AI & Machine Learning showcase"
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             priority
             className="object-cover"
           />
@@ -71,7 +72,7 @@ export default function AIDeploymentPage() {
         </div>
 
         {/* Additional Detail */}
-        <div className="bg-light-primary/5 dark:bg-zinc-900/50 p-8 border-r-4 border-light-primary text-right">
+        <div className="bg-light-primary/5 dark:bg-zinc-900/50 p-8 border-l-4 border-light-primary">
           <h4 className="text-xl font-bold text-[#1A1A37] dark:text-white font-space mb-4">
             The AI Advantage
           </h4>

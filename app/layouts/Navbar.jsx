@@ -18,6 +18,98 @@ import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useScrollRevealMultiple } from "@/hooks/useScrollReveal";
 
+const MEGA_MENU_SERVICES = [
+  {
+    title: "Digital Signage",
+    href: "/services/digital-signage",
+    hints: [
+      "Dynamic Content Management",
+      "High-Impact Visual Displays",
+      "Real-Time Integration",
+    ],
+  },
+  {
+    title: "Business Automation",
+    href: "/services/automation",
+    hints: [
+      "ERP Solutions",
+      "Document Management System",
+      "Workflow Optimization",
+    ],
+  },
+  {
+    title: "Onboarding & ID",
+    href: "/services/onboarding",
+    hints: [
+      "KYC",
+      "AML",
+      "Fraud Detection",
+    ],
+  },
+  {
+    title: "Cyber Security",
+    href: "/services/security",
+    hints: [
+      "Audits",
+      "Encryptions",
+      "Security Ops",
+    ],
+  },
+  {
+    title: "Software Dev",
+    href: "/services/software-dev",
+    hints: [
+      ""
+    ],
+  },
+  {
+    title: "IT Consulting",
+    href: "/services/consulting",
+    hints: [
+      "IT Consulting",
+      "Infrastructure Strategy",
+      "Feasibility Studies",
+    ],
+  },
+  {
+    title: "ERP Deployment",
+    href: "/services/erp-deployment",
+    hints: ["Custom ERP Strategy", "Process Automation", "System Integration"],
+  },
+  {
+    title: "AI Deployment",
+    href: "/services/ai-deployment",
+    hints: ["Intelligent Automation", "Data-Driven Insights", "Predictive Models"],
+  },
+  {
+    title: "Networking",
+    href: "/services/networking",
+    hints: [""],
+  },
+  {
+    title: "ZohoOne Partner",
+    href: "/services/zoho-partner",
+    hints: [
+      "Sales",
+      "Finance",
+      "Marketing",
+      "Operations",
+      "Support",
+      "HR",
+    ],
+  },
+  {
+    title: "Doc Management",
+    href: "/services/document-management",
+    hints: [""]
+  },
+  {
+    title: "Hardware",
+    href: "/services/hardware-procurement",
+    hints: ["Enterprise Sourcing", "Deployment & Lifecycle", "Vendor Management"],
+  },
+];
+
 const Navbar = memo(function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
@@ -199,153 +291,35 @@ const Navbar = memo(function Navbar() {
 
               {/* Mega Menu Dropdown */}
               <div
-                className="absolute top-16 left-1 -translate-x-1 w-[640px] bg-white dark:bg-zinc-900 shadow-3xl border-2 border-[#1A1A37]
-              py-10 px-8 grid grid-cols-3 gap-8 opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible 
+                className="absolute top-16 left-1 -translate-x-1 w-[800px] bg-white dark:bg-zinc-900 shadow-2xl
+              py-12 px-10 columns-3 gap-10 opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible 
               transition-all duration-300 translate-y-2 group-hover/menu:translate-y-0 z-200"
               >
-                {/* Column 1: Automation */}
-                <div className="space-y-4">
-                  <div className="flex items-center gap-2">
-                    <span className="w-1 h-5 bg-light-primary block" />
-                    <h4 className="font-space font-bold text-sm uppercase tracking-wider text-[#1A1A37] dark:text-white">
-                      Automation
-                    </h4>
+                {MEGA_MENU_SERVICES.map((service, idx) => (
+                  <div
+                    key={idx}
+                    className="break-inside-avoid mb-10 space-y-3"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="w-1 h-5 bg-light-primary block" />
+                      <Link
+                        href={service.href}
+                        className="font-space font-semibold text-base capitalize tracking-wide text-[#1A1A37] dark:text-white hover:text-light-primary transition-colors"
+                      >
+                        {service.title}
+                      </Link>
+                    </div>
+                    {service.hints.some((h) => h !== "") && (
+                      <ul className="space-y-1 pl-3 font-poppins font-medium text-[12px] text-gray-500 capitalize dark:text-white/60">
+                        {service.hints
+                          .filter((h) => h !== "")
+                          .map((hint, hIdx) => (
+                            <li key={hIdx}>{hint}</li>
+                          ))}
+                      </ul>
+                    )}
                   </div>
-                  <ul className="space-y-3 pl-3 font-poppins">
-                    <li>
-                      <Link
-                        href="/services/automation"
-                        className="text-gray-700 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize"
-                      >
-                        Business automation
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/services/erp-deployment"
-                        className="text-gray-700 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize"
-                      >
-                        ERP deployment
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/services/document-management"
-                        className="text-gray-700 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize"
-                      >
-                        Document management
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/services/zoho-partner"
-                        className="text-gray-700 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize"
-                      >
-                        Zoho one ecosystem
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Column 2: Digital & AI */}
-                <div className="space-y-4">
-                  <div className="flex items-center gap-2">
-                    <span className="w-1 h-5 bg-light-primary block" />
-                    <h4 className="font-space font-bold text-sm uppercase tracking-wider text-[#1A1A37] dark:text-white">
-                      Digital & AI
-                    </h4>
-                  </div>
-                  <ul className="space-y-3 pl-3 font-poppins">
-                    <li>
-                      <Link
-                        href="/services/software-dev"
-                        className="text-gray-700 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize"
-                      >
-                        Software development
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/services/ai-deployment"
-                        className="text-gray-700 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize"
-                      >
-                        AI deployment
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/services/digital-signage"
-                        className="text-gray-700 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize"
-                      >
-                        Digital signage
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Column 3: Security */}
-                <div className="space-y-4">
-                  <div className="flex items-center gap-2">
-                    <span className="w-1 h-5 bg-light-primary block" />
-                    <h4 className="font-space font-bold text-sm uppercase tracking-wider text-[#1A1A37] dark:text-white">
-                      Security
-                    </h4>
-                  </div>
-                  <ul className="space-y-3 pl-3 font-poppins">
-                    <li>
-                      <Link
-                        href="/services/onboarding"
-                        className="text-gray-700 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize"
-                      >
-                        KYC & verification
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/services/security"
-                        className="text-gray-700 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize"
-                      >
-                        Cyber Security
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Column 4: Infrastructure */}
-                <div className="space-y-4">
-                  <div className="flex items-center gap-2">
-                    <span className="w-1 h-5 bg-light-primary block" />
-                    <h4 className="font-space font-bold text-sm uppercase tracking-wider text-[#1A1A37] dark:text-white">
-                      Infrastructure
-                    </h4>
-                  </div>
-                  <ul className="space-y-3 pl-3 font-poppins">
-                    <li>
-                      <Link
-                        href="/services/networking"
-                        className="text-gray-700 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize"
-                      >
-                        Networking
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/services/hardware-procurement"
-                        className="text-gray-700 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize"
-                      >
-                        Hardware procurement
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/services/consulting"
-                        className="text-gray-700 dark:text-white/90 hover:text-light-primary text-[13px] font-medium transition-colors block capitalize"
-                      >
-                        IT consulting
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
+                ))}
               </div>
             </li>
             <li>

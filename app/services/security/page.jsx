@@ -70,6 +70,7 @@ export default function SecurityPage() {
               src="/security1.jpg"
               alt="Data Encryption showcase"
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
               priority
               className="object-cover"
             />

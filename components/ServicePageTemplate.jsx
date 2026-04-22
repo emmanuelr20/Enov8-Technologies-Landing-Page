@@ -64,7 +64,7 @@ export default function ServicePageTemplate({ serviceId, partnerLogo, children }
       <section className="relative h-[350px] md:h-[430px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src={service.heroImage || "/workflowImage.jpg"}
+            src={service.heroImage}
             alt={service.title}
             fill
             priority
@@ -77,15 +77,17 @@ export default function ServicePageTemplate({ serviceId, partnerLogo, children }
         <div className="relative z-10 container mx-auto px-6 text-center flex flex-col items-center">
           {partnerLogo && (
             <div className="mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-              <div className="px-8 py-4 bg-white relative h-10 md:h-12 w-32 md:w-40">
-                <Image
-                  src={partnerLogo}
-                  alt="Partner Logo"
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 128px, 160px"
-                  priority
-                />
+              <div className="p-4 bg-white shadow-xl relative h-16 md:h-20 w-44 md:w-56 flex items-center justify-center">
+                <div className="relative w-full h-full">
+                  <Image
+                    src={partnerLogo}
+                    alt="Partner Logo"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 176px, 224px"
+                    priority
+                  />
+                </div>
               </div>
             </div>
           )}

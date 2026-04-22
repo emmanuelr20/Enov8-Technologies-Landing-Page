@@ -92,6 +92,7 @@ export default function AutomationPage() {
           src="/business-automation.jpg"
           alt="Business Automation showcase"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
           priority
           className="object-cover"
         />
