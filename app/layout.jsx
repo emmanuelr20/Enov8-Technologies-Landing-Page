@@ -490,6 +490,7 @@ export default function RootLayout({ children }) {
     <html lang="en" data-scroll-behavior="smooth">
       <body
         className={`${poppins.variable} ${space.variable} text-zinc-900 bg-bg-light dark:bg-black overflow-x-hidden`}
+        suppressHydrationWarning
       >
         {/* Organization Schema */}
         <script

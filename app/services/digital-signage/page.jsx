@@ -21,7 +21,7 @@ export default function DigitalSignagePage() {
         {/* Feature Image */}
         <div className="relative h-[300px] mb-12 md:h-[400px] overflow-hidden">
           <Image
-            src="/signage1.jpg"
+            src="/signage.jpg"
             alt="Digital Signage showcase"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"

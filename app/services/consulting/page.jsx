@@ -21,7 +21,7 @@ export default function ConsultingPage() {
         {/* Feature Image */}
         <div className="relative h-[300px] mb-5 md:h-[400px] overflow-hidden">
           <Image
-            src="/consultingtech.jpg"
+            src="/consulting1.jpg"
             alt="Consulting showcase"
             fill
             priority

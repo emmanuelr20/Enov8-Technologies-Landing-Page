@@ -46,7 +46,7 @@ export default function ZohoOnePartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space capitalize dark:text-white capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space dark:text-white capitalize tracking-tight">
                 Sales & Process Automation
               </h4>
             </div>
@@ -61,7 +61,7 @@ export default function ZohoOnePartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space capitalize dark:text-white capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space dark:text-white capitalize tracking-tight">
                 Unified Marketing
               </h4>
             </div>
@@ -76,7 +76,7 @@ export default function ZohoOnePartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space capitalize dark:text-white capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space dark:text-white capitalize tracking-tight">
                 Customer Experience (CX)
               </h4>
             </div>
@@ -91,7 +91,7 @@ export default function ZohoOnePartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space capitalize dark:text-white capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space dark:text-white capitalize tracking-tight">
                 Finance & Inventory
               </h4>
             </div>
@@ -106,7 +106,7 @@ export default function ZohoOnePartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space capitalize dark:text-white capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space dark:text-white capitalize tracking-tight">
                 HR & Employee Empowerment
               </h4>
             </div>
@@ -121,7 +121,7 @@ export default function ZohoOnePartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space capitalize dark:text-white capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space dark:text-white capitalize tracking-tight">
                 Operations & Projects
               </h4>
             </div>
@@ -136,7 +136,7 @@ export default function ZohoOnePartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space capitalize dark:text-white capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space dark:text-white capitalize tracking-tight">
                 Ecommerce
               </h4>
             </div>
