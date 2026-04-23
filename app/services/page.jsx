@@ -155,7 +155,7 @@ export default function ServicesPage() {
             <span className="text-light-primary font-semibold text-sm uppercase tracking-widest font-poppins block mb-4">
               Our Services
             </span>
-            <div className="flex flex-col items-center gap-4 max-w-3xl mx-auto">
+            <div className="flex flex-col flex-start md:items-center gap-4 max-w-3xl mx-auto">
               <div className="flex items-center gap-4">
                 <span className="w-1 h-10 bg-light-primary block shrink-0" />
                 <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A37] dark:text-white font-space leading-tight">

@@ -93,7 +93,7 @@ export default function Reviews() {
           <div className="flex flex-col items-center justify-center md:text-center">
             <div className="flex items-center gap-4">
               <span className="w-1.5 h-12 bg-light-primary block shrink-0" />
-              <h2 className="text-3xl md:text-5xl font-black text-white font-space tracking-tight">
+              <h2 className="text-4xl md:text-5xl font-black text-white font-space tracking-tight">
                 What Our Clients Are Saying!
               </h2>
             </div>

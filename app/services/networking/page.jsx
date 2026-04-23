@@ -27,46 +27,96 @@ export default function NetworkingPage() {
         </div>
 
         {/* Sections */}
-        <div className="grid grid-cols-1 gap-10">
+        <div className="grid grid-cols-1 gap-10 border-t border-gray-100 dark:border-zinc-800 pt-10">
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
-                Secure Infrastructure
+              <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
+                Digital Network Architecture
               </h4>
             </div>
             <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
-              From sophisticated firewalls to encrypted VPNs, we build security
-              into the core of your network. Protect your business from external
-              threats while maintaining seamless internal access.
+              We build networks that grow with you. By combining smart
+              automation with airtight security, we ensure your infrastructure
+              isn’t just a utility, but a competitive advantage that supports
+              your long-term goals.
             </p>
           </div>
 
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
-                SD-WAN & Cloud Ready
+              <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
+                Structured Cabling
               </h4>
             </div>
             <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
-              Modernize your network with software-defined wide area networking
-              (SD-WAN). Optimize traffic across multiple locations and ensure
-              high-performance access to your cloud-based applications.
+              The backbone of your office needs to be dependable. We install
+              high-performance copper cabling (Cat 6 to Cat 7a) that meets
+              strict industry standards, ensuring your team stays connected
+              without the frustration of lag or downtime.
             </p>
           </div>
-        </div>
 
-        {/* Additional Detail */}
-        <div className="bg-gray-50 dark:bg-zinc-900 p-8 border-l-4 border-light-primary">
-          <h4 className="text-xl font-bold text-[#1A1A37] dark:text-white font-space mb-4">
-            Zero Downtime Philosophy
-          </h4>
-          <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed">
-            In today's economy, being offline means losing revenue. Our
-            networking strategies prioritize redundancy and failover systems to
-            ensure your business remains connected 24/7/365.
-          </p>
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
+              <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
+                Wireless Solutions
+              </h4>
+            </div>
+            <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
+              Give your team the freedom to work from anywhere in the office.
+              Our secure, high-capacity Wi-Fi solutions are built to handle a
+              dense mix of laptops, phones, and IoT devices without dropping a
+              beat.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
+              <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
+                Enterprise Network Monitoring
+              </h4>
+            </div>
+            <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
+              We spot trouble before it reaches your desk. Our real-time
+              monitoring gives us a bird’s-eye view of your performance and
+              security, allowing us to fix bottlenecks and block threats before
+              they disrupt your day.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
+              <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
+                Fiber Optic Cabling
+              </h4>
+            </div>
+            <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
+              When distance and speed are non-negotiable, our fiber solutions
+              bridge the gap. We link buildings and data centers with
+              high-bandwidth connectivity designed to handle your heaviest data
+              loads with ease.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
+              <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
+                Wide Area Networks (WAN)
+              </h4>
+            </div>
+            <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
+              Keep your global teams feeling like they’re in the same room.
+              Whether through SD-WAN or secure VPNs, we provide the fast,
+              private links your satellite offices need to share data and
+              collaborate safely.
+            </p>
+          </div>
         </div>
       </div>
     </ServicePageTemplate>

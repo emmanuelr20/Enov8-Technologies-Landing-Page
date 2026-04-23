@@ -16,7 +16,7 @@ export default function ZohoOnePartnerPage() {
           <div className="flex items-center gap-3 md:gap-4 mb-10">
             <span className="w-1.5 h-10 bg-light-primary block shrink-0" />
             <h2 className="text-3xl md:text-4xl font-black text-[#1A1A37] dark:text-white font-space tracking-tight">
-              ZohoOne Certified Partner
+              Zoho Certified Partner
             </h2>
           </div>
           {/* Feature Image */}
@@ -29,7 +29,7 @@ export default function ZohoOnePartnerPage() {
               priority
               className="object-fit"
             />
-            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
+            {/* <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" /> */}
           </div>
           <p className="text-gray-700 dark:text-white/90 text-lg leading-relaxed font-poppins">
             Unlock the full potential of the ZohoOne ecosystem. As certified
@@ -41,12 +41,12 @@ export default function ZohoOnePartnerPage() {
         </div>
 
         {/* Core Modules Grid: The Operating System for Business */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 border-t border-gray-100 dark:border-zinc-800 pt-10">
           {/* Sales */}
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space text-primary-light dark:text-white capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space capitalize dark:text-white capitalize tracking-tight">
                 Sales & Process Automation
               </h4>
             </div>
@@ -61,7 +61,7 @@ export default function ZohoOnePartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space text-primary-light dark:text-white capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space capitalize dark:text-white capitalize tracking-tight">
                 Unified Marketing
               </h4>
             </div>
@@ -76,7 +76,7 @@ export default function ZohoOnePartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space text-primary-light dark:text-white capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space capitalize dark:text-white capitalize tracking-tight">
                 Customer Experience (CX)
               </h4>
             </div>
@@ -91,7 +91,7 @@ export default function ZohoOnePartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space text-primary-light dark:text-white capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space capitalize dark:text-white capitalize tracking-tight">
                 Finance & Inventory
               </h4>
             </div>
@@ -106,7 +106,7 @@ export default function ZohoOnePartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space text-primary-light dark:text-white capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space capitalize dark:text-white capitalize tracking-tight">
                 HR & Employee Empowerment
               </h4>
             </div>
@@ -121,7 +121,7 @@ export default function ZohoOnePartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space text-primary-light dark:text-white capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space capitalize dark:text-white capitalize tracking-tight">
                 Operations & Projects
               </h4>
             </div>
@@ -136,7 +136,7 @@ export default function ZohoOnePartnerPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl font-bold font-space text-primary-light dark:text-white capitalize tracking-tight">
+              <h4 className="text-xl font-bold font-space capitalize dark:text-white capitalize tracking-tight">
                 Ecommerce
               </h4>
             </div>

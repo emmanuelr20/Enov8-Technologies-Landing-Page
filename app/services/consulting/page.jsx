@@ -41,7 +41,7 @@ export default function ConsultingPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
+            <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
               Digital Transformation Roadmap
             </h4>
           </div>
@@ -56,7 +56,7 @@ export default function ConsultingPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
+            <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
               Infrastructure Strategy
             </h4>
           </div>
@@ -71,7 +71,7 @@ export default function ConsultingPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
+            <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
               Technical Feasibility Studies
             </h4>
           </div>

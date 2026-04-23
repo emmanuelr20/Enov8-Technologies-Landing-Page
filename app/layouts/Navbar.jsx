@@ -56,7 +56,7 @@ const MEGA_MENU_SERVICES = [
     ],
   },
   {
-    title: "Software Dev",
+    title: "Software Development",
     href: "/services/software-dev",
     hints: [
       ""
@@ -84,10 +84,10 @@ const MEGA_MENU_SERVICES = [
   {
     title: "Networking",
     href: "/services/networking",
-    hints: [""],
+    hints: ["Digital Network Architecture", "Structured Cabling", "Wireless Solutions", "Network Security", "Enterprise Network Monitoring"],
   },
   {
-    title: "ZohoOne Partner",
+    title: "Zoho Implementer",
     href: "/services/zoho-partner",
     hints: [
       "Sales",
@@ -99,7 +99,7 @@ const MEGA_MENU_SERVICES = [
     ],
   },
   {
-    title: "Doc Management",
+    title: "Document Management system",
     href: "/services/document-management",
     hints: [""]
   },
@@ -203,18 +203,6 @@ const Navbar = memo(function Navbar() {
           </div>
           <div className="flex items-center gap-4 font-bold uppercase tracking-wider text-[10px]">
             <a
-              href="https://web.facebook.com/Enov8Technologies"
-              className="text-light-primary hover:text-light-hover transition-colors"
-            >
-              <Facebook size={20} />
-            </a>
-            {/* <a
-              href=""
-              className="text-light-primary hover:text-light-hover transition-colors"
-            >
-              <Twitter size={20} />
-            </a> */}
-            <a
               href="https://www.linkedin.com/company/enov8-technologies/"
               className="text-light-primary hover:text-light-hover transition-colors"
             >
@@ -226,6 +214,13 @@ const Navbar = memo(function Navbar() {
             >
               <Instagram size={20} />
             </a>
+            <a
+              href="https://web.facebook.com/Enov8Technologies"
+              className="text-light-primary hover:text-light-hover transition-colors"
+            >
+              <Facebook size={20} />
+            </a>
+            
           </div>
         </div>
       </div>

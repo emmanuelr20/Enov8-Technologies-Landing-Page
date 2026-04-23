@@ -27,11 +27,11 @@ export default function DocumentManagementPage() {
         </div>
 
         {/* Sections */}
-        <div className="grid grid-cols-1 gap-10">
+        <div className="grid grid-cols-1 gap-10 border-t border-gray-100 dark:border-zinc-800 pt-10">
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
+              <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
                 Smart Indexing & Search
               </h4>
             </div>
@@ -45,7 +45,7 @@ export default function DocumentManagementPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
+              <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
                 Workflow Automation
               </h4>
             </div>

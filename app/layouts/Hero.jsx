@@ -41,8 +41,8 @@ export default function Hero() {
             {/* Card 1: Brand Color - Years of Excellence */}
             <div className="relative group overflow-hidden bg-light-primary/80 p-6 sm:p-8 md:p-10 text-white shadow-2xl flex flex-col min-h-[250px] md:min-h-[280px] xl:text-center">
               {/* Big number + title inline — TBO style */}
-              <div className="flex items-start lg:items-center gap-4 mb-6">
-                <h3 className="text-xl md:text-3xl font-extrabold font-space leading-tight tracking-wide">
+              <div className="flex items-start lg:items-center gap-4 mb-6 xl:justify-center">
+                <h3 className="text-xl md:text-3xl font-extrabold font-space leading-tight tracking-wide ">
                   Years Of
                   <br />
                   Excellence

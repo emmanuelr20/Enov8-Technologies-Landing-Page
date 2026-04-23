@@ -3,7 +3,8 @@
 import { memo } from "react";
 import {
   FaLinkedin,
-  FaTwitter,
+  FaInstagram,
+  FaFacebook,
   FaGithub,
   FaYoutube,
   FaMedium,
@@ -50,7 +51,7 @@ const Footer = memo(function Footer() {
               <h4 className="font-semibold mb-3">Follow Us</h4>
               <div className="flex space-x-4">
                 <a
-                  href="https://linkedin.com/company/enov8technologies"
+                  href="https://www.linkedin.com/company/enov8-technologies/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-background/80 dark:text-white hover:text-blue-600 transition-colors"
@@ -58,7 +59,7 @@ const Footer = memo(function Footer() {
                 >
                   <FaLinkedin size={24} />
                 </a>
-                <a
+                {/* <a
                   href="https://twitter.com/enov8tech"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -66,8 +67,8 @@ const Footer = memo(function Footer() {
                   aria-label="Follow us on Twitter"
                 >
                   <FaTwitter size={24} />
-                </a>
-                <a
+                </a> */}
+                {/* <a
                   href="https://github.com/enov8technologies"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -75,8 +76,8 @@ const Footer = memo(function Footer() {
                   aria-label="View our GitHub"
                 >
                   <FaGithub size={24} />
-                </a>
-                <a
+                </a> */}
+                {/* <a
                   href="https://youtube.com/@enov8technologies"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -84,8 +85,8 @@ const Footer = memo(function Footer() {
                   aria-label="Subscribe to our YouTube channel"
                 >
                   <FaYoutube size={24} />
-                </a>
-                <a
+                </a> */}
+                {/* <a
                   href="https://medium.com/@enov8technologies"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -93,15 +94,24 @@ const Footer = memo(function Footer() {
                   aria-label="Read our Medium articles"
                 >
                   <FaMedium size={24} />
-                </a>
+                </a> */}
                 <a
-                  href="https://dribbble.com/enov8technologies"
+                  href="https://www.instagram.com/enov8_technologies?igsh=YWZtNHNia2syanE1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-background/80 dark:text-white hover:text-pink-600 transition-colors"
-                  aria-label="View our Dribbble designs"
+                  aria-label="View our Instagram"
                 >
-                  <FaDribbble size={24} />
+                  <FaInstagram size={24} />
+                </a>
+                <a
+                  href="https://www.facebook.com/Enov8Technologies"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-background/80 dark:text-white hover:text-blue-600 transition-colors"
+                  aria-label="Follow us on Facebook"
+                >
+                  <FaFacebook size={24} />
                 </a>
               </div>
             </div>
@@ -139,7 +149,7 @@ const Footer = memo(function Footer() {
                   href="/services/security"
                   className="hover:text-white transition-colors"
                 >
-                  Security
+                  Cyber Security
                 </a>
               </li>
               <li>

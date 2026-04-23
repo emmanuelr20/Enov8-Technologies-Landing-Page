@@ -40,7 +40,7 @@ export default function SecurityPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
+            <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
               Cybersecurity Audits
             </h4>
           </div>
@@ -55,7 +55,7 @@ export default function SecurityPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
+            <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
               Data Encryption & Privacy
             </h4>
           </div>
@@ -80,7 +80,7 @@ export default function SecurityPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
+            <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
               Managed Security Operations
             </h4>
           </div>

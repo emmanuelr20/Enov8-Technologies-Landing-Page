@@ -30,7 +30,7 @@ export default function SoftwareDevPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
+            <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
               Custom Web Applications
             </h4>
           </div>
@@ -45,7 +45,7 @@ export default function SoftwareDevPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
+            <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
               Mobile App Development
             </h4>
           </div>
@@ -59,7 +59,7 @@ export default function SoftwareDevPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space text-primary-light dark:text-white">
+            <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
               Legacy System Modernisation
             </h4>
           </div>
@@ -73,7 +73,7 @@ export default function SoftwareDevPage() {
       </div>
 
       {/* Feature Image */}
-      <div className="relative h-[300px] md:h-[400px] overflow-hidden shadow-2xl">
+      <div className="relative h-[300px] md:h-[400px] overflow-hidden">
         <Image
           src="/development2.jpg"
           alt="Software Development showcase"

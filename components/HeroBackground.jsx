@@ -324,12 +324,17 @@ export default function HeroBackground() {
           >
             <div className="max-w-4xl w-full">
               {/* Headline */}
-              <h1
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold capitalize leading-[1.05] text-white tracking-tighter font-space mb-6"
-                style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
-              >
-                {slide.headline}
-              </h1>
+              {(() => {
+                const Tag = i === 0 ? "h1" : "h2";
+                return (
+                  <Tag
+                    className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white tracking-tighter font-space mb-6"
+                    style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
+                  >
+                    {slide.headline}
+                  </Tag>
+                );
+              })()}
 
               {/* Subtitle */}
               <div className="flex items-center justify-center gap-4 max-w-xl mx-auto">

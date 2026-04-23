@@ -74,7 +74,7 @@ export default function Partners() {
         >
           <div className="flex items-center gap-4">
             <span className="w-1 h-10 bg-light-primary block shrink-0" />
-            <h2 className="text-3xl md:text-4xl font-black text-[#1A1A37] dark:text-white font-space">
+            <h2 className="text-4xl md:text-5xl font-black text-[#1A1A37] dark:text-white font-space">
               Our Partners
             </h2>
           </div>
@@ -115,6 +115,7 @@ export default function Partners() {
                   alt={partner.alt}
                   width={130}
                   height={52}
+                  style={{ height: "auto" }}
                   className="object-contain max-h-12 md:max-h-14 w-auto dark:invert"
                 />
               </li>
