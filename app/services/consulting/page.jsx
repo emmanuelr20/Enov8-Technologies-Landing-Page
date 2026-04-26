@@ -1,11 +1,8 @@
 import Image from "next/image";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { buildServiceMetadata } from "@/lib/seoMetadata";
 
-export const metadata = {
-  title: "IT Consulting | Enov8 Technologies",
-  description:
-    "Optimize your technical strategy with expert guidance. Enov8 Technologies provides the roadmaps and insights you need for long-term growth.",
-};
+export const metadata = buildServiceMetadata("consulting");
 
 export default function ConsultingPage() {
   return (
@@ -79,7 +76,6 @@ export default function ConsultingPage() {
           alt="IT Consulting and Strategy"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
-          priority
           className="object-cover"
         />
       </div>

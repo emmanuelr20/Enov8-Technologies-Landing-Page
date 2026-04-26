@@ -1,11 +1,8 @@
 import Image from "next/image";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { buildServiceMetadata } from "@/lib/seoMetadata";
 
-export const metadata = {
-  title: "Digital Signage Solution | Enov8 Technologies",
-  description:
-    "Manage and deploy dynamic visual content across your screens in real-time. Enov8 Technologies provides high-impact digital signage solutions that transform physical spaces.",
-};
+export const metadata = buildServiceMetadata("digital-signage");
 
 export default function DigitalSignagePage() {
   return (
@@ -25,7 +22,6 @@ export default function DigitalSignagePage() {
             alt="Digital Signage showcase"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
-            priority
             className="object-cover"
           />
         </div>

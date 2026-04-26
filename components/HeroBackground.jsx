@@ -1,6 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import Image from "next/image";
+
+/** Shown as video poster and reduced-motion static hero — improves LCP before decode */
+const HERO_POSTER = "/sections/servicebackground.webp";
 
 const SLIDES = [
   {
@@ -73,15 +77,16 @@ const VARIATIONS = [
 export default function HeroBackground() {
   const [current, setCurrent] = useState(0);
   const [nextSlide, setNextSlide] = useState(null);
-  const [transType, setTransType] = useState(null);
   const [phase, setPhase] = useState("idle");
   const [direction, setDirection] = useState(1); // 1: forward, -1: backward
   const [isPaused, setIsPaused] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
-  const [activeVariation, setActiveVariation] = useState(VARIATIONS[0]);
+  const [reducedMotion, setReducedMotion] = useState(false);
+  const [inView, setInView] = useState(true);
 
   const timerRef = useRef(null);
   const videoRefs = useRef([]);
+  const containerRef = useRef(null);
   const phaseRef = useRef("idle");
   const activeVariationRef = useRef(VARIATIONS[0]);
   const variationIndexRef = useRef(0);
@@ -90,6 +95,27 @@ export default function HeroBackground() {
   useEffect(() => {
     phaseRef.current = phase;
   }, [phase]);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const onChange = () => setReducedMotion(mq.matches);
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        setInView(e?.isIntersecting ?? false);
+      },
+      { root: null, rootMargin: "0px", threshold: 0.1 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   // ── Navigate ───────────────────────────────────────────────────────────────
   const goTo = useCallback(
@@ -113,7 +139,6 @@ export default function HeroBackground() {
       variationIndexRef.current = nextVarIndex;
       const nextVar = VARIATIONS[nextVarIndex];
       activeVariationRef.current = nextVar;
-      setActiveVariation(nextVar);
 
       setDirection(dir);
       setNextSlide(idx);
@@ -122,6 +147,7 @@ export default function HeroBackground() {
 
       const vid = videoRefs.current[idx];
       if (vid) {
+        vid.preload = "auto";
         vid.currentTime = 0;
         vid.play().catch(() => {});
       }
@@ -140,33 +166,52 @@ export default function HeroBackground() {
     () => goTo((current + 1) % TOTAL, 1),
     [current, goTo],
   );
-  const goPrev = useCallback(
-    () => goTo((current - 1 + TOTAL) % TOTAL, -1),
-    [current, goTo],
-  );
-
   // ── Auto timer ─────────────────────────────────────────────────────────────
   useEffect(() => {
-    if (isPaused || phase !== "idle") return;
+    if (isPaused || phase !== "idle" || !inView) return;
     timerRef.current = setInterval(goNext, HOLD_DURATION);
     return () => clearInterval(timerRef.current);
-  }, [isPaused, phase, goNext]);
+  }, [isPaused, phase, goNext, inView]);
 
-  // ── Preload all videos ────────────────────────────────────────────────────
+  // First slide only: full preload. Others load on demand (major bandwidth / main-thread win).
   useEffect(() => {
-    videoRefs.current.forEach((vid, i) => {
-      if (!vid) return;
-      vid.preload = "auto";
-      vid.load();
-      if (i === 0) {
-        const onReady = () => {
-          vid.play().catch(() => {});
-          setVideoReady(true);
-        };
-        vid.addEventListener("canplaythrough", onReady, { once: true });
-      }
-    });
+    const vid = videoRefs.current[0];
+    if (!vid) return;
+    const onReady = () => {
+      vid.play().catch(() => {});
+      setVideoReady(true);
+    };
+    vid.addEventListener("canplaythrough", onReady, { once: true });
+    return () => {
+      vid.removeEventListener("canplaythrough", onReady);
+    };
   }, []);
+
+  // Gently warm the next clip after first paint (does not block LCP the way preload-all did).
+  useEffect(() => {
+    if (!videoReady || reducedMotion) return;
+    if (typeof window === "undefined" || !("requestIdleCallback" in window)) {
+      return;
+    }
+    const id = window.requestIdleCallback(
+      () => {
+        const next = videoRefs.current[1];
+        if (next) {
+          next.preload = "metadata";
+        }
+      },
+      { timeout: 3000 },
+    );
+    return () => window.cancelIdleCallback(id);
+  }, [videoReady, reducedMotion]);
+
+  useEffect(() => {
+    if (inView) return;
+    clearInterval(timerRef.current);
+    videoRefs.current.forEach((v) => {
+      if (v) v.pause();
+    });
+  }, [inView]);
 
   // ── Compute slide position styles ──────────────────────────────────────────
   const getSlideStyle = (i) => {
@@ -221,13 +266,6 @@ export default function HeroBackground() {
     return { ...baseStyle, opacity: 0, zIndex: 0 };
   };
 
-  // For the incoming slide we need it to START offset and animate to 0
-  // We do this by wrapping in a div with initial transform set inline
-  const getNextInitialStyle = () => {
-    const inStart = direction === 1 ? "100%" : "-100%";
-    return phase === "sliding" ? { transform: `translateX(${inStart})` } : {};
-  };
-
   // ── Text style ─────────────────────────────────────────────────────────────
   const getTextStyle = (i) => {
     if (!videoReady) return { opacity: 0, pointerEvents: "none" };
@@ -257,8 +295,49 @@ export default function HeroBackground() {
     return { opacity: 0, pointerEvents: "none" };
   };
 
+  if (reducedMotion) {
+    const s = SLIDES[0];
+    return (
+      <div
+        ref={containerRef}
+        className="relative min-h-[75vh] overflow-hidden bg-[#09090b]"
+        suppressHydrationWarning
+      >
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={HERO_POSTER}
+            alt=""
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6">
+          <div className="max-w-4xl w-full">
+            <h1
+              className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white tracking-tighter font-space mb-6 whitespace-pre-line"
+              style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
+            >
+              {s.headline}
+            </h1>
+            <p
+              className="text-gray-50 text-lg md:text-lg leading-relaxed font-poppins text-center"
+              style={{ textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}
+            >
+              {s.sub}
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
+    // biome-ignore lint/a11y/noStaticElementInteractions: hover pauses the carousel; dots handle keyboard/AT
     <div
+      ref={containerRef}
       // PERSPECTIVE is the secret sauce here
       className="relative min-h-[75vh] overflow-hidden bg-[#09090b]"
       style={{ perspective: "1500px" }}
@@ -268,9 +347,6 @@ export default function HeroBackground() {
     >
       {/* Video slides — each absolutely positioned, clipped by overflow:hidden */}
       {SLIDES.map((slide, i) => {
-        const isNext = i === nextSlide;
-        const isSliding = phase === "sliding";
-
         return (
           <div
             key={slide.id}
@@ -295,8 +371,12 @@ export default function HeroBackground() {
             }}
           >
             <video
-              ref={(el) => (videoRefs.current[i] = el)}
+              ref={(el) => {
+                videoRefs.current[i] = el;
+              }}
               src={slide.video}
+              poster={HERO_POSTER}
+              preload={i === 0 ? "auto" : "none"}
               muted
               loop
               playsInline
@@ -331,7 +411,7 @@ export default function HeroBackground() {
                 const Tag = i === 0 ? "h1" : "h2";
                 return (
                   <Tag
-                    className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white tracking-tighter font-space mb-6"
+                    className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white tracking-tighter font-space mb-6 whitespace-pre-line"
                     style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
                   >
                     {slide.headline}
@@ -355,9 +435,10 @@ export default function HeroBackground() {
 
       {/* Dot navigation */}
       <div className="absolute right-6 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-4" suppressHydrationWarning>
-        {SLIDES.map((_, i) => (
+        {SLIDES.map((slide, i) => (
           <button
-            key={i}
+            key={slide.id}
+            type="button"
             onClick={() => goTo(i, i > current ? 1 : -1)}
             aria-label={`Slide ${i + 1}`}
             className="relative flex items-center justify-center w-7 h-7"

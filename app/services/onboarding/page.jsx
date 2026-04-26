@@ -1,11 +1,8 @@
 import Image from "next/image";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { buildServiceMetadata } from "@/lib/seoMetadata";
 
-export const metadata = {
-  title: "Customer Onboarding & ID Verification | Enov8 Technologies",
-  description:
-    "Streamline the user journey with secure, friction-free verification. We integrate robust KYC and compliance protocols to build trust at every touchpoint.",
-};
+export const metadata = buildServiceMetadata("onboarding");
 
 export default function OnboardingPage() {
   return (
@@ -25,7 +22,6 @@ export default function OnboardingPage() {
             alt="Customer Onboarding showcase"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
-            priority
             className="object-cover"
           />
         </div>

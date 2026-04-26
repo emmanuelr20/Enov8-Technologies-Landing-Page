@@ -1,11 +1,8 @@
 import Image from "next/image";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { buildServiceMetadata } from "@/lib/seoMetadata";
 
-export const metadata = {
-  title: "ZohoOne Certified Partner | Enov8 Technologies",
-  description:
-    "Official ZohoOne partner helping you implement and optimize the entire ZohoOne suite for business success.",
-};
+export const metadata = buildServiceMetadata("zoho-partner");
 
 export default function ZohoOnePartnerPage() {
   return (
@@ -26,7 +23,6 @@ export default function ZohoOnePartnerPage() {
               alt="ZohoOne Ecosystem showcase"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
-              priority
               className="object-fit"
             />
             {/* <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" /> */}

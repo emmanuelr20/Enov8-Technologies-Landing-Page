@@ -1,11 +1,8 @@
 import Image from "next/image";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { buildServiceMetadata } from "@/lib/seoMetadata";
 
-export const metadata = {
-  title: "Cyber Security | Enov8 Technologies",
-  description:
-    "Protect your digital assets with advanced cyber security solutions. From threat intelligence to zero-trust architecture, we safeguard your enterprise from evolving digital risks.",
-};
+export const metadata = buildServiceMetadata("security");
 
 export default function SecurityPage() {
   return (
@@ -71,7 +68,6 @@ export default function SecurityPage() {
               alt="Data Encryption showcase"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
-              priority
               className="object-cover"
             />
           </div>

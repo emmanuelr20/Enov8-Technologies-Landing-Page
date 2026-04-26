@@ -1,11 +1,8 @@
 import Image from "next/image";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { buildServiceMetadata } from "@/lib/seoMetadata";
 
-export const metadata = {
-  title: "Software Development | Enov8 Technologies",
-  description:
-    "Build scalable, custom digital products designed for performance. Enov8 Technologies delivers user-centric web and mobile applications using modern tech stacks.",
-};
+export const metadata = buildServiceMetadata("software-dev");
 
 export default function SoftwareDevPage() {
   return (
@@ -79,7 +76,6 @@ export default function SoftwareDevPage() {
           alt="Software Development showcase"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
-          priority
           className="object-cover"
         />
       </div>

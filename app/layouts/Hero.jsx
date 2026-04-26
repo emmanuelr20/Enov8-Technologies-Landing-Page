@@ -1,12 +1,30 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { FaHandsHelping } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa6";
 import dynamic from "next/dynamic";
-import HeroBackground from "@/components/HeroBackground";
 
-const ScrollReveal = dynamic(() => import("scrollreveal"), { ssr: false });
+const HeroBackground = dynamic(() => import("@/components/HeroBackground"), {
+  ssr: false,
+  loading: () => (
+    <div
+      className="relative min-h-[75vh] overflow-hidden bg-[#09090b]"
+      aria-hidden="true"
+    >
+      <Image
+        src="/sections/servicebackground.webp"
+        alt=""
+        fill
+        priority
+        className="object-cover"
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50" />
+    </div>
+  ),
+});
 
 export default function Hero() {
   const cardsRef = useRef(null);

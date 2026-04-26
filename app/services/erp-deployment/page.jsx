@@ -1,11 +1,8 @@
 import Image from "next/image";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { buildServiceMetadata } from "@/lib/seoMetadata";
 
-export const metadata = {
-  title: "ERP Deployment | Enov8 Technologies",
-  description:
-    "Scale your operations with robust Enterprise Resource Planning solutions tailored to your business needs.",
-};
+export const metadata = buildServiceMetadata("erp-deployment");
 
 export default function ERPDeploymentPage() {
   return (
@@ -34,7 +31,6 @@ export default function ERPDeploymentPage() {
             alt="ERP System showcase"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            priority
             className="object-cover"
           />
           <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />

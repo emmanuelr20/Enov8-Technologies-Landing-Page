@@ -16,6 +16,7 @@ import {
 } from "react-icons/lu";
 import Image from "next/image";
 import Footer from "@/app/layouts/Footer";
+import { buildServicesIndexMetadata } from "@/lib/seoMetadata";
 
 const allServices = [
   {
@@ -104,11 +105,7 @@ const allServices = [
   },
 ];
 
-export const metadata = {
-  title: "Solutions and Services | Enov8 Technologies",
-  description:
-    "Explore our comprehensive suite of technology solutions designed to accelerate your business growth and secure your digital future.",
-};
+export const metadata = buildServicesIndexMetadata();
 
 export default function ServicesPage() {
   return (
