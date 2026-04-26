@@ -28,7 +28,7 @@ export default function AIDeploymentPage() {
         <div className="relative h-[300px] md:h-[400px] overflow-hidden">
           <Image
             src="/services/ai2.webp"
-            alt="AI & Machine Learning showcase"
+            alt="AI & Machine Learning showcase"   
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover"

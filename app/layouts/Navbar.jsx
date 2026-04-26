@@ -16,7 +16,6 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
-import { useScrollRevealMultiple } from "@/hooks/useScrollReveal";
 
 const MEGA_MENU_SERVICES = [
   {
@@ -114,22 +113,6 @@ const Navbar = memo(function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const pathname = usePathname();
-
-  const elementsRef = useScrollRevealMultiple(
-    [
-      { delay: 50 }, // logo
-      { delay: 100 }, // nav items
-      { delay: 150 }, // button
-      { delay: 150 }, // toggle
-    ],
-    {
-      origin: "top",
-      distance: "30px",
-      duration: 400,
-      easing: "ease-out",
-      reset: false,
-    },
-  );
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -235,7 +218,6 @@ const Navbar = memo(function Navbar() {
         <nav className="container mx-auto h-full px-6 md:px-12 lg:px-24 flex justify-between items-center">
           <div className="flex items-center gap-2" suppressHydrationWarning>
             <a
-              ref={(el) => (elementsRef.current[0] = el)}
               href="/"
               className="flex items-center gap-2 group"
               aria-label="Enov8 Technologies Home"
@@ -268,7 +250,6 @@ const Navbar = memo(function Navbar() {
 
           {/* Desktop Nav */}
           <ul
-            ref={(el) => (elementsRef.current[1] = el)}
             className="hidden lg:flex items-center gap-6 text-[12px] uppercase font-bold tracking-widest dark:text-white relative"
           >
             <li className="relative z-50 group/menu">
@@ -340,7 +321,6 @@ const Navbar = memo(function Navbar() {
           </ul>
 
           <div
-            ref={(el) => (elementsRef.current[2] = el)}
             className="hidden lg:flex items-center gap-4"
             suppressHydrationWarning
           >
@@ -365,7 +345,6 @@ const Navbar = memo(function Navbar() {
           <div className="flex items-center gap-4 lg:hidden" suppressHydrationWarning>
             <ThemeToggle />
             <button
-              ref={(el) => (elementsRef.current[3] = el)}
               aria-label="Toggle navigation menu"
               className="bg-light-primary p-2 text-white shadow-lg"
               onClick={toggleMenu}

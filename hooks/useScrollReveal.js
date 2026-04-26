@@ -25,8 +25,8 @@ export const useScrollReveal = (options = {}) => {
       if (sr && elementRef.current) {
         const defaultOptions = {
           origin: "bottom",
-          distance: "30px",
-          duration: 400,
+          distance: "20px",
+          duration: 300,
           delay: 0,
           easing: "ease-out",
           reset: false,
@@ -59,8 +59,8 @@ export const useScrollRevealMultiple = (elements, baseOptions = {}) => {
       if (sr) {
         const defaultOptions = {
           origin: "bottom",
-          distance: "30px",
-          duration: 400,
+          distance: "20px",
+          duration: 300,
           delay: 0,
           easing: "ease-out",
           reset: false,

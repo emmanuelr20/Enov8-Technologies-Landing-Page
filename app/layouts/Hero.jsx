@@ -21,7 +21,7 @@ const HeroBackground = dynamic(() => import("@/components/HeroBackground"), {
         className="object-cover"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/20 to-black/50" />
     </div>
   ),
 });
@@ -34,8 +34,8 @@ export default function Hero() {
       const sr = require("scrollreveal").default;
       sr().reveal(cardsRef.current, {
         origin: "bottom",
-        distance: "30px",
-        duration: 600,
+        distance: "20px",
+        duration: 400,
         easing: "ease-out",
         delay: 200,
         reset: false,
@@ -55,9 +55,15 @@ export default function Hero() {
       {/* THE OVERLAP CARDS - Layered Depth Style */}
       <div className="relative z-30 px-4 lg:px-6">
         <div className="container mx-auto flex justify-center">
-          <div className="grid grid-cols-1 xl:grid-cols-[1.2fr_0.85fr_0.85fr] gap-5 w-full max-w-6xl -mt-10 md:-mt-[90px]">
+          <div
+            ref={cardsRef}
+            className="grid grid-cols-1 xl:grid-cols-[1.2fr_0.85fr_0.85fr] gap-5 w-full max-w-6xl -mt-10 md:-mt-[90px]"
+          >
             {/* Card 1: Brand Color - Years of Excellence */}
-            <div className="relative group overflow-hidden bg-light-primary/80 p-6 sm:p-8 md:p-10 text-white shadow-2xl flex flex-col min-h-[250px] md:min-h-[280px] xl:text-center" suppressHydrationWarning>
+            <div
+              className="relative group overflow-hidden bg-light-primary/80 p-6 sm:p-8 md:p-10 text-white shadow-2xl flex flex-col min-h-[250px] md:min-h-[280px] xl:text-center"
+              suppressHydrationWarning
+            >
               {/* Big number + title inline — TBO style */}
               <div className="flex items-start lg:items-center gap-4 mb-6 xl:justify-center">
                 <h3 className="text-xl md:text-3xl font-extrabold font-space leading-tight tracking-wide ">
@@ -79,7 +85,10 @@ export default function Hero() {
             </div>
 
             {/* Card 2: Collaboration */}
-            <div className="bg-white dark:bg-zinc-900 p-5 sm:p-6 md:p-8 shadow-2xl flex flex-col min-h-[250px] md:min-h-[280px] border border-zinc-100 dark:border-zinc-800 md:mt-12 transition-colors duration-300" suppressHydrationWarning>
+            <div
+              className="bg-white dark:bg-zinc-900 p-5 sm:p-6 md:p-8 shadow-2xl flex flex-col min-h-[250px] md:min-h-[280px] border border-zinc-100 dark:border-zinc-800 md:mt-12 transition-colors duration-300"
+              suppressHydrationWarning
+            >
               {/* Icon + Title horizontal — TBO style */}
               <div className="flex items-center gap-4 mb-5">
                 <div className="text-light-primary shrink-0">
@@ -97,7 +106,10 @@ export default function Hero() {
             </div>
 
             {/* Card 3: Clients First */}
-            <div className="bg-white dark:bg-zinc-900 p-5 sm:p-6 md:p-8 shadow-2xl flex flex-col min-h-[250px] md:min-h-[280px] border border-zinc-100 dark:border-zinc-800 md:mt-12 transition-colors duration-300" suppressHydrationWarning>
+            <div
+              className="bg-white dark:bg-zinc-900 p-5 sm:p-6 md:p-8 shadow-2xl flex flex-col min-h-[250px] md:min-h-[280px] border border-zinc-100 dark:border-zinc-800 md:mt-12 transition-colors duration-300"
+              suppressHydrationWarning
+            >
               <div className="flex items-center gap-4 mb-5">
                 <div className="text-light-primary shrink-0">
                   <FaUsers size={44} strokeWidth={1.5} />
