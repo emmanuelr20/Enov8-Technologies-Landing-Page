@@ -104,7 +104,7 @@ const MEGA_MENU_SERVICES = [
     hints: [""]
   },
   {
-    title: "Hardware",
+    title: "Hardware Procurement",
     href: "/services/hardware-procurement",
     hints: ["Enterprise Sourcing", "Deployment & Lifecycle", "Vendor Management"],
   },
