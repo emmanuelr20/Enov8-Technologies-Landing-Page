@@ -84,9 +84,9 @@ const allServices = [
   {
     id: "zoho-partner",
     icon: LuLayers,
-    title: "Zoho Certified Partner",
+    title: "Zoho Implementations",
     description:
-      "Official Zoho partner helping you implement and optimize the entire Zoho suite for business success.",
+      "Streamline operations, enhance collaboration, and drive growth with expert Zoho implementations tailored to your business needs.",
   },
   {
     id: "document-management",
