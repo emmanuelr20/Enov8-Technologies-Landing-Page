@@ -75,7 +75,7 @@ export default function HardwareProcurementPage() {
         {/* Feature Image */}
         <div className="relative h-[300px] md:h-[400px] overflow-hidden shadow-2xl">
           <Image
-            src="/hardware2.jpg"
+            src="/services/hardware2.webp"
             alt="Hardware Procurement showcase"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"

@@ -88,7 +88,7 @@ export default function About() {
               {/* Main image */}
               <div className="hidden lg:block relative z-10 overflow-hidden shadow-[0_50px_100px_-30px_rgba(0,0,0,0.15)] h-[750px]">
                 <Image
-                  src="/about1.jpg"
+                  src="/sections/about1.webp"
                   alt="Enov8 Technology Solutions"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -176,7 +176,7 @@ export default function About() {
             {/* CTA Button */}
             <div className="mt-12">
               <a
-                href="/enov8technologies-brochure.pdf"
+                href="/docs/enov8technologies-brochure.pdf"
                 download
                 className="inline-flex items-center gap-3 bg-light-primary hover:bg-light-primary/90 text-white font-bold text-base px-10 py-5 transition-all shadow-lg shadow-light-primary/20 group tracking-widest"
               >

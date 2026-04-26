@@ -233,14 +233,14 @@ const Navbar = memo(function Navbar() {
         }`}
       >
         <nav className="container mx-auto h-full px-6 md:px-12 lg:px-24 flex justify-between items-center">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2" suppressHydrationWarning>
             <a
               ref={(el) => (elementsRef.current[0] = el)}
               href="/"
               className="flex items-center gap-2 group"
               aria-label="Enov8 Technologies Home"
             >
-              <div className="relative w-8 h-8 transition-transform group-hover:scale-110">
+              <div className="relative w-8 h-8 transition-transform group-hover:scale-110" suppressHydrationWarning>
                 <svg
                   width="32"
                   height="32"
@@ -289,13 +289,15 @@ const Navbar = memo(function Navbar() {
                 className="absolute top-16 left-1 -translate-x-1 w-[800px] bg-white dark:bg-zinc-900 shadow-2xl
               py-12 px-10 columns-3 gap-10 opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible 
               transition-all duration-300 translate-y-2 group-hover/menu:translate-y-0 z-200"
+                suppressHydrationWarning
               >
                 {MEGA_MENU_SERVICES.map((service, idx) => (
                   <div
                     key={idx}
                     className="break-inside-avoid mb-10 space-y-3"
+                    suppressHydrationWarning
                   >
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2" suppressHydrationWarning>
                       <span className="w-1 h-5 bg-light-primary block" />
                       <Link
                         href={service.href}
@@ -340,6 +342,7 @@ const Navbar = memo(function Navbar() {
           <div
             ref={(el) => (elementsRef.current[2] = el)}
             className="hidden lg:flex items-center gap-4"
+            suppressHydrationWarning
           >
             <ThemeToggle />
             <Button
@@ -359,7 +362,7 @@ const Navbar = memo(function Navbar() {
           </div>
 
           {/* Hamburger (Mobile) */}
-          <div className="flex items-center gap-4 lg:hidden">
+          <div className="flex items-center gap-4 lg:hidden" suppressHydrationWarning>
             <ThemeToggle />
             <button
               ref={(el) => (elementsRef.current[3] = el)}
@@ -379,6 +382,7 @@ const Navbar = memo(function Navbar() {
         className={`fixed inset-0 bg-black/80 backdrop-blur-sm transition-all duration-300 z-110
         ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
         onClick={toggleMenu}
+        suppressHydrationWarning
       />
 
       {/* Drawer */}
@@ -386,9 +390,10 @@ const Navbar = memo(function Navbar() {
         className={`fixed top-0 right-0 h-full w-full sm:w-[400px] bg-[#141414] text-white z-120 
               transform transition-transform duration-500 ease-in-out shadow-2xl 
               ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        suppressHydrationWarning
       >
         <div className="flex flex-col h-full p-8">
-          <div className="flex justify-between items-center mb-12">
+          <div className="flex justify-between items-center mb-12" suppressHydrationWarning>
             <span className="font-bold text-xs tracking-widest text-zinc-500 uppercase">
               Menu
             </span>
@@ -432,7 +437,7 @@ const Navbar = memo(function Navbar() {
             </a>
           </nav>
 
-          <div className="mt-auto pt-10 border-t border-white/10">
+          <div className="mt-auto pt-10 border-t border-white/10" suppressHydrationWarning>
             <p className="text-[10px] uppercase font-bold text-zinc-500 tracking-widest mb-4">
               Get in touch
             </p>
@@ -444,7 +449,7 @@ const Navbar = memo(function Navbar() {
             </a>
             <p className="text-lg font-medium">+234 913 363 2465</p>
 
-            <div className="mt-8 flex gap-4">
+            <div className="mt-8 flex gap-4" suppressHydrationWarning>
               {/* Simple icons placeholder if needed */}
             </div>
           </div>

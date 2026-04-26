@@ -89,7 +89,7 @@ export default function AutomationPage() {
       {/* Feature Image */}
       <div className="relative h-[300px] md:h-[500px] w-full mt-10">
         <Image
-          src="/business-automation.jpg"
+          src="/services/business-automation.webp"
           alt="Business Automation showcase"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"

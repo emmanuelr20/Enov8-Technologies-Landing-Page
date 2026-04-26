@@ -75,7 +75,7 @@ export default function SoftwareDevPage() {
       {/* Feature Image */}
       <div className="relative h-[300px] md:h-[400px] overflow-hidden">
         <Image
-          src="/development2.jpg"
+          src="/services/development2.webp"
           alt="Software Development showcase"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"

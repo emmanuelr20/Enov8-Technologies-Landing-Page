@@ -81,7 +81,7 @@ const Contact = memo(function Contact() {
       <div className="container mx-auto py-10 md:py-12 px-4 md:px-8 lg:px-12 xl:px-24 flex flex-col xl:flex-row items-center justify-between">
         <div ref={(el) => (elementsRef.current[0] = el)}>
           <OptimizedImage
-            src="/customer.jpg"
+            src="/sections/customer.webp"
             alt="Contact Enov8 Technologies - Professional software development team"
             width={530}
             height={500}

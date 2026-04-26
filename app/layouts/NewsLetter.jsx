@@ -72,7 +72,7 @@ export default function Newsletter() {
     <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-zinc-950">
       {/* ── Background image ── */}
       <Image
-        src="/newsletter-bg.jpg" 
+        src="/sections/newsletter-bg.webp" 
         alt="Enov8 Technologies newsletter background"
         fill
         sizes="100vw"

@@ -79,7 +79,7 @@ export default function Reviews() {
       <div className="relative h-[400px] md:h-[450px] overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/review.jpg"
+            src="/sections/review.webp"
             alt="Reviews Background"
             fill
             className="object-cover"

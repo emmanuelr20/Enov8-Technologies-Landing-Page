@@ -43,7 +43,7 @@ export default function Action() {
         justify-center items-center"
     >
       <Image
-        src="/action.jpg"
+        src="/sections/action.webp"
         alt="action background"
         fill
         priority

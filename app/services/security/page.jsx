@@ -31,7 +31,7 @@ export default function SecurityPage() {
         {/* Feature Image */}
         <div className="relative h-[300px] md:h-[400px] overflow-hidden">
           <Image
-            src="/security.jpg"
+            src="/services/security.webp"
             alt="Security showcase"
             fill
             className="object-cover"
@@ -67,7 +67,7 @@ export default function SecurityPage() {
           </p>
           <div className="relative h-[300px] md:h-[400px] overflow-hidden">
             <Image
-              src="/security1.jpg"
+              src="/services/security1.webp"
               alt="Data Encryption showcase"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"

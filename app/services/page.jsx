@@ -119,7 +119,7 @@ export default function ServicesPage() {
           {/* Abstract background pattern (inspired by TBO) */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/servicebackground.jpg"
+              src="/sections/servicebackground.webp"
               alt="Solutions and Services"
               fill
               priority

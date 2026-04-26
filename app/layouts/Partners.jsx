@@ -8,34 +8,34 @@ const ScrollReveal = dynamic(() => import("scrollreveal"), { ssr: false });
 
 // Drop your logo files into /public/logos/ and update filenames here
 const partners = [
-  { id: "cisco", src: "/cisco.svg", alt: "Cisco", w: 130, h: 52 },
-  { id: "dynaAI", src: "/dyna-ai.png", alt: "Dyna AI", w: 130, h: 52 }, // ← use PNG instead
-  { id: "microsoft", src: "/microsoft.svg", alt: "Microsoft", w: 130, h: 52 },
-  { id: "infobip", src: "/infobip.svg", alt: "Infobip", w: 130, h: 52 },
-  { id: "aws", src: "/aws.svg", alt: "AWS", w: 100, h: 52 },
-  { id: "oracle", src: "/oracle.svg", alt: "Oracle", w: 130, h: 52 },
-  { id: "connex", src: "/connex.svg", alt: "Connex One", w: 130, h: 52 },
-  { id: "fico", src: "/fico.svg", alt: "FICO", w: 130, h: 52 },
-  { id: "kissflow", src: "/kissflow.svg", alt: "Kissflow", w: 130, h: 52 },
-  { id: "freshdesk", src: "/freshdesk.svg", alt: "Freshdesk", w: 130, h: 52 }, // ← PNG
-  { id: "temenos", src: "/temenos.svg", alt: "Temenos", w: 130, h: 52 },
-  { id: "acuant", src: "/acuant.svg", alt: "Acuant", w: 130, h: 52 },
-  { id: "ibm", src: "/ibm.svg", alt: "IBM", w: 130, h: 52 }, // ← PNG
-  { id: "sophos", src: "/sophos.svg", alt: "Sophos", w: 130, h: 52 },
-  { id: "azure", src: "/azure.svg", alt: "Microsoft Azure", w: 130, h: 52 }, // ← PNG
-  { id: "fortinet", src: "/fortinet.svg", alt: "Fortinet", w: 130, h: 52 },
-  { id: "zoho", src: "/zoho.svg", alt: "Zoho", w: 130, h: 52 },
-  { id: "metamap", src: "/metamap.png", alt: "MetaMap", w: 130, h: 52 },
+  { id: "cisco", src: "/partners/cisco.svg", alt: "Cisco", w: 130, h: 52 },
+  { id: "dynaAI", src: "/partners/dyna-ai.png", alt: "Dyna AI", w: 130, h: 52 }, // ← use PNG instead
+  { id: "microsoft", src: "/partners/microsoft.svg", alt: "Microsoft", w: 130, h: 52 },
+  { id: "infobip", src: "/partners/infobip.svg", alt: "Infobip", w: 130, h: 52 },
+  { id: "aws", src: "/partners/aws.svg", alt: "AWS", w: 100, h: 52 },
+  { id: "oracle", src: "/partners/oracle.svg", alt: "Oracle", w: 130, h: 52 },
+  { id: "connex", src: "/partners/connex.svg", alt: "Connex One", w: 130, h: 52 },
+  { id: "fico", src: "/partners/fico.svg", alt: "FICO", w: 130, h: 52 },
+  { id: "kissflow", src: "/partners/kissflow.svg", alt: "Kissflow", w: 130, h: 52 },
+  { id: "freshdesk", src: "/partners/freshdesk.svg", alt: "Freshdesk", w: 130, h: 52 }, // ← PNG
+  { id: "temenos", src: "/partners/temenos.svg", alt: "Temenos", w: 130, h: 52 },
+  { id: "acuant", src: "/partners/acuant.svg", alt: "Acuant", w: 130, h: 52 },
+  { id: "ibm", src: "/partners/ibm.svg", alt: "IBM", w: 130, h: 52 }, // ← PNG
+  { id: "sophos", src: "/partners/sophos.svg", alt: "Sophos", w: 130, h: 52 },
+  { id: "azure", src: "/partners/azure.svg", alt: "Microsoft Azure", w: 130, h: 52 }, // ← PNG
+  { id: "fortinet", src: "/partners/fortinet.svg", alt: "Fortinet", w: 130, h: 52 },
+  { id: "zoho", src: "/partners/zoho.svg", alt: "Zoho", w: 130, h: 52 },
+  { id: "metamap", src: "/partners/metamap.png", alt: "MetaMap", w: 130, h: 52 },
   {
     id: "crowdstrike",
-    src: "/crowdstrike.svg",
+    src: "/partners/crowdstrike.svg",
     alt: "CrowdStrike",
     w: 130,
     h: 52,
   },
-  { id: "tdafrica", src: "/tdafrica.jpg", alt: "TD Africa", w: 130, h: 80 }, // ← PNG, square logo
-  { id: "atos", src: "/atos.svg", alt: "Atos", w: 130, h: 52 },
-  { id: "pickcel", src: "/pickcel.svg", alt: "Pickcel", w: 130, h: 52 },
+  { id: "tdafrica", src: "/partners/tdafrica.jpg", alt: "TD Africa", w: 130, h: 80 }, // ← PNG, square logo
+  { id: "atos", src: "/partners/atos.svg", alt: "Atos", w: 130, h: 52 },
+  { id: "pickcel", src: "/partners/pickcel.svg", alt: "Pickcel", w: 130, h: 52 },
 ];
 
 export default function Partners() {

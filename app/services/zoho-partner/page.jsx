@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ZohoOnePartnerPage() {
   return (
-    <ServicePageTemplate serviceId="zoho-partner" partnerLogo="/zoho.svg">
+    <ServicePageTemplate serviceId="zoho-partner" partnerLogo="/partners/zoho.svg">
       <div className="space-y-12">
         {/* Intro */}
         <div className="space-y-8">
@@ -22,7 +22,7 @@ export default function ZohoOnePartnerPage() {
           {/* Feature Image */}
           <div className="relative h-[300px] mb-5 md:h-[460px] overflow-hidden">
             <Image
-              src="/zohoerp.jpeg"
+              src="/services/zohoerp.webp"
               alt="ZohoOne Ecosystem showcase"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"

@@ -264,6 +264,7 @@ export default function HeroBackground() {
       style={{ perspective: "1500px" }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
+      suppressHydrationWarning
     >
       {/* Video slides — each absolutely positioned, clipped by overflow:hidden */}
       {SLIDES.map((slide, i) => {
@@ -274,6 +275,7 @@ export default function HeroBackground() {
           <div
             key={slide.id}
             className="absolute inset-0"
+            suppressHydrationWarning
             style={getSlideStyle(i)}
             ref={(el) => {
               if (el && i === nextSlide && phase === "sliding") {
@@ -309,20 +311,21 @@ export default function HeroBackground() {
               }}
             />
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-black/40" suppressHydrationWarning />
           </div>
         );
       })}
 
       {/* Text layers */}
-      <div className="absolute inset-0 z-20">
+      <div className="absolute inset-0 z-20" suppressHydrationWarning>
         {SLIDES.map((slide, i) => (
           <div
             key={slide.id}
             className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
+            suppressHydrationWarning
             style={getTextStyle(i)}
           >
-            <div className="max-w-4xl w-full">
+            <div className="max-w-4xl w-full" suppressHydrationWarning>
               {/* Headline */}
               {(() => {
                 const Tag = i === 0 ? "h1" : "h2";
@@ -337,7 +340,7 @@ export default function HeroBackground() {
               })()}
 
               {/* Subtitle */}
-              <div className="flex items-center justify-center gap-4 max-w-xl mx-auto">
+              <div className="flex items-center justify-center gap-4 max-w-xl mx-auto" suppressHydrationWarning>
                 <p
                   className="text-gray-50 text-lg md:text-lg leading-relaxed font-poppins text-center"
                   style={{ textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}
@@ -351,7 +354,7 @@ export default function HeroBackground() {
       </div>
 
       {/* Dot navigation */}
-      <div className="absolute right-6 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-4">
+      <div className="absolute right-6 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-4" suppressHydrationWarning>
         {SLIDES.map((_, i) => (
           <button
             key={i}
@@ -382,7 +385,7 @@ export default function HeroBackground() {
 
       {/* Progress bar */}
       {!isPaused && phase === "idle" && (
-        <div className="absolute bottom-0 left-0 right-0 z-30">
+        <div className="absolute bottom-0 left-0 right-0 z-30" suppressHydrationWarning>
           <div
             key={`${current}-bar`}
             className="h-full"
