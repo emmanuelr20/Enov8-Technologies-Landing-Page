@@ -87,7 +87,7 @@ const MEGA_MENU_SERVICES = [
     hints: ["Digital Network Architecture", "Structured Cabling", "Wireless Solutions", "Network Security", "Enterprise Network Monitoring"],
   },
   {
-    title: "Zoho Implementer",
+    title: "Zoho Implementations",
     href: "/services/zoho-partner",
     hints: [
       "Sales",

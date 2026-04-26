@@ -16,7 +16,7 @@ export default function ZohoOnePartnerPage() {
           <div className="flex items-center gap-3 md:gap-4 mb-10">
             <span className="w-1.5 h-10 bg-light-primary block shrink-0" />
             <h2 className="text-3xl md:text-4xl font-black text-[#1A1A37] dark:text-white font-space tracking-tight">
-              Zoho Certified Partner
+              Zoho Implementations
             </h2>
           </div>
           {/* Feature Image */}
