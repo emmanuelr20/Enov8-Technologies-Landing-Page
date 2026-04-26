@@ -1,6 +1,9 @@
+import { servicesData } from "@/lib/servicesData";
+
 export default async function sitemap() {
   const baseUrl = "https://enov8technologies.com";
-  const currentDate = new Date();
+  const defaultDate = "2026-04-26T00:00:00.000Z";
+  const lastModified = new Date(process.env.NEXT_PUBLIC_SITE_UPDATED_AT || defaultDate);
 
   const staticRoutes = [
     { route: "",                  changeFrequency: "weekly",  priority: 1.0 },
@@ -10,20 +13,7 @@ export default async function sitemap() {
     { route: "/terms-of-service", changeFrequency: "yearly",  priority: 0.4 },
   ];
 
-  const serviceRoutes = [
-    "ai-deployment",
-    "automation",
-    "consulting",
-    "digital-signage",
-    "document-management",
-    "erp-deployment",
-    "hardware-procurement",
-    "networking",
-    "onboarding",
-    "security",
-    "software-dev",
-    "zoho-partner",
-  ].map((slug) => ({
+  const serviceRoutes = Object.keys(servicesData).map((slug) => ({
     route: `/services/${slug}`,
     changeFrequency: "weekly",
     priority: 0.8,
@@ -32,7 +22,7 @@ export default async function sitemap() {
   return [...staticRoutes, ...serviceRoutes].map(
     ({ route, changeFrequency, priority }) => ({
       url: `${baseUrl}${route}`,
-      lastModified: currentDate,
+      lastModified,
       changeFrequency,
       priority,
     })

@@ -1,11 +1,8 @@
 import Image from "next/image";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { buildServiceMetadata } from "@/lib/seoMetadata";
 
-export const metadata = {
-  title: "Hardware Procurement | Enov8 Technologies",
-  description:
-    "Reliable hardware sourcing and deployment services for enterprise-scale technology needs.",
-};
+export const metadata = buildServiceMetadata("hardware-procurement");
 
 export default function HardwareProcurementPage() {
   return (
@@ -79,7 +76,6 @@ export default function HardwareProcurementPage() {
             alt="Hardware Procurement showcase"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
-            priority
             className="object-cover"
           />
           <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />

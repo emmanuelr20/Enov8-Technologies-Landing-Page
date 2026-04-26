@@ -1,11 +1,8 @@
 import Image from "next/image";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { buildServiceMetadata } from "@/lib/seoMetadata";
 
-export const metadata = {
-  title: "AI Deployment | Enov8 Technologies",
-  description:
-    "Harness the power of Artificial Intelligence to automate complex processes and drive innovation in your organization.",
-};
+export const metadata = buildServiceMetadata("ai-deployment");
 
 export default function AIDeploymentPage() {
   return (
@@ -34,7 +31,6 @@ export default function AIDeploymentPage() {
             alt="AI & Machine Learning showcase"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            priority
             className="object-cover"
           />
           <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />

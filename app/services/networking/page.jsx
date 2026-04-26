@@ -1,10 +1,7 @@
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { buildServiceMetadata } from "@/lib/seoMetadata";
 
-export const metadata = {
-  title: "Networking | Enov8 Technologies",
-  description:
-    "Design and implement secure, high-performance network infrastructure for your growing enterprise.",
-};
+export const metadata = buildServiceMetadata("networking");
 
 export default function NetworkingPage() {
   return (

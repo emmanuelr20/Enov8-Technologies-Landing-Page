@@ -1,11 +1,8 @@
 import Image from "next/image";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { buildServiceMetadata } from "@/lib/seoMetadata";
 
-export const metadata = {
-  title: "Business Automation | Enov8 Technologies",
-  description:
-    "Eliminate repetitive manual tasks with intelligent, seamless workflows. Enov8 Technologies connects your platforms to boost operational efficiency.",
-};
+export const metadata = buildServiceMetadata("automation");
 
 export default function AutomationPage() {
   return (
@@ -93,7 +90,6 @@ export default function AutomationPage() {
           alt="Business Automation showcase"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
-          priority
           className="object-cover"
         />
       </div>

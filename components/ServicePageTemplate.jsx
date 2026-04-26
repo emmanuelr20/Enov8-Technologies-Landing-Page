@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import Script from "next/script";
 import Footer from "@/app/layouts/Footer";
 import { ArrowRight, ChevronRight, Phone } from "lucide-react";
 import { servicesData } from "@/lib/servicesData";
@@ -57,9 +58,55 @@ const navItems = [
 export default function ServicePageTemplate({ serviceId, partnerLogo, children }) {
   const service = servicesData[serviceId];
   const Icon = iconMap[serviceId];
+  const serviceUrl = `https://enov8technologies.com/services/${serviceId}`;
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description: service.description,
+    serviceType: service.title,
+    url: serviceUrl,
+    image: `https://enov8technologies.com${service.heroImage}`,
+    areaServed: "Global",
+    provider: {
+      "@type": "Organization",
+      name: "Enov8 Technologies",
+      url: "https://enov8technologies.com",
+    },
+  };
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://enov8technologies.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: "https://enov8technologies.com/services",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: service.title,
+        item: serviceUrl,
+      },
+    ],
+  };
 
   return (
     <main className="min-h-screen bg-white dark:bg-zinc-950 transition-colors duration-300">
+      <Script id={`service-jsonld-${serviceId}`} type="application/ld+json">
+        {JSON.stringify(serviceJsonLd)}
+      </Script>
+      <Script id={`service-breadcrumb-jsonld-${serviceId}`} type="application/ld+json">
+        {JSON.stringify(breadcrumbJsonLd)}
+      </Script>
       {/* ── HERO BANNER ─────────────────────────────────────────────── */}
       <section className="relative h-[350px] md:h-[430px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -85,7 +132,6 @@ export default function ServicePageTemplate({ serviceId, partnerLogo, children }
                     fill
                     className="object-contain"
                     sizes="(max-width: 768px) 176px, 224px"
-                    priority
                   />
                 </div>
               </div>

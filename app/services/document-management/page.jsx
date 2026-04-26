@@ -1,10 +1,7 @@
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { buildServiceMetadata } from "@/lib/seoMetadata";
 
-export const metadata = {
-  title: "Document Management System | Enov8 Technologies",
-  description:
-    "Digitalize and automate your document lifecycles with secure, scalable management solutions.",
-};
+export const metadata = buildServiceMetadata("document-management");
 
 export default function DocumentManagementPage() {
   return (

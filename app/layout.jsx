@@ -23,6 +23,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://enov8technologies.com"),
   title: {
     default:
       "Enov8 Technologies - Custom Software Development & Digital Solutions",
@@ -99,16 +100,16 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: {
-    canonical: "https://enov8technologies.com",
-  },
+  alternates: { canonical: "/" },
   verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    other: {
-      "msvalidate.01": "your-bing-verification-code",
-      "facebook-domain-verification": "jv7a171bahivn7i9ahydel0vxuorgf",
-    },
+    other: { "facebook-domain-verification": "jv7a171bahivn7i9ahydel0vxuorgf" },
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Enov8 Technologies - Custom Software Development & Digital Solutions",
+    description:
+      "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
+    images: ["/brand/image.png"],
   },
 };
 
@@ -221,35 +222,23 @@ const jsonLdWebsite = {
   "@type": "WebSite",
   name: "Enov8 Technologies",
   url: "https://enov8technologies.com",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: "https://enov8technologies.com/?q={search_term_string}",
-    },
-    "query-input": "required name=search_term_string",
-  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth" className="overflow-x-hidden max-w-full">
       <body
-        className={`${poppins.variable} ${space.variable} text-zinc-900 bg-bg-light dark:bg-black overflow-x-hidden`}
+        className={`${poppins.variable} ${space.variable} min-h-svh text-foreground bg-background overflow-x-hidden antialiased`}
         suppressHydrationWarning
       >
         {/* Organization Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          key="organization-jsonld"
-        />
+        <Script id="organization-jsonld" type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </Script>
         {/* WebSite Schema — enables Sitelinks Search Box in Google */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}
-          key="website-jsonld"
-        />
+        <Script id="website-jsonld" type="application/ld+json">
+          {JSON.stringify(jsonLdWebsite)}
+        </Script>
         <Analytics />
         <Navbar />
         {children}
