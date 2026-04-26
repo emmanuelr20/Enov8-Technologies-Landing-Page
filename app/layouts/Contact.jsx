@@ -4,7 +4,6 @@ import { Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FaWhatsapp } from "react-icons/fa6";
 import OptimizedImage from "@/components/OptimizedImage";
-import { useScrollRevealMultiple } from "@/hooks/useScrollReveal";
 import { memo, useState } from "react";
 import { toast } from "sonner";
 
@@ -15,20 +14,6 @@ const Contact = memo(function Contact() {
     message: "",
   });
   const [status, setStatus] = useState("idle"); // idle, loading, success, error
-
-  const elementsRef = useScrollRevealMultiple(
-    [
-      { origin: "left" }, // image
-      { origin: "right" }, // contact form
-    ],
-    {
-      distance: "40px",
-      duration: 400,
-      delay: 100,
-      easing: "ease-out",
-      reset: false,
-    }
-  );
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -79,7 +64,7 @@ const Contact = memo(function Contact() {
       id="contact"
     >
       <div className="container mx-auto py-10 md:py-12 px-4 md:px-8 lg:px-12 xl:px-24 flex flex-col xl:flex-row items-center justify-between">
-        <div ref={(el) => (elementsRef.current[0] = el)}>
+        <div>
           <OptimizedImage
             src="/sections/customer.webp"
             alt="Contact Enov8 Technologies - Professional software development team"
@@ -92,7 +77,6 @@ const Contact = memo(function Contact() {
         </div>
 
         <div
-          ref={(el) => (elementsRef.current[1] = el)}
           className="w-full xl:max-w-[500px] py-10 px-4"
         >
           <div className="mb-12">

@@ -2,9 +2,6 @@
 
 import { useRef, useEffect } from "react";
 import Image from "next/image";
-import dynamic from "next/dynamic";
-
-const ScrollReveal = dynamic(() => import("scrollreveal"), { ssr: false });
 
 // Drop your logo files into /public/logos/ and update filenames here
 const partners = [
@@ -39,26 +36,8 @@ const partners = [
 ];
 
 export default function Partners() {
-  const headerRef = useRef(null);
-
   // Two copies are enough for a perfect loop with -50% translation
   const scrollItems = [...partners, ...partners];
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const sr = require("scrollreveal").default;
-      if (headerRef.current) {
-        sr().reveal(headerRef.current, {
-          origin: "bottom",
-          distance: "30px",
-          duration: 500,
-          easing: "ease-out",
-          delay: 100,
-          reset: false,
-        });
-      }
-    }
-  }, []);
 
   return (
     <section
@@ -69,7 +48,6 @@ export default function Partners() {
       {/* ── HEADER ───────────────────────────────────────────────────────────── */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div
-          ref={headerRef}
           className="flex flex-col items-center text-center mb-10 md:mb-16 gap-4"
         >
           <div className="flex items-center gap-4">
