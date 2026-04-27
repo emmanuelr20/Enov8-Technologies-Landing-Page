@@ -106,7 +106,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Enov8 Technologies - Custom Software Development & Digital Solutions",
+    title:
+      "Enov8 Technologies - Custom Software Development & Digital Solutions",
     description:
       "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
     images: ["/brand/image.png"],
@@ -226,7 +227,11 @@ const jsonLdWebsite = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className="overflow-x-hidden max-w-full">
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className="overflow-x-hidden max-w-full"
+    >
       <body
         className={`${poppins.variable} ${space.variable} min-h-svh text-foreground bg-background overflow-x-hidden antialiased`}
         suppressHydrationWarning

@@ -3,14 +3,14 @@ import DynamicSections from "@/components/DynamicSections";
 import PerformanceMonitor from "@/components/PerformanceMonitor";
 
 export const metadata = {
-  title: "Home - Custom Software Development & Digital Solutions",
+  title: "Enov8 Technologies - End-to-End Digital Solutions & IT Services",
   description:
-    "Transform your business with custom software solutions. Expert mobile app development, web applications, enterprise systems, and digital transformation services.",
+    "Enov8 Technologies delivers world-class digital solutions across software development, managed IT services, hardware infrastructure, cloud platforms, and cybersecurity.",
   openGraph: {
     title:
-      "Enov8 Technologies - Custom Software Development & Digital Solutions",
+      "Enov8 Technologies - End-to-End Digital Solutions & IT Services",
     description:
-      "Transform your business with custom software solutions. Expert mobile app development, web applications, enterprise systems, and digital transformation services.",
+      "Enov8 Technologies delivers world-class digital solutions across software development, managed IT services, hardware infrastructure, cloud platforms, and cybersecurity.",
     type: "website",
   },
 };

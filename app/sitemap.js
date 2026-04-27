@@ -8,6 +8,7 @@ export default async function sitemap() {
   const staticRoutes = [
     { route: "",                  changeFrequency: "weekly",  priority: 1.0 },
     { route: "/services",         changeFrequency: "weekly",  priority: 0.9 },
+    { route: "/about",            changeFrequency: "monthly", priority: 0.8 },
     { route: "/accessibility",    changeFrequency: "yearly",  priority: 0.4 },
     { route: "/privacy-policy",   changeFrequency: "yearly",  priority: 0.4 },
     { route: "/terms-of-service", changeFrequency: "yearly",  priority: 0.4 },

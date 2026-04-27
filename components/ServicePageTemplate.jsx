@@ -47,7 +47,7 @@ const navItems = [
   { id: "erp-deployment", label: "ERP Deployment" },
   { id: "ai-deployment", label: "AI Deployment" },
   { id: "networking", label: "Networking" },
-  { id: "zoho-partner", label: "Zoho Certified Partner" },
+  { id: "zoho-partner", label: "Zoho Implementations" },
   { id: "document-management", label: "Document Management System" },
   { id: "hardware-procurement", label: "Hardware Procurement" },
 ];
@@ -56,7 +56,11 @@ const navItems = [
  * ServicePageTemplate — shared shell (hero, sidebar, footer).
  * Pass the unique page content as `children`.
  */
-export default function ServicePageTemplate({ serviceId, partnerLogo, children }) {
+export default function ServicePageTemplate({
+  serviceId,
+  partnerLogo,
+  children,
+}) {
   const service = servicesData[serviceId];
   const Icon = iconMap[serviceId];
   const serviceUrl = `https://enov8technologies.com/services/${serviceId}`;
@@ -105,7 +109,10 @@ export default function ServicePageTemplate({ serviceId, partnerLogo, children }
       <Script id={`service-jsonld-${serviceId}`} type="application/ld+json">
         {JSON.stringify(serviceJsonLd)}
       </Script>
-      <Script id={`service-breadcrumb-jsonld-${serviceId}`} type="application/ld+json">
+      <Script
+        id={`service-breadcrumb-jsonld-${serviceId}`}
+        type="application/ld+json"
+      >
         {JSON.stringify(breadcrumbJsonLd)}
       </Script>
       {/* ── HERO BANNER ─────────────────────────────────────────────── */}
@@ -220,9 +227,7 @@ export default function ServicePageTemplate({ serviceId, partnerLogo, children }
               </div>
               <ConsultationModal
                 trigger={
-                  <button
-                    className="inline-flex items-center gap-2 bg-light-primary hover:bg-light-primary/90 text-white font-bold text-sm px-6 py-3 transition-all w-full justify-center cursor-pointer"
-                  >
+                  <button className="inline-flex items-center gap-2 bg-light-primary hover:bg-light-primary/90 text-white font-bold text-sm px-6 py-3 transition-all w-full justify-center cursor-pointer">
                     Start Consultation
                     <ArrowRight size={16} />
                   </button>
