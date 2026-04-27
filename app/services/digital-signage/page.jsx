@@ -21,6 +21,7 @@ export default function DigitalSignagePage() {
             src="/services/signage.webp"
             alt="Digital Signage showcase"
             fill
+            priority
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
             className="object-cover"
           />

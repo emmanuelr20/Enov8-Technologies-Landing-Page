@@ -1,10 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import Image from "next/image";
 
-/** Shown as video poster and reduced-motion static hero — improves LCP before decode */
-const HERO_POSTER = "/sections/servicebackground.webp";
+/** Shown as reduced-motion static hero fallback */
+const FALLBACK_BG = "#09090b";
 
 const SLIDES = [
   {
@@ -80,7 +79,7 @@ export default function HeroBackground() {
   const [phase, setPhase] = useState("idle");
   const [direction, setDirection] = useState(1); // 1: forward, -1: backward
   const [isPaused, setIsPaused] = useState(false);
-  const [videoReady, setVideoReady] = useState(false);
+  const [videoReady, setVideoReady] = useState(true);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [inView, setInView] = useState(true);
 
@@ -268,7 +267,6 @@ export default function HeroBackground() {
 
   // ── Text style ─────────────────────────────────────────────────────────────
   const getTextStyle = (i) => {
-    if (!videoReady) return { opacity: 0, pointerEvents: "none" };
     const isCur = i === current;
     const isNext = i === nextSlide;
 
@@ -303,15 +301,7 @@ export default function HeroBackground() {
         className="relative min-h-[75vh] overflow-hidden bg-[#09090b]"
         suppressHydrationWarning
       >
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={HERO_POSTER}
-            alt=""
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
+        <div className="absolute inset-0 z-0 bg-[#09090b]">
           <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6">
@@ -375,7 +365,6 @@ export default function HeroBackground() {
                 videoRefs.current[i] = el;
               }}
               src={slide.video}
-              poster={HERO_POSTER}
               preload={i === 0 ? "auto" : "none"}
               muted
               loop

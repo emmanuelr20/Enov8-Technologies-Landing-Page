@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import { FaHandsHelping } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa6";
 import dynamic from "next/dynamic";
@@ -13,14 +12,6 @@ const HeroBackground = dynamic(() => import("@/components/HeroBackground"), {
       className="relative min-h-[75vh] overflow-hidden bg-[#09090b]"
       aria-hidden="true"
     >
-      <Image
-        src="/sections/servicebackground.webp"
-        alt=""
-        fill
-        priority
-        className="object-cover"
-        sizes="100vw"
-      />
       <div className="absolute inset-0 bg-linear-to-b from-black/20 to-black/50" />
     </div>
   ),
