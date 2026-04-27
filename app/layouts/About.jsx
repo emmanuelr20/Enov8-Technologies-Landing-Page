@@ -207,7 +207,7 @@ export default function About() {
             {[
               { stat: "50+",  label: "Projects Shipped" },
               { stat: "15+",  label: "Global Partners"  },
-              { stat: "99%",  label: "System Uptime"    },
+              { stat: "24/7",  label: "Post-Deployment Support"    },
             ].map(({ stat, label }) => (
               <div key={label} className="text-start md:text-center group">
                 <h4 className="text-4xl md:text-6xl font-black text-[#1A1A37] dark:text-white font-space tracking-tighter mb-2 transition-colors group-hover:text-light-primary">

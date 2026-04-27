@@ -6,6 +6,7 @@ import Script from "next/script";
 import Footer from "@/app/layouts/Footer";
 import { ArrowRight, ChevronRight, Phone } from "lucide-react";
 import { servicesData } from "@/lib/servicesData";
+import ConsultationModal from "@/components/ConsultationModal";
 import {
   LuMonitorPlay,
   LuBoxes,
@@ -217,15 +218,16 @@ export default function ServicePageTemplate({ serviceId, partnerLogo, children }
                   +234 913 363 2465
                 </p>
               </div>
-              <Link
-                href="https://api.whatsapp.com/send?phone=2349133632465"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-light-primary hover:bg-light-primary/90 text-white font-bold text-sm px-6 py-3 transition-all w-full justify-center"
-              >
-                Start Consultation
-                <ArrowRight size={16} />
-              </Link>
+              <ConsultationModal
+                trigger={
+                  <button
+                    className="inline-flex items-center gap-2 bg-light-primary hover:bg-light-primary/90 text-white font-bold text-sm px-6 py-3 transition-all w-full justify-center cursor-pointer"
+                  >
+                    Start Consultation
+                    <ArrowRight size={16} />
+                  </button>
+                }
+              />
             </div>
           </aside>
 

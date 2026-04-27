@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import ConsultationModal from "@/components/ConsultationModal";
 
 export default function Action() {
 
@@ -28,15 +29,16 @@ export default function Action() {
         >
           Get Custom and Reliable Digital Solution for your Business
         </h2>
-        <Button
-          variant={"background"}
-          className="text-lg font-black bg-light-primary py-8 px-10 shadow-lg rounded-none"
-          asChild
-        >
-          <a href="https://api.whatsapp.com/send?phone=2349133632465" target="_blank" rel="noopener noreferrer">
-            Start a Project
-          </a>
-        </Button>
+        <ConsultationModal
+          trigger={
+            <Button
+              variant={"background"}
+              className="text-lg font-black bg-light-primary py-8 px-10 shadow-lg rounded-none"
+            >
+              Start a Project
+            </Button>
+          }
+        />
       </div>
     </section>
   );

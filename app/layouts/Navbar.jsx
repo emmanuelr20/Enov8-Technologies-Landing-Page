@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
+import ConsultationModal from "@/components/ConsultationModal";
 
 const MEGA_MENU_SERVICES = [
   {
@@ -192,7 +193,7 @@ const Navbar = memo(function Navbar() {
               <Linkedin size={20} />
             </a>
             <a
-              href="https://www.instagram.com/enov8_technologies?igsh=YWZtNHNia2syanE1"
+              href="https://www.instagram.com/Enov8_Technologies?igsh=YWZtNHNia2syanE1"
               className="text-light-primary hover:text-light-hover transition-colors"
             >
               <Instagram size={20} />
@@ -302,9 +303,9 @@ const Navbar = memo(function Navbar() {
             </li>
             <li>
               <Link
-                href="/#about"
+                href="/about"
                 className="hover:text-light-primary transition-colors py-4"
-                onClick={(e) => handleNavClick(e, "#about")}
+                onClick={() => setIsOpen(false)}
               >
                 About
               </Link>
@@ -325,20 +326,16 @@ const Navbar = memo(function Navbar() {
             suppressHydrationWarning
           >
             <ThemeToggle />
-            <Button
-              asChild
-              className="bg-light-primary text-white px-10 h-14 font-bold text-[12px] tracking-widest uppercase 
-              transition-all shadow-lg shadow-light-primary/20 rounded-none hover:bg-light-primary/90"
-            >
-              <a
-                href="https://api.whatsapp.com/send?phone=2349133632465"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsOpen(false)}
-              >
-                Start a Project
-              </a>
-            </Button>
+            <ConsultationModal
+              trigger={
+                <Button
+                  className="bg-light-primary text-white px-10 h-14 font-bold text-[12px] tracking-widest uppercase 
+                  transition-all shadow-lg shadow-light-primary/20 rounded-none hover:bg-light-primary/90"
+                >
+                  Start a Project
+                </Button>
+              }
+            />
           </div>
 
           {/* Hamburger (Mobile) */}
@@ -400,13 +397,13 @@ const Navbar = memo(function Navbar() {
             >
               Services
             </a>
-            <a
-              href="/#about"
+            <Link
+              href="/about"
               className="text-2xl font-bold tracking-tighter hover:text-light-primary transition-colors font-space"
-              onClick={(e) => handleNavClick(e, "#about")}
+              onClick={() => setIsOpen(false)}
             >
               About Us
-            </a>
+            </Link>
             <a
               href="/#contact"
               className="text-2xl font-bold tracking-tighter hover:text-light-primary transition-colors font-space"
