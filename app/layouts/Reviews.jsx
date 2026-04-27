@@ -120,8 +120,10 @@ export default function Reviews() {
               bulletClass: "swiper-bullet",
               bulletActiveClass: "swiper-bullet-active",
             }}
-            className="reviews-swiper"
+            navigation={true}
+            className="reviews-swiper relative group"
           >
+
             {REVIEWS.map((review) => (
               <SwiperSlide key={review.id}>
                 {/* Image-style: bright red card centered & overlapping */}
@@ -172,6 +174,61 @@ export default function Reviews() {
           background: white;
           width: 24px;
           border-radius: 4px;
+        }
+
+        /* Built-in Navigation styling */
+        .reviews-swiper .swiper-button-next,
+        .reviews-swiper .swiper-button-prev {
+          color: var(--light-primary);
+          width: 50px;
+          height: 50px;
+          // background: var(--light-primary);
+          opacity: 1;
+          transition: none;
+        }
+
+        .reviews-swiper .swiper-button-prev {
+          left: 10px;
+        }
+        .reviews-swiper .swiper-button-next {
+          right: 10px;
+        }
+
+        @media (min-width: 1024px) {
+          .reviews-swiper .swiper-button-prev {
+            left: 8%; /* Increased gap from card */
+          }
+          .reviews-swiper .swiper-button-next {
+            right: 8%; /* Increased gap from card */
+          }
+        }
+
+        @media (min-width: 1536px) {
+          .reviews-swiper .swiper-button-prev {
+            left: 18%; /* Increased gap from card */
+          }
+          .reviews-swiper .swiper-button-next {
+            right: 18%; /* Increased gap from card */
+          }
+        }
+
+        .reviews-swiper .swiper-button-next:after,
+        .reviews-swiper .swiper-button-prev:after {
+          font-size: 14px;
+          font-weight: 900;
+        }
+
+        .reviews-swiper .swiper-button-next:hover,
+        .reviews-swiper .swiper-button-prev:hover {
+          // background: var(--light-primary);
+          transform: none;
+        }
+
+        @media (max-width: 768px) {
+          .reviews-swiper .swiper-button-next,
+          .reviews-swiper .swiper-button-prev {
+            display: none;
+          }
         }
       `}</style>
     </section>

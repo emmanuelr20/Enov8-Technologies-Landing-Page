@@ -5,6 +5,7 @@ import Navbar from "./layouts/Navbar.jsx";
 import Analytics from "@/components/Analytics";
 import TawkChat from "@/components/TawkChat";
 import CookieBanner from "@/components/CookieBanner";
+import ScrollToTop from "@/components/ScrollToTop";
 import { Toaster } from "@/components/ui/sonner";
 import { Space_Grotesk, Poppins } from "next/font/google";
 
@@ -247,6 +248,7 @@ export default function RootLayout({ children }) {
         <Analytics />
         <Navbar />
         {children}
+        <ScrollToTop />
         <TawkChat />
         <CookieBanner />
         <Toaster position="top-right" richColors />
