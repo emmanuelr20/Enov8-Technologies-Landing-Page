@@ -131,21 +131,21 @@ export default function About() {
             </div>
 
             {/* Heading */}
-            <h2 className="text-4xl md:text-6xl font-black text-[#1A1A37] dark:text-white leading-[1.05] mb-10 font-space tracking-tighter">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-[#1A1A37] dark:text-white leading-[1.05] mb-10 font-space tracking-tighter">
               We Design The <span className="text-light-primary">Future</span>{" "}
               of Your Business
             </h2>
 
             {/* Body text */}
             <div className="space-y-8 text-zinc-600 dark:text-white/90 leading-relaxed font-poppins">
-              <p className="text-lg font-poppins">
+              <p className="text-base sm:text-lg font-poppins">
                 <span className="font-bold text-[#1A1A37] dark:text-white">Enov8 Technologies</span>{" "}
                 is more than a service provider; we are architects of digital
                 transformation. We specialize in merging IT Consulting with
                 precision Software Development to give your organization a
                 distinct competitive edge.
               </p>
-              <p className="text-lg font-poppins">
+              <p className="text-base sm:text-lg font-poppins">
                 In a world of rapidly evolving tech, we help our clients bridge
                 the gap between legacy operations and digital-first growth. By
                 harnessing AI and data-driven strategies, we bring clarity to
@@ -210,7 +210,7 @@ export default function About() {
               { stat: "24/7",  label: "Post-Deployment Support"    },
             ].map(({ stat, label }) => (
               <div key={label} className="text-start md:text-center group">
-                <h4 className="text-4xl md:text-6xl font-black text-[#1A1A37] dark:text-white font-space tracking-tighter mb-2 transition-colors group-hover:text-light-primary">
+                <h4 className="text-3xl md:text-6xl font-black text-[#1A1A37] dark:text-white font-space tracking-tighter mb-2 transition-colors group-hover:text-light-primary">
                   {stat}
                 </h4>
                 <p className="text-xs uppercase font-bold tracking-[0.2em] text-zinc-400">

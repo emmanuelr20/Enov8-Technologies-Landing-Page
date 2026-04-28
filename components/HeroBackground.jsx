@@ -172,15 +172,27 @@ export default function HeroBackground() {
     return () => clearInterval(timerRef.current);
   }, [isPaused, phase, goNext, inView]);
 
-  // First slide only: full preload. Others load on demand (major bandwidth / main-thread win).
+  // First slide only: full preload.
   useEffect(() => {
     const vid = videoRefs.current[0];
     if (!vid) return;
+
     const onReady = () => {
-      vid.play().catch(() => {});
+      vid.muted = true; // Extra insurance for mobile
+      vid.play().catch(() => {
+        // Fallback for strict mobile browsers - try again after a small delay
+        setTimeout(() => vid.play().catch(() => {}), 500);
+      });
       setVideoReady(true);
     };
-    vid.addEventListener("canplaythrough", onReady, { once: true });
+
+    // If already ready, play it
+    if (vid.readyState >= 3) {
+      onReady();
+    } else {
+      vid.addEventListener("canplaythrough", onReady, { once: true });
+    }
+
     return () => {
       vid.removeEventListener("canplaythrough", onReady);
     };
@@ -365,7 +377,7 @@ export default function HeroBackground() {
                 videoRefs.current[i] = el;
               }}
               src={slide.video}
-              preload={i === 0 ? "auto" : "none"}
+              autoPlay
               muted
               loop
               playsInline

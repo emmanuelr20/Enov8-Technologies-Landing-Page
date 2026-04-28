@@ -23,14 +23,14 @@ const Footer = memo(function Footer() {
             <div className="text-2xl font-bold mb-4 font-space">
               Enov8 Technologies
             </div>
-            <p className="text-background/80 mb-6 dark:text-white">
+            <p className="text-background/80 mb-6 dark:text-white font-poppins">
               Transforming businesses through innovative software solutions,
               mobile applications, and professional development training.
             </p>
 
             {/* Social Media Links */}
-            <div className="mb-6">
-              <h4 className="font-semibold mb-3">Follow Us</h4>
+            <div className="mb-6 font-poppins">
+              <h4 className="font-semibold mb-3 font-space">Follow Us</h4>
               <div className="flex space-x-4">
                 <a
                   href="https://www.linkedin.com/company/enov8-technologies/"
@@ -100,8 +100,8 @@ const Footer = memo(function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Services</h3>
-            <ul className="space-y-3 text-background/80 dark:text-white">
+            <h3 className="font-semibold mb-4 font-space">Services</h3>
+            <ul className="space-y-3 text-background/80 dark:text-white font-poppins">
               <li>
                 <a
                   href="/services/digital-signage"
@@ -154,8 +154,8 @@ const Footer = memo(function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Industries</h3>
-            <ul className="space-y-3 text-background/80 dark:text-white">
+            <h3 className="font-semibold mb-4 font-space">Industries</h3>
+            <ul className="space-y-3 text-background/80 dark:text-white font-poppins">
               <li>
                 <a href="#about" className="hover:text-white transition-colors">
                   Fintech
@@ -190,8 +190,8 @@ const Footer = memo(function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Contact Info</h3>
-            <div className="space-y-3 text-background/80 dark:text-white">
+            <h3 className="font-semibold mb-4 font-space">Contact Info</h3>
+            <div className="space-y-3 text-background/80 dark:text-white font-poppins">
               <div className="flex items-center space-x-3">
                 <Mail size={18} />
                 <a
@@ -217,9 +217,9 @@ const Footer = memo(function Footer() {
             </div>
 
             {/* Resource Links */}
-            <div className="mt-6">
-              <h4 className="font-semibold mb-3">Resources</h4>
-              <ul className="space-y-2 text-background/80 dark:text-white text-sm">
+            <div className="mt-6 font-poppins">
+              <h4 className="font-semibold mb-3 font-space">Resources</h4>
+              <ul className="space-y-2 text-background/80 dark:text-white text-sm font-poppins">
                 <li>
                   <a
                     href="/privacy-policy"
