@@ -32,7 +32,7 @@ const values = [
     description: "We align our goals with yours. Your success is our core metric, and we build long-term relationships based on trust."
   },
   {
-    title: "African Excellence",
+    title: "Excellence",
     icon: <Globe className="w-8 h-8 text-light-primary" />,
     description: "Building world-class digital solutions that are accessible, scalable, and built for the future of the continent's digital economy."
   }
@@ -84,10 +84,10 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-6 text-gray-700 dark:text-gray-300 font-poppins text-lg leading-relaxed">
                 <p>
-                  Founded on principles of quality, innovation, and client partnership, Enov8 serves clients across fintech, education, e-commerce, healthcare, transport, and the public sector. 
+                  Founded on principles of quality, innovation, and client partnership, Enov8 Technologies serves clients across fintech, education, e-commerce, healthcare, transport, and the public sector. 
                 </p>
                 <p>
-                  From a startup's first digital product to an enterprise's cloud migration, we deliver technology across software development, managed IT services, hardware supply, cloud infrastructure, and licensing.
+                  From a startup's first digital product to an enterprise's cloud migration, we deliver technology across software development, managed IT services, hardware procurement, cloud infrastructure, and licensing.
                 </p>
               </div>
               <div className="pt-6 flex items-center gap-6 text-sm font-bold tracking-widest uppercase font-space text-light-primary">
@@ -133,7 +133,7 @@ export default function AboutPage() {
                   Our Vision
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed font-poppins mb-10">
-                  To be the most trusted technology partner for businesses across Africa – delivering world-class digital solutions that are accessible, scalable, and built for the future of the continent's digital economy.
+                  To be the most trusted technology partner for businesses across Africa, delivering world-class digital solutions that are accessible, scalable, and built for the future of the continent's digital economy.
                 </p>
                 
                 <div className="border-l-4 border-light-primary pl-6 py-2">
@@ -152,7 +152,7 @@ export default function AboutPage() {
                   Our Mission
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed font-poppins">
-                  To empower businesses and institutions with innovative, reliable, and tailored technology solutions – spanning software development, managed services, hardware infrastructure, and cloud platforms – enabling them to operate efficiently, scale confidently, and compete without limits.
+                  To empower businesses and institutions with innovative, reliable, and tailored technology solutions, spanning software development, managed services, hardware infrastructure, and cloud platforms – enabling them to operate efficiently, scale confidently, and compete without limits.
                 </p>
               </div>
 
