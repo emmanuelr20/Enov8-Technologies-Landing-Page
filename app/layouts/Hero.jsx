@@ -1,65 +1,32 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { FaHandsHelping } from "react-icons/fa";
+import { FaUsers } from "react-icons/fa6";
 import dynamic from "next/dynamic";
 
-const ScrollReveal = dynamic(() => import("scrollreveal"), { ssr: false });
+const HeroBackground = dynamic(() => import("@/components/HeroBackground"), {
+  ssr: false,
+  loading: () => (
+    <div
+      className="relative min-h-[75vh] overflow-hidden bg-[#09090b]"
+      aria-hidden="true"
+    >
+      <div className="absolute inset-0 bg-linear-to-b from-black/20 to-black/50" />
+    </div>
+  ),
+});
 
 export default function Hero() {
-  const [typeText, setTypeText] = useState("");
-  const texts = ["custom", "scalable", "reliable"];
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [currentCharIndex, setCurrentCharIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
-  const heroRef = useRef(null);
+  const cardsRef = useRef(null);
 
   useEffect(() => {
-    let timeout;
-    const currentText = texts[currentTextIndex];
-
-    if (isPaused) {
-      timeout = setTimeout(() => {
-        setIsPaused(false);
-        setIsDeleting(true);
-      }, 2000);
-    } else if (!isDeleting && currentCharIndex < currentText.length) {
-      timeout = setTimeout(() => {
-        setTypeText((prev) => prev + currentText[currentCharIndex]);
-        setCurrentCharIndex((prev) => prev + 1);
-      }, 100);
-    } else if (!isDeleting && currentCharIndex === currentText.length) {
-      setIsPaused(true);
-    } else if (isDeleting && typeText.length > 0) {
-      timeout = setTimeout(() => {
-        setTypeText((prev) => prev.slice(0, -1));
-      }, 50);
-    } else if (isDeleting && typeText.length === 0) {
-      setIsDeleting(false);
-      setCurrentCharIndex(0);
-      setCurrentTextIndex((prev) => (prev + 1) % texts.length);
-    }
-
-    return () => clearTimeout(timeout);
-  }, [
-    currentCharIndex,
-    currentTextIndex,
-    isDeleting,
-    typeText,
-    isPaused,
-    texts,
-  ]);
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && heroRef.current) {
+    if (typeof window !== "undefined" && cardsRef.current) {
       const sr = require("scrollreveal").default;
-      sr().reveal(heroRef.current, {
-        origin: "left",
-        distance: "40px",
-        duration: 500,
+      sr().reveal(cardsRef.current, {
+        origin: "bottom",
+        distance: "20px",
+        duration: 400,
         easing: "ease-out",
         delay: 200,
         reset: false,
@@ -70,52 +37,84 @@ export default function Hero() {
   return (
     <section
       aria-label="Home Enov8 Technologies"
-      className="h-screen relative bg-gray-950/30 text-white"
+      className="relative z-10 cursor-pointer"
       id="home"
     >
-      <Image
-        src="/HomeImage.jpeg"
-        alt="Enov8 Technologies team developing software solutions"
-        fill
-        quality={85}
-        priority
-        className="object-cover -z-10"
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      />
+      {/* ── VIDEO SLIDER ──────────────────────────────────────────────────── */}
+      <HeroBackground />
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-black/60 z-[-10]" />
-
-      <div className="container mx-auto px-3.5 h-full z-10 flex flex-col justify-center items-center lg:items-start">
-        <div className="grid grid-cols-1 gap-y-6 md:px-3 pt-20" ref={heroRef}>
-          <h1
-            className="text-5xl text-center lg:text-start md:text-7xl font-bold capitalize  "
-            style={{ fontFamily: "var(--font-space)" }}
+      {/* THE OVERLAP CARDS - Layered Depth Style */}
+      <div className="relative z-30 px-4 lg:px-6">
+        <div className="container mx-auto flex justify-center">
+          <div
+            ref={cardsRef}
+            className="grid grid-cols-1 xl:grid-cols-[1.2fr_0.85fr_0.85fr] gap-5 w-full max-w-6xl -mt-10 md:-mt-[90px]"
           >
-            we build <span className="text-light-primary"> {typeText} </span>
-            <br /> digital solutions
-          </h1>
-          <p className="max-w-[630px] w-full text-center text-[1.2rem] lg:text-start md:text-lg font-medium">
-            From mobile apps to enterprise solutions, we deliver cutting-edge
-            technology that transforms businesses across fintech, e-commerce,
-            education, and more.
-          </p>
-          <div className="flex justify-center lg:justify-start space-x-6">
-            <a
-              href="https://wa.me/2347064838988?text=Hi%20there!%20I'm%20interested%20in%20your%20services"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Contact us on WhatsApp"
+            {/* Card 1: Brand Color - Years of Excellence */}
+            <div
+              className="relative group overflow-hidden bg-light-primary/80 p-6 sm:p-8 md:p-10 text-white shadow-2xl flex flex-col min-h-[250px] md:min-h-[280px] xl:text-center"
+              suppressHydrationWarning
             >
-              <Button
-                variant="background"
-                size="lg"
-                className="flex items-center gap-x-4 py-6 font-black"
-              >
-                Get in touch
-                <ArrowRight />
-              </Button>
-            </a>
+              {/* Big number + title inline — TBO style */}
+              <div className="flex items-start lg:items-center gap-4 mb-6 xl:justify-center">
+                <h3 className="text-xl md:text-3xl font-extrabold font-space leading-tight tracking-wide ">
+                  Years Of
+                  <br />
+                  Excellence
+                </h3>
+              </div>
+
+              <p className="text-white/90 text-sm md:text-[20px] xl:text-lg leading-relaxed font-medium font-poppins">
+                Excellence is our baseline. From core infrastructure to
+                client-facing solutions, we maintain an uncompromising standard
+                of quality. We don't believe in shortcuts; we believe in
+                precision engineering as a standard.
+              </p>
+
+              {/* Hover glow */}
+              <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-white/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            </div>
+
+            {/* Card 2: Collaboration */}
+            <div
+              className="bg-white dark:bg-zinc-900 p-5 sm:p-6 md:p-8 shadow-2xl flex flex-col min-h-[250px] md:min-h-[280px] border border-zinc-100 dark:border-zinc-800 md:mt-12 transition-colors duration-300"
+              suppressHydrationWarning
+            >
+              {/* Icon + Title horizontal — TBO style */}
+              <div className="flex items-center gap-4 mb-5">
+                <div className="text-light-primary shrink-0">
+                  <FaHandsHelping size={44} strokeWidth={1.5} />
+                </div>
+                <h3 className="text-lg md:text-xl font-black text-[#1A1A37] dark:text-white font-space tracking-wide leading-tight">
+                  Collaboration
+                </h3>
+              </div>
+              <p className="text-gray-800 dark:text-white/95 text-sm md:text-[20px] xl:text-lg leading-relaxed font-poppins">
+                We align our goals with yours to amplify impact. Collective
+                intelligence allows us to deliver results that transcend
+                individual effort. Shared success is our core metric.
+              </p>
+            </div>
+
+            {/* Card 3: Clients First */}
+            <div
+              className="bg-white dark:bg-zinc-900 p-5 sm:p-6 md:p-8 shadow-2xl flex flex-col min-h-[250px] md:min-h-[280px] border border-zinc-100 dark:border-zinc-800 md:mt-12 transition-colors duration-300"
+              suppressHydrationWarning
+            >
+              <div className="flex items-center gap-4 mb-5">
+                <div className="text-light-primary shrink-0">
+                  <FaUsers size={44} strokeWidth={1.5} />
+                </div>
+                <h3 className="text-lg md:text-xl font-black text-[#1A1A37] dark:text-white font-space tracking-wide leading-tight">
+                  Clients First
+                </h3>
+              </div>
+              <p className="text-gray-800 dark:text-white/95 text-sm md:text-[20px] xl:text-lg leading-relaxed font-poppins">
+                Our mission is to remove friction. We streamline the complex
+                technical landscape so you can focus entirely on your growth and
+                core vision.
+              </p>
+            </div>
           </div>
         </div>
       </div>

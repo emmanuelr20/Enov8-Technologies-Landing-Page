@@ -107,7 +107,11 @@
 }
 
 body {
-  font-family: var(--font-mulish);
+  font-family: var(--font-poppins), sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-space), sans-serif;
 }
 
 .dark {
@@ -157,6 +161,45 @@ body {
 }
 
 html {
-  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100%;
 }
+
+/* Fixes backface flashing in Chrome/Safari */
+video {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Precise math: translate by 50% of total width PLUS half the gap to maintain alignment */
+    transform: translateX(calc(-50% - 24px)); /* gap-12 = 48px, half = 24px */
+  }
+}
+
+@media (min-width: 768px) {
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - 40px)); /* gap-20 = 80px, half = 40px */
+    }
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+@keyframes heroProgress {
+  0% { width: 0%; background-color: rgba(255, 255, 255, 0.2); }
+  100% { width: 100%; background-color: rgba(255, 255, 255, 0.8); }
+}
+
 

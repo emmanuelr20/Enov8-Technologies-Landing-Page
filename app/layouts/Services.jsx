@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useEffect } from "react";
 import {
   Smartphone,
   Globe,
@@ -8,181 +8,116 @@ import {
   GraduationCap,
   Palette,
   Rocket,
-  CheckCircle,
+  ArrowRight,
 } from "lucide-react";
 import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from "@/components/ui/card";
-import { useEffect, useRef } from "react";
+  LuMonitorPlay,
+  LuBoxes,
+  LuUserPlus,
+  LuShield,
+  LuLayoutGrid,
+  LuHandshake,
+} from "react-icons/lu";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const ScrollReveal = dynamic(() => import("scrollreveal"), { ssr: false });
 
 const services = [
   {
-    id: "mobile-dev",
-    icon: Smartphone,
-    title: "Mobile Development",
-    subtitle: "iOS • Android • Cross-Platform",
+    id: "digital-signage",
+    icon: LuMonitorPlay, // Visual display icon
+    title: "Digital Signage Solution",
+    subtitle: "Real-time • Dynamic • Visual",
     description:
-      "Enterprise-grade mobile solutions with native performance, cross-platform efficiency, and seamless user experiences.",
-    technologies: ["React Native", "Flutter", "Swift", "Kotlin"],
-    features: [
-      "Native iOS & Android Development",
-      "Cross-platform Solutions (React Native/Flutter)",
-      "App Store Optimization & Deployment",
-      "Offline-first Architecture",
-      "Push Notifications & Analytics",
-    ],
+      "Manage and deploy dynamic visual content across your screens in real-time. We provide high-impact signage that transforms physical spaces.",
   },
   {
-    id: "web-dev",
-    icon: Globe,
-    title: "Web Applications",
-    subtitle: "Frontend • Backend • Full-Stack",
+    id: "automation",
+    icon: LuBoxes, // Matches the 'Cube/Process' icon from the image
+    title: "Business Automation",
+    subtitle: "Intelligent • Seamless • Efficient",
     description:
-      "Scalable web applications built with modern architecture, optimized performance, and enterprise security standards.",
-    technologies: ["React", "Node.js", "TypeScript", "Next.js"],
-    features: [
-      "Single Page Applications (SPA)",
-      "Server-Side Rendering (SSR/SSG)",
-      "Progressive Web Apps (PWA)",
-      "Microservices Architecture",
-      "API Design & Integration",
-    ],
+      "Eliminate repetitive manual tasks with intelligent, seamless workflows. We connect your platforms to boost operational efficiency.",
   },
   {
-    id: "enterprise",
-    icon: Database,
-    title: "Enterprise Solutions",
-    subtitle: "Scalable • Secure • Robust",
+    id: "onboarding",
+    icon: LuUserPlus, // Matches the 'User +' icon from the image
+    title: "Customer Onboarding & ID Verification",
+    subtitle: "KYC • Secure • Seamless",
     description:
-      "Mission-critical enterprise systems with high availability, data integrity, and seamless third-party integrations.",
-    technologies: ["Java", "Python", "PostgreSQL", "Docker"],
-    features: [
-      "Enterprise Resource Planning (ERP)",
-      "Customer Relationship Management (CRM)",
-      "Business Intelligence & Analytics",
-      "Legacy System Modernization",
-      "Cloud Migration & DevOps",
-    ],
+      "Streamline the user journey with secure, friction-free verification. We integrate robust KYC and compliance protocols to build trust.",
   },
   {
-    id: "training",
-    icon: GraduationCap,
-    title: "Developer Training",
-    subtitle: "Mentorship • Certification • Career",
+    id: "security",
+    icon: LuShield, // Matches the 'Shield' icon from the image
+    title: "Security",
+    subtitle: "Proactive • Enterprise • Protection",
     description:
-      "Comprehensive training programs designed by industry experts to build world-class development teams.",
-    technologies: ["Curriculum", "Projects", "Mentoring", "Assessment"],
-    features: [
-      "Structured Learning Paths",
-      "Hands-on Project Development",
-      "Industry Mentor Network",
-      "Career Placement Support",
-      "Continuous Assessment & Feedback",
-    ],
+      "Safeguard your digital infrastructure with proactive protection. From encryption to audits, we ensure your data stays secure.",
   },
   {
-    id: "design",
-    icon: Palette,
-    title: "UI/UX Design",
-    subtitle: "Research • Design • Testing",
+    id: "software-dev",
+    icon: LuLayoutGrid, // Matches the '3x3 Grid' icon from the image
+    title: "Software Development",
+    subtitle: "Scalable • Custom • Performance",
     description:
-      "User-centered design approach combining behavioral psychology with cutting-edge design trends and accessibility standards.",
-    technologies: ["Figma", "Adobe XD", "Principle", "Framer"],
-    features: [
-      "User Research & Persona Development",
-      "Information Architecture & Wireframing",
-      "High-fidelity Prototyping",
-      "Usability Testing & Iteration",
-      "Design System Creation",
-    ],
+      "Build scalable, custom digital products designed for performance. We deliver user-centric applications using modern tech stacks.",
   },
   {
-    id: "transformation",
-    icon: Rocket,
-    title: "Digital Transformation",
-    subtitle: "Strategy • Implementation • Growth",
+    id: "consulting",
+    icon: LuHandshake, // Matches the 'Handshake' icon from the image
+    title: "IT Consulting",
+    subtitle: "Strategy • Infrastructure • Growth",
     description:
-      "End-to-end digital transformation strategies that modernize operations and accelerate business growth.",
-    technologies: ["Cloud", "Process Automation", "IoT", "Digital Strategy"],
-    features: [
-      "Digital Strategy & Roadmap",
-      "Process Automation & Optimization",
-      "Cloud-first Architecture",
-      "Data Analytics & AI Integration",
-      "Change Management & Training",
-    ],
+      "Optimize your technical strategy with expert guidance. We provide the roadmaps and insights you need for long-term growth.",
   },
 ];
 
-export default function Services() {
-  const [activeCard, setActiveCard] = useState(null);
-  const titleRef = useRef(null);
-  const textRef = useRef(null);
-  const servicesRef = useRef([]);
+// Structured data
+const servicesJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Enov8 Technologies Services",
+  itemListElement: services.map((s, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "Service",
+      name: s.title,
+      description: s.description,
+      provider: { "@type": "Organization", name: "Enov8 Technologies" },
+    },
+  })),
+};
 
-  // Structured data for services
-  const servicesJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Enov8 Technologies Services",
-    description:
-      "Comprehensive technology solutions offered by Enov8 Technologies",
-    itemListElement: services.map((service, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "Service",
-        name: service.title,
-        description: service.description,
-        provider: {
-          "@type": "Organization",
-          name: "Enov8 Technologies",
-        },
-        serviceType: service.subtitle,
-        category: "Software Development",
-      },
-    })),
-  };
+export default function Services() {
+  const titleRef = useRef(null);
+  const headerRef = useRef(null);
+  const cardsRef = useRef([]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const sr = require("scrollreveal").default;
 
-      const revealOptions = {
-        origin: "bottom",
-        distance: "40px",
-        duration: 400,
-        easing: "ease-out",
-        delay: 100,
-        reset: false,
-      };
-
-      if (titleRef.current) {
-        sr().reveal(titleRef.current, revealOptions);
-      }
-
-      if (textRef.current) {
-        sr().reveal(textRef.current, {
-          ...revealOptions,
-          delay: 150,
-          duration: 450,
+      if (headerRef.current) {
+        sr().reveal(headerRef.current, {
+          origin: "bottom",
+          distance: "30px",
+          duration: 500,
+          easing: "ease-out",
+          delay: 100,
+          reset: false,
         });
       }
 
-      servicesRef.current.forEach((ref, i) => {
+      cardsRef.current.forEach((ref, i) => {
         if (ref) {
           sr().reveal(ref, {
             origin: "bottom",
-            distance: "50px",
-            duration: 400,
-            delay: i * 50,
+            distance: "40px",
+            duration: 450,
+            delay: i * 60,
             easing: "ease-out",
             reset: false,
           });
@@ -197,103 +132,103 @@ export default function Services() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
       />
+
       <section
         aria-label="Enov8 Technologies Services"
-        className="py-24 px-6 max-w-7xl mx-auto"
+        className="bg-gray-50 dark:bg-zinc-950 py-16 md:py-24 px-4 sm:px-6 transition-colors duration-300"
         id="services"
       >
-        <div className="text-center space-y-4">
-          <h2
-            ref={titleRef}
-            className="text-3xl md:text-5xl font-bold dark:text-gray-100"
-            style={{ fontFamily: "var(--font-space)" }}
+        <div className="max-w-7xl mx-auto">
+          {/* ── HEADER ROW — 3 columns like TBO ─────────────────────────────── */}
+          <div
+            ref={headerRef}
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1fr_1.2fr_auto] gap-8 md:gap-8 items-start mb-20"
           >
-            Our Services
-          </h2>
-          <p
-            ref={textRef}
-            className="text-lg max-w-xl mx-auto text-zinc-700 dark:text-gray-200"
-          >
-            Comprehensive technology solutions tailored to drive innovation and
-            growth across industries.
-          </p>
-        </div>
+            {/* Left: label + left-border title */}
+            <div className="flex flex-col gap-3">
+              <span className="text-light-primary font-semibold text-sm uppercase tracking-widest font-poppins">
+                Our Services
+              </span>
+              <div className="flex gap-3 md:gap-4 items-start">
+                <span className="w-1 min-h-20 bg-light-primary block shrink-0 mt-1" />
+                <h2
+                  ref={titleRef}
+                  className="text-3xl md:text-4xl font-bold text-[#1A1A37] dark:text-white leading-tight font-space max-w-sm"
+                >
+                  Amazing Services We Offer
+                </h2>
+              </div>
+            </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-16">
-          {services.map((service, i) => {
-            const Icon = service.icon;
-            const isActive = activeCard === service.id;
+            {/* Center: description */}
+            <p className="text-gray-800 dark:text-white/90 text-lg sm:text-lg leading-relaxed font-poppins pt-1 md:pt-8 xl:-mt-7">
+              We specialize in navigating organizational change and digital
+              evolution. Our technology experts collaborate exclusively with
+              clients to architect concrete, high-performance solutions designed
+              for real-world impact.
+            </p>
 
-            return (
-              <Card
-                key={service.id}
-                ref={(el) => (servicesRef.current[i] = el)}
-                onMouseEnter={() => setActiveCard(service.id)}
-                onMouseLeave={() => setActiveCard(null)}
-                className="rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-zinc-800 dark:bg-[#141414]"
+            {/* Right: CTA button */}
+            <div className="flex items-start md:pt-8">
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 bg-light-primary hover:bg-light-primary/90 text-white font-bold text-sm px-6 py-5 shadow-lg font-poppins whitespace-nowrap"
               >
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-light-primary dark:bg-bg-dark">
-                      <Icon className="text-white dark:text-light-primary w-6 h-6" />
+                See All Services
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
+
+          {/* ── SERVICE CARDS GRID ───────────────────────────────────────────── */}
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-24 mt-8 md:mt-25">
+            {services.map((service, i) => {
+              const Icon = service.icon;
+              return (
+                <div
+                  key={service.id}
+                  ref={(el) => (cardsRef.current[i] = el)}
+                  className="relative flex flex-col bg-white dark:bg-zinc-900 shadow-[0_15px_50px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_15px_50px_-15px_rgba(0,0,0,0.5)] p-8 pt-16 min-h-[300px] md:h-[370px] w-full md:max-w-[400px] md:mx-auto transition-colors duration-300"
+                >
+                  {/* Centered Icon box — Overlapping top border */}
+                  <div className="absolute top-0 left-14 -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-16 h-16 md:w-18 md:h-18 bg-light-primary flex items-center justify-center shadow-lg">
+                      <Icon
+                        className="text-white w-7 h-7 md:w-8 md:h-8"
+                        strokeWidth={2}
+                      />
                     </div>
                   </div>
-                  <CardTitle className="text-xl font-bold text-gray-900 dark:text-white">
-                    {service.title}
-                  </CardTitle>
-                  <CardDescription className="text-sm text-gray-600 dark:text-gray-400">
-                    {service.subtitle}
-                  </CardDescription>
-                </CardHeader>
 
-                <CardContent>
-                  <p className="text-gray-700 dark:text-gray-300 mb-4">
-                    {service.description}
-                  </p>
+                  {/* Card body */}
+                  <div className="flex flex-col flex-1 items-start">
+                    {/* Title */}
+                    <h3 className="text-[22px] font-bold text-[#1A1A37] dark:text-white font-space mb-4 leading-tight min-h-12 flex items-center">
+                      {service.title}
+                    </h3>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {service.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-xs px-2 py-1 bg-gray-100 dark:bg-zinc-700 text-gray-800 dark:text-white rounded-full"
-                      >
-                        {tech}
+                    {/* Description */}
+                    <p className="text-gray-800 dark:text-white/90 text-lg font-medium leading-relaxed font-poppins mb-8">
+                      {service.description}
+                    </p>
+
+                    {/* Read More Link */}
+                    <Link
+                      href={`/services/${service.id}`}
+                      className="group/link inline-flex items-center gap-2 text-light-primary font-bold text-sm md:text-lg transition-colors hover:text-light-primary/80 font-poppins mt-auto"
+                    >
+                      <div className="w-6 h-6 rounded-full border-2 border-light-primary flex items-center justify-center group-hover/link:bg-light-primary group-hover/link:text-white transition-all">
+                        <ArrowRight size={14} />
+                      </div>
+                      <span className="underline-offset-4 underline">
+                        Read More
                       </span>
-                    ))}
+                    </Link>
                   </div>
-
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ease-out ${
-                      isActive
-                        ? "max-h-96 opacity-100 mt-4"
-                        : "max-h-0 opacity-0 mt-0"
-                    }`}
-                  >
-                    <div className="space-y-2">
-                      {service.features.map((feature, i) => (
-                        <div
-                          key={i}
-                          className={`flex items-center gap-2 text-sm transform transition-all duration-200 ease-out ${
-                            isActive
-                              ? "translate-y-0 opacity-100"
-                              : "translate-y-2 opacity-0"
-                          }`}
-                          style={{ transitionDelay: `${i * 25}ms` }}
-                        >
-                          <CheckCircle className="w-4 h-4 text-dark-primary" />
-                          <span className="text-gray-700 dark:text-gray-300">
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-gray-200 dark:border-zinc-700" />
-                </CardContent>
-              </Card>
-            );
-          })}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
     </>

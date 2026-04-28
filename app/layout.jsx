@@ -1,10 +1,13 @@
 import "./globals.css";
+import Script from "next/script";
 import "../styles/performance.css";
 import Navbar from "./layouts/Navbar.jsx";
 import Analytics from "@/components/Analytics";
-import { Space_Grotesk } from "next/font/google";
-import { Mulish } from "next/font/google";
-import Head from "next/head";
+import TawkChat from "@/components/TawkChat";
+import CookieBanner from "@/components/CookieBanner";
+import ScrollToTop from "@/components/ScrollToTop";
+import { Toaster } from "@/components/ui/sonner";
+import { Space_Grotesk, Poppins } from "next/font/google";
 
 const space = Space_Grotesk({
   variable: "--font-space",
@@ -13,14 +16,15 @@ const space = Space_Grotesk({
   display: "swap",
 });
 
-const mulish = Mulish({
-  variable: "--font-mulish",
-  weight: ["400", "500"],
+const poppins = Poppins({
+  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
 });
 
 export const metadata = {
+  metadataBase: new URL("https://enov8technologies.com"),
   title: {
     default:
       "Enov8 Technologies - Custom Software Development & Digital Solutions",
@@ -54,17 +58,17 @@ export const metadata = {
   classification: "Software Development Company",
   icons: {
     icon: [
-      { url: "/logo.svg", type: "image/svg+xml" },
-      { url: "/icon.png", sizes: "32x32", type: "image/png" },
-      { url: "/icon.png", sizes: "16x16", type: "image/png" },
+      { url: "/brand/logo.svg", type: "image/svg+xml" },
+      { url: "/brand/icon.png", sizes: "32x32", type: "image/png" },
+      { url: "/brand/icon.png", sizes: "16x16", type: "image/png" },
     ],
-    shortcut: "/logo.svg",
+    shortcut: "/brand/logo.svg",
     apple: [
-      { url: "/logo.svg", type: "image/svg+xml" },
-      { url: "/icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/brand/logo.svg", type: "image/svg+xml" },
+      { url: "/brand/icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
-  manifest: "/manifest.json",
+  manifest: "/brand/manifest.json",
   openGraph: {
     title:
       "Enov8 Technologies - Custom Software Development & Digital Solutions",
@@ -72,26 +76,18 @@ export const metadata = {
       "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
     url: "https://enov8technologies.com",
     siteName: "Enov8 Technologies",
-    locale: "en_US",
+    locale: "en_NG",
     type: "website",
     images: [
       {
-        url: "https://enov8technologies.com/image.png",
+        url: "https://enov8technologies.com/brand/image.png",
         width: 1200,
         height: 630,
         alt: "Enov8 Technologies - Custom Software Development",
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title:
-      "Enov8 Technologies - Custom Software Development & Digital Solutions",
-    description:
-      "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
-    images: ["https://enov8technologies.com/image.png"],
-    creator: "@enov8tech",
-  },
+  // Twitter/X card intentionally omitted — no active Twitter account
   robots: {
     index: true,
     follow: true,
@@ -105,16 +101,17 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: {
-    canonical: "https://enov8technologies.com",
-  },
+  alternates: { canonical: "/" },
   verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    other: {
-      "msvalidate.01": "your-bing-verification-code",
-      "facebook-domain-verification": "74co610l5o1qwid0ar9la9hk4s0qmn",
-    },
+    other: { "facebook-domain-verification": "jv7a171bahivn7i9ahydel0vxuorgf" },
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Enov8 Technologies - Custom Software Development & Digital Solutions",
+    description:
+      "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
+    images: ["/brand/image.png"],
   },
 };
 
@@ -126,11 +123,11 @@ const jsonLd = {
   url: "https://enov8technologies.com",
   logo: {
     "@type": "ImageObject",
-    url: "https://enov8technologies.com/logo.svg",
+    url: "https://enov8technologies.com/brand/logo.svg",
     width: 300,
     height: 301,
   },
-  image: "https://enov8technologies.com/image.png",
+  image: "https://enov8technologies.com/brand/image.png",
   description:
     "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
   foundingDate: "2020",
@@ -178,14 +175,9 @@ const jsonLd = {
     },
   ],
   sameAs: [
-    "https://linkedin.com/company/enov8technologies",
-    "https://twitter.com/enov8tech",
-    "https://github.com/enov8technologies",
-    "https://youtube.com/@enov8technologies",
-    "https://medium.com/@enov8technologies",
-    "https://dribbble.com/enov8technologies",
-    "https://clutch.co/profile/enov8-technologies",
-    "https://www.goodfirms.co/company/enov8-technologies",
+    "https://www.linkedin.com/company/enov8-technologies/",
+    "https://www.instagram.com/enov8_technologies",
+    "https://www.facebook.com/Enov8Technologies",
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -227,24 +219,39 @@ const jsonLd = {
   },
 };
 
+const jsonLdWebsite = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Enov8 Technologies",
+  url: "https://enov8technologies.com",
+};
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <Head>
-        <link rel="canonical" href="https://enov8technologies.com" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          key="organization-jsonld"
-        />
-      </Head>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className="overflow-x-hidden max-w-full"
+    >
       <body
-        className={`${mulish.variable} ${space.variable} text-zinc-900 bg-bg-light dark:bg-black overflow-x-hidden
-        `}
+        className={`${poppins.variable} ${space.variable} min-h-svh text-foreground bg-background overflow-x-hidden antialiased`}
+        suppressHydrationWarning
       >
+        {/* Organization Schema */}
+        <Script id="organization-jsonld" type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </Script>
+        {/* WebSite Schema — enables Sitelinks Search Box in Google */}
+        <Script id="website-jsonld" type="application/ld+json">
+          {JSON.stringify(jsonLdWebsite)}
+        </Script>
         <Analytics />
         <Navbar />
         {children}
+        <ScrollToTop />
+        <TawkChat />
+        <CookieBanner />
+        <Toaster position="top-right" richColors />
       </body>
     </html>
   );
