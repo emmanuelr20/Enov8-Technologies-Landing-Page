@@ -11,11 +11,11 @@ export default function ConsultingPage() {
       <div>
         <div className="flex items-center gap-4 mb-5">
           <span className="w-1.5 h-10 bg-light-primary block shrink-0" />
-          <h2 className="text-3xl md:text-4xl font-black text-[#1A1A37] dark:text-white font-space tracking-tight">
+          <h2 className="text-3xl md:text-4xl text-[#1A1A37] dark:text-white tracking-tight">
             IT Consulting
           </h2>
         </div>
-        <p className="text-gray-700 dark:text-white/90 text-lg leading-relaxed font-poppins">
+        <p className=" dark:text-white/90">
           Optimize your technical strategy with expert guidance. We provide the
           roadmaps and insights you need for long-term growth, ensuring your
           technology investments align perfectly with your business objectives.
@@ -27,11 +27,11 @@ export default function ConsultingPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
+            <h4 className="text-xl md:text-2xl capitalize dark:text-white">
               Digital Transformation Roadmap
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
+          <p className=" dark:text-white/90 pl-5">
             We work with your leadership team to define a clear technology
             vision. Our roadmaps outline the specific tools, timelines, and
             processes needed to achieve your long-term business goals and stay
@@ -42,11 +42,11 @@ export default function ConsultingPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
+            <h4 className="text-xl md:text-2xl capitalize dark:text-white">
               Infrastructure Strategy
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
+          <p className=" dark:text-white/90 pl-5">
             Optimize your hardware and cloud infrastructure for cost, security,
             and performance. We provide expert advice on server management,
             network architecture, and disaster recovery planning to ensure
@@ -57,11 +57,11 @@ export default function ConsultingPage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
+            <h4 className="text-xl md:text-2xl capitalize dark:text-white">
               Technical Feasibility Studies
             </h4>
           </div>
-          <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
+          <p className=" dark:text-white/90 pl-5">
             Before you invest in a new project, we evaluate the technical risks,
             resource requirements, and potential ROI. Our studies help you make
             informed decisions and avoid costly pitfalls during implementation.

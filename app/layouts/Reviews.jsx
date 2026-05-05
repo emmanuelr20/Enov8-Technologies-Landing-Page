@@ -93,7 +93,7 @@ export default function Reviews() {
           <div className="flex flex-col items-center justify-center md:text-center">
             <div className="flex items-center gap-4">
               <span className="w-1.5 h-12 bg-light-primary block shrink-0" />
-              <h2 className="text-4xl md:text-5xl font-black text-white font-space tracking-tight">
+              <h2 className="text-4xl md:text-5xl text-white tracking-tight">
                 What Our Clients Are Saying!
               </h2>
             </div>
@@ -123,12 +123,11 @@ export default function Reviews() {
             navigation={true}
             className="reviews-swiper relative group"
           >
-
             {REVIEWS.map((review) => (
               <SwiperSlide key={review.id}>
                 {/* Image-style: bright red card centered & overlapping */}
                 <div className="flex justify-center mt-10 md:px-4">
-                  <div className="relative max-w-3xl w-full bg-light-primary p-6 sm:p-8 md:p-12 lg:p-16 shadow-md md:h-[500px]">
+                  <div className="relative max-w-2xl w-full bg-light-primary p-6 sm:p-8 md:p-12 lg:p-16 shadow-md md:h-[450px]">
                     {/* Quote icon - solid and smaller like the image */}
                     <MessageSquareQuote
                       className="text-white mb-6 fill-white"
@@ -137,15 +136,15 @@ export default function Reviews() {
                     />
 
                     {/* Review text - properly weighted */}
-                    <p className="text-white text-lg md:text-lg lg:text-xl leading-relaxed font-poppins mb-8 font-medium">
+                    <p className="text-white mb-8 text-sm md:text-[20px] xl:text-base">
                       {review.text}
                     </p>
 
                     {/* Client name + company */}
                     <div className="mt-auto">
-                      <p className="text-white font-semibold font-poppins text-lg md:text-xl tracking-wide">
+                      <span className="text-white text-base md:text-xl tracking-wide font-medium">
                         {review.name}
-                      </p>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -188,18 +187,18 @@ export default function Reviews() {
         }
 
         .reviews-swiper .swiper-button-prev {
-          left: 10px;
+          left: 8px;
         }
         .reviews-swiper .swiper-button-next {
-          right: 10px;
+          right: 8px;
         }
 
         @media (min-width: 1024px) {
           .reviews-swiper .swiper-button-prev {
-            left: 8%; /* Increased gap from card */
+            left: 6%; /* Increased gap from card */
           }
           .reviews-swiper .swiper-button-next {
-            right: 8%; /* Increased gap from card */
+            right: 6%; /* Increased gap from card */
           }
         }
 

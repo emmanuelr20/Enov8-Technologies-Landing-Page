@@ -8,8 +8,8 @@ import Image from "next/image";
 const ScrollReveal = dynamic(() => import("scrollreveal"), { ssr: false });
 
 export default function About() {
-  const textRef  = useRef(null);
-  const imgRef   = useRef(null);
+  const textRef = useRef(null);
+  const imgRef = useRef(null);
   const badgeRef = useRef(null);
 
   // ✅ Track when the image has actually loaded so badge only appears after
@@ -42,7 +42,7 @@ export default function About() {
           distance: "50px",
           duration: 700,
           easing: "ease-out",
-          delay: 200,   // slight delay after image so they stagger nicely
+          delay: 200, // slight delay after image so they stagger nicely
           reset: false,
         });
         return true;
@@ -70,7 +70,7 @@ export default function About() {
         distance: "20px",
         duration: 500,
         easing: "ease-out",
-        delay: 450,   // fires well after the image has settled
+        delay: 450, // fires well after the image has settled
         reset: false,
       });
     }
@@ -80,11 +80,9 @@ export default function About() {
     <section className="py-16 md:py-24 lg:py-40 overflow-hidden" id="about">
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-12 lg:gap-24">
-
           {/* LEFT COLUMN: IMAGE + BADGE ──────────────────────────────────── */}
           <div className="relative w-full lg:w-1/2" ref={imgRef}>
             <div className="relative group">
-
               {/* Main image */}
               <div className="hidden lg:block relative z-10 overflow-hidden shadow-[0_50px_100px_-30px_rgba(0,0,0,0.15)] h-[750px]">
                 <Image
@@ -105,10 +103,8 @@ export default function About() {
                 style={{ visibility: imgLoaded ? "visible" : "hidden" }}
               >
                 <div className="text-center">
-                  <span className="block text-5xl font-black font-space leading-none mb-2">
-                    100%
-                  </span>
-                  <span className="text-[11px] uppercase font-bold tracking-[0.2em] opacity-90 leading-tight">
+                  <span className="block text-5xl leading-none mb-2">100%</span>
+                  <span className="text-[11px] uppercase tracking-[0.2em] opacity-90 leading-tight font-medium">
                     Quality <br /> Guaranteed
                   </span>
                 </div>
@@ -121,31 +117,32 @@ export default function About() {
 
           {/* RIGHT COLUMN: TEXT ───────────────────────────────────────────── */}
           <div className="w-full lg:w-1/2" ref={textRef}>
-
             {/* Tagline */}
-            <div className="flex items-center gap-3 mb-6">
+            {/* <div className="flex items-center gap-3 mb-6">
               <span className="w-8 h-[2px] bg-light-primary" />
-              <p className="text-light-primary font-bold uppercase text-xs tracking-[0.3em]">
+              <p className="text-light-primary uppercase tracking-[0.3em]">
                 Excellence Through Innovation
               </p>
-            </div>
+            </div> */}
 
             {/* Heading */}
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-[#1A1A37] dark:text-white leading-[1.05] mb-10 font-space tracking-tighter">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1A1A37] dark:text-white leading-[1.05] mb-10 tracking-tighter">
               We Design The <span className="text-light-primary">Future</span>{" "}
               of Your Business
             </h2>
 
             {/* Body text */}
-            <div className="space-y-8 text-zinc-600 dark:text-white/90 leading-relaxed font-poppins">
-              <p className="text-base sm:text-lg font-poppins">
-                <span className="font-bold text-[#1A1A37] dark:text-white">Enov8 Technologies</span>{" "}
+            <div className="space-y-8 text-zinc-600 dark:text-white/90 leading-relaxed">
+              <p className="text-sm md:text-[20px] xl:text-base">
+                <span className=" text-[#1A1A37] dark:text-white">
+                  Enov8 Technologies
+                </span>{" "}
                 is more than a service provider; we are architects of digital
                 transformation. We specialize in merging IT Consulting with
                 precision Software Development to give your organization a
                 distinct competitive edge.
               </p>
-              <p className="text-base sm:text-lg font-poppins">
+              <p className="text-sm md:text-[20px] xl:text-base">
                 In a world of rapidly evolving tech, we help our clients bridge
                 the gap between legacy operations and digital-first growth. By
                 harnessing AI and data-driven strategies, we bring clarity to
@@ -159,7 +156,7 @@ export default function About() {
                 <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-900 shadow-sm flex items-center justify-center text-light-primary transition-colors group-hover:bg-light-primary group-hover:text-white">
                   <Target size={24} />
                 </div>
-                <span className="font-bold text-[#1A1A37] dark:text-white text-sm uppercase tracking-wider">
+                <span className=" text-[#1A1A37] dark:text-white text-sm uppercase font-medium">
                   Scalable Strategy
                 </span>
               </div>
@@ -167,7 +164,7 @@ export default function About() {
                 <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-900 shadow-sm flex items-center justify-center text-light-primary transition-colors group-hover:bg-light-primary group-hover:text-white">
                   <Award size={24} />
                 </div>
-                <span className="font-bold text-[#1A1A37] dark:text-white text-sm uppercase tracking-wider">
+                <span className=" text-[#1A1A37] dark:text-white text-sm uppercase font-medium">
                   Expert Execution
                 </span>
               </div>
@@ -178,7 +175,7 @@ export default function About() {
               <a
                 href="/docs/enov8technologies-brochure.pdf"
                 download
-                className="inline-flex items-center gap-3 bg-light-primary hover:bg-light-primary/90 text-white font-bold text-base px-10 py-5 transition-all shadow-lg shadow-light-primary/20 group tracking-widest"
+                className="inline-flex items-center gap-3 bg-light-primary hover:bg-light-primary/90 text-white text-base px-10 py-5 transition-all shadow-lg shadow-light-primary/20 group tracking-wide font-medium"
               >
                 Download Brochure
                 <svg
@@ -205,22 +202,19 @@ export default function About() {
         <div className="mt-20 md:mt-24 lg:mt-32 pt-16 md:pt-20 border-t border-zinc-200 dark:border-zinc-800">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {[
-              { stat: "50+",  label: "Projects Shipped" },
-              { stat: "15+",  label: "Global Partners"  },
-              { stat: "24/7",  label: "Post-Deployment Support"    },
+              { stat: "50+", label: "Projects Shipped" },
+              { stat: "15+", label: "Global Partners" },
+              { stat: "24/7", label: "Post-Deployment Support" },
             ].map(({ stat, label }) => (
               <div key={label} className="text-start md:text-center group">
-                <h4 className="text-3xl md:text-6xl font-black text-[#1A1A37] dark:text-white font-space tracking-tighter mb-2 transition-colors group-hover:text-light-primary">
+                <h4 className="text-3xl md:text-6xl text-[#1A1A37] dark:text-white tracking-tighter mb-2 transition-colors group-hover:text-light-primary">
                   {stat}
                 </h4>
-                <p className="text-xs uppercase font-bold tracking-[0.2em] text-zinc-400">
-                  {label}
-                </p>
+                <span className="text-sm uppercase font-medium">{label}</span>
               </div>
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );

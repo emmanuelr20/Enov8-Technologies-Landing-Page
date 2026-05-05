@@ -33,7 +33,7 @@ const Contact = memo(function Contact() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
-        }
+        },
       );
 
       if (response.ok) {
@@ -76,16 +76,14 @@ const Contact = memo(function Contact() {
           />
         </div>
 
-        <div
-          className="w-full xl:max-w-[500px] py-10 px-4"
-        >
+        <div className="w-full xl:max-w-[500px] py-10 px-4">
           <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-black text-[#1A1A37] dark:text-white font-space tracking-tighter mb-6">
+            <h2 className="text-4xl md:text-5xl text-[#1A1A37] dark:text-white tracking-tighter mb-6">
               Have an Idea?
               <br />
               <span className="text-light-primary">Let’s Talk.</span>
             </h2>
-            <p className="text-gray-800 dark:text-white/90 font-poppins text-lg">
+            <p className=" dark:text-white/90">
               Send us a message and we'll get back to you to discuss how we can
               help your business grow.
             </p>
@@ -99,12 +97,12 @@ const Contact = memo(function Contact() {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="peer w-full bg-transparent border-b-2 border-zinc-200 dark:border-zinc-800 py-2 focus:outline-none focus:border-light-primary transition-colors font-poppins text-lg text-black dark:text-white"
+                className="peer w-full bg-transparent border-b-2 border-zinc-200 dark:border-zinc-800 py-2 focus:outline-none focus:border-light-primary transition-colors text-base text-black dark:text-white"
                 placeholder=" "
               />
               <label
                 htmlFor="name"
-                className="absolute left-0 top-2 text-[#1A1A37] dark:text-white font-medium transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-light-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs"
+                className="absolute left-0 top-2 text-[#1A1A37] dark:text-white transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-light-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs text-base font-medium"
               >
                 Full Name
               </label>
@@ -117,12 +115,12 @@ const Contact = memo(function Contact() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="peer w-full bg-transparent border-b-2 border-zinc-200 dark:border-zinc-800 py-2 focus:outline-none focus:border-light-primary transition-colors font-poppins text-lg text-black dark:text-white"
+                className="peer w-full bg-transparent border-b-2 border-zinc-200 dark:border-zinc-800 py-2 focus:outline-none focus:border-light-primary transition-colors text-base text-black dark:text-white"
                 placeholder=" "
               />
               <label
                 htmlFor="email"
-                className="absolute left-0 top-2 text-[#1A1A37] dark:text-white font-medium transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-light-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs"
+                className="absolute left-0 top-2 text-[#1A1A37] dark:text-white transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-light-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs text-base font-medium"
               >
                 Email Address
               </label>
@@ -135,12 +133,12 @@ const Contact = memo(function Contact() {
                 rows={3}
                 value={formData.message}
                 onChange={handleChange}
-                className="peer w-full bg-transparent border-b-2 border-zinc-200 dark:border-zinc-800 py-2 focus:outline-none focus:border-light-primary transition-colors font-poppins text-lg resize-none text-black dark:text-white"
+                className="peer w-full bg-transparent border-b-2 border-zinc-200 dark:border-zinc-800 py-2 focus:outline-none focus:border-light-primary transition-colors text-base resize-none text-black dark:text-white"
                 placeholder=" "
               />
               <label
                 htmlFor="message"
-                className="absolute left-0 top-2 text-[#1A1A37] dark:text-white font-medium transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-light-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs"
+                className="absolute left-0 top-2 text-[#1A1A37] dark:text-white transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-light-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs text-base font-medium"
               >
                 Project Details
               </label>
@@ -151,7 +149,7 @@ const Contact = memo(function Contact() {
                 type="submit"
                 variant={"background"}
                 disabled={status === "loading"}
-                className="bg-light-primary text-white font-bold px-10 py-7 rounded-none text-lg uppercase tracking-widest hover:bg-[#E31B36] transition-colors disabled:opacity-50"
+                className="bg-light-primary text-white px-10 py-7 rounded-none text-base uppercase  hover:bg-[#E31B36] transition-colors disabled:opacity-50 font-medium"
               >
                 {status === "loading" ? "Sending..." : "Send Message"}
               </Button>
@@ -159,12 +157,10 @@ const Contact = memo(function Contact() {
           </form>
 
           <div className="mt-4 flex flex-col items-start md:flex-row md:items-center gap-2">
-            <span className="text-xs font-bold font-space tracking-widest">
-              Direct Mail:
-            </span>
+            <span className="text-base tracking-wide">Direct Mail:</span>
             <a
               href="mailto:contact@enov8technologies.com"
-              className="text-sm font-bold text-[#1A1A37] dark:text-white hover:text-light-primary transition-colors underline underline-offset-4"
+              className="text-base text-[#1A1A37] dark:text-white hover:text-light-primary transition-colors underline underline-offset-4"
             >
               contact@enov8technologies.com
             </a>

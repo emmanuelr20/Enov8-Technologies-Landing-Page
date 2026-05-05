@@ -57,14 +57,14 @@ export default function Hero() {
             >
               {/* Big number + title inline — TBO style */}
               <div className="flex items-start lg:items-center gap-4 mb-6 xl:justify-center">
-                <h3 className="text-xl md:text-3xl font-extrabold font-space leading-tight tracking-wide ">
+                <h3 className="text-[25px] md:text-3xl leading-tight tracking-wide ">
                   Years Of
                   <br />
                   Excellence
                 </h3>
               </div>
 
-              <p className="text-white/90 text-sm md:text-[20px] xl:text-lg leading-relaxed font-medium font-poppins">
+              <p className="text-white/90 text-sm md:text-[20px] xl:text-base">
                 Excellence is our baseline. From core infrastructure to
                 client-facing solutions, we maintain an uncompromising standard
                 of quality. We don't believe in shortcuts; we believe in
@@ -85,11 +85,11 @@ export default function Hero() {
                 <div className="text-light-primary shrink-0">
                   <FaHandsHelping size={44} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-lg md:text-xl font-black text-[#1A1A37] dark:text-white font-space tracking-wide leading-tight">
+                <h3 className="text-[22px] text-[#1A1A37] dark:text-white tracking-wide leading-tight">
                   Collaboration
                 </h3>
               </div>
-              <p className="text-gray-800 dark:text-white/95 text-sm md:text-[20px] xl:text-lg leading-relaxed font-poppins">
+              <p className=" dark:text-white/95 text-sm md:text-[20px] xl:text-base">
                 We align our goals with yours to amplify impact. Collective
                 intelligence allows us to deliver results that transcend
                 individual effort. Shared success is our core metric.
@@ -105,11 +105,11 @@ export default function Hero() {
                 <div className="text-light-primary shrink-0">
                   <FaUsers size={44} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-lg md:text-xl font-black text-[#1A1A37] dark:text-white font-space tracking-wide leading-tight">
+                <h3 className="text-[22px] text-[#1A1A37] dark:text-white tracking-wide leading-tight">
                   Clients First
                 </h3>
               </div>
-              <p className="text-gray-800 dark:text-white/95 text-sm md:text-[20px] xl:text-lg leading-relaxed font-poppins">
+              <p className=" dark:text-white/95 text-sm md:text-[20px] xl:text-base">
                 Our mission is to remove friction. We streamline the complex
                 technical landscape so you can focus entirely on your growth and
                 core vision.

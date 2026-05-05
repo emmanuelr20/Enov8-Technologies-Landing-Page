@@ -47,10 +47,10 @@ export default function CookieBanner() {
             <Cookie className="text-light-primary" size={24} />
           </div>
           <div className="min-w-0">
-            <h3 className="font-space font-bold text-base sm:text-lg mb-1 text-zinc-900 dark:text-white uppercase tracking-tight">
+            <h3 className=" text-base sm:text-base mb-1 text-zinc-900 dark:text-white uppercase tracking-tight">
               Cookie Consent
             </h3>
-            <p className="text-sm text-zinc-700 dark:text-zinc-200/90 font-poppins leading-relaxed">
+            <p className=" dark:">
               We use cookies to enhance your browsing experience, serve
               personalized ads or content, and analyze our traffic. By clicking
               "Accept All", you consent to our use of cookies.
@@ -63,14 +63,14 @@ export default function CookieBanner() {
             type="button"
             variant="outline"
             onClick={handleDecline}
-            className="flex-1 min-h-11 rounded-none font-bold uppercase text-[11px] tracking-widest border-zinc-300 text-zinc-900 bg-zinc-50/80 hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-100 dark:border-zinc-500 dark:bg-zinc-800/60 dark:hover:bg-zinc-800 dark:hover:text-white"
+            className="flex-1 min-h-11 rounded-none uppercase text-[11px]  border-zinc-300 text-zinc-900 bg-zinc-50/80 hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-100 dark:border-zinc-500 dark:bg-zinc-800/60 dark:hover:bg-zinc-800 dark:hover:text-white"
           >
             Decline
           </Button>
           <Button
             type="button"
             onClick={handleAccept}
-            className="flex-1 min-h-11 rounded-none bg-light-primary hover:bg-light-primary/90 text-white font-bold uppercase text-[11px] tracking-widest shadow-lg shadow-light-primary/20"
+            className="flex-1 min-h-11 rounded-none bg-light-primary hover:bg-light-primary/90 text-white uppercase text-[11px]  shadow-lg shadow-light-primary/20"
           >
             Accept All
           </Button>

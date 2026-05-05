@@ -5,7 +5,6 @@ import Image from "next/image";
 import ConsultationModal from "@/components/ConsultationModal";
 
 export default function Action() {
-
   return (
     <section
       className="relative overflow-hidden min-h-[40vh] text-white bg-gray-950 flex 
@@ -24,8 +23,7 @@ export default function Action() {
 
       <div className="relative z-20 flex flex-col justify-center items-center gap-10 py-16 px-6 container mx-auto">
         <h2
-          className="text-3xl md:text-5xl font-bold lg:max-w-3xl text-center leading-tight"
-          style={{ fontFamily: "var(--font-space)" }}
+          className="text-3xl md:text-5xl lg:max-w-3xl text-center leading-tight"
         >
           Get Custom and Reliable Digital Solution for your Business
         </h2>
@@ -33,7 +31,7 @@ export default function Action() {
           trigger={
             <Button
               variant={"background"}
-              className="text-lg font-black bg-light-primary py-8 px-10 shadow-lg rounded-none"
+              className="text-base bg-light-primary py-8 px-10 shadow-lg rounded-none font-medium"
             >
               Start a Project
             </Button>

@@ -126,22 +126,20 @@ export default function ServicesPage() {
           </div>
 
           <div className="relative z-10 text-center px-6">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tighter font-space mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl text-white tracking-tighter mb-6">
               Solutions and Services
             </h1>
 
             {/* Breadcrumb */}
             <nav
               aria-label="breadcrumb"
-              className="inline-flex items-center gap-2 text-[#1A1A37] font-poppins text-sm md:text-lg bg-white px-6 py-2.5"
+              className="inline-flex items-center gap-2 text-[#1A1A37] text-sm md:text-base bg-white px-6 py-2.5"
             >
-              <Link href="/" className="hover:text-light-primary font-bold">
+              <Link href="/" className="hover:text-light-primary">
                 Home
               </Link>
               <ChevronRight size={16} className="text-light-primary" />
-              <span className="text-[#1A1A37] font-bold ">
-                Solutions and Services
-              </span>
+              <span className="text-[#1A1A37] ">Solutions and Services</span>
             </nav>
           </div>
         </div>
@@ -149,17 +147,17 @@ export default function ServicesPage() {
         {/* ── SERVICES GRID SECTION ───────────────────────────────────────── */}
         <section className="py-24 px-3 md:px-6">
           <div className="max-w-7xl mx-auto md:text-center mb-20">
-            <span className="text-light-primary font-semibold text-sm uppercase tracking-widest font-poppins block mb-4">
+            <span className="text-light-primary text-sm uppercase font-medium block mb-4">
               Our Services
             </span>
             <div className="flex flex-col flex-start md:items-center gap-4 max-w-3xl mx-auto">
               <div className="flex items-center gap-4">
                 <span className="w-1 h-10 bg-light-primary block shrink-0" />
-                <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A37] dark:text-white font-space leading-tight">
+                <h2 className="text-3xl md:text-5xl text-[#1A1A37] dark:text-white leading-tight">
                   Amazing Services We Offer
                 </h2>
               </div>
-              <p className="text-gray-700 dark:text-white/90 text-lg leading-relaxed font-poppins">
+              <p className=" dark:text-white/90">
                 We specialize in driving organizational change and digital
                 transformation. Our experts partner with clients to develop
                 high-impact, practical solutions that solve real-world
@@ -168,13 +166,13 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-24">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-24 mt-8 md:mt-25">
             {allServices.map((service) => {
               const Icon = service.icon;
               return (
                 <div
                   key={service.id}
-                  className="group relative flex flex-col bg-white dark:bg-zinc-900 shadow-[0_15px_50px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_15px_50px_-15px_rgba(0,0,0,0.5)] p-8 pt-16 min-h-[340px] w-full border border-transparent hover:border-light-primary/10"
+                  className="group relative flex flex-col bg-white dark:bg-zinc-900 shadow-[0_15px_50px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_15px_50px_-15px_rgba(0,0,0,0.5)] p-8 pt-16 min-h-[300px] md:h-[350px] w-full border border-transparent hover:border-light-primary/10"
                 >
                   {/* Icon box overlay */}
                   <div className="absolute top-0 left-14 -translate-x-1/2 -translate-y-1/2  ">
@@ -187,21 +185,21 @@ export default function ServicesPage() {
                   </div>
 
                   <div className="flex flex-col h-full">
-                    <h3 className="text-2xl font-bold text-[#1A1A37] dark:text-white font-space mb-4 leading-tight">
+                    <h3 className="text-2xl text-[#1A1A37] dark:text-white mb-4 leading-tight">
                       {service.title}
                     </h3>
-                    <p className="text-gray-700 dark:text-white/90 text-lg font-medium leading-relaxed font-poppins mb-8">
+                    <p className=" dark:text-white/90 md: mb-8">
                       {service.description}
                     </p>
 
                     <Link
                       href={`/services/${service.id}`}
-                      className="group/link inline-flex items-center gap-3 text-light-primary font-bold text-lg transition-colors hover:text-light-primary/80 font-poppins mt-auto"
+                      className="group/link inline-flex items-center gap-2 text-light-primary text-sm transition-colors hover:text-light-primary/80 mt-auto"
                     >
-                      <div className="w-8 h-8 rounded-full border-2 border-light-primary flex items-center justify-center group-hover/link:bg-light-primary group-hover/link:text-white transition-all duration-300">
-                        <ArrowRight size={16} />
+                      <div className="w-5 h-5 rounded-full border border-light-primary flex items-center justify-center group-hover/link:bg-light-primary group-hover/link:text-white transition-all">
+                        <ArrowRight size={12} />
                       </div>
-                      <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-light-primary after:transition-all after:duration-300 group-hover/link:after:w-full">
+                      <span className="underline-offset-4 hover:underline">
                         Read More
                       </span>
                     </Link>

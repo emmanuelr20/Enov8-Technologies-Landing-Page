@@ -319,13 +319,13 @@ export default function HeroBackground() {
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6">
           <div className="max-w-4xl w-full">
             <h1
-              className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white tracking-tighter font-space mb-6 whitespace-pre-line"
+              className="text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-white tracking-tighter mb-6 whitespace-pre-line"
               style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
             >
               {s.headline}
             </h1>
             <p
-              className="text-gray-50 text-lg md:text-lg leading-relaxed font-poppins text-center"
+              className=" md: text-center"
               style={{ textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}
             >
               {s.sub}
@@ -392,7 +392,10 @@ export default function HeroBackground() {
               }}
             />
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/40" suppressHydrationWarning />
+            <div
+              className="absolute inset-0 bg-black/40"
+              suppressHydrationWarning
+            />
           </div>
         );
       })}
@@ -406,13 +409,13 @@ export default function HeroBackground() {
             suppressHydrationWarning
             style={getTextStyle(i)}
           >
-            <div className="max-w-4xl w-full" suppressHydrationWarning>
+            <div className="max-w-3xl w-full" suppressHydrationWarning>
               {/* Headline */}
               {(() => {
                 const Tag = i === 0 ? "h1" : "h2";
                 return (
                   <Tag
-                    className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white tracking-tighter font-space mb-6 whitespace-pre-line"
+                    className="text-[30px] md:text-5xl lg:text-6xl leading-[1.05] text-white tracking-tighter mb-6 whitespace-pre-line"
                     style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
                   >
                     {slide.headline}
@@ -421,9 +424,12 @@ export default function HeroBackground() {
               })()}
 
               {/* Subtitle */}
-              <div className="flex items-center justify-center gap-4 max-w-xl mx-auto" suppressHydrationWarning>
+              <div
+                className="flex items-center justify-center gap-4 max-w-xl mx-auto"
+                suppressHydrationWarning
+              >
                 <p
-                  className="text-gray-50 text-lg md:text-lg leading-relaxed font-poppins text-center"
+                  className=" text-center text-white"
                   style={{ textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}
                 >
                   {slide.sub}
@@ -435,7 +441,10 @@ export default function HeroBackground() {
       </div>
 
       {/* Dot navigation */}
-      <div className="absolute right-6 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-4" suppressHydrationWarning>
+      <div
+        className="absolute right-6 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-4"
+        suppressHydrationWarning
+      >
         {SLIDES.map((slide, i) => (
           <button
             key={slide.id}
@@ -467,7 +476,10 @@ export default function HeroBackground() {
 
       {/* Progress bar */}
       {!isPaused && phase === "idle" && (
-        <div className="absolute bottom-0 left-0 right-0 z-30" suppressHydrationWarning>
+        <div
+          className="absolute bottom-0 left-0 right-0 z-30"
+          suppressHydrationWarning
+        >
           <div
             key={`${current}-bar`}
             className="h-full"

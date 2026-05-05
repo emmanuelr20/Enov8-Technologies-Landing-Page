@@ -7,22 +7,76 @@ import Image from "next/image";
 const partners = [
   { id: "cisco", src: "/partners/cisco.svg", alt: "Cisco", w: 130, h: 52 },
   { id: "dynaAI", src: "/partners/dyna-ai.png", alt: "Dyna AI", w: 130, h: 52 }, // ← use PNG instead
-  { id: "microsoft", src: "/partners/microsoft.svg", alt: "Microsoft", w: 130, h: 52 },
-  { id: "infobip", src: "/partners/infobip.svg", alt: "Infobip", w: 130, h: 52 },
+  {
+    id: "microsoft",
+    src: "/partners/microsoft.svg",
+    alt: "Microsoft",
+    w: 130,
+    h: 52,
+  },
+  {
+    id: "infobip",
+    src: "/partners/infobip.svg",
+    alt: "Infobip",
+    w: 130,
+    h: 52,
+  },
   { id: "aws", src: "/partners/aws.svg", alt: "AWS", w: 100, h: 52 },
   { id: "oracle", src: "/partners/oracle.svg", alt: "Oracle", w: 130, h: 52 },
-  { id: "connex", src: "/partners/connex.svg", alt: "Connex One", w: 130, h: 52 },
+  {
+    id: "connex",
+    src: "/partners/connex.svg",
+    alt: "Connex One",
+    w: 130,
+    h: 52,
+  },
   { id: "fico", src: "/partners/fico.svg", alt: "FICO", w: 130, h: 52 },
-  { id: "kissflow", src: "/partners/kissflow.svg", alt: "Kissflow", w: 130, h: 52 },
-  { id: "freshdesk", src: "/partners/freshdesk.svg", alt: "Freshdesk", w: 130, h: 52 }, // ← PNG
-  { id: "temenos", src: "/partners/temenos.svg", alt: "Temenos", w: 130, h: 52 },
+  {
+    id: "kissflow",
+    src: "/partners/kissflow.svg",
+    alt: "Kissflow",
+    w: 130,
+    h: 52,
+  },
+  {
+    id: "freshdesk",
+    src: "/partners/freshdesk.svg",
+    alt: "Freshdesk",
+    w: 130,
+    h: 52,
+  }, // ← PNG
+  {
+    id: "temenos",
+    src: "/partners/temenos.svg",
+    alt: "Temenos",
+    w: 130,
+    h: 52,
+  },
   { id: "acuant", src: "/partners/acuant.svg", alt: "Acuant", w: 130, h: 52 },
   { id: "ibm", src: "/partners/ibm.svg", alt: "IBM", w: 130, h: 52 }, // ← PNG
   { id: "sophos", src: "/partners/sophos.svg", alt: "Sophos", w: 130, h: 52 },
-  { id: "azure", src: "/partners/azure.svg", alt: "Microsoft Azure", w: 130, h: 52 }, // ← PNG
-  { id: "fortinet", src: "/partners/fortinet.svg", alt: "Fortinet", w: 130, h: 52 },
+  {
+    id: "azure",
+    src: "/partners/azure.svg",
+    alt: "Microsoft Azure",
+    w: 130,
+    h: 52,
+  }, // ← PNG
+  {
+    id: "fortinet",
+    src: "/partners/fortinet.svg",
+    alt: "Fortinet",
+    w: 130,
+    h: 52,
+  },
   { id: "zoho", src: "/partners/zoho.svg", alt: "Zoho", w: 130, h: 52 },
-  { id: "metamap", src: "/partners/metamap.png", alt: "MetaMap", w: 130, h: 52 },
+  {
+    id: "metamap",
+    src: "/partners/metamap.png",
+    alt: "MetaMap",
+    w: 130,
+    h: 52,
+  },
   {
     id: "crowdstrike",
     src: "/partners/crowdstrike.svg",
@@ -30,9 +84,21 @@ const partners = [
     w: 130,
     h: 52,
   },
-  { id: "tdafrica", src: "/partners/tdafrica.jpg", alt: "TD Africa", w: 130, h: 80 }, // ← PNG, square logo
+  {
+    id: "tdafrica",
+    src: "/partners/tdafrica.jpg",
+    alt: "TD Africa",
+    w: 130,
+    h: 80,
+  }, // ← PNG, square logo
   { id: "atos", src: "/partners/atos.svg", alt: "Atos", w: 130, h: 52 },
-  { id: "pickcel", src: "/partners/pickcel.svg", alt: "Pickcel", w: 130, h: 52 },
+  {
+    id: "pickcel",
+    src: "/partners/pickcel.svg",
+    alt: "Pickcel",
+    w: 130,
+    h: 52,
+  },
 ];
 
 export default function Partners() {
@@ -47,16 +113,14 @@ export default function Partners() {
     >
       {/* ── HEADER ───────────────────────────────────────────────────────────── */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div
-          className="flex flex-col items-center text-center mb-10 md:mb-16 gap-4"
-        >
+        <div className="flex flex-col items-center text-center mb-10 md:mb-16 gap-4">
           <div className="flex items-center gap-4">
             <span className="w-1 h-10 bg-light-primary block shrink-0" />
-            <h2 className="text-4xl md:text-5xl font-black text-[#1A1A37] dark:text-white font-space">
+            <h2 className="text-4xl md:text-5xl text-[#1A1A37] dark:text-white">
               Our Partners
             </h2>
           </div>
-          <p className="text-gray-800 dark:text-white/90 text-lg sm:text-lg leading-relaxed font-poppins max-w-2xl">
+          <p className=" dark:text-white/90 text-sm md:text-[20px] xl:text-base max-w-2xl">
             We collaborate with a curated network of trusted partners to deliver
             bespoke solutions that solve your immediate challenges while
             future-proofing your business.

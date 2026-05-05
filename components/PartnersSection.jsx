@@ -83,10 +83,10 @@ export default function PartnersSection() {
     <section className="py-16 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 dark:text-white">
+          <h2 className="text-3xl md:text-4xl mb-4 dark:text-white">
             Trusted by Industry Leaders
           </h2>
-          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className=" dark: max-w-2xl mx-auto">
             We're proud to work with innovative companies and maintain strategic
             partnerships with leading technology providers.
           </p>
@@ -97,7 +97,7 @@ export default function PartnersSection() {
           <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
             <button
               onClick={() => setActiveTab("clients")}
-              className={`px-6 py-2 rounded-md font-medium transition-colors ${
+              className={`px-6 py-2 rounded-md transition-colors ${
                 activeTab === "clients"
                   ? "bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm"
                   : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
@@ -107,7 +107,7 @@ export default function PartnersSection() {
             </button>
             <button
               onClick={() => setActiveTab("partners")}
-              className={`px-6 py-2 rounded-md font-medium transition-colors ${
+              className={`px-6 py-2 rounded-md transition-colors ${
                 activeTab === "partners"
                   ? "bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm"
                   : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
@@ -117,7 +117,7 @@ export default function PartnersSection() {
             </button>
             <button
               onClick={() => setActiveTab("testimonials")}
-              className={`px-6 py-2 rounded-md font-medium transition-colors ${
+              className={`px-6 py-2 rounded-md transition-colors ${
                 activeTab === "testimonials"
                   ? "bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm"
                   : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
@@ -137,17 +137,17 @@ export default function PartnersSection() {
                 className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 text-center hover:shadow-lg transition-shadow"
               >
                 <div className="w-20 h-20 mx-auto mb-4 bg-white dark:bg-gray-700 rounded-lg flex items-center justify-center">
-                  <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                  <span className="text-2xl text-blue-600 dark:text-blue-400">
                     {client.name.charAt(0)}
                   </span>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 dark:text-white">
+                <h3 className="text-xl mb-2 dark:text-white">
                   {client.name}
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-2">
+                <p className=" dark: mb-2">
                   {client.industry}
                 </p>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                <p className=" dark: mb-4">
                   {client.project}
                 </p>
                 <a
@@ -173,14 +173,14 @@ export default function PartnersSection() {
                 className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 text-center hover:shadow-lg transition-shadow"
               >
                 <div className="w-20 h-20 mx-auto mb-4 bg-white dark:bg-gray-700 rounded-lg flex items-center justify-center">
-                  <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                  <span className="text-2xl text-blue-600 dark:text-blue-400">
                     {partner.name.split(" ")[0].charAt(0)}
                   </span>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 dark:text-white">
+                <h3 className="text-xl mb-2 dark:text-white">
                   {partner.name}
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-2">
+                <p className=" dark: mb-2">
                   {partner.type}
                 </p>
                 <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-3 py-1 rounded-full">
@@ -214,20 +214,20 @@ export default function PartnersSection() {
                     ))}
                   </div>
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                <p className=" dark: mb-4">
                   "{testimonial.text}"
                 </p>
                 <div className="border-t pt-4">
-                  <p className="font-semibold dark:text-white">
+                  <p className=" dark:text-white">
                     {testimonial.name}
                   </p>
-                  <p className="text-sm text-gray-700 dark:text-gray-400">
+                  <p className=" dark:">
                     {testimonial.position}
                   </p>
-                  <p className="text-sm text-blue-600 dark:text-blue-400">
+                  <p className=" text-blue-600 dark:text-blue-400">
                     {testimonial.company}
                   </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
+                  <p className="text-xs dark: mt-1">
                     Project: {testimonial.project}
                   </p>
                 </div>
@@ -238,12 +238,12 @@ export default function PartnersSection() {
 
         {/* Call to Action */}
         <div className="text-center mt-12">
-          <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+          <p className=" dark: mb-6">
             Ready to join our growing list of satisfied clients?
           </p>
           <a
             href="#contact"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-colors"
           >
             Start Your Project
           </a>

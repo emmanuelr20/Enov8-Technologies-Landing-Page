@@ -145,29 +145,29 @@ export default function ServicePageTemplate({
               </div>
             </div>
           )}
-          <h1 className="text-4xl md:text-6xl font-black text-white font-space mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-6xl text-white mb-6 tracking-tight">
             {service.title}
           </h1>
           {/* Breadcrumb */}
           <nav
             aria-label="breadcrumb"
-            className="inline-flex items-center gap-2 text-[#1A1A37] font-poppins text-sm md:text-lg bg-white px-6 py-2.5"
+            className="inline-flex items-center gap-2 text-[#1A1A37] text-sm md:text-base font-medium bg-white px-6 py-2.5"
           >
             <Link
               href="/"
-              className="hover:text-light-primary font-bold transition-colors"
+              className="hover:text-light-primary transition-colors"
             >
               Home
             </Link>
             <ChevronRight size={16} className="text-light-primary" />
             <Link
               href="/services"
-              className="hover:text-light-primary font-bold transition-colors"
+              className="hover:text-light-primary transition-colors"
             >
               Services
             </Link>
             <ChevronRight size={16} className="text-light-primary" />
-            <span className="font-bold">{service.title}</span>
+            <span className="">{service.title}</span>
           </nav>
         </div>
       </section>
@@ -180,7 +180,7 @@ export default function ServicePageTemplate({
             {/* Services Nav — TBO style */}
             <div className="bg-light-primary shadow-2xl overflow-hidden">
               <div className="my-6 mx-10 py-4 px-5 text-center bg-white text-light-primary">
-                <h3 className="text-lg font-bold font-space tracking-[0.2em] uppercase">
+                <h3 className="text-base tracking-[0.2em] uppercase">
                   Our Services
                 </h3>
               </div>
@@ -190,13 +190,15 @@ export default function ServicePageTemplate({
                   <li key={item.id}>
                     <Link
                       href={`/services/${item.id}`}
-                      className={`flex items-center justify-between px-6 py-4 font-poppins text-sm font-semibold transition-all duration-200 ${
+                      className={`flex items-center justify-between px-6 py-4 text-sm transition-all duration-200 ${
                         serviceId === item.id
                           ? "text-white"
                           : "text-white hover:text-[#1A1A37]"
                       }`}
                     >
-                      <span className="leading-snug text-lg">{item.label}</span>
+                      <span className="leading-snug text-base font-medium">
+                        {item.label}
+                      </span>
                     </Link>
                     {index < navItems.length - 1 && (
                       <div className="mx-6 border-b border-white" />
@@ -213,21 +215,21 @@ export default function ServicePageTemplate({
                   <Icon size={110} />
                 </div>
               )}
-              <h3 className="text-xl font-bold font-space mb-3 leading-tight">
+              <h3 className="text-xl mb-3 leading-tight">
                 Let's help you on your digital transformation journey
               </h3>
-              <p className="text-white/60 font-poppins text-sm mb-8">
+              <p className="text-white/60 mb-8">
                 We Reinvent, You Thrive. Let's build something great together.
               </p>
               <div className="flex items-center gap-3 mb-6">
                 <Phone size={18} className="text-light-primary shrink-0" />
-                <p className="text-light-primary font-bold font-poppins text-lg">
+                <p className="text-light-primary">
                   +234 913 363 2465
                 </p>
               </div>
               <ConsultationModal
                 trigger={
-                  <button className="inline-flex items-center gap-2 bg-light-primary hover:bg-light-primary/90 text-white font-bold text-sm px-6 py-3 transition-all w-full justify-center cursor-pointer">
+                  <button className="inline-flex items-center gap-2 bg-light-primary hover:bg-light-primary/90 text-white text-sm px-6 py-3 transition-all w-full justify-center cursor-pointer">
                     Start Consultation
                     <ArrowRight size={16} />
                   </button>
