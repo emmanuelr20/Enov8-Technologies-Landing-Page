@@ -8,10 +8,10 @@ import TawkMessenger from "@/components/TawkMessenger";
 import CookieBanner from "@/components/CookieBanner";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Toaster } from "@/components/ui/sonner";
-import { Open_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
@@ -228,7 +228,7 @@ export default function RootLayout({ children }) {
       className="overflow-x-hidden max-w-full"
     >
       <body
-        className={`${openSans.variable} min-h-svh text-foreground bg-background overflow-x-hidden antialiased`}
+        className={`${inter.variable} min-h-svh text-foreground bg-background overflow-x-hidden antialiased`}
         suppressHydrationWarning
       >
         {/* Organization Schema */}
