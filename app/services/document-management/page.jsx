@@ -11,11 +11,11 @@ export default function DocumentManagementPage() {
         <div>
           <div className="flex items-center gap-4 mb-5">
             <span className="w-1.5 h-10 bg-light-primary block shrink-0" />
-            <h2 className="text-3xl md:text-4xl text-[#1A1A37] dark:text-white tracking-tight">
+            <h2 className="text-[#1A1A37] dark:text-white tracking-tight">
               Document Management System
             </h2>
           </div>
-          <p className=" dark:text-white/90">
+          <p className="dark:text-white/90">
             Transform your office into a truly digital workspace. Our Document
             Management Systems (DMS) eliminate the chaos of physical filing and
             unstructured digital folders, providing a secure, searchable, and
@@ -28,11 +28,11 @@ export default function DocumentManagementPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl md:text-2xl capitalize dark:text-white">
+              <h4 className="capitalize dark:text-white">
                 Smart Indexing & Search
               </h4>
             </div>
-            <p className=" dark:text-white/90 pl-5">
+            <p className="dark:text-white/90 pl-5">
               Never lose a file again. Our DMS uses advanced OCR and metadata
               tagging to ensure every document is instantly searchable. Find any
               invoice, contract, or report in seconds using simple keywords.
@@ -42,11 +42,11 @@ export default function DocumentManagementPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl md:text-2xl capitalize dark:text-white">
+              <h4 className="capitalize dark:text-white">
                 Workflow Automation
               </h4>
             </div>
-            <p className=" dark:text-white/90 pl-5">
+            <p className="dark:text-white/90 pl-5">
               Automate document-driven processes like invoice approvals,
               contract signings, and HR onboarding. Our system routes documents
               to the right people at the right time, ensuring zero bottlenecks.
@@ -56,10 +56,10 @@ export default function DocumentManagementPage() {
 
         {/* Additional Detail */}
         <div className="p-8 border-l-4 border-light-primary">
-          <h4 className="text-xl text-[#1A1A37] dark:text-white mb-4">
+          <h4 className="text-[#1A1A37] dark:text-white mb-4">
             Security & Compliance
           </h4>
-          <p className=" dark:text-white/90">
+          <p className="dark:text-white/90">
             With granular access controls and full audit trails, our DMS ensures
             that sensitive information is only seen by authorized personnel.
             Stay compliant with data protection laws while maintaining high

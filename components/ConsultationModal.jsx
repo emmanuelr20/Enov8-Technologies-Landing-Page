@@ -30,7 +30,7 @@ const ConsultationModal = ({ trigger }) => {
                   />
                 </svg>
               </div>
-              <h2 className="text-2xl text-white relative z-10">
+              <h2 className="text-white relative z-10">
                 Start Your Transformation
               </h2>
               <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none text-white">
@@ -40,7 +40,7 @@ const ConsultationModal = ({ trigger }) => {
             </div>
 
             <div className="p-5 md:p-8 space-y-6">
-              <p className=" dark:">
+              <p className="dark:">
                 Ready to bridge the gap between your operations and
                 digital-first growth? Choose how you'd like to connect with our
                 experts.
@@ -59,10 +59,10 @@ const ConsultationModal = ({ trigger }) => {
                       <Calendar className="text-white w-6 h-6" />
                     </div>
                     <div className="flex-1">
-                      <h4 className=" text-[#1A1A37] dark:text-white group-hover:text-light-primary transition-colors">
+                      <h4 className="text-[#1A1A37] dark:text-white group-hover:text-light-primary transition-colors">
                         Book a Discovery Call
                       </h4>
-                      <p className="">
+                      <p>
                         Schedule a 30-minute consultation via Zoho Bookings.
                       </p>
                     </div>
@@ -80,10 +80,10 @@ const ConsultationModal = ({ trigger }) => {
                       <Mail className="text-light-primary w-6 h-6" />
                     </div>
                     <div className="flex-1">
-                      <h4 className=" text-[#1A1A37] dark:text-white group-hover:text-light-primary transition-colors">
+                      <h4 className="text-[#1A1A37] dark:text-white group-hover:text-light-primary transition-colors">
                         Send an Inquiry
                       </h4>
-                      <p className="">
+                      <p>
                         Email our team directly at sales@enov8technologies.com
                       </p>
                     </div>
@@ -93,7 +93,7 @@ const ConsultationModal = ({ trigger }) => {
               </div>
 
               <div className="text-center pt-2">
-                <p className="text-xs uppercase ">
+                <p className="uppercase">
                   Architects of Digital Transformation
                 </p>
               </div>

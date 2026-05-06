@@ -145,7 +145,7 @@ export default function ServicePageTemplate({
               </div>
             </div>
           )}
-          <h1 className="text-4xl md:text-6xl text-white mb-6 tracking-tight">
+          <h1 className="text-white mb-6 tracking-tight">
             {service.title}
           </h1>
           {/* Breadcrumb */}
@@ -180,7 +180,7 @@ export default function ServicePageTemplate({
             {/* Services Nav — TBO style */}
             <div className="bg-light-primary shadow-2xl overflow-hidden">
               <div className="my-6 mx-10 py-4 px-5 text-center bg-white text-light-primary">
-                <h3 className="text-base tracking-[0.2em] uppercase dark:text-light-primary">
+                <h3 className="tracking-[0.2em] uppercase dark:text-light-primary">
                   Our Services
                 </h3>
               </div>

@@ -116,11 +116,11 @@ export default function Partners() {
         <div className="flex flex-col items-center text-center mb-10 md:mb-16 gap-4">
           <div className="flex items-center gap-4">
             <span className="w-1 h-10 bg-light-primary block shrink-0" />
-            <h2 className="text-4xl md:text-5xl text-[#1A1A37] dark:text-white">
+            <h2 className="text-[#1A1A37] dark:text-white">
               Our Partners
             </h2>
           </div>
-          <p className=" dark:text-white/90 text-sm md:text-[20px] xl:text-base max-w-2xl">
+          <p className="dark:text-white/90 md:text-[20px] max-w-2xl">
             We collaborate with a curated network of trusted partners to deliver
             bespoke solutions that solve your immediate challenges while
             future-proofing your business.

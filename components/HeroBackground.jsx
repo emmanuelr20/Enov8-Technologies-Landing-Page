@@ -319,13 +319,13 @@ export default function HeroBackground() {
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6">
           <div className="max-w-4xl w-full">
             <h1
-              className="text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-white tracking-tighter mb-6 whitespace-pre-line"
+              className="leading-[1.05] text-white tracking-tighter mb-6 whitespace-pre-line"
               style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
             >
               {s.headline}
             </h1>
             <p
-              className=" md: text-center"
+              className="md: text-center"
               style={{ textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}
             >
               {s.sub}
@@ -429,7 +429,7 @@ export default function HeroBackground() {
                 suppressHydrationWarning
               >
                 <p
-                  className=" text-base md:text-[18px] text-center text-white!"
+                  className="md:text-[18px] text-center text-white!"
                   style={{ textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}
                 >
                   {slide.sub}

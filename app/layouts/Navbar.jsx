@@ -339,7 +339,7 @@ const Navbar = memo(function Navbar() {
             <ThemeToggle />
             <button
               aria-label="Toggle navigation menu"
-              className="bg-light-primary p-2 text-white shadow-lg"
+              className="p-2 text-black dark:text-white"
               onClick={toggleMenu}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -414,14 +414,14 @@ const Navbar = memo(function Navbar() {
             className="mt-auto pt-10 border-t border-white/10"
             suppressHydrationWarning
           >
-            <p className="text-[10px] uppercase  mb-4">Get in touch</p>
+            <p className="text-[10px] uppercase mb-4">Get in touch</p>
             <a
               href="mailto:contact@enov8technologies.com"
               className="block text-base mb-1 hover:text-light-primary transition-colors"
             >
               contact@enov8technologies.com
             </a>
-            <p className="">+234 913 363 2465</p>
+            <p>+234 913 363 2465</p>
 
             <div className="mt-8 flex gap-4" suppressHydrationWarning>
               {/* Simple icons placeholder if needed */}

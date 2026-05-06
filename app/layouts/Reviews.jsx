@@ -93,7 +93,7 @@ export default function Reviews() {
           <div className="flex flex-col items-center justify-center md:text-center">
             <div className="flex items-center gap-4">
               <span className="w-1.5 h-12 bg-light-primary block shrink-0" />
-              <h2 className="text-4xl md:text-5xl text-white tracking-tight">
+              <h2 className="text-white tracking-tight">
                 What Our Clients Are Saying!
               </h2>
             </div>
@@ -136,7 +136,7 @@ export default function Reviews() {
                     />
 
                     {/* Review text - properly weighted */}
-                    <p className="text-white/90! mb-8 text-sm md:text-[20px] xl:text-base">
+                    <p className="text-white/90! mb-8 md:text-[20px]">
                       {review.text}
                     </p>
 

@@ -78,12 +78,12 @@ const Contact = memo(function Contact() {
 
         <div className="w-full xl:max-w-[500px] py-10 px-4">
           <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl text-[#1A1A37] dark:text-white tracking-tighter mb-6">
+            <h2 className="text-[#1A1A37] dark:text-white tracking-tighter mb-6">
               Have an Idea?
               <br />
               <span className="text-light-primary">Let’s Talk.</span>
             </h2>
-            <p className=" dark:text-white/90">
+            <p className="dark:text-white/90">
               Send us a message and we'll get back to you to discuss how we can
               help your business grow.
             </p>

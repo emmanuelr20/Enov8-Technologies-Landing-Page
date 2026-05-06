@@ -23,7 +23,7 @@ export default function Action() {
 
       <div className="relative z-20 flex flex-col justify-center items-center gap-10 py-16 px-6 container mx-auto">
         <h2
-          className="text-3xl md:text-5xl lg:max-w-3xl text-center leading-tight"
+          className="lg:max-w-3xl text-center leading-tight"
         >
           Get Custom and Reliable Digital Solution for your Business
         </h2>

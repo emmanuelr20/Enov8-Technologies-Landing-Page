@@ -12,11 +12,11 @@ export default function AIDeploymentPage() {
         <div>
           <div className="flex items-center gap-4 mb-5">
             <span className="w-1.5 h-10 bg-light-primary block shrink-0" />
-            <h2 className="text-3xl md:text-4xl text-[#1A1A37] dark:text-white tracking-tight">
+            <h2 className="text-[#1A1A37] dark:text-white tracking-tight">
               AI Deployment
             </h2>
           </div>
-          <p className=" dark:text-white/90">
+          <p className="dark:text-white/90">
             Transform your business with intelligent automation. Our AI
             deployment services focus on integrating machine learning, natural
             language processing, and predictive analytics into your existing
@@ -41,11 +41,11 @@ export default function AIDeploymentPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl md:text-2xl capitalize dark:text-white">
+              <h4 className="capitalize dark:text-white">
                 Predictive Analytics
               </h4>
             </div>
-            <p className=" dark:text-white/90 pl-5">
+            <p className="dark:text-white/90 pl-5">
               Turn your data into a competitive advantage. We build AI models
               that forecast trends, predict customer behavior, and identify
               operational risks before they occur.
@@ -55,11 +55,11 @@ export default function AIDeploymentPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl md:text-2xl capitalize dark:text-white">
+              <h4 className="capitalize dark:text-white">
                 NLP & Chatbots
               </h4>
             </div>
-            <p className=" dark:text-white/90 pl-5">
+            <p className="dark:text-white/90 pl-5">
               Enhance customer support and internal communication with advanced
               Natural Language Processing tools and intelligent conversational
               agents that understand context.
@@ -69,10 +69,10 @@ export default function AIDeploymentPage() {
 
         {/* Additional Detail */}
         <div className="bg-light-primary/5 dark:bg-zinc-900/50 p-8 border-l-4 border-light-primary">
-          <h4 className="text-xl text-[#1A1A37] dark:text-white mb-4">
+          <h4 className="text-[#1A1A37] dark:text-white mb-4">
             The AI Advantage
           </h4>
-          <p className=" dark:text-white/90">
+          <p className="dark:text-white/90">
             AI is no longer just for big tech. We make sophisticated machine
             learning accessible and practical for businesses of all sizes,
             ensuring you stay ahead in an increasingly automated world.

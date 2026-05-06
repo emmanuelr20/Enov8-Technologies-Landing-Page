@@ -57,14 +57,14 @@ export default function Hero() {
             >
               {/* Big number + title inline — TBO style */}
               <div className="flex items-start lg:items-center gap-4 mb-6 xl:justify-center">
-                <h3 className="text-[25px] md:text-3xl leading-tight tracking-wide text-white">
+                <h3 className="leading-tight tracking-wide text-white">
                   Years Of
                   <br />
                   Excellence
                 </h3>
               </div>
 
-              <p className="text-white/90! text-sm md:text-[20px] xl:text-base">
+              <p className="text-white/90! md:text-[20px]">
                 Excellence is our baseline. From core infrastructure to
                 client-facing solutions, we maintain an uncompromising standard
                 of quality. We don't believe in shortcuts; we believe in
@@ -89,7 +89,7 @@ export default function Hero() {
                   Collaboration
                 </h3>
               </div>
-              <p className="dark:text-white/95 text-sm md:text-[20px] xl:text-base">
+              <p className="dark:text-white/95 md:text-[20px]">
                 We align our goals with yours to amplify impact. Collective
                 intelligence allows us to deliver results that transcend
                 individual effort. Shared success is our core metric.
@@ -109,7 +109,7 @@ export default function Hero() {
                   Clients First
                 </h3>
               </div>
-              <p className=" dark:text-white/95 text-sm md:text-[20px] xl:text-base">
+              <p className="dark:text-white/95 md:text-[20px]">
                 Our mission is to remove friction. We streamline the complex
                 technical landscape so you can focus entirely on your growth and
                 core vision.

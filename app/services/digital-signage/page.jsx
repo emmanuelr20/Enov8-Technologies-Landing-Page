@@ -11,7 +11,7 @@ export default function DigitalSignagePage() {
       <div className="space-y-8">
         <div className="flex items-center gap-4 mb-10">
           <span className="w-1.5 h-10 bg-light-primary block shrink-0" />
-          <h3 className="text-3xl md:textext-[#1A1A37] dark:text-white tracking-tight">
+          <h3 className="md:textext-[#1A1A37] dark:text-white tracking-tight">
             Digital Signage Solution
           </h3>
         </div>
@@ -26,7 +26,7 @@ export default function DigitalSignagePage() {
             className="object-cover"
           />
         </div>
-        <p className=" dark:text-white/90">
+        <p className="dark:text-white/90">
           Manage and deploy dynamic visual content across your screens in
           real-time. We provide high-impact signage that transforms physical
           spaces and captivates your audience.
@@ -57,7 +57,7 @@ export default function DigitalSignagePage() {
               High-Impact Visual Displays
             </h3>
           </div>
-          <p className=" dark:text-white/90 pl-5">
+          <p className="dark:text-white/90 pl-5">
             We specialize in designing and deploying high-resolution displays
             that capture attention. From retail storefronts to corporate
             lobbies, our signage solutions are tailored to enhance brand
@@ -72,7 +72,7 @@ export default function DigitalSignagePage() {
               Real-Time Integration
             </h3>
           </div>
-          <p className=" dark:text-white/90 pl-5">
+          <p className="dark:text-white/90 pl-5">
             Connect your screens to live data sources such as weather updates,
             social media feeds, or internal business metrics. Our platform
             ensures that your audience always sees the most relevant and

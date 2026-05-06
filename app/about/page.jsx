@@ -68,10 +68,10 @@ export default function AboutPage() {
                 Company Overview
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl text-white tracking-tighter mb-8">
+            <h1 className="text-white tracking-tighter mb-8">
               Who We Are
             </h1>
-            <p className=" max-w-3xl mx-auto">
+            <p className="max-w-3xl mx-auto text-white/95!">
               Enov8 Technologies Ltd. is a Nigerian-based technology company
               delivering end-to-end digital solutions. We are a forward-thinking
               team united by one purpose: turning complex technology challenges
@@ -85,7 +85,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Left: Content */}
             <div className="space-y-8">
-              <h2 className="text-3xl md:text-4xl text-[#1A1A37] dark:text-white tracking-tight">
+              <h2 className="text-[#1A1A37] dark:text-white tracking-tight">
                 Built to Last.{" "}
                 <span className="text-light-primary">Designed to Grow.</span>
               </h2>
@@ -119,10 +119,10 @@ export default function AboutPage() {
                   key={idx}
                   className="bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 p-8 hover:border-light-primary/30 transition-colors"
                 >
-                  <h3 className="text-4xl text-[#1A1A37] dark:text-white mb-3 group-hover:text-light-primary transition-colors">
+                  <h3 className="text-[#1A1A37] dark:text-white mb-3 group-hover:text-light-primary transition-colors">
                     {stat.value}
                   </h3>
-                  <p className=" uppercase tracking-wide">
+                  <p className="uppercase tracking-wide">
                     {stat.label}
                   </p>
                 </div>
@@ -140,10 +140,10 @@ export default function AboutPage() {
                 <div className="w-16 h-16 bg-light-primary/10 rounded-full flex items-center justify-center mb-8">
                   <span className="text-2xl text-light-primary">V</span>
                 </div>
-                <h3 className="text-3xl text-[#1A1A37] dark:text-white mb-6">
+                <h3 className="text-[#1A1A37] dark:text-white mb-6">
                   Our Vision
                 </h3>
-                <p className=" dark: mb-10">
+                <p className="dark: mb-10">
                   To be the most trusted technology partner for businesses
                   across Africa, delivering world-class digital solutions that
                   are accessible, scalable, and built for the future of the
@@ -151,7 +151,7 @@ export default function AboutPage() {
                 </p>
 
                 <div className="border-l-4 border-light-primary pl-6 py-2">
-                  <p className=" italic dark:">
+                  <p className="italic dark:">
                     "The technology your organisation needs to compete globally
                     should not require a global budget. We are here to close
                     that gap."
@@ -166,10 +166,10 @@ export default function AboutPage() {
                     M
                   </span>
                 </div>
-                <h3 className="text-3xl text-[#1A1A37] dark:text-white mb-6">
+                <h3 className="text-[#1A1A37] dark:text-white mb-6">
                   Our Mission
                 </h3>
-                <p className=" dark:">
+                <p className="dark:">
                   To empower businesses and institutions with innovative,
                   reliable, and tailored technology solutions, spanning software
                   development, managed services, hardware infrastructure, and
@@ -184,10 +184,10 @@ export default function AboutPage() {
         {/* ── CORE VALUES ─────────────────────────────────────────────────── */}
         <section className="py-20 md:py-32 container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-3xl md:text-5xl text-[#1A1A37] dark:text-white tracking-tight mb-6">
+            <h2 className="text-[#1A1A37] dark:text-white tracking-tight mb-6">
               Our Core Values
             </h2>
-            <p className=" dark:">
+            <p className="dark:">
               The foundational principles that guide our decisions, shape our
               culture, and define how we partner with our clients.
             </p>
@@ -202,10 +202,10 @@ export default function AboutPage() {
                 <div className="w-16 h-16 bg-zinc-50 dark:bg-zinc-900 rounded-2xl flex items-center justify-center mb-8">
                   {value.icon}
                 </div>
-                <h4 className="text-xl text-[#1A1A37] dark:text-white mb-4">
+                <h4 className="text-[#1A1A37] dark:text-white mb-4">
                   {value.title}
                 </h4>
-                <p className=" dark:">{value.description}</p>
+                <p className="dark:">{value.description}</p>
               </div>
             ))}
           </div>

@@ -126,14 +126,14 @@ export default function About() {
             </div> */}
 
             {/* Heading */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1A1A37] dark:text-white leading-[1.05] mb-10 tracking-tighter">
+            <h2 className="text-[#1A1A37] dark:text-white leading-[1.05] mb-10 tracking-tighter">
               We Design The <span className="text-light-primary">Future</span>{" "}
               of Your Business
             </h2>
 
             {/* Body text */}
             <div className="space-y-8 text-zinc-600 dark:text-white/90 leading-relaxed">
-              <p className="text-sm md:text-[20px] xl:text-base">
+              <p className="md:text-[20px]">
                 <span className=" text-[#1A1A37] dark:text-white">
                   Enov8 Technologies
                 </span>{" "}
@@ -142,7 +142,7 @@ export default function About() {
                 precision Software Development to give your organization a
                 distinct competitive edge.
               </p>
-              <p className="text-sm md:text-[20px] xl:text-base">
+              <p className="md:text-[20px]">
                 In a world of rapidly evolving tech, we help our clients bridge
                 the gap between legacy operations and digital-first growth. By
                 harnessing AI and data-driven strategies, we bring clarity to
@@ -151,7 +151,7 @@ export default function About() {
             </div>
 
             {/* Value highlights */}
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex items-center gap-4 group">
                 <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-900 shadow-sm flex items-center justify-center text-light-primary">
                   <Target size={24} />
@@ -207,9 +207,9 @@ export default function About() {
               { stat: "24/7", label: "Post-Deployment Support" },
             ].map(({ stat, label }) => (
               <div key={label} className="text-start md:text-center group">
-                <h4 className="text-3xl md:text-6xl text-[#1A1A37] dark:text-white tracking-tighter mb-2">
+                <h2 className="text-[#1A1A37] dark:text-white tracking-tighter mb-2">
                   {stat}
-                </h4>
+                </h2>
                 <p className="uppercase">{label}</p>
               </div>
             ))}

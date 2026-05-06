@@ -87,7 +87,7 @@ export default function Newsletter() {
       {/* ── Content ── */}
       <div className="relative z-20 w-full max-w-2xl mx-auto px-6 py-20 md:py-24 text-center">
         {/* Headline */}
-        <h2 className="text-4xl md:text-5xl text-white leading-tight tracking-tight mb-4">
+        <h2 className="text-white leading-tight tracking-tight mb-4">
           Technology Insights, <span className="inline-block">Delivered.</span>
         </h2>
 

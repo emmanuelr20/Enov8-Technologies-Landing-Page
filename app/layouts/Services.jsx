@@ -153,7 +153,7 @@ export default function Services() {
                 <span className="w-1 min-h-20 bg-light-primary block shrink-0 mt-1" />
                 <h2
                   ref={titleRef}
-                  className="text-3xl md:text-4xl text-[#1A1A37] dark:text-white leading-tight max-w-sm"
+                  className="text-[#1A1A37] dark:text-white leading-tight max-w-sm"
                 >
                   Amazing Services We Offer
                 </h2>
@@ -161,7 +161,7 @@ export default function Services() {
             </div>
 
             {/* Center: description */}
-            <p className=" dark:text-white/90 text-sm md:text-[20px] xl:text-base pt-1 md:pt-8 xl:-mt-7">
+            <p className="dark:text-white/90 md:text-[20px] pt-1 md:pt-8 xl:-mt-7">
               We specialize in navigating organizational change and digital
               evolution. Our technology experts collaborate exclusively with
               clients to architect concrete, high-performance solutions designed
@@ -208,7 +208,7 @@ export default function Services() {
                     </h3>
 
                     {/* Description */}
-                    <p className=" dark:text-white/90 mb-8 text-sm md:text-[20px] xl:text-base">
+                    <p className="dark:text-white/90 mb-8 md:text-[20px]">
                       {service.description}
                     </p>
 

@@ -47,10 +47,10 @@ export default function CookieBanner() {
             <Cookie className="text-light-primary" size={24} />
           </div>
           <div className="min-w-0">
-            <h3 className=" text-base sm:text-base mb-1 text-zinc-900 dark:text-white uppercase tracking-tight">
+            <h3 className="mb-1 text-zinc-900 dark:text-white uppercase tracking-tight">
               Cookie Consent
             </h3>
-            <p className=" dark:">
+            <p className="dark:">
               We use cookies to enhance your browsing experience, serve
               personalized ads or content, and analyze our traffic. By clicking
               "Accept All", you consent to our use of cookies.

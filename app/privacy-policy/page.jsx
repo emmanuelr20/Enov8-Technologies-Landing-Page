@@ -10,20 +10,20 @@ export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen pt-32 pb-20 bg-bg-light dark:bg-black">
       <div className="container mx-auto px-6 max-w-4xl">
-        <h1 className="text-4xl md:text-5xl mb-8 dark:text-white uppercase tracking-tighter">
+        <h1 className="mb-8 dark:text-white uppercase tracking-tighter">
           Privacy Policy
         </h1>
-        <p className=" dark:text-white/90 mb-12">
+        <p className="dark:text-white/90 mb-12">
           Last updated: April 21, 2026
         </p>
 
         <Card className="rounded-none border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm mb-12">
           <CardContent className="p-8 md:p-12 space-y-10 text-gray-700 dark:text-white/90">
             <section>
-              <h2 className="text-2xl mb-4 dark:text-white uppercase tracking-tight">
+              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
                 1. Introduction
               </h2>
-              <p className="">
+              <p>
                 Welcome to Enov8 Technologies. We are committed to protecting
                 your personal information and your right to privacy. This
                 Privacy Policy explains how we collect, use, and protect your
@@ -32,7 +32,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl mb-4 dark:text-white uppercase tracking-tight">
+              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
                 2. Information We Collect
               </h2>
               <p className="mb-4">
@@ -51,7 +51,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl mb-4 dark:text-white uppercase tracking-tight">
+              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
                 3. How We Use Your Information
               </h2>
               <p className="mb-4">
@@ -68,10 +68,10 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl mb-4 dark:text-white uppercase tracking-tight">
+              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
                 4. Data Security
               </h2>
-              <p className="">
+              <p>
                 We implement appropriate technical and organizational security
                 measures designed to protect the security of any personal
                 information we process. However, please also remember that we
@@ -80,10 +80,10 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl mb-4 dark:text-white uppercase tracking-tight">
+              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
                 5. Your Privacy Rights
               </h2>
-              <p className="">
+              <p>
                 Depending on your location (such as the EU/EEA), you may have
                 certain rights under applicable data protection laws. These may
                 include the right to request access to and obtain a copy of your
@@ -93,10 +93,10 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl mb-4 dark:text-white uppercase tracking-tight">
+              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
                 6. Cookies and Tracking
               </h2>
-              <p className="">
+              <p>
                 We use cookies and similar tracking technologies to access or
                 store information. Specific information about how we use such
                 technologies and how you can refuse certain cookies is set out
@@ -105,10 +105,10 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl mb-4 dark:text-white uppercase tracking-tight">
+              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
                 7. Contact Us
               </h2>
-              <p className="">
+              <p>
                 If you have questions or comments about this policy, you may
                 email us at{" "}
                 <a
