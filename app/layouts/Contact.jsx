@@ -78,7 +78,7 @@ const Contact = memo(function Contact() {
 
         <div className="w-full xl:max-w-[500px] py-10 px-4">
           <div className="mb-12">
-            <h2 className="text-[#1A1A37] dark:text-white tracking-tighter mb-6">
+            <h2 className="text-[#1A1A37] dark:text-white tracking-tighter mb-6 leading-[1.15]">
               Have an Idea?
               <br />
               <span className="text-light-primary">Let’s Talk.</span>

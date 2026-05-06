@@ -84,7 +84,7 @@ export default function About() {
           <div className="relative w-full lg:w-1/2" ref={imgRef}>
             <div className="relative group">
               {/* Main image */}
-              <div className="hidden lg:block relative z-10 overflow-hidden shadow-[0_50px_100px_-30px_rgba(0,0,0,0.15)] h-[750px]">
+              <div className="hidden lg:block relative z-10 overflow-hidden h-[750px]">
                 <Image
                   src="/sections/about1.webp"
                   alt="Enov8 Technology Solutions"
@@ -98,7 +98,7 @@ export default function About() {
               {/* ✅ Badge is its OWN ref, starts invisible, reveals after image loads */}
               <div
                 ref={badgeRef}
-                className="hidden absolute -bottom-6 -right-6 md:bottom-12 md:-right-12 z-20 bg-light-primary px-10 py-6 text-white shadow-2xl lg:flex flex-col items-center justify-center min-w-[160px]"
+                className="hidden absolute -bottom-6 -right-6 md:bottom-12 md:-right-12 z-20 bg-light-primary px-10 py-6 text-white lg:flex flex-col items-center justify-center min-w-[160px]"
                 // Keep it invisible until SR fires so it never shows before image
                 style={{ visibility: imgLoaded ? "visible" : "hidden" }}
               >
@@ -126,14 +126,14 @@ export default function About() {
             </div> */}
 
             {/* Heading */}
-            <h2 className="text-[#1A1A37] dark:text-white leading-[1.05] mb-10 tracking-tighter">
+            <h2 className="text-[#1A1A37] dark:text-white leading-tight mb-10 tracking-tighter max-w-sm md:max-w-md lg:max-w-xl">
               We Design The <span className="text-light-primary">Future</span>{" "}
               of Your Business
             </h2>
 
             {/* Body text */}
             <div className="space-y-8 text-zinc-600 dark:text-white/90 leading-relaxed">
-              <p className="md:text-[20px]">
+              <p>
                 <span className=" text-[#1A1A37] dark:text-white">
                   Enov8 Technologies
                 </span>{" "}
@@ -142,7 +142,7 @@ export default function About() {
                 precision Software Development to give your organization a
                 distinct competitive edge.
               </p>
-              <p className="md:text-[20px]">
+              <p>
                 In a world of rapidly evolving tech, we help our clients bridge
                 the gap between legacy operations and digital-first growth. By
                 harnessing AI and data-driven strategies, we bring clarity to
@@ -199,7 +199,7 @@ export default function About() {
         </div>
 
         {/* STATS BAND ─────────────────────────────────────────────────────── */}
-        <div className="mt-20 md:mt-24 lg:mt-32 pt-16 md:pt-20 border-t border-zinc-200 dark:border-zinc-800">
+        <div className="hidden lg:block mt-20 md:mt-24 lg:mt-32 pt-16 md:pt-20 border-t border-zinc-200 dark:border-zinc-800">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {[
               { stat: "50+", label: "Projects Shipped" },

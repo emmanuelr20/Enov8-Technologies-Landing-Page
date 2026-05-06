@@ -11,16 +11,17 @@ import {
   FaDribbble,
 } from "react-icons/fa6";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Heading5 } from "lucide-react";
 
 const Footer = memo(function Footer() {
   return (
     <footer className="z-50 pt-24 pb-12 bg-gray-950 dark:bg-black text-white border-t-2 dark:border-t-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           <div className="lg:col-span-1">
-            <div className="text-2xl mb-4 font-medium">
+            <h3 className="mb-4">
               Enov8 Technologies
-            </div>
+            </h3>
             <p className="text-background/80! mb-6 dark:text-white!">
               Transforming businesses through innovative software solutions,
               mobile applications, and professional development training.
@@ -28,7 +29,7 @@ const Footer = memo(function Footer() {
 
             {/* Social Media Links */}
             <div className="mb-6">
-              <h4 className="mb-3">Follow Us</h4>
+              <h5 className="mb-3">Follow Us</h5>
               <div className="flex space-x-4">
                 <a
                   href="https://www.linkedin.com/company/enov8-technologies/"
@@ -62,7 +63,7 @@ const Footer = memo(function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4">Services</h3>
+            <h5 className="mb-4">Services</h5>
             <ul className="space-y-4 text-background/80 dark:text-white text-base lg:text-base">
               <li>
                 <a
@@ -116,7 +117,7 @@ const Footer = memo(function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4">Industries</h3>
+            <h5 className="mb-4">Industries</h5>
             <ul className="space-y-4 text-background/80 dark:text-white text-base lg:text-base">
               <li>
                 <a href="#about" className="hover:text-white transition-colors">
@@ -152,9 +153,9 @@ const Footer = memo(function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4">
+            <h5 className="mb-4">
               Contact Info
-            </h3>
+            </h5>
             <div className="space-y-4 text-background/80 dark:text-white text-base lg:text-base">
               <div className="flex items-center space-x-3">
                 <Mail size={18} />
@@ -182,7 +183,7 @@ const Footer = memo(function Footer() {
 
             {/* Resource Links */}
             <div className="mt-8">
-              <h4 className="mb-3">Resources</h4>
+              <h5 className="mb-3">Resources</h5>
               <ul className="space-y-3 text-background/80 dark:text-white text-base lg:text-base">
                 <li>
                   <a

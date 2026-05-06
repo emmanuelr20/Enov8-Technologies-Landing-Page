@@ -411,17 +411,12 @@ export default function HeroBackground() {
           >
             <div className="max-w-3xl w-full" suppressHydrationWarning>
               {/* Headline */}
-              {(() => {
-                const Tag = i === 0 ? "h1" : "h2";
-                return (
-                  <Tag
-                    className="text-[30px] md:text-5xl lg:text-6xl leading-[1.05] text-white tracking-tighter mb-6 whitespace-pre-line"
-                    style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
-                  >
-                    {slide.headline}
-                  </Tag>
-                );
-              })()}
+              <h1
+                className="text-white tracking-tighter mb-6 whitespace-pre-line"
+                style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
+              >
+                {slide.headline}
+              </h1>
 
               {/* Subtitle */}
               <div

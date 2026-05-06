@@ -348,83 +348,93 @@ const Navbar = memo(function Navbar() {
         </nav>
       </header>
 
-      {/* ── MOBILE NAV DRAWER (Outside Header) ────────────────────────────────── */}
-      {/* Overlay */}
+      {/* ── MOBILE NAV DRAWER (Modern Staggered Reveal) ────────────────────────────────── */}
+      {/* 1. Backdrop Dimmer */}
       <div
-        className={`fixed inset-0 bg-black/80 backdrop-blur-sm transition-all duration-300 z-110
+        className={`fixed inset-0 bg-black/60 backdrop-blur-md transition-opacity duration-700 z-110
         ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
         onClick={toggleMenu}
         suppressHydrationWarning
       />
 
-      {/* Drawer */}
+      {/* 2. Layer 1: Brand Curtain Slider */}
       <div
-        className={`fixed top-0 right-0 h-full w-full sm:w-[400px] bg-[#141414] text-white z-120 
-              transform transition-transform duration-500 ease-in-out shadow-2xl 
+        className={`fixed top-0 right-0 h-full w-full bg-black/60 z-115 transform transition-transform duration-600 ease-[cubic-bezier(0.77,0,0.175,1)]
+        ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        style={{ transitionDelay: isOpen ? "0ms" : "150ms" }}
+        suppressHydrationWarning
+      />
+
+      {/* 3. Layer 2: Main Menu Drawer */}
+      <div
+        className={`fixed top-0 right-0 h-full w-full sm:w-[480px] bg-zinc-950 text-white z-120 
+              transform transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)] shadow-2xl 
               ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        style={{ transitionDelay: isOpen ? "100ms" : "0ms" }}
         suppressHydrationWarning
       >
-        <div className="flex flex-col h-full p-8">
+        <div className="flex flex-col h-full p-8 sm:p-12">
+          {/* Header Area */}
           <div
-            className="flex justify-between items-center mb-12"
+            className="flex justify-between items-center mb-16"
             suppressHydrationWarning
           >
-            <span className=" text-xs  text-zinc-500 uppercase">Menu</span>
+            <div className="flex flex-col">
+              <span className="text-base text-zinc-500 uppercase tracking-wide mb-1">Menu</span>
+            </div>
             <button
               onClick={toggleMenu}
-              className="p-3 bg-light-primary text-white rounded-full transition-transform hover:rotate-90"
+              className="group relative p-4 text-white  active:scale-95"
               aria-label="Close menu"
             >
-              <X size={24} />
+              <X size={24} className="transition-transform group-hover:rotate-90" />
             </button>
           </div>
 
-          <nav className="flex flex-col space-y-6">
-            <a
-              href="/"
-              className="text-xl tracking-tighter hover:text-light-primary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Home
-            </a>
-            <a
-              href="/services"
-              className="text-xl tracking-tighter hover:text-light-primary transition-colors"
-              onClick={(e) => handleNavClick(e, "/services")}
-            >
-              Services
-            </a>
-            <Link
-              href="/about"
-              className="text-xl tracking-tighter hover:text-light-primary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              About Us
-            </Link>
-            <a
-              href="/#contact"
-              className="text-xl tracking-tighter hover:text-light-primary transition-colors"
-              onClick={(e) => handleNavClick(e, "#contact")}
-            >
-              Contact
-            </a>
+          {/* Nav Links with staggered fade-in */}
+          <nav className="flex flex-col space-y-8">
+            {[
+              { label: "Home", href: "/", id: "home" },
+              { label: "Services", href: "/services", id: "/services" },
+              { label: "About Us", href: "/about", id: "about" },
+              { label: "Contact", href: "/#contact", id: "#contact" },
+            ].map((link, i) => (
+              <Link
+                key={link.id}
+                href={link.href}
+                className={`text-white/85 text-base uppercase font-medium tracking-wide
+                ${isOpen ? "translate-x-0 opacity-100" : "translate-x-12 opacity-0"}`}
+                style={{ 
+                  transitionDelay: isOpen ? `${300 + i * 70}ms` : "0ms",
+                }}
+                onClick={(e) => handleNavClick(e, link.id)}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
+          {/* Footer Info */}
           <div
-            className="mt-auto pt-10 border-t border-white/10"
+            className={`mt-auto pt-10 border-t border-white/5 transition-all duration-1000 delay-700
+            ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             suppressHydrationWarning
           >
-            <p className="text-[10px] uppercase mb-4">Get in touch</p>
-            <a
-              href="mailto:contact@enov8technologies.com"
-              className="block text-base mb-1 hover:text-light-primary transition-colors"
-            >
-              contact@enov8technologies.com
-            </a>
-            <p>+234 913 363 2465</p>
+            <p className="text-zinc-500 uppercase tracking-widest mb-6">Get in touch</p>
+            <div className="space-y-4">
+              <a
+                href="mailto:sales@enov8technologies.com"
+                className="block font-light"
+              >
+                sales@enov8technologies.com
+              </a>
+              <p className="font-medium">+234 913 363 2465</p>
+            </div>
 
-            <div className="mt-8 flex gap-4" suppressHydrationWarning>
-              {/* Simple icons placeholder if needed */}
+            <div className="mt-10 flex gap-6 text-zinc-400">
+              <a href="#" className="hover:text-light-primary transition-colors"><Linkedin size={20} /></a>
+              <a href="#" className="hover:text-light-primary transition-colors"><Instagram size={20} /></a>
+              <a href="#" className="hover:text-light-primary transition-colors"><Facebook size={20} /></a>
             </div>
           </div>
         </div>

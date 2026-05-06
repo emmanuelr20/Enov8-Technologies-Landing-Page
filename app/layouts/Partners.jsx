@@ -120,7 +120,7 @@ export default function Partners() {
               Our Partners
             </h2>
           </div>
-          <p className="dark:text-white/90 md:text-[20px] max-w-2xl">
+          <p className="dark:text-white/90 max-w-2xl">
             We collaborate with a curated network of trusted partners to deliver
             bespoke solutions that solve your immediate challenges while
             future-proofing your business.

@@ -150,10 +150,10 @@ export default function Services() {
                 Our Services
               </span>
               <div className="flex gap-3 md:gap-4 items-start">
-                <span className="w-1 min-h-20 bg-light-primary block shrink-0 mt-1" />
+                <span className="w-1 min-h-19 bg-light-primary block shrink-0 mt-1" />
                 <h2
                   ref={titleRef}
-                  className="text-[#1A1A37] dark:text-white leading-tight max-w-sm"
+                  className="text-[#1A1A37] dark:text-white leading-tight max-w-[280px] md:max-w-sm" 
                 >
                   Amazing Services We Offer
                 </h2>
@@ -161,7 +161,7 @@ export default function Services() {
             </div>
 
             {/* Center: description */}
-            <p className="dark:text-white/90 md:text-[20px] pt-1 md:pt-8 xl:-mt-7">
+            <p className="dark:text-white/90 pt-1 md:pt-8">
               We specialize in navigating organizational change and digital
               evolution. Our technology experts collaborate exclusively with
               clients to architect concrete, high-performance solutions designed
@@ -203,12 +203,12 @@ export default function Services() {
                   {/* Card body */}
                   <div className="flex flex-col flex-1 items-start">
                     {/* Title */}
-                    <h3 className="text-[22px] text-[#1A1A37] dark:text-white mb-4 leading-tight min-h-12 flex items-center">
+                    <h3 className="text-[#1A1A37] dark:text-white mb-4 leading-tight min-h-12 flex items-center">
                       {service.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="dark:text-white/90 mb-8 md:text-[20px]">
+                    <p className="dark:text-white/90 mb-8">
                       {service.description}
                     </p>
 

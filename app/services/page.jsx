@@ -186,12 +186,12 @@ export default function ServicesPage() {
 
                   <div className="flex flex-col flex-1 items-start">
                     {/* Title */}
-                    <h3 className="text-[22px] text-[#1A1A37] dark:text-white mb-4 leading-tight min-h-12 flex items-center">
+                    <h3 className="text-[#1A1A37] dark:text-white mb-4 leading-tight min-h-12 flex items-center">
                       {service.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="dark:text-white/90 mb-8 md:text-[20px]">
+                    <p className="dark:text-white/90 mb-8">
                       {service.description}
                     </p>
 

@@ -246,7 +246,7 @@ export default function RootLayout({ children }) {
 
         <CookieBanner />
         <Toaster position="top-right" richColors />
-        <TawkMessenger />
+        {/* <TawkMessenger /> */}
       </body>
     </html>
   );
