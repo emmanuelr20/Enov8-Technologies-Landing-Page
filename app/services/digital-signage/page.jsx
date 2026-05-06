@@ -11,9 +11,9 @@ export default function DigitalSignagePage() {
       <div className="space-y-8">
         <div className="flex items-center gap-4 mb-10">
           <span className="w-1.5 h-10 bg-light-primary block shrink-0" />
-          <h2 className="text-3xl md:text-4xl text-[#1A1A37] dark:text-white tracking-tight">
+          <h3 className="text-3xl md:textext-[#1A1A37] dark:text-white tracking-tight">
             Digital Signage Solution
-          </h2>
+          </h3>
         </div>
         {/* Feature Image */}
         <div className="relative h-[300px] mb-12 md:h-[400px] overflow-hidden">
@@ -38,11 +38,11 @@ export default function DigitalSignagePage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl capitalize dark:text-white">
+            <h3 className="capitalize dark:text-white">
               Dynamic Content Management
-            </h4>
+            </h3>
           </div>
-          <p className=" dark:text-white/90 pl-5">
+          <p className="dark:text-white/90 pl-5">
             Our digital signage solutions allow you to control multiple displays
             from a single, centralized dashboard. Whether it's promotional
             videos, real-time data feeds, or emergency alerts, you can update
@@ -53,9 +53,9 @@ export default function DigitalSignagePage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl capitalize dark:text-white">
+            <h3 className="capitalize dark:text-white">
               High-Impact Visual Displays
-            </h4>
+            </h3>
           </div>
           <p className=" dark:text-white/90 pl-5">
             We specialize in designing and deploying high-resolution displays
@@ -68,9 +68,9 @@ export default function DigitalSignagePage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl capitalize dark:text-white">
+            <h3 className="capitalize dark:text-white">
               Real-Time Integration
-            </h4>
+            </h3>
           </div>
           <p className=" dark:text-white/90 pl-5">
             Connect your screens to live data sources such as weather updates,

@@ -21,7 +21,7 @@ const Footer = memo(function Footer() {
             <div className="text-2xl mb-4 font-medium">
               Enov8 Technologies
             </div>
-            <p className="text-background/80 mb-6 dark:text-white">
+            <p className="text-background/80! mb-6 dark:text-white!">
               Transforming businesses through innovative software solutions,
               mobile applications, and professional development training.
             </p>
@@ -62,7 +62,7 @@ const Footer = memo(function Footer() {
           </div>
 
           <div>
-            <h3 className="text-base mb-4">Services</h3>
+            <h3 className="text-base md:text-lg mb-4">Services</h3>
             <ul className="space-y-4 text-background/80 dark:text-white text-base lg:text-base">
               <li>
                 <a
@@ -116,7 +116,7 @@ const Footer = memo(function Footer() {
           </div>
 
           <div>
-            <h3 className="text-base mb-4">Industries</h3>
+            <h3 className="text-base md:text-lg mb-4">Industries</h3>
             <ul className="space-y-4 text-background/80 dark:text-white text-base lg:text-base">
               <li>
                 <a href="#about" className="hover:text-white transition-colors">
@@ -152,7 +152,7 @@ const Footer = memo(function Footer() {
           </div>
 
           <div>
-            <h3 className="text-base mb-4">
+            <h3 className="text-base md:text-lg mb-4">
               Contact Info
             </h3>
             <div className="space-y-4 text-background/80 dark:text-white text-base lg:text-base">
@@ -182,7 +182,7 @@ const Footer = memo(function Footer() {
 
             {/* Resource Links */}
             <div className="mt-8">
-              <h4 className="text-base mb-3">Resources</h4>
+              <h4 className="text-base md:text-lg mb-3">Resources</h4>
               <ul className="space-y-3 text-background/80 dark:text-white text-base lg:text-base">
                 <li>
                   <a

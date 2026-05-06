@@ -166,29 +166,32 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-24 mt-8 md:mt-25">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-24 mt-8 md:mt-25">
             {allServices.map((service) => {
               const Icon = service.icon;
               return (
                 <div
                   key={service.id}
-                  className="group relative flex flex-col bg-white dark:bg-zinc-900 shadow-[0_15px_50px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_15px_50px_-15px_rgba(0,0,0,0.5)] p-8 pt-16 min-h-[300px] md:h-[350px] w-full border border-transparent hover:border-light-primary/10"
+                  className="relative flex flex-col bg-white dark:bg-zinc-900 shadow-[0_15px_50px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_15px_50px_-15px_rgba(0,0,0,0.5)] p-8 pt-16 min-h-[300px] md:h-[350px] w-full md:max-w-[400px] md:mx-auto transition-colors duration-300"
                 >
                   {/* Icon box overlay */}
-                  <div className="absolute top-0 left-14 -translate-x-1/2 -translate-y-1/2  ">
-                    <div className="w-16 h-16 md:w-20 md:h-20 bg-light-primary flex items-center justify-center shadow-xl">
+                  <div className="absolute top-0 left-14 -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-16 h-16 md:w-18 md:h-18 bg-light-primary flex items-center justify-center shadow-lg">
                       <Icon
-                        className="text-white w-8 h-8 md:w-10 md:h-10"
+                        className="text-white w-7 h-7 md:w-8 md:h-8"
                         strokeWidth={2}
                       />
                     </div>
                   </div>
 
-                  <div className="flex flex-col h-full">
-                    <h3 className="text-2xl text-[#1A1A37] dark:text-white mb-4 leading-tight">
+                  <div className="flex flex-col flex-1 items-start">
+                    {/* Title */}
+                    <h3 className="text-[22px] text-[#1A1A37] dark:text-white mb-4 leading-tight min-h-12 flex items-center">
                       {service.title}
                     </h3>
-                    <p className=" dark:text-white/90 md: mb-8">
+
+                    {/* Description */}
+                    <p className=" dark:text-white/90 mb-8 text-sm md:text-[20px] xl:text-base">
                       {service.description}
                     </p>
 

@@ -153,18 +153,18 @@ export default function About() {
             {/* Value highlights */}
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-900 shadow-sm flex items-center justify-center text-light-primary transition-colors group-hover:bg-light-primary group-hover:text-white">
+                <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-900 shadow-sm flex items-center justify-center text-light-primary">
                   <Target size={24} />
                 </div>
-                <span className=" text-[#1A1A37] dark:text-white text-sm uppercase font-medium">
+                <span className=" text-[#1A1A37] dark:text-white uppercase text-[13px] font-medium">
                   Scalable Strategy
                 </span>
               </div>
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-900 shadow-sm flex items-center justify-center text-light-primary transition-colors group-hover:bg-light-primary group-hover:text-white">
+                <div className="w-12 h-12 rounded-2xl bg-white dark:bg-zinc-900 shadow-sm flex items-center justify-center text-light-primary ">
                   <Award size={24} />
                 </div>
-                <span className=" text-[#1A1A37] dark:text-white text-sm uppercase font-medium">
+                <span className=" text-[#1A1A37] dark:text-white uppercase text-[13px] font-medium">
                   Expert Execution
                 </span>
               </div>
@@ -207,10 +207,10 @@ export default function About() {
               { stat: "24/7", label: "Post-Deployment Support" },
             ].map(({ stat, label }) => (
               <div key={label} className="text-start md:text-center group">
-                <h4 className="text-3xl md:text-6xl text-[#1A1A37] dark:text-white tracking-tighter mb-2 transition-colors group-hover:text-light-primary">
+                <h4 className="text-3xl md:text-6xl text-[#1A1A37] dark:text-white tracking-tighter mb-2">
                   {stat}
                 </h4>
-                <span className="text-sm uppercase font-medium">{label}</span>
+                <p className="uppercase">{label}</p>
               </div>
             ))}
           </div>

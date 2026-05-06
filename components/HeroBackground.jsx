@@ -429,7 +429,7 @@ export default function HeroBackground() {
                 suppressHydrationWarning
               >
                 <p
-                  className=" text-center text-white"
+                  className=" text-base md:text-[18px] text-center text-white!"
                   style={{ textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}
                 >
                   {slide.sub}

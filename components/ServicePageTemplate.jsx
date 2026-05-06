@@ -180,7 +180,7 @@ export default function ServicePageTemplate({
             {/* Services Nav — TBO style */}
             <div className="bg-light-primary shadow-2xl overflow-hidden">
               <div className="my-6 mx-10 py-4 px-5 text-center bg-white text-light-primary">
-                <h3 className="text-base tracking-[0.2em] uppercase">
+                <h3 className="text-base tracking-[0.2em] uppercase dark:text-light-primary">
                   Our Services
                 </h3>
               </div>
@@ -215,7 +215,7 @@ export default function ServicePageTemplate({
                   <Icon size={110} />
                 </div>
               )}
-              <h3 className="text-xl mb-3 leading-tight">
+              <h3 className="mb-3 leading-tight">
                 Let's help you on your digital transformation journey
               </h3>
               <p className="text-white/60 mb-8">

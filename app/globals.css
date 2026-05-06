@@ -111,18 +111,34 @@
   --index-200: 200;
 }
 
-h1, h2, h3 {
-  font-family: var(--font-inter), sans-serif;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  font-weight: 500;
-}
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight dark:text-white;
+  }
 
-h4, h5, h6 {
-  font-family: var(--font-inter), sans-serif;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  font-weight: 500;
+  h1 {
+    @apply text-4xl md:text-6xl lg:text-7xl leading-[1.1];
+  }
+
+  h2 {
+    @apply text-3xl md:text-5xl lg:text-6xl leading-[1.2];
+  }
+
+  h3 {
+    @apply text-[22px];
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl leading-[1.4];
+  }
+
+  h5 {
+    @apply text-lg md:text-xl leading-[1.4];
+  }
+
+  h6 {
+    @apply text-base md:text-lg leading-[1.4];
+  }
 }
 
 body {
@@ -135,6 +151,8 @@ body {
 
 p {
   font-weight: 400;
+  color: #656565;
+  @apply text-sm md:text-[20px] xl:text-base;
 }
 
 .dark p {

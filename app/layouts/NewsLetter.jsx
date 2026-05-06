@@ -92,7 +92,7 @@ export default function Newsletter() {
         </h2>
 
         {/* Subtext */}
-        <p className="text-white/90 mb-10 max-w-lg mx-auto">
+        <p className="text-white/90! mb-10 max-w-lg mx-auto">
           Get expert articles on digital transformation, enterprise tech, and
           industry trends — straight to your inbox. No spam, ever.
         </p>
@@ -224,7 +224,7 @@ export default function Newsletter() {
         )}
 
         {/* Privacy note */}
-        <p className="mt-6 text-white/90">
+        <p className="mt-6 text-white/90!">
           By subscribing you agree to our{" "}
           <a
             href="/privacy-policy"

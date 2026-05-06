@@ -136,7 +136,7 @@ export default function Reviews() {
                     />
 
                     {/* Review text - properly weighted */}
-                    <p className="text-white mb-8 text-sm md:text-[20px] xl:text-base">
+                    <p className="text-white/90! mb-8 text-sm md:text-[20px] xl:text-base">
                       {review.text}
                     </p>
 

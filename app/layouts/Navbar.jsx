@@ -276,13 +276,13 @@ const Navbar = memo(function Navbar() {
                       <span className="w-1 h-5 bg-light-primary block" />
                       <Link
                         href={service.href}
-                        className=" text-base capitalize tracking-wide text-[#1A1A37] dark:text-white hover:text-light-primary transition-colors"
+                        className=" text-base capitalize font-medium tracking-wide text-[#1A1A37] dark:text-white hover:text-light-primary transition-colors"
                       >
                         {service.title}
                       </Link>
                     </div>
                     {service.hints.some((h) => h !== "") && (
-                      <ul className="space-y-1 pl-3 text-[12px] text-gray-500 capitalize dark:text-white/60">
+                      <ul className="space-y-1 pl-3 text-sm text-gray-500 capitalize dark:text-white/60">
                         {service.hints
                           .filter((h) => h !== "")
                           .map((hint, hIdx) => (
