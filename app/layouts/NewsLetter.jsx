@@ -76,8 +76,9 @@ export default function Newsletter() {
         alt="Enov8 Technologies newsletter background"
         fill
         sizes="100vw"
-        priority
-        quality={100}
+        loading="lazy"
+        fetchPriority="high"
+        quality={75}
         className="object-cover z-0"
       />
 

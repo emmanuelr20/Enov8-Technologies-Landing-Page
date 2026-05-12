@@ -5,17 +5,7 @@ import { FaHandsHelping } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa6";
 import dynamic from "next/dynamic";
 
-const HeroBackground = dynamic(() => import("@/components/HeroBackground"), {
-  ssr: false,
-  loading: () => (
-    <div
-      className="relative min-h-[75vh] overflow-hidden bg-[#09090b]"
-      aria-hidden="true"
-    >
-      <div className="absolute inset-0 bg-linear-to-b from-black/20 to-black/50" />
-    </div>
-  ),
-});
+import HeroBackground from "@/components/HeroBackground";
 
 export default function Hero() {
   const cardsRef = useRef(null);

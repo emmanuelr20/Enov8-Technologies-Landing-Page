@@ -8,10 +8,10 @@ import TawkMessenger from "@/components/TawkMessenger";
 import CookieBanner from "@/components/CookieBanner";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Toaster } from "@/components/ui/sonner";
-import { Inter } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 
-const inter = Inter({
-  variable: "--font-inter",
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
@@ -227,8 +227,18 @@ export default function RootLayout({ children }) {
       data-scroll-behavior="smooth"
       className="overflow-x-hidden max-w-full"
     >
+      <head>
+        <link
+          rel="preload"
+          href="/videos/hero1_compressed.mp4"
+          as="video"
+          type="video/mp4"
+        />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      </head>
       <body
-        className={`${inter.variable} min-h-svh text-foreground bg-background overflow-x-hidden antialiased`}
+        className={`${openSans.variable} min-h-svh text-foreground bg-background overflow-x-hidden antialiased`}
         suppressHydrationWarning
       >
         {/* Organization Schema */}

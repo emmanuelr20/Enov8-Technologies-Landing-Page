@@ -89,6 +89,8 @@ export default function About() {
                   src="/sections/about1.webp"
                   alt="Enov8 Technology Solutions"
                   fill
+                  priority={true}
+                  fetchPriority="high"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   onLoad={() => setImgLoaded(true)}
@@ -199,7 +201,7 @@ export default function About() {
         </div>
 
         {/* STATS BAND ─────────────────────────────────────────────────────── */}
-        <div className="hidden lg:block mt-20 md:mt-24 lg:mt-32 pt-16 md:pt-20 border-t border-zinc-200 dark:border-zinc-800">
+        <div className="hidden lg:block mt-20 lg:mt-26 pt-16 md:pt-20 border-t border-zinc-200 dark:border-zinc-800">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {[
               { stat: "50+", label: "Projects Shipped" },

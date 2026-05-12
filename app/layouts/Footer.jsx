@@ -19,10 +19,8 @@ const Footer = memo(function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           <div className="lg:col-span-1">
-            <h3 className="mb-4">
-              Enov8 Technologies
-            </h3>
-            <p className="text-background/80! mb-6 dark:text-white!">
+            <h3 className="mb-4">Enov8 Technologies</h3>
+            <p className="text-background/70! mb-6 dark:text-gray-300!">
               Transforming businesses through innovative software solutions,
               mobile applications, and professional development training.
             </p>
@@ -35,7 +33,7 @@ const Footer = memo(function Footer() {
                   href="https://www.linkedin.com/company/enov8-technologies/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-background/80 dark:text-white hover:text-blue-600 transition-colors"
+                  className="text-background/70 dark:text-white hover:text-blue-600 transition-colors"
                   aria-label="Follow us on LinkedIn"
                 >
                   <FaLinkedin size={24} />
@@ -44,7 +42,7 @@ const Footer = memo(function Footer() {
                   href="https://www.instagram.com/enov8_technologies?igsh=YWZtNHNia2syanE1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-background/80 dark:text-white hover:text-pink-600 transition-colors"
+                  className="text-background/70 dark:text-white hover:text-pink-600 transition-colors"
                   aria-label="View our Instagram"
                 >
                   <FaInstagram size={24} />
@@ -53,7 +51,7 @@ const Footer = memo(function Footer() {
                   href="https://www.facebook.com/Enov8Technologies"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-background/80 dark:text-white hover:text-blue-600 transition-colors"
+                  className="text-background/70 dark:text-white hover:text-blue-600 transition-colors"
                   aria-label="Follow us on Facebook"
                 >
                   <FaFacebook size={24} />
@@ -64,7 +62,7 @@ const Footer = memo(function Footer() {
 
           <div>
             <h5 className="mb-4">Services</h5>
-            <ul className="space-y-4 text-background/80 dark:text-white text-base lg:text-base">
+            <ul className="space-y-4 text-background/70 dark:text-gray-300 text-base lg:text-base">
               <li>
                 <a
                   href="/services/digital-signage"
@@ -118,7 +116,7 @@ const Footer = memo(function Footer() {
 
           <div>
             <h5 className="mb-4">Industries</h5>
-            <ul className="space-y-4 text-background/80 dark:text-white text-base lg:text-base">
+            <ul className="space-y-4 text-background/70 dark:text-gray-300 text-base lg:text-base">
               <li>
                 <a href="#about" className="hover:text-white transition-colors">
                   Fintech
@@ -153,10 +151,8 @@ const Footer = memo(function Footer() {
           </div>
 
           <div>
-            <h5 className="mb-4">
-              Contact Info
-            </h5>
-            <div className="space-y-4 text-background/80 dark:text-white text-base lg:text-base">
+            <h5 className="mb-4">Contact Info</h5>
+            <div className="space-y-4 text-background/70 dark:text-gray-300 text-base lg:text-base">
               <div className="flex items-center space-x-3">
                 <Mail size={18} />
                 <a
@@ -184,7 +180,7 @@ const Footer = memo(function Footer() {
             {/* Resource Links */}
             <div className="mt-8">
               <h5 className="mb-3">Resources</h5>
-              <ul className="space-y-3 text-background/80 dark:text-white text-base lg:text-base">
+              <ul className="space-y-3 text-background/70 dark:text-gray-300 text-base lg:text-base">
                 <li>
                   <a
                     href="/privacy-policy"

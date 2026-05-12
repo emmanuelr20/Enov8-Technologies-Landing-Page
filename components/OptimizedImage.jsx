@@ -7,6 +7,7 @@ const OptimizedImage = ({
   width,
   height,
   priority = false,
+  fetchPriority = "auto",
   className = "",
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
   ...props
@@ -37,6 +38,7 @@ const OptimizedImage = ({
           width={width}
           height={height}
           priority={priority}
+          fetchPriority={fetchPriority}
           sizes={sizes}
           quality={85}
           placeholder="blur"
