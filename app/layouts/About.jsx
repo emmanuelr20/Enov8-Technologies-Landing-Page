@@ -207,7 +207,7 @@ export default function About() {
               { stat: "24/7", label: "Post-Deployment Support" },
             ].map(({ stat, label }) => (
               <div key={label} className="text-start md:text-center group">
-                <h2 className="text-[#1A1A37] dark:text-white tracking-tighter mb-2">
+                <h2 className="text-[#1A1A37] text-[45px] dark:text-white tracking-tighter mb-2">
                   {stat}
                 </h2>
                 <p className="uppercase">{label}</p>
