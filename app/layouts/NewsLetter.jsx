@@ -72,12 +72,13 @@ export default function Newsletter() {
     <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-zinc-950">
       {/* ── Background image ── */}
       <Image
-        src="/sections/newsletter-bg.webp" 
+        src="/sections/newsletter-bg.webp"
         alt="Enov8 Technologies newsletter background"
         fill
         sizes="100vw"
-        priority
-        quality={100}
+        loading="lazy"
+        fetchPriority="high"
+        quality={75}
         className="object-cover z-0"
       />
 
@@ -87,24 +88,23 @@ export default function Newsletter() {
       {/* ── Content ── */}
       <div className="relative z-20 w-full max-w-2xl mx-auto px-6 py-20 md:py-24 text-center">
         {/* Headline */}
-        <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight font-space mb-4">
-          Technology Insights,{" "}
-          <span className="inline-block">Delivered.</span>
+        <h2 className="text-white leading-tight tracking-tight mb-4">
+          Technology Insights, <span className="inline-block">Delivered.</span>
         </h2>
 
         {/* Subtext */}
-        <p className="text-white/90 text-lg font-poppins leading-relaxed mb-10 max-w-lg mx-auto">
+        <p className="text-white/90! mb-10 max-w-lg mx-auto">
           Get expert articles on digital transformation, enterprise tech, and
           industry trends — straight to your inbox. No spam, ever.
         </p>
 
         {/* ── Mode toggle ── */}
-        <div className="inline-flex bg-white/10 backdrop-blur-sm rounded-full p-1 mb-8 border border-white/15">
+        <div className="inline-flex bg-white/10 backdrop-blur-sm rounded-full p-1 mb-8 border border-white/15 font-medium">
           {["subscribe", "unsubscribe"].map((m) => (
             <button
               key={m}
               onClick={() => switchMode(m)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold font-poppins transition-all duration-300 capitalize ${
+              className={`px-5 py-2 rounded-full text-sm transition-all duration-300 capitalize ${
                 mode === m
                   ? "bg-[#0070f3] text-white shadow-lg shadow-blue-500/30"
                   : "text-gray-300 hover:text-white"
@@ -133,13 +133,13 @@ export default function Newsletter() {
             }}
             placeholder="Enter your email address"
             disabled={status === "loading" || status === "success"}
-            className="flex-1 px-5 py-3.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder-gray-400 text-sm font-poppins focus:outline-none focus:border-[#0070f3] focus:bg-white/15 transition-all duration-200 disabled:opacity-50"
+            className="flex-1 px-5 py-3.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder-gray-400 text-sm focus:outline-none focus:border-[#0070f3] focus:bg-white/15 transition-all duration-200 disabled:opacity-50"
             aria-label="Email address"
           />
           <button
             type="submit"
             disabled={status === "loading" || status === "success" || !email}
-            className="px-6 py-3.5 rounded-xl font-semibold text-sm font-poppins text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+            className="px-6 py-3.5 rounded-xl text-sm text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap font-medium"
             style={{
               background:
                 mode === "subscribe"
@@ -185,7 +185,7 @@ export default function Newsletter() {
         {/* ── Status message ── */}
         {message && (
           <div
-            className={`mt-5 inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-poppins font-medium transition-all duration-300 ${
+            className={`mt-5 inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm transition-all duration-300 ${
               status === "success"
                 ? "bg-emerald-500/15 border border-emerald-500/30 text-emerald-300"
                 : "bg-red-500/15 border border-red-500/30 text-red-300"
@@ -225,7 +225,7 @@ export default function Newsletter() {
         )}
 
         {/* Privacy note */}
-        <p className="mt-6 text-white/90 text-sm font-poppins">
+        <p className="mt-6 text-white/90!">
           By subscribing you agree to our{" "}
           <a
             href="/privacy-policy"

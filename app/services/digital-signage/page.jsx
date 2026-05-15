@@ -11,9 +11,9 @@ export default function DigitalSignagePage() {
       <div className="space-y-8">
         <div className="flex items-center gap-4 mb-10">
           <span className="w-1.5 h-10 bg-light-primary block shrink-0" />
-          <h2 className="text-3xl md:text-4xl font-black text-[#1A1A37] dark:text-white font-space tracking-tight">
+          <h3 className="md:textext-[#1A1A37] dark:text-white tracking-tight">
             Digital Signage Solution
-          </h2>
+          </h3>
         </div>
         {/* Feature Image */}
         <div className="relative h-[300px] mb-12 md:h-[400px] overflow-hidden">
@@ -26,7 +26,7 @@ export default function DigitalSignagePage() {
             className="object-cover"
           />
         </div>
-        <p className="text-gray-700 dark:text-white/90 text-lg leading-relaxed font-poppins">
+        <p className="dark:text-white/90">
           Manage and deploy dynamic visual content across your screens in
           real-time. We provide high-impact signage that transforms physical
           spaces and captivates your audience.
@@ -38,11 +38,11 @@ export default function DigitalSignagePage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
+            <h3 className="capitalize dark:text-white">
               Dynamic Content Management
-            </h4>
+            </h3>
           </div>
-          <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
+          <p className="dark:text-white/90 pl-5">
             Our digital signage solutions allow you to control multiple displays
             from a single, centralized dashboard. Whether it's promotional
             videos, real-time data feeds, or emergency alerts, you can update
@@ -53,11 +53,11 @@ export default function DigitalSignagePage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
+            <h3 className="capitalize dark:text-white">
               High-Impact Visual Displays
-            </h4>
+            </h3>
           </div>
-          <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
+          <p className="dark:text-white/90 pl-5">
             We specialize in designing and deploying high-resolution displays
             that capture attention. From retail storefronts to corporate
             lobbies, our signage solutions are tailored to enhance brand
@@ -68,11 +68,11 @@ export default function DigitalSignagePage() {
         <div className="space-y-3">
           <div className="flex items-center gap-4">
             <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-            <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
+            <h3 className="capitalize dark:text-white">
               Real-Time Integration
-            </h4>
+            </h3>
           </div>
-          <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
+          <p className="dark:text-white/90 pl-5">
             Connect your screens to live data sources such as weather updates,
             social media feeds, or internal business metrics. Our platform
             ensures that your audience always sees the most relevant and

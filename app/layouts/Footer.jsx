@@ -11,77 +11,38 @@ import {
   FaDribbble,
 } from "react-icons/fa6";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Heading5 } from "lucide-react";
 
 const Footer = memo(function Footer() {
   return (
-    <footer className="z-50 pt-12 pb-6 bg-gray-950 dark:bg-black text-white border-t-2 dark:border-t-white">
+    <footer className="z-50 pt-24 pb-12 bg-gray-950 dark:bg-black text-white border-t-2 dark:border-t-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div
-            className="lg:col-span-1"
-          >
-            <div className="text-2xl font-bold mb-4 font-space">
-              Enov8 Technologies
-            </div>
-            <p className="text-background/80 mb-6 dark:text-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+          <div className="lg:col-span-1">
+            <h3 className="mb-4">Enov8 Technologies</h3>
+            <p className="text-background/70! mb-6 dark:text-gray-300!">
               Transforming businesses through innovative software solutions,
               mobile applications, and professional development training.
             </p>
 
             {/* Social Media Links */}
             <div className="mb-6">
-              <h4 className="font-semibold mb-3">Follow Us</h4>
+              <h5 className="mb-3">Follow Us</h5>
               <div className="flex space-x-4">
                 <a
                   href="https://www.linkedin.com/company/enov8-technologies/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-background/80 dark:text-white hover:text-blue-600 transition-colors"
+                  className="text-background/70 dark:text-white hover:text-blue-600 transition-colors"
                   aria-label="Follow us on LinkedIn"
                 >
                   <FaLinkedin size={24} />
                 </a>
-                {/* <a
-                  href="https://twitter.com/enov8tech"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-background/80 hover:text-white dark:text-white transition-colors"
-                  aria-label="Follow us on Twitter"
-                >
-                  <FaTwitter size={24} />
-                </a> */}
-                {/* <a
-                  href="https://github.com/enov8technologies"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-background/80 dark:text-white hover:text-gray-700 transition-colors"
-                  aria-label="View our GitHub"
-                >
-                  <FaGithub size={24} />
-                </a> */}
-                {/* <a
-                  href="https://youtube.com/@enov8technologies"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-background/80 dark:text-white hover:text-red-600 transition-colors"
-                  aria-label="Subscribe to our YouTube channel"
-                >
-                  <FaYoutube size={24} />
-                </a> */}
-                {/* <a
-                  href="https://medium.com/@enov8technologies"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-background/80 dark:text-white hover:text-green-600 transition-colors"
-                  aria-label="Read our Medium articles"
-                >
-                  <FaMedium size={24} />
-                </a> */}
                 <a
                   href="https://www.instagram.com/enov8_technologies?igsh=YWZtNHNia2syanE1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-background/80 dark:text-white hover:text-pink-600 transition-colors"
+                  className="text-background/70 dark:text-white hover:text-pink-600 transition-colors"
                   aria-label="View our Instagram"
                 >
                   <FaInstagram size={24} />
@@ -90,7 +51,7 @@ const Footer = memo(function Footer() {
                   href="https://www.facebook.com/Enov8Technologies"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-background/80 dark:text-white hover:text-blue-600 transition-colors"
+                  className="text-background/70 dark:text-white hover:text-blue-600 transition-colors"
                   aria-label="Follow us on Facebook"
                 >
                   <FaFacebook size={24} />
@@ -100,8 +61,8 @@ const Footer = memo(function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Services</h3>
-            <ul className="space-y-3 text-background/80 dark:text-white">
+            <h5 className="mb-4">Services</h5>
+            <ul className="space-y-4 text-background/70 dark:text-gray-300 text-base lg:text-base">
               <li>
                 <a
                   href="/services/digital-signage"
@@ -154,8 +115,8 @@ const Footer = memo(function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Industries</h3>
-            <ul className="space-y-3 text-background/80 dark:text-white">
+            <h5 className="mb-4">Industries</h5>
+            <ul className="space-y-4 text-background/70 dark:text-gray-300 text-base lg:text-base">
               <li>
                 <a href="#about" className="hover:text-white transition-colors">
                   Fintech
@@ -190,8 +151,8 @@ const Footer = memo(function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Contact Info</h3>
-            <div className="space-y-3 text-background/80 dark:text-white">
+            <h5 className="mb-4">Contact Info</h5>
+            <div className="space-y-4 text-background/70 dark:text-gray-300 text-base lg:text-base">
               <div className="flex items-center space-x-3">
                 <Mail size={18} />
                 <a
@@ -217,9 +178,9 @@ const Footer = memo(function Footer() {
             </div>
 
             {/* Resource Links */}
-            <div className="mt-6">
-              <h4 className="font-semibold mb-3">Resources</h4>
-              <ul className="space-y-2 text-background/80 dark:text-white text-sm">
+            <div className="mt-8">
+              <h5 className="mb-3">Resources</h5>
+              <ul className="space-y-3 text-background/70 dark:text-gray-300 text-base lg:text-base">
                 <li>
                   <a
                     href="/privacy-policy"
@@ -258,15 +219,15 @@ const Footer = memo(function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-background/60 text-sm dark:text-white mb-4 md:mb-0">
+        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+          <p className="text-background/60 dark:text-white mb-4 md:mb-0">
             © 2025 Enov8 Technologies. All rights reserved.
           </p>
 
           {/* Partner/Certification Links */}
-          <div className="flex items-center space-x-6 text-sm text-background/60 dark:text-white">
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 text-sm text-background/60 dark:text-white">
             <span>Trusted by 100+ businesses</span>
-            <span>•</span>
+            <span className="hidden md:inline">•</span>
             <span>ISO 27001 Compliant</span>
           </div>
         </div>

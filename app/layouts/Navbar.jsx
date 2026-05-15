@@ -40,36 +40,22 @@ const MEGA_MENU_SERVICES = [
   {
     title: "Onboarding & ID",
     href: "/services/onboarding",
-    hints: [
-      "KYC",
-      "AML",
-      "Fraud Detection",
-    ],
+    hints: ["KYC", "AML", "Fraud Detection"],
   },
   {
     title: "Cyber Security",
     href: "/services/security",
-    hints: [
-      "Audits",
-      "Encryptions",
-      "Security Ops",
-    ],
+    hints: ["Audits", "Encryptions", "Security Ops"],
   },
   {
     title: "Software Development",
     href: "/services/software-dev",
-    hints: [
-      ""
-    ],
+    hints: [""],
   },
   {
     title: "IT Consulting",
     href: "/services/consulting",
-    hints: [
-      "IT Consulting",
-      "Infrastructure Strategy",
-      "Feasibility Studies",
-    ],
+    hints: ["IT Consulting", "Infrastructure Strategy", "Feasibility Studies"],
   },
   {
     title: "ERP Deployment",
@@ -79,34 +65,41 @@ const MEGA_MENU_SERVICES = [
   {
     title: "AI Deployment",
     href: "/services/ai-deployment",
-    hints: ["Intelligent Automation", "Data-Driven Insights", "Predictive Models"],
+    hints: [
+      "Intelligent Automation",
+      "Data-Driven Insights",
+      "Predictive Models",
+    ],
   },
   {
     title: "Networking",
     href: "/services/networking",
-    hints: ["Digital Network Architecture", "Structured Cabling", "Wireless Solutions", "Network Security", "Enterprise Network Monitoring"],
+    hints: [
+      "Digital Network Architecture",
+      "Structured Cabling",
+      "Wireless Solutions",
+      "Network Security",
+      "Enterprise Network Monitoring",
+    ],
   },
   {
     title: "Zoho Implementations",
     href: "/services/zoho-partner",
-    hints: [
-      "Sales",
-      "Finance",
-      "Marketing",
-      "Operations",
-      "Support",
-      "HR",
-    ],
+    hints: ["Sales", "Finance", "Marketing", "Operations", "Support", "HR"],
   },
   {
     title: "Document Management system",
     href: "/services/document-management",
-    hints: [""]
+    hints: [""],
   },
   {
     title: "Hardware Procurement",
     href: "/services/hardware-procurement",
-    hints: ["Enterprise Sourcing", "Deployment & Lifecycle", "Vendor Management"],
+    hints: [
+      "Enterprise Sourcing",
+      "Deployment & Lifecycle",
+      "Vendor Management",
+    ],
   },
 ];
 
@@ -168,7 +161,7 @@ const Navbar = memo(function Navbar() {
           <div className="flex items-center gap-6">
             <a
               href="tel:+2347064838988"
-              className="flex items-center gap-2 hover:text-light-primary transition-colors"
+              className="flex items-center gap-2 hover:text-light-primary transition-colors text-sm"
             >
               <span className="text-light-primary">
                 <PhoneCall size={20} />
@@ -177,7 +170,7 @@ const Navbar = memo(function Navbar() {
             </a>
             <a
               href="mailto:sales@enov8technologies.com "
-              className="flex items-center gap-2 hover:text-light-primary transition-colors"
+              className="flex items-center gap-2 hover:text-light-primary transition-colors text-sm"
             >
               <span className="text-light-primary">
                 <Mail size={20} />
@@ -185,7 +178,7 @@ const Navbar = memo(function Navbar() {
               sales@enov8technologies.com
             </a>
           </div>
-          <div className="flex items-center gap-4 font-bold uppercase tracking-wider text-[10px]">
+          <div className="flex items-center gap-4 uppercase  text-[10px]">
             <a
               href="https://www.linkedin.com/company/enov8-technologies/"
               className="text-light-primary hover:text-light-hover transition-colors"
@@ -204,26 +197,25 @@ const Navbar = memo(function Navbar() {
             >
               <Facebook size={20} />
             </a>
-            
           </div>
         </div>
       </div>
 
       <header
-        className={`sticky lg:relative top-0 z-100 w-full transition-all duration-300 ${
+        className={`sticky lg:relative top-0 z-100 w-full ${
           isSticky
             ? "py-3 bg-white/95 dark:bg-black/95 backdrop-blur-md shadow-sm border-b border-gray-100 dark:border-white/5"
             : "py-6 bg-white dark:bg-black border-b border-gray-100 dark:border-zinc-500"
         }`}
       >
-        <nav className="container mx-auto h-full px-6 md:px-12 lg:px-24 flex justify-between items-center">
+        <nav className="container mx-auto max-h-10 h-full px-6 md:px-12 lg:px-24 flex justify-between items-center">
           <div className="flex items-center gap-2" suppressHydrationWarning>
             <a
               href="/"
-              className="flex items-center gap-2 group"
+              className="flex items-center gap-1 group"
               aria-label="Enov8 Technologies Home"
             >
-              <div className="relative w-8 h-8 transition-transform group-hover:scale-110" suppressHydrationWarning>
+              <div className="relative w-10 h-10" suppressHydrationWarning>
                 <svg
                   width="32"
                   height="32"
@@ -243,20 +235,18 @@ const Navbar = memo(function Navbar() {
                   </g>
                 </svg>
               </div>
-              <span className="capitalize text-lg font-bold text-[#23252d] dark:text-white transition-colors duration-200 font-space">
+              <span className="capitalize text-base text-[#23252d] dark:text-white transition-colors duration-200 font-medium mt-1">
                 enov8 technologies
               </span>
             </a>
           </div>
 
           {/* Desktop Nav */}
-          <ul
-            className="hidden lg:flex items-center gap-6 text-[12px] uppercase font-bold tracking-widest dark:text-white relative"
-          >
+          <ul className="hidden lg:flex items-center gap-6 text-[12px] uppercase  dark:text-white relative">
             <li className="relative z-50 group/menu">
               <Link
                 href="/services"
-                className="flex items-center gap-1 py-4 hover:text-light-primary transition-colors"
+                className="flex items-center gap-1 py-4 hover:text-light-primary transition-colors font-medium"
                 onClick={(e) => handleNavClick(e, "/services")}
               >
                 Services
@@ -279,17 +269,20 @@ const Navbar = memo(function Navbar() {
                     className="break-inside-avoid mb-10 space-y-3"
                     suppressHydrationWarning
                   >
-                    <div className="flex items-center gap-2" suppressHydrationWarning>
+                    <div
+                      className="flex items-center gap-2"
+                      suppressHydrationWarning
+                    >
                       <span className="w-1 h-5 bg-light-primary block" />
                       <Link
                         href={service.href}
-                        className="font-space font-semibold text-base capitalize tracking-wide text-[#1A1A37] dark:text-white hover:text-light-primary transition-colors"
+                        className=" text-base capitalize font-medium tracking-wide text-[#1A1A37] dark:text-white hover:text-light-primary transition-colors"
                       >
                         {service.title}
                       </Link>
                     </div>
                     {service.hints.some((h) => h !== "") && (
-                      <ul className="space-y-1 pl-3 font-poppins font-medium text-[12px] text-gray-500 capitalize dark:text-white/60">
+                      <ul className="space-y-1 pl-3 text-sm text-gray-500 capitalize dark:text-white/60">
                         {service.hints
                           .filter((h) => h !== "")
                           .map((hint, hIdx) => (
@@ -304,7 +297,7 @@ const Navbar = memo(function Navbar() {
             <li>
               <Link
                 href="/about"
-                className="hover:text-light-primary transition-colors py-4"
+                className="hover:text-light-primary transition-colors py-4 font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 About
@@ -313,7 +306,7 @@ const Navbar = memo(function Navbar() {
             <li>
               <Link
                 href="/#contact"
-                className="hover:text-light-primary transition-colors py-4"
+                className="hover:text-light-primary transition-colors py-4 font-medium"
                 onClick={(e) => handleNavClick(e, "#contact")}
               >
                 Contact
@@ -329,8 +322,8 @@ const Navbar = memo(function Navbar() {
             <ConsultationModal
               trigger={
                 <Button
-                  className="bg-light-primary text-white px-10 h-14 font-bold text-[12px] tracking-widest uppercase 
-                  transition-all shadow-lg shadow-light-primary/20 rounded-none hover:bg-light-primary/90"
+                  className="bg-light-primary text-white px-10 h-14 text-[12px]  uppercase
+                  transition-all rounded-none hover:bg-light-primary/90 font-medium"
                 >
                   Start a Project
                 </Button>
@@ -339,94 +332,109 @@ const Navbar = memo(function Navbar() {
           </div>
 
           {/* Hamburger (Mobile) */}
-          <div className="flex items-center gap-4 lg:hidden" suppressHydrationWarning>
+          <div
+            className="flex items-center gap-4 lg:hidden"
+            suppressHydrationWarning
+          >
             <ThemeToggle />
             <button
               aria-label="Toggle navigation menu"
-              className="bg-light-primary p-2 text-white shadow-lg"
+              className="p-2 text-black dark:text-white"
               onClick={toggleMenu}
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? "" : <Menu size={24} />}
             </button>
           </div>
         </nav>
       </header>
 
-      {/* ── MOBILE NAV DRAWER (Outside Header) ────────────────────────────────── */}
-      {/* Overlay */}
+      {/* ── MOBILE NAV DRAWER (Modern Staggered Reveal) ────────────────────────────────── */}
+      {/* 1. Backdrop Dimmer */}
       <div
-        className={`fixed inset-0 bg-black/80 backdrop-blur-sm transition-all duration-300 z-110
+        className={`fixed inset-0 bg-black/60 backdrop-blur-md transition-opacity duration-700 z-110
         ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
         onClick={toggleMenu}
         suppressHydrationWarning
       />
 
-      {/* Drawer */}
+      {/* 2. Layer 1: Brand Curtain Slider */}
       <div
-        className={`fixed top-0 right-0 h-full w-full sm:w-[400px] bg-[#141414] text-white z-120 
-              transform transition-transform duration-500 ease-in-out shadow-2xl 
+        className={`fixed top-0 right-0 h-full w-full bg-black/60 z-115 transform transition-transform duration-600 ease-[cubic-bezier(0.77,0,0.175,1)]
+        ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        style={{ transitionDelay: isOpen ? "0ms" : "150ms" }}
+        suppressHydrationWarning
+      />
+
+      {/* 3. Layer 2: Main Menu Drawer */}
+      <div
+        className={`fixed top-0 right-0 h-full w-full sm:w-[480px] bg-zinc-950 text-white z-120 
+              transform transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)] shadow-2xl 
               ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        style={{ transitionDelay: isOpen ? "100ms" : "0ms" }}
         suppressHydrationWarning
       >
-        <div className="flex flex-col h-full p-8">
-          <div className="flex justify-between items-center mb-12" suppressHydrationWarning>
-            <span className="font-bold text-xs tracking-widest text-zinc-500 uppercase">
-              Menu
-            </span>
+        <div className="flex flex-col h-full p-8 sm:p-12">
+          {/* Header Area */}
+          <div
+            className="flex justify-between items-center mb-16"
+            suppressHydrationWarning
+          >
+            <div className="flex flex-col">
+              <span className="text-base text-zinc-500 uppercase tracking-wide mb-1">Menu</span>
+            </div>
             <button
               onClick={toggleMenu}
-              className="p-3 bg-light-primary text-white rounded-full transition-transform hover:rotate-90"
+              className="group relative p-4 text-white  active:scale-95"
               aria-label="Close menu"
             >
-              <X size={24} />
+              <X size={24} className="transition-transform group-hover:rotate-90" />
             </button>
           </div>
 
-          <nav className="flex flex-col space-y-6">
-            <a
-              href="/"
-              className="text-2xl font-bold tracking-tighter hover:text-light-primary transition-colors font-space"
-              onClick={() => setIsOpen(false)}
-            >
-              Home
-            </a>
-            <a
-              href="/services"
-              className="text-2xl font-bold tracking-tighter hover:text-light-primary transition-colors font-space"
-              onClick={(e) => handleNavClick(e, "/services")}
-            >
-              Services
-            </a>
-            <Link
-              href="/about"
-              className="text-2xl font-bold tracking-tighter hover:text-light-primary transition-colors font-space"
-              onClick={() => setIsOpen(false)}
-            >
-              About Us
-            </Link>
-            <a
-              href="/#contact"
-              className="text-2xl font-bold tracking-tighter hover:text-light-primary transition-colors font-space"
-              onClick={(e) => handleNavClick(e, "#contact")}
-            >
-              Contact
-            </a>
+          {/* Nav Links with staggered fade-in */}
+          <nav className="flex flex-col space-y-8">
+            {[
+              { label: "Home", href: "/", id: "home" },
+              { label: "Services", href: "/services", id: "/services" },
+              { label: "About Us", href: "/about", id: "about" },
+              { label: "Contact", href: "/#contact", id: "#contact" },
+            ].map((link, i) => (
+              <Link
+                key={link.id}
+                href={link.href}
+                className={`text-white/85 text-base uppercase font-medium tracking-wide
+                ${isOpen ? "translate-x-0 opacity-100" : "translate-x-12 opacity-0"}`}
+                style={{ 
+                  transitionDelay: isOpen ? `${300 + i * 70}ms` : "0ms",
+                }}
+                onClick={(e) => handleNavClick(e, link.id)}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
-          <div className="mt-auto pt-10 border-t border-white/10" suppressHydrationWarning>
-            <p className="text-[10px] uppercase font-bold text-zinc-500 tracking-widest mb-4">
-              Get in touch
-            </p>
-            <a
-              href="mailto:contact@enov8technologies.com"
-              className="block text-lg font-medium mb-1 hover:text-light-primary transition-colors"
-            >
-              contact@enov8technologies.com
-            </a>
-            <p className="text-lg font-medium">+234 913 363 2465</p>
+          {/* Footer Info */}
+          <div
+            className={`mt-auto pt-10 border-t border-white/5 transition-all duration-1000 delay-700
+            ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+            suppressHydrationWarning
+          >
+            <p className="text-zinc-500 uppercase tracking-widest mb-6">Get in touch</p>
+            <div className="space-y-4">
+              <a
+                href="mailto:sales@enov8technologies.com"
+                className="block font-light"
+              >
+                sales@enov8technologies.com
+              </a>
+              <p className="font-medium">+234 913 363 2465</p>
+            </div>
 
-            <div className="mt-8 flex gap-4" suppressHydrationWarning>
-              {/* Simple icons placeholder if needed */}
+            <div className="mt-10 flex gap-6 text-zinc-400">
+              <a href="#" className="hover:text-light-primary transition-colors"><Linkedin size={20} /></a>
+              <a href="#" className="hover:text-light-primary transition-colors"><Instagram size={20} /></a>
+              <a href="#" className="hover:text-light-primary transition-colors"><Facebook size={20} /></a>
             </div>
           </div>
         </div>

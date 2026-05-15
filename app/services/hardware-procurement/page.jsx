@@ -12,11 +12,11 @@ export default function HardwareProcurementPage() {
         <div>
           <div className="flex items-center gap-4 mb-5">
             <span className="w-1.5 h-10 bg-light-primary block shrink-0" />
-            <h2 className="text-3xl md:text-4xl font-black text-[#1A1A37] dark:text-white font-space tracking-tight">
+            <h2 className="text-[#1A1A37] dark:text-white tracking-tight">
               Hardware Procurement
             </h2>
           </div>
-          <p className="text-gray-700 dark:text-white/90 text-lg leading-relaxed font-poppins">
+          <p className="dark:text-white/90">
             Equip your business with the best-in-class technology. Our hardware
             procurement services provide end-to-end support for sourcing,
             configuring, and deploying the physical infrastructure your
@@ -29,11 +29,11 @@ export default function HardwareProcurementPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
+              <h4 className="capitalize dark:text-white">
                 Global Vendor Network
               </h4>
             </div>
-            <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
+            <p className="dark:text-white/90 pl-5">
               Leverage our partnerships with world-leading hardware
               manufacturers. We source servers, workstations, networking
               equipment, and mobile devices at competitive enterprise pricing,
@@ -44,11 +44,11 @@ export default function HardwareProcurementPage() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="w-1 min-h-8 self-stretch bg-light-primary block shrink-0" />
-              <h4 className="text-xl md:text-2xl font-bold font-space capitalize dark:text-white">
+              <h4 className="capitalize dark:text-white">
                 Configuration & Asset Management
               </h4>
             </div>
-            <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed text-lg pl-5">
+            <p className="dark:text-white/90 pl-5">
               We don't just deliver boxes. Our team pre-configures every piece
               of hardware with your company's software and security protocols,
               and provides full asset tracking throughout its operational
@@ -59,10 +59,10 @@ export default function HardwareProcurementPage() {
 
         {/* Additional Detail */}
         <div className="bg-light-primary/5 dark:bg-zinc-900/50 p-8 border-l-4 border-light-primary">
-          <h4 className="text-xl font-bold text-[#1A1A37] dark:text-white font-space mb-4">
+          <h4 className="text-[#1A1A37] dark:text-white mb-4">
             Scalable Logistics
           </h4>
-          <p className="text-gray-700 dark:text-white/90 font-poppins leading-relaxed">
+          <p className="dark:text-white/90">
             Whether you're equipping a single office or a nationwide workforce,
             our logistics team ensures timely delivery and professional
             installation, so your employees can get to work without delay.

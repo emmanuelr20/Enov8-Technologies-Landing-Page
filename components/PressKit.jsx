@@ -65,10 +65,10 @@ export default function PressKit() {
     <section className="py-16 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 dark:text-white">
+          <h2 className="mb-4 dark:text-white">
             Press Kit & Media Resources
           </h2>
-          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="dark: max-w-2xl mx-auto">
             Download our complete press kit including company information, brand
             assets, and high-resolution media content for journalists and
             partners.
@@ -81,7 +81,7 @@ export default function PressKit() {
               key={index}
               className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg"
             >
-              <h3 className="text-xl font-semibold mb-4 dark:text-white">
+              <h3 className="mb-4 dark:text-white">
                 {category.category}
               </h3>
               <div className="space-y-3">
@@ -96,10 +96,10 @@ export default function PressKit() {
                         className="text-blue-600 dark:text-blue-400"
                       />
                       <div>
-                        <p className="font-medium text-sm dark:text-white">
+                        <p className="dark:text-white">
                           {item.name}
                         </p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                        <p className="dark:">
                           {item.type} • {item.size}
                         </p>
                       </div>
@@ -117,18 +117,18 @@ export default function PressKit() {
 
         {/* Contact Information for Media */}
         <div className="bg-blue-600 dark:bg-blue-700 rounded-lg p-8 text-center text-white">
-          <h3 className="text-2xl font-bold mb-4">Media Inquiries</h3>
+          <h3 className="mb-4">Media Inquiries</h3>
           <p className="mb-6">
             For press inquiries, interviews, or additional information, please
             contact our media team.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8">
             <div>
-              <p className="font-semibold">Press Contact</p>
+              <p>Press Contact</p>
               <p>media@enov8technologies.com</p>
             </div>
             <div>
-              <p className="font-semibold">Partnership Inquiries</p>
+              <p>Partnership Inquiries</p>
               <p>partnerships@enov8technologies.com</p>
             </div>
           </div>

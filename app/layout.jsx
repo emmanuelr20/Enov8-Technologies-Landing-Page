@@ -3,23 +3,17 @@ import Script from "next/script";
 import "../styles/performance.css";
 import Navbar from "./layouts/Navbar.jsx";
 import Analytics from "@/components/Analytics";
-import TawkChat from "@/components/TawkChat";
+import TawkMessenger from "@/components/TawkMessenger";
+
 import CookieBanner from "@/components/CookieBanner";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Toaster } from "@/components/ui/sonner";
-import { Space_Grotesk, Poppins } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 
-const space = Space_Grotesk({
-  variable: "--font-space",
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
   subsets: ["latin"],
-  weight: ["700"],
-  display: "swap",
-});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  weight: ["300", "400", "500", "600", "700"],
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -233,8 +227,18 @@ export default function RootLayout({ children }) {
       data-scroll-behavior="smooth"
       className="overflow-x-hidden max-w-full"
     >
+      <head>
+        <link
+          rel="preload"
+          href="/videos/hero1_compressed.mp4"
+          as="video"
+          type="video/mp4"
+        />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      </head>
       <body
-        className={`${poppins.variable} ${space.variable} min-h-svh text-foreground bg-background overflow-x-hidden antialiased`}
+        className={`${openSans.variable} min-h-svh text-foreground bg-background overflow-x-hidden antialiased`}
         suppressHydrationWarning
       >
         {/* Organization Schema */}
@@ -249,9 +253,10 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
         <ScrollToTop />
-        <TawkChat />
+
         <CookieBanner />
         <Toaster position="top-right" richColors />
+        {/* <TawkMessenger /> */}
       </body>
     </html>
   );
