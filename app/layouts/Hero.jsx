@@ -27,7 +27,7 @@ export default function Hero() {
   return (
     <section
       aria-label="Home Enov8 Technologies"
-      className="relative z-10 cursor-pointer"
+      className="relative z-10"
       id="home"
     >
       {/* ── VIDEO SLIDER ──────────────────────────────────────────────────── */}

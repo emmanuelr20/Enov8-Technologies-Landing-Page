@@ -235,7 +235,7 @@ export default function RootLayout({ children }) {
           type="video/mp4"
         />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
       </head>
       <body
         className={`${openSans.variable} min-h-svh text-foreground bg-background overflow-x-hidden antialiased`}

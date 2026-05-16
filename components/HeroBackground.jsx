@@ -2,27 +2,27 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 
-/** Shown as reduced-motion static hero fallback */
-const FALLBACK_BG = "#09090b";
-
 const SLIDES = [
   {
     id: 1,
-    video: "/videos/hero1_compressed.mp4",
+    image: "/sections/hero/hero1.webp",
     headline: "Accelerating Your\nBusiness Growth",
     sub: "Digital Precision, Engineered for Scale",
+    align: "left",
   },
   {
     id: 2,
-    video: "/videos/hero2_compressed.mp4",
+    image: "/sections/hero/hero2.webp",
     headline: "Securing Your\nDigital Future",
     sub: "Enterprise-grade protection across identity, data, and infrastructure",
+    align: "right",
   },
   {
     id: 3,
-    video: "/videos/hero3_compressed.mp4",
+    image: "/sections/hero/hero3.webp",
     headline: "Transforming Businesses\nThrough Smart Technology",
     sub: "We build the digital infrastructure that powers tomorrow's leaders",
+    align: "left",
   },
 ];
 
@@ -30,66 +30,17 @@ const HOLD_DURATION = 3500;
 const TRANSITION_MS = 900;
 const TOTAL = SLIDES.length;
 
-const VARIATIONS = [
-  {
-    // 1. Classic 3D cube — rotates out on Y axis like a box face turning away
-    name: "cube-horizontal",
-    exit: (d) => `rotateY(${d * -90}deg) translateZ(50vw)`,
-    enter: (d) => `rotateY(${d * 90}deg) translateZ(50vw)`,
-  },
-  {
-    // 2. Skew slice — shears sideways like a card being swiped off a deck
-    name: "skew-slice",
-    exit: (d) => `translateX(${d * -60}%) skewX(${d * 20}deg) scale(0.85)`,
-    enter: (d) => `translateX(${d * 60}%) skewX(${d * -20}deg) scale(0.85)`,
-  },
-  {
-    // 3. Z depth — current slide slams back into the screen, next erupts forward
-    name: "z-depth",
-    exit: (_d) => `translateZ(-1200px) scale(0.2)`,
-    enter: (_d) => `translateZ(1200px) scale(2.2)`,
-  },
-  {
-    // 4. Spin Z — flat coin-toss spin on the Z axis
-    name: "spin-z",
-    exit: (d) => `rotateZ(${d * 180}deg) scale(0.4)`,
-    enter: (d) => `rotateZ(${d * -180}deg) scale(0.4)`,
-  },
-  {
-    // 5. Page turn — thick book page flip with strong lateral perspective warp
-    name: "page-turn",
-    exit: (d) =>
-      `perspective(800px) rotateY(${d * -120}deg) translateX(${d * -30}%) scale(0.75)`,
-    enter: (d) =>
-      `perspective(800px) rotateY(${d * 120}deg) translateX(${d * 30}%) scale(0.75)`,
-  },
-  {
-    // 6. Tilt drop — slide tips back on X+Z and falls away; next tips in from above
-    name: "tilt-drop",
-    exit: (d) =>
-      `rotateX(40deg) rotateZ(${d * -8}deg) translateY(${d * -80}%) scale(0.6)`,
-    enter: (d) =>
-      `rotateX(-40deg) rotateZ(${d * 8}deg) translateY(${d * 80}%) scale(0.6)`,
-  },
-];
-
 export default function HeroBackground() {
   const [current, setCurrent] = useState(0);
   const [nextSlide, setNextSlide] = useState(null);
   const [phase, setPhase] = useState("idle");
-  const [direction, setDirection] = useState(1); // 1: forward, -1: backward
   const [isPaused, setIsPaused] = useState(false);
-  const [videoReady, setVideoReady] = useState(true);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [inView, setInView] = useState(true);
 
   const timerRef = useRef(null);
-  const videoRefs = useRef([]);
   const containerRef = useRef(null);
   const phaseRef = useRef("idle");
-  const activeVariationRef = useRef(VARIATIONS[0]);
-  const variationIndexRef = useRef(0);
-  const variationDirectionRef = useRef(1); // 1 = forward, -1 = backward
 
   useEffect(() => {
     phaseRef.current = phase;
@@ -116,40 +67,17 @@ export default function HeroBackground() {
     return () => io.disconnect();
   }, []);
 
-  // ── Navigate ───────────────────────────────────────────────────────────────
   const goTo = useCallback(
-    (targetIndex, dir = 1) => {
+    (targetIndex) => {
       if (phaseRef.current !== "idle") return;
       const idx = ((targetIndex % TOTAL) + TOTAL) % TOTAL;
       if (idx === current) return;
 
       clearInterval(timerRef.current);
 
-      // 1. Advance variation in a ping-pong sequence (0→5→0…)
-      let nextVarIndex =
-        variationIndexRef.current + variationDirectionRef.current;
-      if (nextVarIndex >= VARIATIONS.length) {
-        nextVarIndex = VARIATIONS.length - 2;
-        variationDirectionRef.current = -1;
-      } else if (nextVarIndex < 0) {
-        nextVarIndex = 1;
-        variationDirectionRef.current = 1;
-      }
-      variationIndexRef.current = nextVarIndex;
-      const nextVar = VARIATIONS[nextVarIndex];
-      activeVariationRef.current = nextVar;
-
-      setDirection(dir);
       setNextSlide(idx);
       setPhase("sliding");
       phaseRef.current = "sliding";
-
-      const vid = videoRefs.current[idx];
-      if (vid) {
-        vid.preload = "auto";
-        vid.currentTime = 0;
-        vid.play().catch(() => {});
-      }
 
       setTimeout(() => {
         setCurrent(idx);
@@ -158,152 +86,16 @@ export default function HeroBackground() {
         phaseRef.current = "idle";
       }, TRANSITION_MS);
     },
-    [current], // TOTAL is constant, so just current is fine
+    [current],
   );
 
-  const goNext = useCallback(
-    () => goTo((current + 1) % TOTAL, 1),
-    [current, goTo],
-  );
-  // ── Auto timer ─────────────────────────────────────────────────────────────
+  const goNext = useCallback(() => goTo(current + 1), [current, goTo]);
+
   useEffect(() => {
     if (isPaused || phase !== "idle" || !inView) return;
     timerRef.current = setInterval(goNext, HOLD_DURATION);
     return () => clearInterval(timerRef.current);
   }, [isPaused, phase, goNext, inView]);
-
-  // First slide only: full preload.
-  useEffect(() => {
-    const vid = videoRefs.current[0];
-    if (!vid) return;
-
-    const onReady = () => {
-      vid.muted = true; // Extra insurance for mobile
-      vid.play().catch(() => {
-        // Fallback for strict mobile browsers - try again after a small delay
-        setTimeout(() => vid.play().catch(() => {}), 500);
-      });
-      setVideoReady(true);
-    };
-
-    // If already ready, play it
-    if (vid.readyState >= 3) {
-      onReady();
-    } else {
-      vid.addEventListener("canplaythrough", onReady, { once: true });
-    }
-
-    return () => {
-      vid.removeEventListener("canplaythrough", onReady);
-    };
-  }, []);
-
-  // Gently warm the next clip after first paint (does not block LCP the way preload-all did).
-  useEffect(() => {
-    if (!videoReady || reducedMotion) return;
-    if (typeof window === "undefined" || !("requestIdleCallback" in window)) {
-      return;
-    }
-    const id = window.requestIdleCallback(
-      () => {
-        const next = videoRefs.current[1];
-        if (next) {
-          next.preload = "metadata";
-        }
-      },
-      { timeout: 3000 },
-    );
-    return () => window.cancelIdleCallback(id);
-  }, [videoReady, reducedMotion]);
-
-  useEffect(() => {
-    if (inView) return;
-    clearInterval(timerRef.current);
-    videoRefs.current.forEach((v) => {
-      if (v) v.pause();
-    });
-  }, [inView]);
-
-  // ── Compute slide position styles ──────────────────────────────────────────
-  const getSlideStyle = (i) => {
-    const isCur = i === current;
-    const isNext = i === nextSlide;
-    const isSliding = phase === "sliding";
-
-    const baseStyle = {
-      position: "absolute",
-      inset: 0,
-      backfaceVisibility: "hidden",
-      transformStyle: "preserve-3d",
-    };
-
-    // IDLE STATE: Only the current slide is visible and centered
-    if (!isSliding) {
-      return {
-        ...baseStyle,
-        transform: isCur
-          ? "translateZ(0px) rotateX(0deg) rotateY(0deg)"
-          : "translateZ(-1000px)",
-        opacity: isCur ? 1 : 0,
-        zIndex: isCur ? 2 : 0,
-        transition: "none",
-      };
-    }
-
-    // EXITING SLIDE (The one leaving)
-    if (isCur) {
-      const v = activeVariationRef.current;
-      return {
-        ...baseStyle,
-        transform: v.exit(direction),
-        opacity: 0,
-        transition: `transform ${TRANSITION_MS}ms cubic-bezier(0.7, 0, 0.3, 1), opacity ${TRANSITION_MS}ms ease`,
-        zIndex: 2,
-      };
-    }
-
-    // ENTERING SLIDE (The one coming in)
-    if (isNext) {
-      return {
-        ...baseStyle,
-        // Note: The initial "from" position is handled by the ref callback in JSX
-        transform: "translateZ(0px) rotateX(0deg) rotateY(0deg) scale(1)",
-        opacity: 1,
-        transition: `transform ${TRANSITION_MS}ms cubic-bezier(0.7, 0, 0.3, 1), opacity ${TRANSITION_MS * 0.5}ms ease`,
-        zIndex: 3,
-      };
-    }
-
-    return { ...baseStyle, opacity: 0, zIndex: 0 };
-  };
-
-  // ── Text style ─────────────────────────────────────────────────────────────
-  const getTextStyle = (i) => {
-    const isCur = i === current;
-    const isNext = i === nextSlide;
-
-    if (phase === "sliding" && isCur)
-      return {
-        opacity: 0,
-        transform: "translateY(-10px)",
-        transition: `opacity ${TRANSITION_MS * 0.3}ms ease`,
-        pointerEvents: "none",
-      };
-    if (phase === "sliding" && isNext)
-      return {
-        opacity: 1,
-        transform: "translateY(0)",
-        transition: `opacity ${TRANSITION_MS * 0.4}ms ease ${TRANSITION_MS * 0.45}ms`,
-        pointerEvents: "auto",
-      };
-    if (phase === "idle" && i === current)
-      return {
-        opacity: 1,
-        transform: "translateY(0)",
-        pointerEvents: "auto",
-      };
-    return { opacity: 0, pointerEvents: "none" };
-  };
 
   if (reducedMotion) {
     const s = SLIDES[0];
@@ -313,21 +105,20 @@ export default function HeroBackground() {
         className="relative min-h-[75vh] overflow-hidden bg-[#09090b]"
         suppressHydrationWarning
       >
-        <div className="absolute inset-0 z-0 bg-[#09090b]">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={s.image}
+            alt=""
+            className="w-full h-full object-cover opacity-60"
+          />
           <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6">
           <div className="max-w-4xl w-full">
-            <h1
-              className="leading-[1.05] text-white tracking-tighter mb-6 whitespace-pre-line"
-              style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
-            >
+            <h1 className="leading-[1.05] text-white tracking-tighter mb-6 whitespace-pre-line font-bold text-4xl md:text-6xl lg:text-7xl">
               {s.headline}
             </h1>
-            <p
-              className="md: text-center"
-              style={{ textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}
-            >
+            <p className="text-white text-lg md:text-xl max-w-2xl mx-auto">
               {s.sub}
             </p>
           </div>
@@ -337,153 +128,148 @@ export default function HeroBackground() {
   }
 
   return (
-    // biome-ignore lint/a11y/noStaticElementInteractions: hover pauses the carousel; dots handle keyboard/AT
     <div
       ref={containerRef}
       // PERSPECTIVE is the secret sauce here
-      className="relative min-h-[75vh] overflow-hidden bg-[#09090b]"
+      className="relative min-h-[65vh] overflow-hidden bg-[#09090b]"
       style={{ perspective: "1500px" }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       suppressHydrationWarning
     >
-      {/* Video slides — each absolutely positioned, clipped by overflow:hidden */}
       {SLIDES.map((slide, i) => {
+        const isCur = i === current;
+        const isNext = i === nextSlide;
+        const isActive = isCur || isNext;
+
         return (
           <div
             key={slide.id}
-            className="absolute inset-0"
-            suppressHydrationWarning
-            style={getSlideStyle(i)}
-            ref={(el) => {
-              if (el && i === nextSlide && phase === "sliding") {
-                const v = activeVariationRef.current;
-
-                // Set the FROM state (where the entering slide starts)
-                el.style.transform = v.enter(direction);
-                el.style.opacity = "0";
-
-                void el.offsetWidth; // Force browser repaint — crucial for transitions
-
-                // Animate TO the centre (the resting state)
-                el.style.transform =
-                  "translateZ(0px) rotateX(0deg) rotateY(0deg) scale(1)";
-                el.style.opacity = "1";
-              }
+            className="absolute inset-0 transition-opacity duration-1500 ease-in-out"
+            style={{
+              opacity: isCur ? (phase === "sliding" ? 0 : 1) : isNext ? 1 : 0,
+              zIndex: isNext ? 2 : isCur ? 1 : 0,
             }}
+            suppressHydrationWarning
           >
-            <video
-              ref={(el) => {
-                videoRefs.current[i] = el;
-              }}
-              src={slide.video}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{
-                // Subtle zoom-in effect while sitting idle
-                transform:
-                  i === current && phase === "idle"
-                    ? "scale(1.1)"
-                    : "scale(1.0)",
-                transition: `transform ${HOLD_DURATION + 1000}ms ease-out`,
-              }}
-            />
-            {/* Overlay */}
             <div
-              className="absolute inset-0 bg-black/40"
-              suppressHydrationWarning
-            />
+              className={`absolute inset-0 w-full h-full transition-transform duration-10000 ease-out ${
+                isActive && phase === "idle" ? "scale-110" : "scale-100"
+              }`}
+            >
+              <img
+                src={slide.image}
+                alt=""
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Enhanced Dark Overlay for Contrast */}
+            <div className="absolute inset-0 bg-black/55" />
+            <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/20 to-black/80" />
           </div>
         );
       })}
 
-      {/* Text layers */}
-      <div className="absolute inset-0 z-20" suppressHydrationWarning>
-        {SLIDES.map((slide, i) => (
-          <div
-            key={slide.id}
-            className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
-            suppressHydrationWarning
-            style={getTextStyle(i)}
-          >
-            <div className="max-w-3xl w-full" suppressHydrationWarning>
-              {/* Headline */}
-              <h1
-                className="text-white tracking-tighter mb-6 whitespace-pre-line"
-                style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
-              >
-                {slide.headline}
-              </h1>
+      {/* Content Layer */}
+      <div
+        className="absolute inset-0 z-20 flex items-end pointer-events-none"
+        suppressHydrationWarning
+      >
+        {SLIDES.map((slide, i) => {
+          const isCur = i === current;
+          const isActive = isCur && phase === "idle";
 
-              {/* Subtitle */}
-              <div
-                className="flex items-center justify-center gap-4 max-w-xl mx-auto"
-                suppressHydrationWarning
-              >
-                <p
-                  className="md:text-[18px] text-center text-white!"
-                  style={{ textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}
+          return (
+            <div
+              key={slide.id}
+              className={`absolute inset-0 flex flex-col justify-center items-start ${
+                slide.align === "right" ? "md:items-end" : "md:items-start"
+              }`}
+              style={{
+                opacity: isActive ? 1 : 0,
+                visibility: isActive ? "visible" : "hidden",
+                transition: `opacity ${TRANSITION_MS}ms ease-in-out`,
+              }}
+              suppressHydrationWarning
+            >
+              <div className="container mx-auto px-6 md:px-12 lg:px-24 w-full">
+                <div
+                  className={`w-full max-w-[90%] text-left md:text-left ${
+                    slide.align === "left"
+                      ? "xl:max-w-[55%] mr-auto"
+                      : slide.align === "right"
+                        ? "xl:max-w-[40%] md:ml-auto md:mr-0"
+                        : "xl:max-w-[55%] mx-auto"
+                  }`}
                 >
-                  {slide.sub}
-                </p>
+                  <h1
+                    className="text-white tracking-tighter mb-4 whitespace-pre-line transition-all duration-1000 ease-out"
+                    style={{
+                      textShadow: "0 4px 20px rgba(0,0,0,0.6)",
+                      opacity: isActive ? 1 : 0,
+                      transform: isActive
+                        ? "translateY(0)"
+                        : "translateY(-60px)",
+                      transitionDelay: isActive ? "0.2s" : "0s",
+                    }}
+                  >
+                    {slide.headline.split("\n").map((line, index) => (
+                      <span key={index}>
+                        {line}
+                        {index === 0 && "\n"}
+                      </span>
+                    ))}
+                  </h1>
+                  <p
+                    className="text-white/90! leading-relaxed transition-all duration-1000 ease-out max-w-sm"
+                    style={{
+                      textShadow: "0 2px 10px rgba(0,0,0,0.5)",
+                      opacity: isActive ? 1 : 0,
+                      transform: isActive
+                        ? "translateY(0)"
+                        : "translateY(60px)",
+                      transitionDelay: isActive ? "0.4s" : "0s",
+                    }}
+                  >
+                    {slide.sub}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Dot navigation */}
       <div
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-4"
+        className="hidden absolute right-8 top-1/2 -translate-y-1/2 z-30 md:flex flex-col gap-6"
         suppressHydrationWarning
       >
-        {SLIDES.map((slide, i) => (
+        {SLIDES.map((_, i) => (
           <button
-            key={slide.id}
+            key={i}
             type="button"
-            onClick={() => goTo(i, i > current ? 1 : -1)}
-            aria-label={`Slide ${i + 1}`}
-            className="relative flex items-center justify-center w-7 h-7"
+            onClick={() => goTo(i)}
+            className="group relative flex items-center justify-center w-5 h-5"
+            aria-label={`Go to slide ${i + 1}`}
           >
             <span
-              className="absolute inset-0 rounded-full border-2 transition-all duration-300"
-              style={{
-                borderColor: i === current ? "white" : "transparent",
-                opacity: i === current ? 1 : 0,
-                transform: i === current ? "scale(1)" : "scale(0.6)",
-              }}
+              className={`absolute inset-0 rounded-full border-2 border-white/50 transition-all duration-500 scale-0 group-hover:scale-100 ${
+                i === (nextSlide !== null ? nextSlide : current)
+                  ? "scale-100 border-white"
+                  : ""
+              }`}
             />
             <span
-              className="rounded-full transition-all duration-300"
-              style={{
-                width: i === current ? "8px" : "5px",
-                height: i === current ? "8px" : "5px",
-                backgroundColor:
-                  i === current ? "white" : "rgba(255,255,255,0.4)",
-              }}
+              className={`w-2 h-2 rounded-full transition-all duration-500 ${
+                i === (nextSlide !== null ? nextSlide : current)
+                  ? "bg-white scale-50"
+                  : "bg-white/40 group-hover:bg-white/70"
+              }`}
             />
           </button>
         ))}
       </div>
-
-      {/* Progress bar */}
-      {!isPaused && phase === "idle" && (
-        <div
-          className="absolute bottom-0 left-0 right-0 z-30"
-          suppressHydrationWarning
-        >
-          <div
-            key={`${current}-bar`}
-            className="h-full"
-            style={{
-              animation: `heroProgress ${HOLD_DURATION}ms linear forwards`,
-            }}
-          />
-        </div>
-      )}
     </div>
   );
 }
