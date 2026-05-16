@@ -342,7 +342,7 @@ const Navbar = memo(function Navbar() {
               className="p-2 text-black dark:text-white"
               onClick={toggleMenu}
             >
-              {isOpen ? "" : <Menu size={24} />}
+              {isOpen ? <X size={24} /> : <Menu size={24} className="transition-all duration-200" />}
             </button>
           </div>
         </nav>
