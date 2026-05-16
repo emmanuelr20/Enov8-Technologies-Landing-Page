@@ -2,21 +2,20 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 
-
 const SLIDES = [
   {
     id: 1,
     video: "/videos/hero1_compressed.mp4",
     headline: "Accelerating Your\nBusiness Growth",
     sub: "Digital Precision, Engineered for Scale",
-    align: "left"
+    align: "left",
   },
   {
     id: 2,
     video: "/videos/hero2_compressed.mp4",
     headline: "Securing Your\nDigital Future",
     sub: "Enterprise-grade protection across identity, data, and infrastructure",
-    align: "right"
+    align: "right",
   },
   {
     id: 3,
@@ -278,33 +277,6 @@ export default function HeroBackground() {
     return { ...baseStyle, opacity: 0, zIndex: 0 };
   };
 
-  // ── Text style ─────────────────────────────────────────────────────────────
-  const getTextStyle = (i) => {
-    const isCur = i === current;
-    const isNext = i === nextSlide;
-
-    if (phase === "sliding" && isCur)
-      return {
-        opacity: 0,
-        transform: "translateY(-10px)",
-        transition: `opacity ${TRANSITION_MS * 0.3}ms ease`,
-        pointerEvents: "none",
-      };
-    if (phase === "sliding" && isNext)
-      return {
-        opacity: 1,
-        transform: "translateY(0)",
-        transition: `opacity ${TRANSITION_MS * 0.4}ms ease ${TRANSITION_MS * 0.45}ms`,
-        pointerEvents: "auto",
-      };
-    if (phase === "idle" && i === current)
-      return {
-        opacity: 1,
-        transform: "translateY(0)",
-        pointerEvents: "auto",
-      };
-    return { opacity: 0, pointerEvents: "none" };
-  };
 
   if (reducedMotion) {
     const s = SLIDES[0];
@@ -387,14 +359,18 @@ export default function HeroBackground() {
                 // Subtle zoom-in effect while sitting idle
                 transform:
                   i === current && phase === "idle"
-                    ? "scale(1.1)"
+                    ? "scale(1.05)"
                     : "scale(1.0)",
-                transition: `transform ${HOLD_DURATION + 900}ms ease-out`,
+                transition: `transform ${HOLD_DURATION + 1000}ms ease-out`,
               }}
             />
             {/* Overlay */}
             <div
               className="absolute inset-0 bg-black/40"
+              suppressHydrationWarning
+            />
+            <div
+              className="absolute inset-0 bg-linear-to-b from-black/80 via-black/20 to-black/80"
               suppressHydrationWarning
             />
           </div>
@@ -408,14 +384,15 @@ export default function HeroBackground() {
       >
         {SLIDES.map((slide, i) => {
           const isCur = i === current;
-          const isActive = isCur && phase === "idle";
+          const isNext = i === nextSlide;
+          // The text should be "active" (animating in) either when it's idle OR when it's the next slide coming in
+          const isActive =
+            (phase === "idle" && isCur) || (phase === "sliding" && isNext);
 
           return (
             <div
               key={slide.id}
-              className={`absolute inset-0 flex flex-col justify-center items-start ${
-                slide.align === "right" ? "md:items-end" : "md:items-start"
-              }`}
+              className="absolute inset-0 flex flex-col justify-center items-start xl:items-center"
               style={{
                 opacity: isActive ? 1 : 0,
                 visibility: isActive ? "visible" : "hidden",
@@ -423,18 +400,16 @@ export default function HeroBackground() {
               }}
               suppressHydrationWarning
             >
-              <div className="container mx-auto px-6 md:px-12 lg:px-24 w-full">
+              <div
+                className="container mx-auto px-6 md:px-12 lg:px-24 w-full"
+                suppressHydrationWarning
+              >
                 <div
-                  className={`w-full max-w-[90%] text-left md:text-left ${
-                    slide.align === "left"
-                      ? "xl:max-w-[55%] mr-auto"
-                      : slide.align === "right"
-                        ? "xl:max-w-[40%] md:ml-auto md:mr-0"
-                        : "xl:max-w-[55%] mx-auto"
-                  }`}
+                  className="w-full max-w-[90%] xl:max-w-[70%] text-left xl:text-center mx-0 xl:mx-auto"
+                  suppressHydrationWarning
                 >
                   <h1
-                    className="text-white tracking-tighter mb-4 whitespace-pre-line transition-all duration-1000 ease-out"
+                    className="text-white tracking-tighter mb-4 whitespace-pre-line transition-[opacity,transform] duration-1000 ease-out"
                     style={{
                       textShadow: "0 4px 20px rgba(0,0,0,0.6)",
                       opacity: isActive ? 1 : 0,
@@ -452,7 +427,7 @@ export default function HeroBackground() {
                     ))}
                   </h1>
                   <p
-                    className="text-white/90! leading-relaxed transition-all duration-1000 ease-out max-w-sm"
+                    className="text-white/90! leading-relaxed transition-[opacity,transform] duration-1000 ease-out max-w-sm xl:max-w-xl xl:mx-auto"
                     style={{
                       textShadow: "0 2px 10px rgba(0,0,0,0.5)",
                       opacity: isActive ? 1 : 0,
