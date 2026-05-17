@@ -2,27 +2,27 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 
-/** Shown as reduced-motion static hero fallback */
-const FALLBACK_BG = "#09090b";
-
 const SLIDES = [
   {
     id: 1,
     video: "/videos/hero1_compressed.mp4",
     headline: "Accelerating Your\nBusiness Growth",
     sub: "Digital Precision, Engineered for Scale",
+    align: "left",
   },
   {
     id: 2,
     video: "/videos/hero2_compressed.mp4",
     headline: "Securing Your\nDigital Future",
     sub: "Enterprise-grade protection across identity, data, and infrastructure",
+    align: "right",
   },
   {
     id: 3,
     video: "/videos/hero3_compressed.mp4",
     headline: "Transforming Businesses\nThrough Smart Technology",
     sub: "We build the digital infrastructure that powers tomorrow's leaders",
+    align: "left",
   },
 ];
 
@@ -277,33 +277,6 @@ export default function HeroBackground() {
     return { ...baseStyle, opacity: 0, zIndex: 0 };
   };
 
-  // ── Text style ─────────────────────────────────────────────────────────────
-  const getTextStyle = (i) => {
-    const isCur = i === current;
-    const isNext = i === nextSlide;
-
-    if (phase === "sliding" && isCur)
-      return {
-        opacity: 0,
-        transform: "translateY(-10px)",
-        transition: `opacity ${TRANSITION_MS * 0.3}ms ease`,
-        pointerEvents: "none",
-      };
-    if (phase === "sliding" && isNext)
-      return {
-        opacity: 1,
-        transform: "translateY(0)",
-        transition: `opacity ${TRANSITION_MS * 0.4}ms ease ${TRANSITION_MS * 0.45}ms`,
-        pointerEvents: "auto",
-      };
-    if (phase === "idle" && i === current)
-      return {
-        opacity: 1,
-        transform: "translateY(0)",
-        pointerEvents: "auto",
-      };
-    return { opacity: 0, pointerEvents: "none" };
-  };
 
   if (reducedMotion) {
     const s = SLIDES[0];
@@ -341,7 +314,7 @@ export default function HeroBackground() {
     <div
       ref={containerRef}
       // PERSPECTIVE is the secret sauce here
-      className="relative min-h-[75vh] overflow-hidden bg-[#09090b]"
+      className="relative min-h-[65vh] overflow-hidden bg-[#09090b]"
       style={{ perspective: "1500px" }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -386,7 +359,7 @@ export default function HeroBackground() {
                 // Subtle zoom-in effect while sitting idle
                 transform:
                   i === current && phase === "idle"
-                    ? "scale(1.1)"
+                    ? "scale(1.05)"
                     : "scale(1.0)",
                 transition: `transform ${HOLD_DURATION + 1000}ms ease-out`,
               }}
@@ -396,94 +369,113 @@ export default function HeroBackground() {
               className="absolute inset-0 bg-black/40"
               suppressHydrationWarning
             />
+            <div
+              className="absolute inset-0 bg-linear-to-b from-black/80 via-black/20 to-black/80"
+              suppressHydrationWarning
+            />
           </div>
         );
       })}
 
-      {/* Text layers */}
-      <div className="absolute inset-0 z-20" suppressHydrationWarning>
-        {SLIDES.map((slide, i) => (
-          <div
-            key={slide.id}
-            className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
-            suppressHydrationWarning
-            style={getTextStyle(i)}
-          >
-            <div className="max-w-3xl w-full" suppressHydrationWarning>
-              {/* Headline */}
-              <h1
-                className="text-white tracking-tighter mb-6 whitespace-pre-line"
-                style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
-              >
-                {slide.headline}
-              </h1>
+      {/* Content Layer */}
+      <div
+        className="absolute inset-0 z-20 flex items-end pointer-events-none"
+        suppressHydrationWarning
+      >
+        {SLIDES.map((slide, i) => {
+          const isCur = i === current;
+          const isNext = i === nextSlide;
+          // The text should be "active" (animating in) either when it's idle OR when it's the next slide coming in
+          const isActive =
+            (phase === "idle" && isCur) || (phase === "sliding" && isNext);
 
-              {/* Subtitle */}
+          return (
+            <div
+              key={slide.id}
+              className="absolute inset-0 flex flex-col justify-center items-start xl:items-center"
+              style={{
+                opacity: isActive ? 1 : 0,
+                visibility: isActive ? "visible" : "hidden",
+                transition: `opacity ${TRANSITION_MS}ms ease-in-out`,
+              }}
+              suppressHydrationWarning
+            >
               <div
-                className="flex items-center justify-center gap-4 max-w-xl mx-auto"
+                className="container mx-auto px-6 md:px-12 lg:px-24 w-full"
                 suppressHydrationWarning
               >
-                <p
-                  className="md:text-[18px] text-center text-white!"
-                  style={{ textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}
+                <div
+                  className="w-full max-w-[90%] xl:max-w-[70%] text-left xl:text-center mx-0 xl:mx-auto"
+                  suppressHydrationWarning
                 >
-                  {slide.sub}
-                </p>
+                  <h1
+                    className="text-white tracking-tighter mb-4 whitespace-pre-line transition-[opacity,transform] duration-1000 ease-out"
+                    style={{
+                      textShadow: "0 4px 20px rgba(0,0,0,0.6)",
+                      opacity: isActive ? 1 : 0,
+                      transform: isActive
+                        ? "translateY(0)"
+                        : "translateY(-60px)",
+                      transitionDelay: isActive ? "0.1s" : "0s",
+                    }}
+                  >
+                    {slide.headline.split("\n").map((line, index) => (
+                      <span key={index}>
+                        {line}
+                        {index === 0 && "\n"}
+                      </span>
+                    ))}
+                  </h1>
+                  <p
+                    className="text-white/90! leading-relaxed transition-[opacity,transform] duration-1000 ease-out max-w-sm xl:max-w-xl xl:mx-auto"
+                    style={{
+                      textShadow: "0 2px 10px rgba(0,0,0,0.5)",
+                      opacity: isActive ? 1 : 0,
+                      transform: isActive
+                        ? "translateY(0)"
+                        : "translateY(60px)",
+                      transitionDelay: isActive ? "0.3s" : "0s",
+                    }}
+                  >
+                    {slide.sub}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Dot navigation */}
       <div
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-4"
+        className="hidden absolute right-8 top-1/2 -translate-y-1/2 z-30 md:flex flex-col gap-6"
         suppressHydrationWarning
       >
-        {SLIDES.map((slide, i) => (
+        {SLIDES.map((_, i) => (
           <button
-            key={slide.id}
+            key={i}
             type="button"
-            onClick={() => goTo(i, i > current ? 1 : -1)}
-            aria-label={`Slide ${i + 1}`}
-            className="relative flex items-center justify-center w-7 h-7"
+            onClick={() => goTo(i)}
+            className="group relative flex items-center justify-center w-5 h-5"
+            aria-label={`Go to slide ${i + 1}`}
           >
             <span
-              className="absolute inset-0 rounded-full border-2 transition-all duration-300"
-              style={{
-                borderColor: i === current ? "white" : "transparent",
-                opacity: i === current ? 1 : 0,
-                transform: i === current ? "scale(1)" : "scale(0.6)",
-              }}
+              className={`absolute inset-0 rounded-full border-2 border-white/50 transition-all duration-500 scale-0 group-hover:scale-100 ${
+                i === (nextSlide !== null ? nextSlide : current)
+                  ? "scale-100 border-white"
+                  : ""
+              }`}
             />
             <span
-              className="rounded-full transition-all duration-300"
-              style={{
-                width: i === current ? "8px" : "5px",
-                height: i === current ? "8px" : "5px",
-                backgroundColor:
-                  i === current ? "white" : "rgba(255,255,255,0.4)",
-              }}
+              className={`w-2 h-2 rounded-full transition-all duration-500 ${
+                i === (nextSlide !== null ? nextSlide : current)
+                  ? "bg-white scale-50"
+                  : "bg-white/40 group-hover:bg-white/70"
+              }`}
             />
           </button>
         ))}
       </div>
-
-      {/* Progress bar */}
-      {!isPaused && phase === "idle" && (
-        <div
-          className="absolute bottom-0 left-0 right-0 z-30"
-          suppressHydrationWarning
-        >
-          <div
-            key={`${current}-bar`}
-            className="h-full"
-            style={{
-              animation: `heroProgress ${HOLD_DURATION}ms linear forwards`,
-            }}
-          />
-        </div>
-      )}
     </div>
   );
 }

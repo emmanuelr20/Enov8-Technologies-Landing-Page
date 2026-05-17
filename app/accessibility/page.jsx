@@ -8,21 +8,21 @@ export const metadata = {
 
 export default function Accessibility() {
   return (
-    <div className="min-h-screen pt-32 pb-20 bg-bg-light dark:bg-black">
-      <div className="container mx-auto px-6 max-w-4xl">
-        <h1 className="mb-8 dark:text-white uppercase tracking-tighter">
+    <div className="min-h-screen py-20">
+      <div className="container mx-auto px-6 lg:px-30">
+        <h2 className="mb-2 text-[#23252d] dark:text-white uppercase tracking-tighter">
           Accessibility Statement
-        </h1>
-        <p className="dark:text-white/90 mb-12">
+        </h2>
+        <p className="dark:text-white/90 mb-8">
           Last updated: April 21, 2026
         </p>
 
-        <Card className="rounded-none border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm mb-12">
-          <CardContent className="p-8 md:p-12 space-y-10 text-gray-700 dark:text-white/90">
+        <Card className="rounded-none border-none bg-transparent! shadow-none mb-12 max-w-4xl">
+          <CardContent className="space-y-8 text-gray-700 dark:text-white/90">
             <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+              <h3 className="mb-4 font-semibold dark:text-white uppercase tracking-tight">
                 1. Commitment to Accessibility
-              </h2>
+              </h3>
               <p>
                 Enov8 Technologies is committed to ensuring digital
                 accessibility for people with disabilities. We are continually
@@ -32,9 +32,9 @@ export default function Accessibility() {
             </section>
 
             <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+              <h3 className="mb-4 font-semibold dark:text-white uppercase tracking-tight">
                 2. Conformance Status
-              </h2>
+              </h3>
               <p>
                 The Web Content Accessibility Guidelines (WCAG) defines
                 requirements for designers and developers to improve
@@ -45,9 +45,9 @@ export default function Accessibility() {
             </section>
 
             <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+              <h3 className="mb-4 font-semibold dark:text-white uppercase tracking-tight">
                 3. Accessibility Features
-              </h2>
+              </h3>
               <p className="mb-4">
                 We are implementing the following features to enhance
                 accessibility:
@@ -62,9 +62,9 @@ export default function Accessibility() {
             </section>
 
             <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+              <h3 className="mb-4 font-semibold dark:text-white uppercase tracking-tight">
                 4. Feedback
-              </h2>
+              </h3>
               <p>
                 We welcome your feedback on the accessibility of our website.
                 Please let us know if you encounter accessibility barriers by
@@ -80,9 +80,9 @@ export default function Accessibility() {
             </section>
 
             <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+              <h3 className="mb-4 font-semibold dark:text-white uppercase tracking-tight">
                 5. Technical Specifications
-              </h2>
+              </h3>
               <p>
                 Accessibility of Enov8 Technologies relies on the following
                 technologies to work with the particular combination of web

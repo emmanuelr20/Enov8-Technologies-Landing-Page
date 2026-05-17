@@ -8,21 +8,21 @@ export const metadata = {
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen pt-32 pb-20 bg-bg-light dark:bg-black">
-      <div className="container mx-auto px-6 max-w-4xl">
-        <h1 className="mb-8 dark:text-white uppercase tracking-tighter">
+    <div className="min-h-screen py-20">
+      <div className="container mx-auto px-6 lg:px-30">
+        <h2 className="mb-2 dark:text-white text-[#23252d] uppercase tracking-tighter">
           Privacy Policy
-        </h1>
-        <p className="dark:text-white/90 mb-12">
+        </h2>
+        <p className="dark:text-white/90 mb-8">
           Last updated: April 21, 2026
         </p>
 
-        <Card className="rounded-none border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm mb-12">
-          <CardContent className="p-8 md:p-12 space-y-10 text-gray-700 dark:text-white/90">
+        <Card className="rounded-none border-none bg-transparent! shadow-none mb-12 max-w-4xl">
+          <CardContent className="space-y-8 text-gray-700 dark:text-white/90">
             <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+              <h3 className="mb-4 font-semibold dark:text-white uppercase tracking-tight">
                 1. Introduction
-              </h2>
+              </h3>
               <p>
                 Welcome to Enov8 Technologies. We are committed to protecting
                 your personal information and your right to privacy. This
@@ -32,9 +32,9 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+              <h3 className="mb-4 font-semibold dark:text-white uppercase tracking-tight">
                 2. Information We Collect
-              </h2>
+              </h3>
               <p className="mb-4">
                 We collect personal information that you voluntarily provide to
                 us when you express an interest in obtaining information about
@@ -51,9 +51,9 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+              <h3 className="mb-4 font-semibold dark:text-white uppercase tracking-tight">
                 3. How We Use Your Information
-              </h2>
+              </h3>
               <p className="mb-4">
                 We use personal information collected via our website for a
                 variety of business purposes, including:
@@ -68,9 +68,9 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+              <h3 className="mb-4 font-semibold dark:text-white uppercase tracking-tight">
                 4. Data Security
-              </h2>
+              </h3>
               <p>
                 We implement appropriate technical and organizational security
                 measures designed to protect the security of any personal
@@ -80,9 +80,9 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+              <h3 className="mb-4 font-semibold dark:text-white uppercase tracking-tight">
                 5. Your Privacy Rights
-              </h2>
+              </h3>
               <p>
                 Depending on your location (such as the EU/EEA), you may have
                 certain rights under applicable data protection laws. These may
@@ -93,9 +93,9 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+              <h3 className="mb-4 font-semibold dark:text-white uppercase tracking-tight">
                 6. Cookies and Tracking
-              </h2>
+              </h3>
               <p>
                 We use cookies and similar tracking technologies to access or
                 store information. Specific information about how we use such
@@ -105,9 +105,9 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+              <h3 className="mb-4 font-semibold dark:text-white uppercase tracking-tight">
                 7. Contact Us
-              </h2>
+              </h3>
               <p>
                 If you have questions or comments about this policy, you may
                 email us at{" "}
