@@ -5,13 +5,8 @@ import {
   FaLinkedin,
   FaInstagram,
   FaFacebook,
-  FaGithub,
-  FaYoutube,
-  FaMedium,
-  FaDribbble,
 } from "react-icons/fa6";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { Heading5 } from "lucide-react";
 
 const Footer = memo(function Footer() {
   return (

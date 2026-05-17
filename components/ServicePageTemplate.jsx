@@ -179,10 +179,10 @@ export default function ServicePageTemplate({
           <aside className="space-y-10">
             {/* Services Nav — TBO style */}
             <div className="bg-light-primary shadow-2xl overflow-hidden">
-              <div className="my-6 mx-10 py-4 px-5 text-center bg-white text-light-primary">
-                <h3 className="tracking-[0.2em] uppercase dark:text-light-primary">
+              <div className="my-6 mx-6 py-4 px-5 text-center bg-white text-light-primary">
+                <h5 className="tracking-wide font-semibold uppercase dark:text-light-primary">
                   Our Services
-                </h3>
+                </h5>
               </div>
 
               <ul className="pb-4">
@@ -218,18 +218,19 @@ export default function ServicePageTemplate({
               <h3 className="mb-3 leading-tight">
                 Let's help you on your digital transformation journey
               </h3>
-              <p className="text-white/60 mb-8">
+              <p className="text-white/90! mb-8">
                 We Reinvent, You Thrive. Let's build something great together.
               </p>
               <div className="flex items-center gap-3 mb-6">
                 <Phone size={18} className="text-light-primary shrink-0" />
-                <p className="text-light-primary">
+                <p className="text-light-primary!">
                   +234 913 363 2465
                 </p>
               </div>
               <ConsultationModal
                 trigger={
-                  <button className="inline-flex items-center gap-2 bg-light-primary hover:bg-light-primary/90 text-white text-sm px-6 py-3 transition-all w-full justify-center cursor-pointer">
+                  <button className="inline-flex items-center gap-2 bg-light-primary hover:bg-light-primary/90 text-white text-sm px-6 py-3 
+                  transition-all w-full justify-center cursor-pointer font-medium">
                     Start Consultation
                     <ArrowRight size={16} />
                   </button>

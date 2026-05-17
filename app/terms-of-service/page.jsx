@@ -10,7 +10,7 @@ export default function TermsOfService() {
   return (
     <div className="min-h-screen py-20">
       <div className="container mx-auto px-6 lg:px-30">
-        <h2 className="mb-4 dark:text-white uppercase tracking-tighter">
+        <h2 className="mb-2 text-[#23252d] dark:text-white uppercase tracking-tighter">
           Terms of Service
         </h2>
         <p className="dark:text-white/90 mb-8">

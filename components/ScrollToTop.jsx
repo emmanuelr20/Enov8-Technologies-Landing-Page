@@ -35,9 +35,9 @@ export default function ScrollToTop() {
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top"
-        className="group relative flex h-12 w-12 items-center justify-center overflow-hidden bg-light-primary text-white shadow-lg transition-all hover:bg-light-primary/90 hover:shadow-light-primary/30 active:scale-95"
+        className="group relative flex h-12 w-12 items-center justify-center overflow-hidden bg-light-primary text-white shadow-lg"
       >
-        <ArrowUp className="h-6 w-6 transition-transform group-hover:-translate-y-1" />
+        <ArrowUp className="h-6 w-6" />
         
         {/* Subtle glow effect */}
         <div className="absolute inset-0 bg-white/20 opacity-0 transition-opacity group-hover:opacity-100" />

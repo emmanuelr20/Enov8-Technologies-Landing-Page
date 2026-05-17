@@ -194,18 +194,27 @@ const Navbar = memo(function Navbar() {
             <a
               href="https://www.linkedin.com/company/enov8-technologies/"
               className="text-light-primary hover:text-light-hover transition-colors"
+              target="_blank"
+              aria-label="Follow us on LinkedIn"
+              rel="noopener noreferrer"
             >
               <Linkedin size={20} />
             </a>
             <a
               href="https://www.instagram.com/Enov8_Technologies?igsh=YWZtNHNia2syanE1"
               className="text-light-primary hover:text-light-hover transition-colors"
+              target="_blank"
+              aria-label="View our Instagram"
+              rel="noopener noreferrer"
             >
               <Instagram size={20} />
             </a>
             <a
               href="https://web.facebook.com/Enov8Technologies"
               className="text-light-primary hover:text-light-hover transition-colors"
+              target="_blank"
+              aria-label="Follow us on Facebook"
+              rel="noopener noreferrer"
             >
               <Facebook size={20} />
             </a>
@@ -214,10 +223,10 @@ const Navbar = memo(function Navbar() {
       </div>
 
       <header
-        className={`sticky top-0 z-100 w-full transition-all duration-300 ${
+        className={`sticky top-0 z-100 w-full ${
           isSticky
             ? "py-3 bg-white/95 dark:bg-black/95 backdrop-blur-md shadow-sm border-b border-gray-100 dark:border-white/5"
-            : "py-6 bg-white dark:bg-black border-b border-gray-100 dark:border-zinc-500"
+            : "py-4 bg-white dark:bg-black border-b border-gray-100 dark:border-zinc-500"
         }`}
       >
         <nav className="container mx-auto px-6 md:px-12 lg:px-24 flex justify-between items-center h-full">
@@ -262,7 +271,7 @@ const Navbar = memo(function Navbar() {
             <li className="relative z-50 group/menu">
               <Link
                 href="/services"
-                className="flex items-center gap-1 py-4 hover:text-light-primary transition-colors font-bold tracking-wider"
+                className="flex items-center gap-1 py-4 hover:text-light-primary transition-colors tracking-wider"
                 onClick={(e) => handleNavClick(e, "/services")}
               >
                 Services
@@ -313,7 +322,7 @@ const Navbar = memo(function Navbar() {
             <li>
               <Link
                 href="/about"
-                className="hover:text-light-primary transition-colors py-4 font-bold tracking-wider"
+                className="hover:text-light-primary transition-colors py-4 tracking-wider"
                 onClick={() => setIsOpen(false)}
               >
                 About
@@ -322,7 +331,7 @@ const Navbar = memo(function Navbar() {
             <li>
               <Link
                 href="/#contact"
-                className="hover:text-light-primary transition-colors py-4 font-bold tracking-wider"
+                className="hover:text-light-primary transition-colors py-4 tracking-wider"
                 onClick={(e) => handleNavClick(e, "#contact")}
               >
                 Contact
@@ -490,6 +499,9 @@ const Navbar = memo(function Navbar() {
                     href="#"
                     className="hover:text-light-primary transition-colors"
                     onClick={() => setIsOpen(false)}
+                    target="_blank"
+                    aria-label="Follow us on LinkedIn"
+                    rel="noopener noreferrer"
                   >
                     <Linkedin size={20} />
                   </a>
@@ -497,6 +509,9 @@ const Navbar = memo(function Navbar() {
                     href="#"
                     className="hover:text-light-primary transition-colors"
                     onClick={() => setIsOpen(false)}
+                    target="_blank"
+                    aria-label="View our Instagram"
+                    rel="noopener noreferrer"
                   >
                     <Instagram size={20} />
                   </a>
@@ -504,6 +519,9 @@ const Navbar = memo(function Navbar() {
                     href="#"
                     className="hover:text-light-primary transition-colors"
                     onClick={() => setIsOpen(false)}
+                    target="_blank"
+                    aria-label="Follow us on Facebook"
+                    rel="noopener noreferrer"
                   >
                     <Facebook size={20} />
                   </a>
@@ -511,6 +529,7 @@ const Navbar = memo(function Navbar() {
                 <div 
                   className="lg:hidden"
                   onClick={() => setTimeout(() => setIsOpen(false), 100)}
+                  suppressHydrationWarning
                 >
                   <ThemeToggle />
                 </div>

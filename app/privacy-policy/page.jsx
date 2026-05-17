@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen py-20">
       <div className="container mx-auto px-6 lg:px-30">
-        <h2 className="mb-4 dark:text-white uppercase tracking-tighter">
+        <h2 className="mb-2 dark:text-white text-[#23252d] uppercase tracking-tighter">
           Privacy Policy
         </h2>
         <p className="dark:text-white/90 mb-8">
