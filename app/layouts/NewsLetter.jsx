@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-
-const SUBSCRIBE_WEBHOOK =
-  "https://your-n8n-instance.com/webhook/newsletter-subscribe";
-const UNSUBSCRIBE_WEBHOOK =
-  "https://your-n8n-instance.com/webhook/newsletter-unsubscribe";
+import { newsletterEndpoints } from "@/lib/content/newsletter";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/field";
 
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
@@ -39,8 +37,7 @@ export default function Newsletter() {
     setMessage("");
 
     try {
-      const webhook =
-        mode === "subscribe" ? SUBSCRIBE_WEBHOOK : UNSUBSCRIBE_WEBHOOK;
+      const webhook = newsletterEndpoints[mode];
       await postToWebhook(webhook, {
         email,
         action: mode,
@@ -103,8 +100,10 @@ export default function Newsletter() {
           {["subscribe", "unsubscribe"].map((m) => (
             <button
               key={m}
+              type="button"
+              aria-pressed={mode === m}
               onClick={() => switchMode(m)}
-              className={`px-5 py-2 rounded-full text-sm transition-all duration-300 capitalize ${
+              className={`focus-ring rounded-full px-5 py-2 text-sm transition-colors duration-[var(--motion-fast)] capitalize ${
                 mode === m
                   ? "bg-[#0070f3] text-white shadow-lg shadow-blue-500/30"
                   : "text-gray-300 hover:text-white"
@@ -121,7 +120,7 @@ export default function Newsletter() {
           className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
           noValidate
         >
-          <input
+          <Input
             type="email"
             value={email}
             onChange={(e) => {
@@ -133,23 +132,14 @@ export default function Newsletter() {
             }}
             placeholder="Enter your email address"
             disabled={status === "loading" || status === "success"}
-            className="flex-1 px-5 py-3.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder-gray-400 text-sm focus:outline-none focus:border-[#0070f3] focus:bg-white/15 transition-all duration-200 disabled:opacity-50"
+            className="flex-1 border-white/20 bg-white/10 py-3.5 text-white placeholder:text-gray-400 focus:border-brand focus:bg-white/15"
             aria-label="Email address"
           />
-          <button
+          <Button
             type="submit"
+            variant="primary"
             disabled={status === "loading" || status === "success" || !email}
-            className="px-6 py-3.5 rounded-xl text-sm text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap font-medium"
-            style={{
-              background:
-                mode === "subscribe"
-                  ? "linear-gradient(135deg, #0070f3, #0057C2)"
-                  : "linear-gradient(135deg, #6b7280, #4b5563)",
-              boxShadow:
-                mode === "subscribe"
-                  ? "0 4px 20px rgba(0,112,243,0.4)"
-                  : "0 4px 20px rgba(107,114,128,0.3)",
-            }}
+            className={mode === "unsubscribe" ? "bg-secondary text-secondary-foreground hover:bg-secondary/80" : "px-6 py-3.5"}
           >
             {status === "loading" ? (
               <span className="flex items-center gap-2">
@@ -179,7 +169,7 @@ export default function Newsletter() {
             ) : (
               "Unsubscribe"
             )}
-          </button>
+          </Button>
         </form>
 
         {/* ── Status message ── */}

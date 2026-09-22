@@ -1,11 +1,27 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const projectRoot = path.dirname(fileURLToPath(import.meta.url));
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Keep Turbopack anchored to this app instead of the parent home-directory
+  // lockfile detected above it.
+  turbopack: {
+    root: projectRoot,
+  },
+
+  // Keep package imports lean in both development and production builds.
+  experimental: {
+    optimizePackageImports: ["lucide-react", "react-icons"],
+  },
+
   // Image optimization
   images: {
     formats: ["image/webp", "image/avif"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60,
+    minimumCacheTTL: 31536000,
     qualities: [75, 85, 100, 90],
   },
 
@@ -31,6 +47,10 @@ const nextConfig = {
             value: "nosniff",
           },
           {
+            key: "X-XSS-Protection",
+            value: "1; mode=block",
+          },
+          {
             key: "Referrer-Policy",
             value: "origin-when-cross-origin",
           },
@@ -41,6 +61,15 @@ const nextConfig = {
           {
             key: "X-DNS-Prefetch-Control",
             value: "on",
+          },
+        ],
+      },
+      {
+        source: "/static/(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
           },
         ],
       },

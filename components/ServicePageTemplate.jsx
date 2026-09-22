@@ -5,7 +5,7 @@ import Image from "next/image";
 import Script from "next/script";
 import Footer from "@/app/layouts/Footer";
 import { ArrowRight, ChevronRight, Phone } from "lucide-react";
-import { servicesData } from "@/lib/servicesData";
+import { servicesData, servicesList } from "@/lib/servicesData";
 import ConsultationModal from "@/components/ConsultationModal";
 import {
   LuMonitorPlay,
@@ -36,21 +36,6 @@ const iconMap = {
   "document-management": LuFileText,
   "hardware-procurement": LuHardDrive,
 };
-
-const navItems = [
-  { id: "digital-signage", label: "Digital Signage Solution" },
-  { id: "automation", label: "Business Automation" },
-  { id: "onboarding", label: "Customer Onboarding & ID Verification" },
-  { id: "security", label: "Cyber Security" },
-  { id: "software-dev", label: "Software Development" },
-  { id: "consulting", label: "IT Consulting" },
-  { id: "erp-deployment", label: "ERP Deployment" },
-  { id: "ai-deployment", label: "AI Deployment" },
-  { id: "networking", label: "Networking" },
-  { id: "zoho-partner", label: "Zoho Implementations" },
-  { id: "document-management", label: "Document Management System" },
-  { id: "hardware-procurement", label: "Hardware Procurement" },
-];
 
 /**
  * ServicePageTemplate — shared shell (hero, sidebar, footer).
@@ -186,7 +171,7 @@ export default function ServicePageTemplate({
               </div>
 
               <ul className="pb-4">
-                {navItems.map((item, index) => (
+                {servicesList.map((item, index) => (
                   <li key={item.id}>
                     <Link
                       href={`/services/${item.id}`}
@@ -197,10 +182,10 @@ export default function ServicePageTemplate({
                       }`}
                     >
                       <span className="leading-snug text-base font-medium">
-                        {item.label}
+                        {item.title}
                       </span>
                     </Link>
-                    {index < navItems.length - 1 && (
+                    {index < servicesList.length - 1 && (
                       <div className="mx-6 border-b border-white" />
                     )}
                   </li>

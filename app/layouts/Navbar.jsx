@@ -17,91 +17,13 @@ import {
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
 import ConsultationModal from "@/components/ConsultationModal";
+import { servicesList } from "@/lib/servicesData";
 
-const MEGA_MENU_SERVICES = [
-  {
-    title: "Digital Signage",
-    href: "/services/digital-signage",
-    hints: [
-      "Dynamic Content Management",
-      "High-Impact Visual Displays",
-      "Real-Time Integration",
-    ],
-  },
-  {
-    title: "Business Automation",
-    href: "/services/automation",
-    hints: [
-      "ERP Solutions",
-      "Document Management System",
-      "Workflow Optimization",
-    ],
-  },
-  {
-    title: "Onboarding & ID",
-    href: "/services/onboarding",
-    hints: ["KYC", "AML", "Fraud Detection"],
-  },
-  {
-    title: "Cyber Security",
-    href: "/services/security",
-    hints: ["Audits", "Encryptions", "Security Ops"],
-  },
-  {
-    title: "Software Development",
-    href: "/services/software-dev",
-    hints: [""],
-  },
-  {
-    title: "IT Consulting",
-    href: "/services/consulting",
-    hints: ["IT Consulting", "Infrastructure Strategy", "Feasibility Studies"],
-  },
-  {
-    title: "ERP Deployment",
-    href: "/services/erp-deployment",
-    hints: ["Custom ERP Strategy", "Process Automation", "System Integration"],
-  },
-  {
-    title: "AI Deployment",
-    href: "/services/ai-deployment",
-    hints: [
-      "Intelligent Automation",
-      "Data-Driven Insights",
-      "Predictive Models",
-    ],
-  },
-  {
-    title: "Networking",
-    href: "/services/networking",
-    hints: [
-      "Digital Network Architecture",
-      "Structured Cabling",
-      "Wireless Solutions",
-      "Network Security",
-      "Enterprise Network Monitoring",
-    ],
-  },
-  {
-    title: "Zoho Implementations",
-    href: "/services/zoho-partner",
-    hints: ["Sales", "Finance", "Marketing", "Operations", "Support", "HR"],
-  },
-  {
-    title: "Document Management system",
-    href: "/services/document-management",
-    hints: [""],
-  },
-  {
-    title: "Hardware Procurement",
-    href: "/services/hardware-procurement",
-    hints: [
-      "Enterprise Sourcing",
-      "Deployment & Lifecycle",
-      "Vendor Management",
-    ],
-  },
-];
+const MEGA_MENU_SERVICES = servicesList.map((service) => ({
+  title: service.title,
+  href: `/services/${service.id}`,
+  hints: service.menuHints,
+}));
 
 const Navbar = memo(function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -168,7 +90,7 @@ const Navbar = memo(function Navbar() {
   return (
     <div className="relative w-full z-100" suppressHydrationWarning>
       {/* Section: TOP BAR (Contact & Socials) */}
-      <div className="hidden md:flex bg-white dark:bg-zinc-950 border-b border-[#ebebeb] dark:border-zinc-800 py-3 relative z-40">
+      <div className="relative z-40 hidden border-b border-border bg-background py-3 md:flex">
         <div className="container mx-auto px-6 md:px-12 lg:px-24 flex justify-between items-center text-xs text-gray-700 dark:text-white/90">
           <div className="flex items-center gap-6">
             <a
@@ -225,16 +147,16 @@ const Navbar = memo(function Navbar() {
       <header
         className={`sticky top-0 z-100 w-full ${
           isSticky
-            ? "py-3 bg-white/95 dark:bg-black/95 backdrop-blur-md shadow-sm border-b border-gray-100 dark:border-white/5"
-            : "py-4 bg-white dark:bg-black border-b border-gray-100 dark:border-zinc-500"
+            ? "border-b border-border bg-background/95 py-3 shadow-sm backdrop-blur-md"
+            : "border-b border-border bg-background py-4"
         }`}
       >
-        <nav className="container mx-auto px-6 md:px-12 lg:px-24 flex justify-between items-center h-full">
+        <nav aria-label="Primary navigation" className="mx-auto flex h-full w-full max-w-[var(--container-content)] items-center justify-between px-6 md:px-12 lg:px-16">
           {/* Left Space (Mobile) / Logo Container (Desktop) */}
           <div className="flex-1 lg:flex-initial" suppressHydrationWarning>
-            <a
+            <Link
               href="/"
-              className="flex items-center gap-2 group"
+              className="focus-ring group flex items-center gap-2 rounded-md"
               aria-label="Enov8 Technologies Home"
             >
               <div
@@ -263,7 +185,7 @@ const Navbar = memo(function Navbar() {
               <span className="capitalize text-sm md:text-base text-[#23252d] dark:text-white transition-colors duration-200 font-bold mt-2 tracking-tight">
                 enov8 technologies
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Nav (Center-Right) */}
@@ -271,7 +193,8 @@ const Navbar = memo(function Navbar() {
             <li className="relative z-50 group/menu">
               <Link
                 href="/services"
-                className="flex items-center gap-1 py-4 hover:text-light-primary transition-colors tracking-wider"
+                aria-haspopup="true"
+                className="focus-ring flex items-center gap-1 rounded-md py-4 tracking-wider transition-colors hover:text-brand"
                 onClick={(e) => handleNavClick(e, "/services")}
               >
                 Services
@@ -283,9 +206,9 @@ const Navbar = memo(function Navbar() {
 
               {/* Mega Menu Dropdown */}
               <div
-                className="absolute top-16 -left-48 xl:left-1 -translate-x-1 w-[800px] bg-white dark:bg-zinc-900 shadow-2xl
+                className="absolute left-1 top-16 z-200 w-[min(800px,calc(100vw-2rem))] -translate-x-1 bg-surface-elevated
               py-12 px-10 columns-3 gap-10 opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible 
-              transition-all duration-300 translate-y-2 group-hover/menu:translate-y-0 z-200"
+              shadow-xl transition-all duration-[var(--motion-standard)] translate-y-2 group-hover/menu:translate-y-0"
                 suppressHydrationWarning
               >
                 {MEGA_MENU_SERVICES.map((service, idx) => (
@@ -301,13 +224,13 @@ const Navbar = memo(function Navbar() {
                       <span className="w-1 h-5 bg-light-primary block" />
                       <Link
                         href={service.href}
-                        className=" text-base capitalize font-medium tracking-wide text-[#1A1A37] dark:text-white hover:text-light-primary transition-colors"
+                        className="focus-ring rounded-sm text-base capitalize font-medium tracking-wide hover:text-brand transition-colors"
                       >
                         {service.title}
                       </Link>
                     </div>
                     {service.hints.some((h) => h !== "") && (
-                      <ul className="space-y-1 pl-3 text-sm text-gray-500 capitalize dark:text-white/60">
+                      <ul className="type-small space-y-1 pl-3 text-muted-foreground capitalize">
                         {service.hints
                           .filter((h) => h !== "")
                           .map((hint, hIdx) => (
@@ -322,7 +245,7 @@ const Navbar = memo(function Navbar() {
             <li>
               <Link
                 href="/about"
-                className="hover:text-light-primary transition-colors py-4 tracking-wider"
+                className="focus-ring rounded-md py-4 tracking-wider transition-colors hover:text-brand"
                 onClick={() => setIsOpen(false)}
               >
                 About
@@ -331,7 +254,7 @@ const Navbar = memo(function Navbar() {
             <li>
               <Link
                 href="/#contact"
-                className="hover:text-light-primary transition-colors py-4 tracking-wider"
+                className="focus-ring rounded-md py-4 tracking-wider transition-colors hover:text-brand"
                 onClick={(e) => handleNavClick(e, "#contact")}
               >
                 Contact
@@ -360,8 +283,11 @@ const Navbar = memo(function Navbar() {
 
             {/* Mobile Hamburger (Right) */}
             <button
+              type="button"
               aria-label="Toggle navigation menu"
-              className="lg:hidden p-2 text-black dark:text-white -mr-2"
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
+              className="focus-ring -mr-2 rounded-md p-2 text-foreground lg:hidden"
               onClick={toggleMenu}
             >
               <div className="space-y-1.5 w-6">
@@ -382,7 +308,9 @@ const Navbar = memo(function Navbar() {
 
       {/* ── MOBILE NAV DRAWER (Modern Staggered Reveal) ────────────────────────────────── */}
       {/* 1. Backdrop Dimmer */}
-      <div
+      <button
+        type="button"
+        aria-label="Close navigation menu"
         className={`fixed inset-0 bg-black/60 backdrop-blur-md transition-opacity duration-700 z-110
         ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
         onClick={toggleMenu}
@@ -391,6 +319,10 @@ const Navbar = memo(function Navbar() {
 
       {/* 2. Layer 1: Brand Curtain Slider */}
       <div
+        id="mobile-navigation"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile navigation"
         className={`fixed top-0 right-0 h-full w-full bg-black/60 z-115 transform transition-transform duration-600 ease-[cubic-bezier(0.77,0,0.175,1)]
         ${isOpen ? "translate-x-0" : "translate-x-full"}`}
         style={{ transitionDelay: isOpen ? "0ms" : "150ms" }}
@@ -399,7 +331,7 @@ const Navbar = memo(function Navbar() {
 
       {/* 3. Layer 2: Main Menu Drawer */}
       <div
-        className={`fixed top-0 right-0 h-screen w-full sm:w-[480px] bg-zinc-950 text-white z-120 
+        className={`fixed top-0 right-0 h-screen w-full sm:w-120 bg-zinc-950 text-white z-120
               transform transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)] shadow-2xl 
               ${isOpen ? "translate-x-0" : "translate-x-full"}`}
         style={{ transitionDelay: isOpen ? "100ms" : "0ms" }}

@@ -2,3 +2,4 @@ allowBuilds:
   msw: true
   scrollreveal: true
   sharp: true
+  unrs-resolver: true

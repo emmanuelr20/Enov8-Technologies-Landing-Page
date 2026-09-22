@@ -1,4 +1,5 @@
 import "./globals.css";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "../styles/performance.css";
 import Navbar from "./layouts/Navbar.jsx";
@@ -8,13 +9,16 @@ import TawkMessenger from "@/components/TawkMessenger";
 import CookieBanner from "@/components/CookieBanner";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Toaster } from "@/components/ui/sonner";
-import { Open_Sans } from "next/font/google";
 
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+const dmSans = localFont({
+  src: [
+    { path: "../public/fonts/dm-sans-400.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/dm-sans-500.woff2", weight: "500", style: "normal" },
+    { path: "../public/fonts/dm-sans-700.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-dm-sans",
   display: "swap",
+  preload: true,
 });
 
 export const metadata = {
@@ -225,7 +229,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className="overflow-x-hidden max-w-full"
+      className={`${dmSans.variable} overflow-x-hidden max-w-full`}
     >
       <head>
         <link
@@ -234,11 +238,9 @@ export default function RootLayout({ children }) {
           as="video"
           type="video/mp4"
         />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
       </head>
       <body
-        className={`${openSans.variable} min-h-svh text-foreground bg-background overflow-x-hidden antialiased`}
+        className="min-h-svh text-foreground bg-background overflow-x-hidden antialiased"
         suppressHydrationWarning
       >
         {/* Organization Schema */}

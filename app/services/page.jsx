@@ -17,93 +17,22 @@ import {
 import Image from "next/image";
 import Footer from "@/app/layouts/Footer";
 import { buildServicesIndexMetadata } from "@/lib/seoMetadata";
+import { servicesList } from "@/lib/servicesData";
 
-const allServices = [
-  {
-    id: "digital-signage",
-    icon: LuMonitorPlay,
-    title: "Digital Signage Solution",
-    description:
-      "Manage and deploy dynamic visual content across your screens in real-time. We provide high-impact signage that transforms physical spaces.",
-  },
-  {
-    id: "automation",
-    icon: LuBoxes,
-    title: "Business Automation",
-    description:
-      "Eliminate repetitive manual tasks with intelligent, seamless workflows. We connect your platforms to boost operational efficiency.",
-  },
-  {
-    id: "onboarding",
-    icon: LuUserPlus,
-    title: "Customer Onboarding & ID Verification",
-    description:
-      "Streamline the user journey with secure, friction-free verification. We integrate robust KYC and compliance protocols to build trust.",
-  },
-  {
-    id: "security",
-    icon: LuShield,
-    title: "Security",
-    description:
-      "Safeguard your digital infrastructure with proactive protection. From encryption to audits, we ensure your data stays secure.",
-  },
-  {
-    id: "software-dev",
-    icon: LuLayoutGrid,
-    title: "Software Development",
-    description:
-      "Build scalable, custom digital products designed for performance. We deliver user-centric applications using modern tech stacks.",
-  },
-  {
-    id: "consulting",
-    icon: LuHandshake,
-    title: "IT Consulting",
-    description:
-      "Optimize your technical strategy with expert guidance. We provide the roadmaps and insights you need for long-term growth.",
-  },
-  {
-    id: "erp-deployment",
-    icon: LuChartBar,
-    title: "ERP Deployment",
-    description:
-      "Scale your operations with robust Enterprise Resource Planning solutions tailored to your business needs.",
-  },
-  {
-    id: "ai-deployment",
-    icon: LuBrainCircuit,
-    title: "AI Deployment",
-    description:
-      "Harness the power of Artificial Intelligence to automate complex processes and drive innovation.",
-  },
-  {
-    id: "networking",
-    icon: LuNetwork,
-    title: "Networking",
-    description:
-      "Design and implement secure, high-performance network infrastructure for your growing enterprise.",
-  },
-  {
-    id: "zoho-partner",
-    icon: LuLayers,
-    title: "Zoho Implementations",
-    description:
-      "Streamline operations, enhance collaboration, and drive growth with expert Zoho implementations tailored to your business needs.",
-  },
-  {
-    id: "document-management",
-    icon: LuFileText,
-    title: "Document Management System",
-    description:
-      "Digitalize and automate your document lifecycles with secure, scalable management solutions.",
-  },
-  {
-    id: "hardware-procurement",
-    icon: LuHardDrive,
-    title: "Hardware Procurement",
-    description:
-      "Reliable hardware sourcing and deployment services for enterprise-scale technology needs.",
-  },
-];
+const serviceIcons = {
+  "digital-signage": LuMonitorPlay,
+  automation: LuBoxes,
+  onboarding: LuUserPlus,
+  security: LuShield,
+  "software-dev": LuLayoutGrid,
+  consulting: LuHandshake,
+  "erp-deployment": LuChartBar,
+  "ai-deployment": LuBrainCircuit,
+  networking: LuNetwork,
+  "zoho-partner": LuLayers,
+  "document-management": LuFileText,
+  "hardware-procurement": LuHardDrive,
+};
 
 export const metadata = buildServicesIndexMetadata();
 
@@ -167,8 +96,8 @@ export default function ServicesPage() {
           </div>
 
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-24 mt-8 md:mt-25">
-            {allServices.map((service) => {
-              const Icon = service.icon;
+            {servicesList.map((service) => {
+              const Icon = serviceIcons[service.id];
               return (
                 <div
                   key={service.id}

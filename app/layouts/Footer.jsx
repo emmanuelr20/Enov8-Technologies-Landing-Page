@@ -7,11 +7,14 @@ import {
   FaFacebook,
 } from "react-icons/fa6";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { company, industries } from "@/lib/content/company";
+import { resourceNavigation } from "@/lib/content/navigation";
+import { servicesList } from "@/lib/servicesData";
 
 const Footer = memo(function Footer() {
   return (
-    <footer className="z-50 pt-24 pb-12 bg-gray-950 dark:bg-black text-white border-t-2 dark:border-t-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="z-50 border-t border-white/10 bg-zinc-950 py-20 text-white md:py-24 dark:bg-black">
+      <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           <div className="lg:col-span-1">
             <h3 className="mb-4">Enov8 Technologies</h3>
@@ -28,7 +31,7 @@ const Footer = memo(function Footer() {
                   href="https://www.linkedin.com/company/enov8-technologies/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-background/70 dark:text-white hover:text-blue-600 transition-colors"
+                  className="focus-ring rounded-sm text-white/70 transition-colors hover:text-brand"
                   aria-label="Follow us on LinkedIn"
                 >
                   <FaLinkedin size={24} />
@@ -37,7 +40,7 @@ const Footer = memo(function Footer() {
                   href="https://www.instagram.com/enov8_technologies?igsh=YWZtNHNia2syanE1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-background/70 dark:text-white hover:text-pink-600 transition-colors"
+                  className="focus-ring rounded-sm text-white/70 transition-colors hover:text-brand"
                   aria-label="View our Instagram"
                 >
                   <FaInstagram size={24} />
@@ -46,7 +49,7 @@ const Footer = memo(function Footer() {
                   href="https://www.facebook.com/Enov8Technologies"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-background/70 dark:text-white hover:text-blue-600 transition-colors"
+                  className="focus-ring rounded-sm text-white/70 transition-colors hover:text-brand"
                   aria-label="Follow us on Facebook"
                 >
                   <FaFacebook size={24} />
@@ -57,157 +60,64 @@ const Footer = memo(function Footer() {
 
           <div>
             <h5 className="mb-4">Services</h5>
-            <ul className="space-y-4 text-background/70 dark:text-gray-300 text-base lg:text-base">
-              <li>
-                <a
-                  href="/services/digital-signage"
-                  className="hover:text-white transition-colors"
-                >
-                  Digital Signage Solution
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/automation"
-                  className="hover:text-white transition-colors"
-                >
-                  Business Automation
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/onboarding"
-                  className="hover:text-white transition-colors"
-                >
-                  Customer Onboarding & ID Verification
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/security"
-                  className="hover:text-white transition-colors"
-                >
-                  Cyber Security
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/software-dev"
-                  className="hover:text-white transition-colors"
-                >
-                  Software Development
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/consulting"
-                  className="hover:text-white transition-colors"
-                >
-                  IT Consulting
-                </a>
-              </li>
+            <ul className="space-y-3 text-sm text-white/70">
+              {servicesList.slice(0, 6).map((service) => (
+                <li key={service.id}>
+                  <a href={`/services/${service.id}`} className="focus-ring rounded-sm transition-colors hover:text-white">
+                    {service.title}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
             <h5 className="mb-4">Industries</h5>
-            <ul className="space-y-4 text-background/70 dark:text-gray-300 text-base lg:text-base">
-              <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  Fintech
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  E-commerce
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  Education
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  Healthcare
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  Logistics
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  Enterprise
-                </a>
-              </li>
+            <ul className="space-y-3 text-sm text-white/70">
+              {industries.map((industry) => (
+                <li key={industry}>
+                  <a href="#about" className="focus-ring rounded-sm transition-colors hover:text-white">{industry}</a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
             <h5 className="mb-4">Contact Info</h5>
-            <div className="space-y-4 text-background/70 dark:text-gray-300 text-base lg:text-base">
+            <div className="space-y-4 text-sm text-white/70">
               <div className="flex items-center space-x-3">
                 <Mail size={18} />
                 <a
-                  href="mailto:contact@enov8technologies.com"
-                  className="hover:text-white transition-colors"
+                  href={`mailto:${company.emails.general}`}
+                  className="focus-ring rounded-sm transition-colors hover:text-white"
                 >
-                  contact@enov8technologies.com
+                  {company.emails.general}
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={18} />
                 <a
-                  href="tel:+2347064838988"
-                  className="hover:text-white transition-colors"
+                  href={`tel:${company.phones.service.replace(/\s/g, "")}`}
+                  className="focus-ring rounded-sm transition-colors hover:text-white"
                 >
-                  +234 913 363 2465
+                  {company.phones.service}
                 </a>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin size={18} className="mt-1" />
-                <span>Lagos, Nigeria</span>
+                <span>{company.location}</span>
               </div>
             </div>
 
             {/* Resource Links */}
             <div className="mt-8">
               <h5 className="mb-3">Resources</h5>
-              <ul className="space-y-3 text-background/70 dark:text-gray-300 text-base lg:text-base">
-                <li>
-                  <a
-                    href="/privacy-policy"
-                    className="hover:text-white transition-colors"
-                  >
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/terms-of-service"
-                    className="hover:text-white transition-colors"
-                  >
-                    Terms of Service
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/accessibility"
-                    className="hover:text-white transition-colors"
-                  >
-                    Accessibility Statement
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/sitemap.xml"
-                    className="hover:text-white transition-colors"
-                  >
-                    Sitemap
-                  </a>
-                </li>
+              <ul className="space-y-3 text-sm text-white/70">
+                {resourceNavigation.map((resource) => (
+                  <li key={resource.id}>
+                    <a href={resource.href} className="focus-ring rounded-sm transition-colors hover:text-white">{resource.label}</a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

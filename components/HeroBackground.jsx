@@ -82,9 +82,9 @@ export default function HeroBackground() {
   const [videoReady, setVideoReady] = useState(true);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [inView, setInView] = useState(true);
+  const [activeVariation, setActiveVariation] = useState(VARIATIONS[0]);
 
   const timerRef = useRef(null);
-  const videoRefs = useRef([]);
   const containerRef = useRef(null);
   const phaseRef = useRef("idle");
   const activeVariationRef = useRef(VARIATIONS[0]);
@@ -138,13 +138,16 @@ export default function HeroBackground() {
       variationIndexRef.current = nextVarIndex;
       const nextVar = VARIATIONS[nextVarIndex];
       activeVariationRef.current = nextVar;
+      setActiveVariation(nextVar);
 
       setDirection(dir);
       setNextSlide(idx);
       setPhase("sliding");
       phaseRef.current = "sliding";
 
-      const vid = videoRefs.current[idx];
+      const vid = containerRef.current?.querySelector(
+        `video[data-slide-index="${idx}"]`,
+      );
       if (vid) {
         vid.preload = "auto";
         vid.currentTime = 0;
@@ -174,7 +177,9 @@ export default function HeroBackground() {
 
   // First slide only: full preload.
   useEffect(() => {
-    const vid = videoRefs.current[0];
+    const vid = containerRef.current?.querySelector(
+      'video[data-slide-index="0"]',
+    );
     if (!vid) return;
 
     const onReady = () => {
@@ -206,7 +211,9 @@ export default function HeroBackground() {
     }
     const id = window.requestIdleCallback(
       () => {
-        const next = videoRefs.current[1];
+        const next = containerRef.current?.querySelector(
+          'video[data-slide-index="1"]',
+        );
         if (next) {
           next.preload = "metadata";
         }
@@ -219,10 +226,33 @@ export default function HeroBackground() {
   useEffect(() => {
     if (inView) return;
     clearInterval(timerRef.current);
-    videoRefs.current.forEach((v) => {
-      if (v) v.pause();
+    containerRef.current?.querySelectorAll("video").forEach((video) => {
+      video.pause();
     });
   }, [inView]);
+
+  // Set the entering slide's initial transform after commit so render does not
+  // read refs or force a synchronous layout calculation.
+  useEffect(() => {
+    if (phase !== "sliding" || nextSlide === null) return;
+
+    const el = containerRef.current?.querySelector(
+      `[data-slide-index="${nextSlide}"]`,
+    );
+    if (!el) return;
+
+    const variation = activeVariationRef.current;
+    el.style.transform = variation.enter(direction);
+    el.style.opacity = "0";
+
+    const frame = requestAnimationFrame(() => {
+      el.style.transform =
+        "translateZ(0px) rotateX(0deg) rotateY(0deg) scale(1)";
+      el.style.opacity = "1";
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, [direction, nextSlide, phase]);
 
   // ── Compute slide position styles ──────────────────────────────────────────
   const getSlideStyle = (i) => {
@@ -252,7 +282,7 @@ export default function HeroBackground() {
 
     // EXITING SLIDE (The one leaving)
     if (isCur) {
-      const v = activeVariationRef.current;
+      const v = activeVariation;
       return {
         ...baseStyle,
         transform: v.exit(direction),
@@ -325,30 +355,13 @@ export default function HeroBackground() {
         return (
           <div
             key={slide.id}
+            data-slide-index={i}
             className="absolute inset-0"
             suppressHydrationWarning
             style={getSlideStyle(i)}
-            ref={(el) => {
-              if (el && i === nextSlide && phase === "sliding") {
-                const v = activeVariationRef.current;
-
-                // Set the FROM state (where the entering slide starts)
-                el.style.transform = v.enter(direction);
-                el.style.opacity = "0";
-
-                void el.offsetWidth; // Force browser repaint — crucial for transitions
-
-                // Animate TO the centre (the resting state)
-                el.style.transform =
-                  "translateZ(0px) rotateX(0deg) rotateY(0deg) scale(1)";
-                el.style.opacity = "1";
-              }
-            }}
           >
             <video
-              ref={(el) => {
-                videoRefs.current[i] = el;
-              }}
+              data-slide-index={i}
               src={slide.video}
               autoPlay
               muted

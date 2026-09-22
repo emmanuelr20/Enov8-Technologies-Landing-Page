@@ -2,6 +2,7 @@
 
 import { Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input, Label, Textarea } from "@/components/ui/field";
 import { FaWhatsapp } from "react-icons/fa6";
 import OptimizedImage from "@/components/OptimizedImage";
 import { memo, useState } from "react";
@@ -90,66 +91,50 @@ const Contact = memo(function Contact() {
           </div>
 
           <form className="space-y-8" onSubmit={handleSubmit}>
-            <div className="relative">
-              <input
+            <div>
+              <Label htmlFor="name">Full Name</Label>
+              <Input
                 type="text"
                 id="name"
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="peer w-full bg-transparent border-b-2 border-zinc-200 dark:border-zinc-800 py-2 focus:outline-none focus:border-light-primary transition-colors text-base text-black dark:text-white"
-                placeholder=" "
+                autoComplete="name"
+                placeholder="Your full name"
               />
-              <label
-                htmlFor="name"
-                className="absolute left-0 top-2 text-[#1A1A37] dark:text-white transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-light-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs text-base font-medium"
-              >
-                Full Name
-              </label>
             </div>
 
-            <div className="relative">
-              <input
+            <div>
+              <Label htmlFor="email">Email Address</Label>
+              <Input
                 type="email"
                 id="email"
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="peer w-full bg-transparent border-b-2 border-zinc-200 dark:border-zinc-800 py-2 focus:outline-none focus:border-light-primary transition-colors text-base text-black dark:text-white"
-                placeholder=" "
+                autoComplete="email"
+                placeholder="you@company.com"
               />
-              <label
-                htmlFor="email"
-                className="absolute left-0 top-2 text-[#1A1A37] dark:text-white transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-light-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs text-base font-medium"
-              >
-                Email Address
-              </label>
             </div>
 
-            <div className="relative">
-              <textarea
+            <div>
+              <Label htmlFor="message">Project Details</Label>
+              <Textarea
                 id="message"
                 required
                 rows={3}
                 value={formData.message}
                 onChange={handleChange}
-                className="peer w-full bg-transparent border-b-2 border-zinc-200 dark:border-zinc-800 py-2 focus:outline-none focus:border-light-primary transition-colors text-base resize-none text-black dark:text-white"
-                placeholder=" "
+                placeholder="Tell us what you want to build or improve"
               />
-              <label
-                htmlFor="message"
-                className="absolute left-0 top-2 text-[#1A1A37] dark:text-white transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-light-primary peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs text-base font-medium"
-              >
-                Project Details
-              </label>
             </div>
 
             <div className="pt-4 flex flex-col gap-4">
               <Button
                 type="submit"
-                variant={"background"}
+                variant="primary"
                 disabled={status === "loading"}
-                className="bg-light-primary text-white px-10 py-7 rounded-none text-base uppercase  hover:bg-[#E31B36] transition-colors disabled:opacity-50 font-medium"
+                className="bg-brand text-on-brand px-10 py-6 text-base uppercase hover:bg-brand-hover"
               >
                 {status === "loading" ? "Sending..." : "Send Message"}
               </Button>
