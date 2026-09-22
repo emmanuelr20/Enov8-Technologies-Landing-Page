@@ -7,11 +7,8 @@ import {
   Menu,
   X,
   Facebook,
-  Twitter,
   Linkedin,
   Instagram,
-  PhoneCall,
-  Mail,
   ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -29,6 +26,7 @@ const Navbar = memo(function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const pathname = usePathname();
+  const isHome = pathname === "/";
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -88,65 +86,12 @@ const Navbar = memo(function Navbar() {
   };
 
   return (
-    <div className="relative w-full z-100" suppressHydrationWarning>
-      {/* Section: TOP BAR (Contact & Socials) */}
-      <div className="relative z-40 hidden border-b border-border bg-background py-3 md:flex">
-        <div className="container mx-auto px-6 md:px-12 lg:px-24 flex justify-between items-center text-xs text-gray-700 dark:text-white/90">
-          <div className="flex items-center gap-6">
-            <a
-              href="tel:+2349133632465"
-              className="flex items-center gap-2 hover:text-light-primary transition-colors text-sm"
-            >
-              <span className="text-light-primary">
-                <PhoneCall size={20} />
-              </span>
-              +234 913 363 2465
-            </a>
-            <a
-              href="mailto:sales@enov8technologies.com"
-              className="flex items-center gap-2 hover:text-light-primary transition-colors text-sm"
-            >
-              <span className="text-light-primary">
-                <Mail size={20} />
-              </span>
-              sales@enov8technologies.com
-            </a>
-          </div>
-          <div className="flex items-center gap-4 uppercase  text-[10px]">
-            <a
-              href="https://www.linkedin.com/company/enov8-technologies/"
-              className="text-light-primary hover:text-light-hover transition-colors"
-              target="_blank"
-              aria-label="Follow us on LinkedIn"
-              rel="noopener noreferrer"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a
-              href="https://www.instagram.com/Enov8_Technologies?igsh=YWZtNHNia2syanE1"
-              className="text-light-primary hover:text-light-hover transition-colors"
-              target="_blank"
-              aria-label="View our Instagram"
-              rel="noopener noreferrer"
-            >
-              <Instagram size={20} />
-            </a>
-            <a
-              href="https://web.facebook.com/Enov8Technologies"
-              className="text-light-primary hover:text-light-hover transition-colors"
-              target="_blank"
-              aria-label="Follow us on Facebook"
-              rel="noopener noreferrer"
-            >
-              <Facebook size={20} />
-            </a>
-          </div>
-        </div>
-      </div>
-
+    <div className="relative z-100 w-full" suppressHydrationWarning>
       <header
-        className={`sticky top-0 z-100 w-full ${
-          isSticky
+        className={`${isHome ? "absolute top-0" : "sticky top-0"} z-100 w-full ${
+          isHome
+            ? "border-b border-white/15 bg-white py-4 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-zinc-950/80"
+            : isSticky
             ? "border-b border-border bg-background/95 py-3 shadow-sm backdrop-blur-md"
             : "border-b border-border bg-background py-4"
         }`}

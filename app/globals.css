@@ -45,6 +45,9 @@
   --motion-standard: 250ms;
   --motion-slow: 500ms;
   --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --hero-tint: oklch(0.975 0.018 255);
+  --hero-band: oklch(0.975 0.035 82);
+  --hero-band-line: oklch(0.82 0.13 82);
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -90,6 +93,9 @@
   --color-brand: var(--brand);
   --color-brand-hover: var(--brand-hover);
   --color-on-brand: var(--on-brand);
+  --color-hero-tint: var(--hero-tint);
+  --color-hero-band: var(--hero-band);
+  --color-hero-band-line: var(--hero-band-line);
   --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui;
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -207,6 +213,9 @@ p {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --hero-tint: oklch(0.19 0.025 255);
+  --hero-band: oklch(0.235 0.025 82);
+  --hero-band-line: oklch(0.72 0.12 82);
 
 }
 
@@ -278,6 +287,15 @@ video {
   animation: marquee 35s linear infinite;
 }
 
+@keyframes partner-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 0.5rem)); }
+}
+
+@utility animate-partner-scroll {
+  animation: partner-scroll 48s linear infinite;
+}
+
 @keyframes heroProgress {
   0% { width: 0%; background-color: rgba(255, 255, 255, 0.2); }
   100% { width: 100%; background-color: rgba(255, 255, 255, 0.8); }
@@ -291,5 +309,13 @@ video {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .home-hero-video {
+    display: none;
+  }
+
+  .home-partner-track {
+    animation: none;
   }
 }

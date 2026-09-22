@@ -16,6 +16,10 @@
 # next.js
 /.next/
 /out/
+/.agents/
+/.codex/
+/.impeccable/
+
 
 # production
 /build

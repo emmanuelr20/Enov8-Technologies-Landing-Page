@@ -13,12 +13,12 @@ import { servicesList } from "@/lib/servicesData";
 
 const Footer = memo(function Footer() {
   return (
-    <footer className="z-50 border-t border-white/10 bg-zinc-950 py-20 text-white md:py-24 dark:bg-black">
+    <footer className="z-50 border-t border-border bg-surface py-20 text-foreground md:py-24">
       <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           <div className="lg:col-span-1">
             <h3 className="mb-4">Enov8 Technologies</h3>
-            <p className="text-background/70! mb-6 dark:text-gray-300!">
+            <p className="mb-6 text-muted-foreground">
               Transforming businesses through innovative software solutions,
               mobile applications, and professional development training.
             </p>
@@ -31,7 +31,7 @@ const Footer = memo(function Footer() {
                   href="https://www.linkedin.com/company/enov8-technologies/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="focus-ring rounded-sm text-white/70 transition-colors hover:text-brand"
+                  className="focus-ring rounded-sm text-muted-foreground transition-colors hover:text-brand"
                   aria-label="Follow us on LinkedIn"
                 >
                   <FaLinkedin size={24} />
@@ -40,7 +40,7 @@ const Footer = memo(function Footer() {
                   href="https://www.instagram.com/enov8_technologies?igsh=YWZtNHNia2syanE1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="focus-ring rounded-sm text-white/70 transition-colors hover:text-brand"
+                  className="focus-ring rounded-sm text-muted-foreground transition-colors hover:text-brand"
                   aria-label="View our Instagram"
                 >
                   <FaInstagram size={24} />
@@ -49,7 +49,7 @@ const Footer = memo(function Footer() {
                   href="https://www.facebook.com/Enov8Technologies"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="focus-ring rounded-sm text-white/70 transition-colors hover:text-brand"
+                  className="focus-ring rounded-sm text-muted-foreground transition-colors hover:text-brand"
                   aria-label="Follow us on Facebook"
                 >
                   <FaFacebook size={24} />
@@ -60,10 +60,10 @@ const Footer = memo(function Footer() {
 
           <div>
             <h5 className="mb-4">Services</h5>
-            <ul className="space-y-3 text-sm text-white/70">
+            <ul className="space-y-3 text-sm text-muted-foreground">
               {servicesList.slice(0, 6).map((service) => (
                 <li key={service.id}>
-                  <a href={`/services/${service.id}`} className="focus-ring rounded-sm transition-colors hover:text-white">
+                  <a href={`/services/${service.id}`} className="focus-ring rounded-sm transition-colors hover:text-foreground">
                     {service.title}
                   </a>
                 </li>
@@ -73,10 +73,10 @@ const Footer = memo(function Footer() {
 
           <div>
             <h5 className="mb-4">Industries</h5>
-            <ul className="space-y-3 text-sm text-white/70">
+            <ul className="space-y-3 text-sm text-muted-foreground">
               {industries.map((industry) => (
                 <li key={industry}>
-                  <a href="#about" className="focus-ring rounded-sm transition-colors hover:text-white">{industry}</a>
+                  <a href="#about" className="focus-ring rounded-sm transition-colors hover:text-foreground">{industry}</a>
                 </li>
               ))}
             </ul>
@@ -84,12 +84,12 @@ const Footer = memo(function Footer() {
 
           <div>
             <h5 className="mb-4">Contact Info</h5>
-            <div className="space-y-4 text-sm text-white/70">
+            <div className="space-y-4 text-sm text-muted-foreground">
               <div className="flex items-center space-x-3">
                 <Mail size={18} />
                 <a
                   href={`mailto:${company.emails.general}`}
-                  className="focus-ring rounded-sm transition-colors hover:text-white"
+                  className="focus-ring rounded-sm transition-colors hover:text-foreground"
                 >
                   {company.emails.general}
                 </a>
@@ -98,7 +98,7 @@ const Footer = memo(function Footer() {
                 <Phone size={18} />
                 <a
                   href={`tel:${company.phones.service.replace(/\s/g, "")}`}
-                  className="focus-ring rounded-sm transition-colors hover:text-white"
+                  className="focus-ring rounded-sm transition-colors hover:text-foreground"
                 >
                   {company.phones.service}
                 </a>
@@ -112,10 +112,10 @@ const Footer = memo(function Footer() {
             {/* Resource Links */}
             <div className="mt-8">
               <h5 className="mb-3">Resources</h5>
-              <ul className="space-y-3 text-sm text-white/70">
+              <ul className="space-y-3 text-sm text-muted-foreground">
                 {resourceNavigation.map((resource) => (
                   <li key={resource.id}>
-                    <a href={resource.href} className="focus-ring rounded-sm transition-colors hover:text-white">{resource.label}</a>
+                    <a href={resource.href} className="focus-ring rounded-sm transition-colors hover:text-foreground">{resource.label}</a>
                   </li>
                 ))}
               </ul>
@@ -124,14 +124,13 @@ const Footer = memo(function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-          <p className="text-background/60 dark:text-white mb-4 md:mb-0">
+        <div className="mt-12 flex flex-col items-center justify-between border-t border-border pt-8 text-center md:flex-row md:text-left">
+          <p className="mb-4 text-sm text-muted-foreground md:mb-0">
             © 2025 Enov8 Technologies. All rights reserved.
           </p>
 
-          {/* Partner/Certification Links */}
-          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 text-sm text-background/60 dark:text-white">
-            <span>Trusted by 100+ businesses</span>
+          <div className="flex flex-col items-center gap-2 text-sm text-muted-foreground md:flex-row md:gap-6">
+            <span>Nigeria-based technology solutions</span>
             <span className="hidden md:inline">•</span>
             <span>ISO 27001 Compliant</span>
           </div>
