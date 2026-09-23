@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { industries } from "@/lib/content/company";
 
 export default function HomeHero() {
   return (
-    <section id="home" aria-labelledby="home-title" className="relative isolate flex min-h-[100svh] overflow-hidden bg-zinc-950 text-white">
+    <section id="home" aria-labelledby="home-title" className="relative isolate flex min-h-[100svh] flex-col justify-between overflow-hidden bg-zinc-950 text-white">
       <Image
-        src="/sections/hero/hero3.webp"
+        src="/sections/hero/hero4.webp"
         alt=""
         fill
         preload
@@ -15,10 +16,10 @@ export default function HomeHero() {
         className="object-cover"
         aria-hidden="true"
       />
-      <div aria-hidden="true" className="absolute inset-0 bg-black/65" />
+      <div aria-hidden="true" className="absolute inset-0 bg-black/85" />
 
-      <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[var(--container-content)] items-center justify-center px-6 pb-[clamp(18rem,28vw,26rem)] pt-28 md:px-12 md:pt-32 lg:px-16">
-        <div className="mx-auto max-w-6xl text-center">
+      <div className="relative z-10 mx-auto flex w-full max-w-[var(--container-content)] flex-1 items-center justify-center px-6 pb-12 pt-28 md:px-12 md:pb-16 md:pt-32 lg:min-h-[100svh] lg:px-16 lg:pb-[clamp(18rem,28vw,26rem)] lg:pt-32">
+        <div className="mx-auto max-w-6xl text-center min-[1426px]:pt-12">
           <h1 id="home-title" className="type-hero text-balance text-white">
             <span className="block">Turn complex technology into</span>
             <span className="block">dependable business systems.</span>
@@ -39,11 +40,29 @@ export default function HomeHero() {
         <p className="sr-only">The visual represents Enov8&apos;s connected approach across software, security, infrastructure, and practical operational support.</p>
       </div>
 
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[clamp(15rem,32vw,30rem)]">
-        <svg viewBox="0 0 1440 400" preserveAspectRatio="none" className="h-full w-full">
-          <path d="M0 400V320C320 32 1120 32 1440 320V400Z" fill="var(--brand)" />
+      {/* Circle Wave — only rendered on lg (1024px) upwards */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-[-2px] z-20 hidden h-[calc(clamp(15rem,32vw,30rem)+2px)] lg:block min-[1426px]:h-[calc(clamp(15rem,20vw,30rem)+2px)]">
+        <svg viewBox="0 0 1440 402" preserveAspectRatio="none" className="block h-full w-full">
+          <path d="M0 402V320C320 32 1120 32 1440 320V402Z" fill="var(--brand)" />
           <path d="M0 320C320 32 1120 32 1440 320" fill="none" stroke="#56a6ff" strokeWidth="4" />
         </svg>
+      </div>
+
+      {/* Industry Section — straight blue line on <lg, floats inside wave on lg+ */}
+      <div className="relative z-30 w-full border-t border-[#56a6ff]/30 bg-brand py-8 md:py-10 lg:absolute lg:inset-x-0 lg:bottom-0 lg:border-t-0 lg:bg-transparent lg:pb-8 lg:pt-0">
+        <div className="mx-auto grid w-full max-w-[var(--container-content)] gap-6 px-6 md:px-12 lg:px-16 min-[1426px]:grid-cols-[1fr_auto] min-[1426px]:items-center min-[1426px]:gap-8">
+          <div className="lg:max-[1425px]:max-w-2xl lg:max-[1425px]:mx-auto lg:max-[1425px]:text-center min-[1426px]:max-w-none">
+            <p className="type-label mb-2 !text-white">Built for complex work</p>
+            <h2 id="proof-title" className="type-h3 !text-white">One technology partner across the transformation lifecycle.</h2>
+          </div>
+          <div className="flex flex-wrap gap-2 lg:justify-center min-[1426px]:justify-end">
+            {industries.map((industry) => (
+              <span key={industry} className="rounded-full border border-white/30 px-3 py-1.5 text-sm text-white/85">
+                {industry}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
