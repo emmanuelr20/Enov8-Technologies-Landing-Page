@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -39,14 +40,12 @@ const deliverySteps = [
 
 const serviceById = Object.fromEntries(servicesList.map((service) => [service.id, service]));
 
-function SectionIntro({ eyebrow, title, titleId, tone = "default", children }) {
-  const isDark = tone === "dark";
-
+function SectionIntro({ eyebrow, title, titleId, eyebrowClassName = "text-brand", titleClassName = "", bodyClassName = "text-muted-foreground", children }) {
   return (
     <div className="max-w-3xl">
-      <p className={`type-label mb-4 ${isDark ? "text-blue-200" : "text-brand"}`}>{eyebrow}</p>
-      <h2 id={titleId} className={`type-h2 ${isDark ? "text-white" : ""}`}>{title}</h2>
-      {children ? <p className={`type-body-lg mt-5 ${isDark ? "!text-white/70" : "text-muted-foreground"}`}>{children}</p> : null}
+      <p className={`type-label mb-4 ${eyebrowClassName}`}>{eyebrow}</p>
+      <h2 id={titleId} className={`type-h2 ${titleClassName}`}>{title}</h2>
+      {children ? <p className={`type-body-lg mt-5 ${bodyClassName}`}>{children}</p> : null}
     </div>
   );
 }
@@ -54,43 +53,45 @@ function SectionIntro({ eyebrow, title, titleId, tone = "default", children }) {
 export default function HomeSections() {
   return (
     <>
-      <section aria-labelledby="proof-title" className="border-y border-border/70 bg-surface/90">
-        <div className="mx-auto grid w-full max-w-[var(--container-content)] gap-8 px-6 py-10 md:grid-cols-[1fr_auto] md:items-center md:px-12 lg:px-16">
+      <section aria-labelledby="proof-title" className="relative z-30 -mt-[clamp(8rem,20vw,18rem)] border-0 bg-brand lg:bg-transparent">
+        <div className="mx-auto grid w-full max-w-[var(--container-content)] gap-8 px-6 pb-12 pt-20 md:grid-cols-[1fr_auto] md:items-center md:px-12 md:pb-20 md:pt-30 lg:px-25">
           <div>
-            <p className="type-label mb-2 text-brand">Built for complex work</p>
-            <h2 id="proof-title" className="type-h3">One technology partner across the transformation lifecycle.</h2>
+            <p className="type-label mb-2 !text-white">Built for complex work</p>
+            <h2 id="proof-title" className="type-h3 !text-white">One technology partner across the transformation lifecycle.</h2>
           </div>
           <div className="flex flex-wrap gap-2 md:justify-end">
-            {industries.map((industry) => <span key={industry} className="rounded-full border border-border px-3 py-1.5 text-sm text-muted-foreground">{industry}</span>)}
+            {industries.map((industry) => <span key={industry} className="rounded-full border border-white/30 px-3 py-1.5 text-sm text-white/85">{industry}</span>)}
           </div>
         </div>
       </section>
 
-      <section id="about" aria-labelledby="about-title" className="flex min-h-[72svh] items-center bg-light-surface-card py-20 dark:bg-card lg:py-24">
-        <div className="mx-auto grid w-full max-w-(--container-content) gap-12 px-6 md:px-12 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:px-16">
+      <section id="about" aria-labelledby="about-title" className="relative z-40 -mt-2 flex items-center border-0 bg-brand py-16 text-white lg:py-30">
+        <div className="mx-auto grid w-full max-w-[var(--container-content)] gap-12 px-6 md:px-12 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:px-16">
           <OperatingModelDiagram />
           <div>
-            <SectionIntro titleId="about-title" eyebrow="The Enov8 Technologies approach" title="Strategy is only useful when it becomes operational.">
+            <SectionIntro eyebrowClassName="!text-white" titleClassName="!text-white" bodyClassName="!text-white/70" titleId="about-title" eyebrow="The Enov8 Technologies approach" title="Strategy is only useful when it becomes operational.">
               Enov8 Technologies helps organizations bridge the gap between legacy operations and digital-first growth by combining IT consulting with hands-on delivery.
             </SectionIntro>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {["Scalable strategy", "Expert execution", "Secure foundations", "Practical support"].map((item) => (
-                <div key={item} className="flex items-center gap-3 border-t border-border pt-4 text-sm font-medium"><Check className="h-4 w-4 text-brand" aria-hidden="true" />{item}</div>
+                <div key={item} className="flex items-center gap-3 border-t border-white/25 pt-4 text-sm font-medium text-white"><Check className="h-4 w-4 text-white" aria-hidden="true" />{item}</div>
               ))}
             </div>
-            <Link href="/about" className="focus-ring mt-9 inline-flex items-center gap-2 rounded-md text-sm font-semibold text-brand hover:text-brand-hover">Meet Enov8 <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+            <Link href="/about" className="focus-ring mt-9 inline-flex items-center gap-2 rounded-md text-sm font-semibold text-white hover:text-white/80">Meet Enov8 <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
           </div>
         </div>
       </section>
 
-      <section id="services" aria-labelledby="paths-title" className="border-y border-border/60 bg-surface/90 py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
+      <section id="services" aria-labelledby="paths-title" className="relative isolate overflow-hidden border-y border-border/60 bg-background py-16 lg:py-20">
+        <Image src="/sections/transform-background.png" alt="" fill sizes="100vw" className="object-cover" aria-hidden="true" />
+        <div aria-hidden="true" className="absolute inset-0 bg-black/3" />
+        <div className="relative z-10 mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
           <SectionIntro titleId="paths-title" eyebrow="Transformation paths" title="Start with the business challenge, then choose the right technology path.">
             A connected service portfolio gives your team room to solve the immediate problem without losing sight of the operating model around it.
           </SectionIntro>
           <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             {pathGroups.map((group) => (
-              <div key={group.label} className="group rounded-xl border border-border bg-background p-6 transition-colors hover:border-brand/50 hover:bg-accent">
+              <div key={group.label} className="group rounded-xl border border-border bg-background/90 p-6 transition-colors hover:border-brand/50 hover:bg-accent">
                 <span className="type-label text-brand">{group.label}</span>
                 <h3 className="type-h4 mt-8 min-h-14">{group.title}</h3>
                 <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
@@ -103,7 +104,7 @@ export default function HomeSections() {
         </div>
       </section>
 
-      <section aria-labelledby="capabilities-title" className="bg-light-surface-card py-20 dark:bg-card lg:py-24">
+      <section aria-labelledby="capabilities-title" className="bg-background py-16 lg:py-20">
         <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
           <SectionIntro titleId="capabilities-title" eyebrow="Capability ecosystem" title="Connected capabilities, designed to work together." />
           <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -118,16 +119,18 @@ export default function HomeSections() {
         </div>
       </section>
 
-      <section aria-labelledby="delivery-title" className="bg-zinc-950 py-20 text-white lg:py-24">
-        <div className="mx-auto grid w-full max-w-[var(--container-content)] gap-12 px-6 md:px-12 lg:grid-cols-[.75fr_1.25fr] lg:px-16">
-          <SectionIntro tone="dark" titleId="delivery-title" eyebrow="How we deliver" title="From strategic clarity to supported operations.">The work moves from understanding the business to implementing the right system and supporting it in practice.</SectionIntro>
+      <section aria-labelledby="delivery-title" className="relative isolate overflow-hidden bg-zinc-950 py-16 text-white lg:py-20">
+        <Image src="/sections/review.webp" alt="" fill sizes="100vw" className="object-cover" aria-hidden="true" />
+        <div aria-hidden="true" className="absolute inset-0 bg-zinc-950/80" />
+        <div className="relative z-10 mx-auto grid w-full max-w-[var(--container-content)] gap-12 px-6 md:px-12 lg:grid-cols-[.75fr_1.25fr] lg:px-16">
+          <SectionIntro eyebrowClassName="!text-white" titleClassName="!text-white" bodyClassName="!text-white/70" titleId="delivery-title" eyebrow="How we deliver" title="From strategic clarity to supported operations.">The work moves from understanding the business to implementing the right system and supporting it in practice.</SectionIntro>
           <ol aria-label="Enov8 delivery stages" className="grid gap-0 md:grid-cols-5">
             {deliverySteps.map(([title, description], index) => <li key={title} className="border-l border-white/15 py-5 pl-5 md:border-l-0 md:border-t md:pl-0 md:pt-5 md:pr-5"><span className="type-label text-blue-200">0{index + 1}</span><h3 className="type-h4 mt-6 text-white">{title}</h3><p className="mt-3 text-sm text-white/60">{description}</p></li>)}
           </ol>
         </div>
       </section>
 
-      <section id="partners" aria-labelledby="ecosystem-title" className="border-y border-border/60 bg-surface/90 py-20 lg:py-24">
+      <section id="partners" aria-labelledby="ecosystem-title" className="border-y border-border/60 bg-surface/90 py-16 lg:py-20">
         <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between"><SectionIntro titleId="ecosystem-title" eyebrow="Technology ecosystem" title="A delivery network built around the work." /><p className="max-w-md text-sm text-muted-foreground">Selected technology marks currently represented in Enov8's working ecosystem. Partnership and certification claims should be confirmed directly before publication.</p></div>
           <PartnerScroller />

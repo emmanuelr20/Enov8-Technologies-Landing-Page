@@ -12,7 +12,6 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ThemeToggle from "@/components/ThemeToggle";
 import ConsultationModal from "@/components/ConsultationModal";
 import { servicesList } from "@/lib/servicesData";
 
@@ -90,7 +89,7 @@ const Navbar = memo(function Navbar() {
       <header
         className={`${isHome ? "absolute top-0" : "sticky top-0"} z-100 w-full ${
           isHome
-            ? "border-b border-white/15 bg-white py-4 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-zinc-950/80"
+            ? "border-b border-black/10 bg-white py-4 shadow-sm backdrop-blur-md"
             : isSticky
             ? "border-b border-border bg-background/95 py-3 shadow-sm backdrop-blur-md"
             : "border-b border-border bg-background py-4"
@@ -118,23 +117,23 @@ const Navbar = memo(function Navbar() {
                   <g transform="translate(0.000000,301.000000) scale(0.100000,-0.100000)">
                     <path
                       d="M682 2446 c2 -8 84 -136 183 -285 l180 -271 639 0 c547 0 637 2 633 14 -3 8 -87 136 -186 285 l-181 271 -636 0 c-537 0 -635 -2 -632 -14z"
-                      className="fill-light-primary dark:fill-white transition-colors duration-200"
+                      className="fill-light-primary transition-colors duration-200"
                     />
                     <path
                       d="M462 938 l3 -693 929 -3 c800 -2 927 0 923 12 -3 8 -87 136 -186 285 l-181 271 -460 0 -460 0 0 130 0 130 375 0 375 0 -188 280 -187 280 -473 0 -472 0 2 -692z"
-                      className="fill-light-primary dark:fill-white transition-colors duration-200"
+                      className="fill-light-primary transition-colors duration-200"
                     />
                   </g>
                 </svg>
               </div>
-              <span className="capitalize text-sm md:text-base text-[#23252d] dark:text-white transition-colors duration-200 font-bold mt-2 tracking-tight">
+              <span className="capitalize text-sm md:text-base text-[#23252d] transition-colors duration-200 font-bold mt-2 tracking-tight">
                 enov8 technologies
               </span>
             </Link>
           </div>
 
           {/* Desktop Nav (Center-Right) */}
-          <ul className="hidden lg:flex items-center gap-8 text-[12px] uppercase dark:text-white relative mx-auto">
+          <ul className="hidden lg:flex items-center gap-8 text-[12px] uppercase text-[#23252d] relative mx-auto">
             <li className="relative z-50 group/menu">
               <Link
                 href="/services"
@@ -213,7 +212,6 @@ const Navbar = memo(function Navbar() {
             suppressHydrationWarning
           >
             <div className="hidden lg:flex items-center gap-4">
-              <ThemeToggle />
               <ConsultationModal
                 trigger={
                   <Button
@@ -402,13 +400,6 @@ const Navbar = memo(function Navbar() {
                   >
                     <Facebook size={20} />
                   </a>
-                </div>
-                <div 
-                  className="lg:hidden"
-                  onClick={() => setTimeout(() => setIsOpen(false), 100)}
-                  suppressHydrationWarning
-                >
-                  <ThemeToggle />
                 </div>
               </div>
             </div>

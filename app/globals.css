@@ -1,28 +1,24 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+/* Keep legacy dark: utilities inert while the site is light-theme only. */
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
+  color-scheme: light;
   --font-dm-sans: "DM Sans";
   --light-primary: #0070f3;
-  --dark-primary: #1e90ff;
   --light-accent: #00c8a0;
-  --dark-accent: #10b981;
   --light-hover: #0057c2;
-  --dark-hover: #60a5fa;
   --light-surface-card: #f9fafb;
-  --dark-surface-card: #161b22;
   --light-secondary-surface: #e5e7eb;
-  --dark-secondary-surface: #1f2937;
   --primary-text: #111827;
-  --primary-text-dark: #f9fafb;
   --brand: var(--light-primary);
   --brand-hover: var(--light-hover);
   --on-brand: #ffffff;
   --success: oklch(0.62 0.17 155);
   --warning: oklch(0.72 0.16 75);
-  --font-size-hero: clamp(2.75rem, 7vw, 5.75rem);
+  --font-size-hero: clamp(2.75rem, 5.2vw, 5rem);
   --font-size-display: clamp(2.5rem, 5vw, 4.5rem);
   --font-size-h1: clamp(2.25rem, 4vw, 3.75rem);
   --font-size-h2: clamp(1.875rem, 3vw, 2.75rem);
@@ -40,7 +36,7 @@
   --text-muted: var(--muted-foreground);
   --focus: var(--ring);
   --space-section: clamp(4rem, 8vw, 8rem);
-  --container-content: 80rem;
+  --container-content: 85rem;
   --motion-fast: 150ms;
   --motion-standard: 250ms;
   --motion-slow: 500ms;
@@ -48,6 +44,8 @@
   --hero-tint: oklch(0.975 0.018 255);
   --hero-band: oklch(0.975 0.035 82);
   --hero-band-line: oklch(0.82 0.13 82);
+  --hero-wave: #0070f3;
+  --hero-wave-line: #56a6ff;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -96,6 +94,8 @@
   --color-hero-tint: var(--hero-tint);
   --color-hero-band: var(--hero-band);
   --color-hero-band-line: var(--hero-band-line);
+  --color-hero-wave: var(--hero-wave);
+  --color-hero-wave-line: var(--hero-wave-line);
   --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui;
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -135,17 +135,11 @@
 
 @theme {
   --color-bg-light: 	oklch(100% 0 0);
-  --color-bg-dark: 	oklch(19.7% 0.019 270.3);
   --color-light-primary: oklch(63.4% 0.267 259.5);
-  --color-dark-primary: var(--dark-primary);
   --color-light-accent: var(--light-accent);
-  --color-dark-accent: var(--dark-accent);
   --color-light-hover: var(--light-hover);
-  --color-dark-hover: var(--dark-hover);
   --color-light-surface-card: var(--light-surface-card);
-  --color-dark-surface-card: var(--dark-surface-card);
   --color-light-secondary-surface: var(--light-secondary-surface);
-  --color-dark-secondary-surface: var(--dark-secondary-surface);
   --index-100: 100;
   --index-200: 200;
 }
@@ -175,48 +169,6 @@ p {
   font-weight: 400;
   color: var(--muted-foreground);
   max-width: 70ch;
-}
-
-.dark p {
-  color: var(--muted-foreground);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-  --hero-tint: oklch(0.19 0.025 255);
-  --hero-band: oklch(0.235 0.025 82);
-  --hero-band-line: oklch(0.72 0.12 82);
-
 }
 
 @layer base {

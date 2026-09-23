@@ -15,8 +15,8 @@ const Footer = memo(function Footer() {
   return (
     <footer className="z-50 border-t border-border bg-surface py-20 text-foreground md:py-24">
       <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-          <div className="lg:col-span-1">
+        <div className="grid grid-cols-1 gap-12 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,1.65fr)] xl:gap-24">
+          <div className="max-w-md">
             <h3 className="mb-4">Enov8 Technologies</h3>
             <p className="mb-6 text-muted-foreground">
               Transforming businesses through innovative software solutions,
@@ -24,40 +24,17 @@ const Footer = memo(function Footer() {
             </p>
 
             {/* Social Media Links */}
-            <div className="mb-6">
+            <div className="mt-8">
               <h5 className="mb-3">Follow Us</h5>
               <div className="flex space-x-4">
-                <a
-                  href="https://www.linkedin.com/company/enov8-technologies/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="focus-ring rounded-sm text-muted-foreground transition-colors hover:text-brand"
-                  aria-label="Follow us on LinkedIn"
-                >
-                  <FaLinkedin size={24} />
-                </a>
-                <a
-                  href="https://www.instagram.com/enov8_technologies?igsh=YWZtNHNia2syanE1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="focus-ring rounded-sm text-muted-foreground transition-colors hover:text-brand"
-                  aria-label="View our Instagram"
-                >
-                  <FaInstagram size={24} />
-                </a>
-                <a
-                  href="https://www.facebook.com/Enov8Technologies"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="focus-ring rounded-sm text-muted-foreground transition-colors hover:text-brand"
-                  aria-label="Follow us on Facebook"
-                >
-                  <FaFacebook size={24} />
-                </a>
+                <a href="https://www.linkedin.com/company/enov8-technologies/" target="_blank" rel="noopener noreferrer" className="focus-ring rounded-sm text-muted-foreground transition-colors hover:text-brand" aria-label="Follow us on LinkedIn"><FaLinkedin size={24} /></a>
+                <a href="https://www.instagram.com/enov8_technologies?igsh=YWZtNHNia2syanE1" target="_blank" rel="noopener noreferrer" className="focus-ring rounded-sm text-muted-foreground transition-colors hover:text-brand" aria-label="View our Instagram"><FaInstagram size={24} /></a>
+                <a href="https://www.facebook.com/Enov8Technologies" target="_blank" rel="noopener noreferrer" className="focus-ring rounded-sm text-muted-foreground transition-colors hover:text-brand" aria-label="Follow us on Facebook"><FaFacebook size={24} /></a>
               </div>
             </div>
           </div>
 
+          <div className="grid gap-10 sm:grid-cols-2 xl:grid-cols-3">
           <div>
             <h5 className="mb-4">Services</h5>
             <ul className="space-y-3 text-sm text-muted-foreground">
@@ -109,7 +86,6 @@ const Footer = memo(function Footer() {
               </div>
             </div>
 
-            {/* Resource Links */}
             <div className="mt-8">
               <h5 className="mb-3">Resources</h5>
               <ul className="space-y-3 text-sm text-muted-foreground">
@@ -119,8 +95,9 @@ const Footer = memo(function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
           </div>
+          </div>
+        </div>
         </div>
 
         {/* Bottom Section */}
