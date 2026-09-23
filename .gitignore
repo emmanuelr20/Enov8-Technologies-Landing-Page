@@ -16,9 +16,9 @@
 # next.js
 /.next/
 /out/
-/.agents/
-/.codex/
 /.impeccable/
+/.playwright-mcp/
+/.codex/
 
 
 # production

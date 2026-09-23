@@ -231,14 +231,6 @@ export default function RootLayout({ children }) {
       data-scroll-behavior="smooth"
       className={`${dmSans.variable} overflow-x-hidden max-w-full`}
     >
-      <head>
-        <link
-          rel="preload"
-          href="/videos/hero1_compressed.mp4"
-          as="video"
-          type="video/mp4"
-        />
-      </head>
       <body
         className="min-h-svh text-foreground bg-background overflow-x-hidden antialiased"
         suppressHydrationWarning

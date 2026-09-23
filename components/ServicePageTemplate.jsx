@@ -1,26 +1,28 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import Script from "next/script";
-import Footer from "@/app/layouts/Footer";
 import { ArrowRight, ChevronRight, Phone } from "lucide-react";
-import { servicesData, servicesList } from "@/lib/servicesData";
-import ConsultationModal from "@/components/ConsultationModal";
 import {
-  LuMonitorPlay,
-  LuBoxes,
-  LuUserPlus,
-  LuShield,
-  LuLayoutGrid,
-  LuHandshake,
-  LuChartBar,
   LuBrainCircuit,
-  LuNetwork,
-  LuLayers,
+  LuBoxes,
   LuFileText,
   LuHardDrive,
+  LuHandshake,
+  LuLayers,
+  LuLayoutGrid,
+  LuMonitorPlay,
+  LuNetwork,
+  LuShield,
+  LuUserPlus,
 } from "react-icons/lu";
+import Footer from "@/app/layouts/Footer";
+import ConsultationModal from "@/components/ConsultationModal";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Container } from "@/components/ui/container";
+import { servicesData, servicesList } from "@/lib/servicesData";
 
 const iconMap = {
   "digital-signage": LuMonitorPlay,
@@ -29,7 +31,7 @@ const iconMap = {
   security: LuShield,
   "software-dev": LuLayoutGrid,
   consulting: LuHandshake,
-  "erp-deployment": LuChartBar,
+  "erp-deployment": LuLayoutGrid,
   "ai-deployment": LuBrainCircuit,
   networking: LuNetwork,
   "zoho-partner": LuLayers,
@@ -37,17 +39,15 @@ const iconMap = {
   "hardware-procurement": LuHardDrive,
 };
 
-/**
- * ServicePageTemplate — shared shell (hero, sidebar, footer).
- * Pass the unique page content as `children`.
- */
-export default function ServicePageTemplate({
-  serviceId,
-  partnerLogo,
-  children,
-}) {
+export default function ServicePageTemplate({ serviceId, partnerLogo }) {
   const service = servicesData[serviceId];
   const Icon = iconMap[serviceId];
+  const detailImages = (service.detailImages ?? []).filter(
+    (image) => image !== service.heroImage,
+  );
+  const relatedServices = servicesList
+    .filter((item) => item.id !== serviceId)
+    .slice(0, 3);
   const serviceUrl = `https://enov8technologies.com/services/${serviceId}`;
   const serviceJsonLd = {
     "@context": "https://schema.org",
@@ -90,146 +90,177 @@ export default function ServicePageTemplate({
   };
 
   return (
-    <main className="min-h-screen bg-white dark:bg-zinc-950 transition-colors duration-300">
-      <Script id={`service-jsonld-${serviceId}`} type="application/ld+json">
-        {JSON.stringify(serviceJsonLd)}
-      </Script>
-      <Script
-        id={`service-breadcrumb-jsonld-${serviceId}`}
-        type="application/ld+json"
-      >
-        {JSON.stringify(breadcrumbJsonLd)}
-      </Script>
-      {/* ── HERO BANNER ─────────────────────────────────────────────── */}
-      <section className="relative h-[350px] md:h-[430px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
+    <>
+      <main className="min-h-screen bg-background">
+        <Script id={`service-jsonld-${serviceId}`} type="application/ld+json">
+          {JSON.stringify(serviceJsonLd)}
+        </Script>
+        <Script
+          id={`service-breadcrumb-jsonld-${serviceId}`}
+          type="application/ld+json"
+        >
+          {JSON.stringify(breadcrumbJsonLd)}
+        </Script>
+
+        <section className="relative isolate overflow-hidden bg-foreground text-background">
           <Image
             src={service.heroImage}
-            alt={service.title}
+            alt=""
             fill
-            priority
-            className="object-cover"
+            preload
             sizes="100vw"
+            className="object-cover"
+            aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-[#1A1A37]/80" />
-        </div>
-
-        <div className="relative z-10 container mx-auto px-6 text-center flex flex-col items-center">
-          {partnerLogo && (
-            <div className="mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-              <div className="p-4 bg-white shadow-xl relative h-16 md:h-20 w-44 md:w-56 flex items-center justify-center">
-                <div className="relative w-full h-full">
-                  <Image
-                    src={partnerLogo}
-                    alt="Partner Logo"
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 768px) 176px, 224px"
-                  />
-                </div>
-              </div>
-            </div>
-          )}
-          <h1 className="text-white mb-6 tracking-tight">
-            {service.title}
-          </h1>
-          {/* Breadcrumb */}
-          <nav
-            aria-label="breadcrumb"
-            className="inline-flex items-center gap-2 text-[#1A1A37] text-sm md:text-base font-medium bg-white px-6 py-2.5"
-          >
-            <Link
-              href="/"
-              className="hover:text-light-primary transition-colors"
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-foreground/75"
+          />
+          <Container className="relative z-10 flex min-h-[28rem] flex-col justify-center py-24 md:min-h-[34rem] md:py-32">
+            <nav
+              aria-label="Breadcrumb"
+              className="mb-8 flex flex-wrap items-center gap-2 text-sm text-background/75"
             >
-              Home
-            </Link>
-            <ChevronRight size={16} className="text-light-primary" />
-            <Link
-              href="/services"
-              className="hover:text-light-primary transition-colors"
-            >
-              Services
-            </Link>
-            <ChevronRight size={16} className="text-light-primary" />
-            <span className="">{service.title}</span>
-          </nav>
-        </div>
-      </section>
-
-      {/* ── MAIN LAYOUT ─────────────────────────────────────────────── */}
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-14">
-          {/* ── SIDEBAR ──────────────────────────────────────────────── */}
-          <aside className="space-y-10">
-            {/* Services Nav — TBO style */}
-            <div className="bg-light-primary shadow-2xl overflow-hidden">
-              <div className="my-6 mx-6 py-4 px-5 text-center bg-white text-light-primary">
-                <h5 className="tracking-wide font-semibold uppercase dark:text-light-primary">
-                  Our Services
-                </h5>
+              <Link
+                href="/"
+                className="focus-ring rounded-sm hover:text-background"
+              >
+                Home
+              </Link>
+              <ChevronRight className="h-4 w-4 text-brand" aria-hidden="true" />
+              <Link
+                href="/services"
+                className="focus-ring rounded-sm hover:text-background"
+              >
+                Services
+              </Link>
+              <ChevronRight className="h-4 w-4 text-brand" aria-hidden="true" />
+              <span className="text-background">{service.title}</span>
+            </nav>
+            {partnerLogo ? (
+              <div className="relative mb-8 h-16 w-44 rounded-md bg-white p-3 md:h-20 md:w-56">
+                <Image
+                  src={partnerLogo}
+                  alt="Partner logo"
+                  fill
+                  className="object-contain"
+                  sizes="224px"
+                />
               </div>
+            ) : null}
+            <p className="type-label mb-4 !text-white">Service capability</p>
+            <h1 className="type-display max-w-4xl text-background">
+              {service.title}
+            </h1>
+            <p className="type-body-lg mt-6 max-w-2xl !text-white/85">
+              {service.description}
+            </p>
+          </Container>
+        </section>
 
-              <ul className="pb-4">
-                {servicesList.map((item, index) => (
-                  <li key={item.id}>
+        <section className="border-b border-border bg-background py-16 md:py-24">
+          <Container className="grid gap-12 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-16">
+            <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="type-h4">Our services</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-1">
+                  {servicesList.map((item) => (
                     <Link
+                      key={item.id}
                       href={`/services/${item.id}`}
-                      className={`flex items-center justify-between px-6 py-4 text-sm transition-all duration-200 ${
-                        serviceId === item.id
-                          ? "text-white"
-                          : "text-white hover:text-[#1A1A37]"
-                      }`}
+                      className={`focus-ring flex rounded-md px-3 py-2.5 text-sm font-medium transition-colors ${item.id === serviceId ? "bg-brand text-on-brand" : "text-muted-foreground hover:bg-accent hover:text-foreground"}`}
                     >
-                      <span className="leading-snug text-base font-medium">
-                        {item.title}
-                      </span>
+                      {item.title}
                     </Link>
-                    {index < servicesList.length - 1 && (
-                      <div className="mx-6 border-b border-white" />
-                    )}
-                  </li>
+                  ))}
+                </CardContent>
+              </Card>
+              <Card className="border-brand/20 bg-brand text-on-brand">
+                <CardContent className="p-6">
+                  {Icon ? (
+                    <Icon className="mb-6 h-8 w-8" aria-hidden="true" />
+                  ) : null}
+                  <h2 className="type-h4 !text-white">
+                    Ready to make this practical?
+                  </h2>
+                  <p className="mt-3 text-sm !text-white/85">
+                    Start a conversation about the right next step for your
+                    organization.
+                  </p>
+                  <div className="mt-6 flex items-center gap-2 text-sm font-medium">
+                    <Phone className="h-4 w-4" aria-hidden="true" /> +234 913
+                    363 2465
+                  </div>
+                  <ConsultationModal
+                    trigger={
+                      <Button
+                        variant="secondary"
+                        size="lg"
+                        className="mt-6 w-full bg-white text-foreground hover:bg-white/90"
+                      >
+                        Start a consultation <ArrowRight aria-hidden="true" />
+                      </Button>
+                    }
+                  />
+                </CardContent>
+              </Card>
+            </aside>
+
+            <div className="min-w-0">
+              <div className="grid gap-5 sm:grid-cols-2">
+                {detailImages.map((image, index) => (
+                  <figure
+                    key={image}
+                    className={`relative overflow-hidden rounded-xl border border-border bg-surface ${index === 0 ? "sm:col-span-2 aspect-[16/8]" : "aspect-[4/3]"}`}
+                  >
+                    <Image
+                      src={image}
+                      alt={`${service.title} supporting visual ${index + 1}`}
+                      fill
+                      sizes="(max-width: 1023px) calc(100vw - 6rem), (max-width: 1439px) 58vw, 60vw"
+                      className="object-cover"
+                    />
+                  </figure>
                 ))}
-              </ul>
-            </div>
-
-            {/* CTA Card */}
-            <div className="relative overflow-hidden bg-[#1A1A37] p-8 shadow-2xl text-white">
-              {Icon && (
-                <div className="absolute top-0 right-0 p-4 opacity-10">
-                  <Icon size={110} />
-                </div>
-              )}
-              <h3 className="mb-3 leading-tight">
-                Let's help you on your digital transformation journey
-              </h3>
-              <p className="text-white/90! mb-8">
-                We Reinvent, You Thrive. Let's build something great together.
-              </p>
-              <div className="flex items-center gap-3 mb-6">
-                <Phone size={18} className="text-light-primary shrink-0" />
-                <p className="text-light-primary!">
-                  +234 913 363 2465
-                </p>
               </div>
-              <ConsultationModal
-                trigger={
-                  <button className="inline-flex items-center gap-2 bg-light-primary hover:bg-light-primary/90 text-white text-sm px-6 py-3 
-                  transition-all w-full justify-center cursor-pointer font-medium">
-                    Start Consultation
-                    <ArrowRight size={16} />
-                  </button>
-                }
-              />
+              <div className="mt-12 grid gap-x-10 gap-y-10 md:grid-cols-2">
+                {service.content.map((item) => (
+                  <article
+                    key={item.heading}
+                    className="border-t border-border pt-6"
+                  >
+                    <h2 className="type-h4">{item.heading}</h2>
+                    <p className="mt-3 text-muted-foreground">{item.text}</p>
+                  </article>
+                ))}
+              </div>
+              <div className="mt-16 border-t border-border pt-8">
+                <p className="type-label mb-4 text-brand">
+                  Explore related capabilities
+                </p>
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {relatedServices.map((item) => (
+                    <Link
+                      key={item.id}
+                      href={`/services/${item.id}`}
+                      className="focus-ring rounded-lg border border-border p-4 transition-colors hover:border-brand/50 hover:bg-accent"
+                    >
+                      <span className="font-medium">{item.title}</span>
+                      <ArrowRight
+                        className="mt-4 h-4 w-4 text-brand"
+                        aria-hidden="true"
+                      />
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
-          </aside>
-
-          {/* ── PAGE-SPECIFIC CONTENT (passed via children) ──────────── */}
-          <div className="space-y-14">{children}</div>
-        </div>
-      </section>
-
+          </Container>
+        </section>
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }
