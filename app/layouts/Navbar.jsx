@@ -112,7 +112,7 @@ const Navbar = memo(function Navbar() {
           </Link>
 
           <div
-            className={`absolute left-1/2 z-50 -translate-x-1/2 overflow-hidden rounded-[28px] border bg-background p-2 shadow-2xl transition-[width,height,box-shadow] duration-500 ease-out ${isOpen ? "top-1.5 h-[428.5px] w-74 border-border" : "top-3.5 h-13 w-20 border-transparent shadow-none sm:w-32"}`}
+            className={`absolute left-1/2 z-50 -translate-x-1/2 overflow-hidden rounded-[28px] border bg-background p-2 shadow-2xl transition-[width,height,box-shadow] duration-500 ease-out ${isOpen ? "top-1.5 h-[428.5px] w-74 border-border" : "top-3.5 h-13 w-20 border-transparent shadow-none sm:w-32 lg:top-2 lg:h-16 lg:w-36"}`}
           >
             <button
               ref={menuButtonRef}
@@ -121,9 +121,9 @@ const Navbar = memo(function Navbar() {
               aria-expanded={isOpen}
               aria-controls="site-navigation-menu"
               onClick={() => setIsOpen((open) => !open)}
-              className={`focus-ring flex items-center justify-center gap-3 rounded-full border border-border bg-background text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-80 ${isOpen ? "mx-auto h-8 w-24" : "mx-auto h-7 w-10 sm:h-8 sm:w-24"}`}
+              className={`focus-ring flex items-center justify-center gap-3 rounded-full border border-border bg-background text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-80 ${isOpen ? "mx-auto h-12 w-full" : "mx-auto h-7 w-10 sm:h-8 sm:w-24 lg:h-12 lg:w-32"}`}
             >
-              {isOpen ? <X className="size-4" aria-hidden="true" /> : <Menu className="size-4" aria-hidden="true" />}
+              {isOpen ? <X className="size-5 lg:size-6" aria-hidden="true" /> : <Menu className="size-5 lg:size-6" aria-hidden="true" />}
               <span className="hidden lg:inline">{isOpen ? "Close" : "Menu"}</span>
             </button>
 
