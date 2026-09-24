@@ -25,7 +25,7 @@ const socialLinks = [
 function BrandMark({ compact = false, rotating = false }) {
   return (
     <span className={`relative flex items-center ${compact ? "gap-3" : "w-full justify-start"}`}>
-      <span className={`relative z-10 flex h-[52px] w-[52px] shrink-0 items-center justify-center transition-transform duration-500 lg:group-hover:rotate-[360deg] ${rotating ? "rotate-[360deg]" : ""}`} aria-hidden="true">
+      <span className={`relative z-10 flex h-13 w-13 shrink-0 items-center justify-center transition-transform duration-500 lg:group-hover:rotate-[360deg] ${rotating ? "rotate-[360deg]" : ""}`} aria-hidden="true">
         <span className="relative size-8 shrink-0">
           <Image src="/brand/logo.svg" alt="" fill sizes="32px" className="object-contain" />
         </span>
@@ -100,20 +100,23 @@ const Navbar = memo(function Navbar() {
       >
         <nav
           aria-label="Primary navigation"
-          className="relative mx-auto flex h-20 w-full items-center justify-between max-w-[var(--container-content)] px-5 sm:px-10 lg:px-10"
+          className="relative mx-auto grid h-20 w-full grid-cols-[1fr_auto_1fr] items-center max-w-[var(--container-content)] lg:px-10"
         >
           <Link
             href="/"
             aria-label="Enov8 Technologies home"
             onClick={handleLogoClick}
-            className="focus-ring group inline-flex h-13 w-13 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border bg-background transition-[width] duration-500 lg:hover:w-55"
+            className="focus-ring group inline-flex h-13 w-13 shrink-0 items-center justify-self-center justify-center overflow-hidden rounded-full border border-border bg-background transition-[width] duration-500 lg:justify-self-start lg:hover:w-55"
           >
             <BrandMark rotating={isLogoRotating} />
           </Link>
 
           <div
-            className={`absolute left-1/2 z-50 -translate-x-1/2 overflow-hidden rounded-[28px] border bg-background p-2 shadow-2xl transition-[width,height,box-shadow] duration-500 ease-out ${isOpen ? "top-1.5 h-[428.5px] w-74 border-border" : "top-3.5 h-13 w-20 border-transparent shadow-none sm:w-32 lg:top-2 lg:h-16 lg:w-36"}`}
+            className="relative col-start-2 h-14 w-18 justify-self-center sm:w-32 lg:h-16 lg:w-36"
           >
+            <div
+              className={`absolute left-1/2 top-0 z-50 -translate-x-1/2 rounded-[28px] border bg-background p-1 lg:p-2 shadow-2xl transition-[width,height,box-shadow] duration-500 ease-out ${isOpen ? "top-1.5 h-[428.5px] w-74 border-border" : "h-14 w-18 border-transparent shadow-none sm:w-32 lg:h-16 lg:w-36"}`}
+            >
             <button
               ref={menuButtonRef}
               type="button"
@@ -121,9 +124,9 @@ const Navbar = memo(function Navbar() {
               aria-expanded={isOpen}
               aria-controls="site-navigation-menu"
               onClick={() => setIsOpen((open) => !open)}
-              className={`focus-ring flex items-center justify-center gap-3 rounded-full border border-border bg-background text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-80 ${isOpen ? "mx-auto h-12 w-full" : "mx-auto h-7 w-10 sm:h-8 sm:w-24 lg:h-12 lg:w-32"}`}
+              className={`focus-ring flex items-center justify-center gap-3 rounded-full border border-border bg-background text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-80 ${isOpen ? "mx-auto h-12 w-full" : "mx-auto h-12 w-14 sm:w-28 lg:h-12 lg:w-32"}`}
             >
-              {isOpen ? <X className="size-5 lg:size-6" aria-hidden="true" /> : <Menu className="size-5 lg:size-6" aria-hidden="true" />}
+              {isOpen ? <X className="size-[22px] sm:size-6" aria-hidden="true" /> : <Menu className="size-[22px] sm:size-6" aria-hidden="true" />}
               <span className="hidden lg:inline">{isOpen ? "Close" : "Menu"}</span>
             </button>
 
@@ -177,9 +180,10 @@ const Navbar = memo(function Navbar() {
             </div>
           </div>
 
+          </div>
           <ConsultationModal
             trigger={
-              <Button className="h-13 rounded-full bg-brand px-5 text-xs font-semibold text-on-brand hover:bg-brand-hover sm:px-5 sm:text-sm">
+              <Button className="h-12 col-start-3 justify-self-center rounded-full bg-brand px-3 text-[11px] font-semibold text-on-brand hover:bg-brand-hover sm:h-13 sm:px-5 sm:text-sm lg:justify-self-end">
                 Start a Project
               </Button>
             }
