@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Award, Globe, Handshake, Lightbulb } from "lucide-react";
 import Footer from "@/app/layouts/Footer";
+import TeamSection from "@/components/about/TeamSection";
 import { Card, CardContent } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 
@@ -72,6 +73,7 @@ export default function AboutPage() {
             </div>
           </Container>
         </section>
+        <TeamSection />
       </main>
       <Footer />
     </>

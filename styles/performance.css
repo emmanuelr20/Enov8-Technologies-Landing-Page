@@ -2,7 +2,6 @@
 
 /* Enable hardware acceleration for animations */
 .animate-pulse,
-.transition-all,
 .transition-colors,
 .transition-transform,
 .transition-opacity {
@@ -12,18 +11,11 @@
 /* Optimize scroll performance */
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
-/* Reduce motion for users who prefer it */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+html::-webkit-scrollbar {
+  display: none;
 }
 
 /* Optimize font loading */
@@ -46,31 +38,6 @@ img {
 .section-large {
   content-visibility: auto;
   contain-intrinsic-size: 0 500px;
-}
-
-/* Optimize animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 30px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-.fade-in-up {
-  animation: fadeInUp 0.4s ease-out forwards;
-}
-
-/* Optimize hover states */
-.hover-optimize {
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-}
-
-.hover-optimize:hover {
-  transform: translateY(-2px);
 }
 
 /* Optimize scrollbar */

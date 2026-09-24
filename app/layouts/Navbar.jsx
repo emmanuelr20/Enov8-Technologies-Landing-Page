@@ -22,15 +22,15 @@ const socialLinks = [
   { label: "Follow us on Facebook", href: company.social.facebook, icon: Facebook },
 ];
 
-function BrandMark({ compact = false, rotating = false }) {
+function BrandMark() {
   return (
-    <span className={`relative flex items-center ${compact ? "gap-3" : "w-full justify-start"}`}>
-      <span className={`relative z-10 flex h-13 w-13 shrink-0 items-center justify-center transition-transform duration-500 lg:group-hover:rotate-[360deg] ${rotating ? "rotate-[360deg]" : ""}`} aria-hidden="true">
+    <span className="relative flex w-full items-center justify-start">
+      <span className="relative z-10 flex h-13 w-13 shrink-0 items-center justify-center" aria-hidden="true">
         <span className="relative size-8 shrink-0">
           <Image src="/brand/logo.svg" alt="" fill sizes="32px" className="object-contain" />
         </span>
       </span>
-      <span className={`pointer-events-none absolute left-13 top-1/2 -translate-y-1/2 whitespace-nowrap text-sm font-bold tracking-tight text-foreground transition-[opacity,transform] duration-500 md:text-base ${compact ? "opacity-100" : "opacity-0 lg:group-hover:translate-x-0 lg:group-hover:opacity-100"}`}>
+      <span className="hidden whitespace-nowrap text-sm font-bold tracking-tight text-foreground md:inline md:text-base">
         Enov8 Technologies
       </span>
     </span>
@@ -42,9 +42,6 @@ const Navbar = memo(function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const closeButtonRef = useRef(null);
   const menuButtonRef = useRef(null);
-  const logoRotationTimeoutRef = useRef(null);
-  const [isLogoRotating, setIsLogoRotating] = useState(false);
-  const isHome = pathname === "/";
 
   useEffect(() => {
     if (!isOpen) {
@@ -73,42 +70,27 @@ const Navbar = memo(function Navbar() {
     setIsOpen(false);
   }, [pathname]);
 
-  useEffect(() => () => clearTimeout(logoRotationTimeoutRef.current), []);
-
   const handleAnchorClick = (event, href) => {
     if (!href.startsWith("/#") || pathname !== "/") return;
     event.preventDefault();
     document.querySelector(href.slice(1))?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleLogoClick = (event) => {
-    if (window.matchMedia("(max-width: 1023px)").matches) {
-      event.preventDefault();
-      setIsLogoRotating(false);
-      requestAnimationFrame(() => setIsLogoRotating(true));
-      clearTimeout(logoRotationTimeoutRef.current);
-      logoRotationTimeoutRef.current = setTimeout(() => setIsLogoRotating(false), 500);
-    }
-  };
-
   return (
     <>
       <header
-        className={`z-50 w-full border-b border-border/70 bg-background backdrop-blur-md ${
-          isHome ? "absolute left-0 top-0" : "sticky top-0"
-        }`}
+        className="fixed inset-x-0 top-0 z-50 w-full border-b border-border/70 bg-background backdrop-blur-md"
       >
         <nav
           aria-label="Primary navigation"
-          className="relative mx-auto grid h-20 w-full grid-cols-[1fr_auto] items-center max-w-[var(--container-content)] px-6 sm:px-10 md:grid-cols-[1fr_auto_1fr] md:px-10"
+          className="relative mx-auto grid h-20 w-full grid-cols-[1fr_auto] items-center max-w-[var(--container-content)] px-6 sm:px-10 md:grid-cols-3 md:px-10"
         >
           <Link
             href="/"
             aria-label="Enov8 Technologies home"
-            onClick={handleLogoClick}
-            className="focus-ring group inline-flex h-13 w-13 shrink-0 items-center justify-self-start justify-center overflow-hidden rounded-full border border-border bg-background transition-[width] duration-500 lg:justify-self-start lg:hover:w-55"
+            className="focus-ring inline-flex h-13 w-13 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border bg-background md:w-55 md:justify-start md:px-2"
           >
-            <BrandMark rotating={isLogoRotating} />
+            <BrandMark />
           </Link>
 
           <div className="col-start-2 flex items-center justify-end gap-3 md:contents">
@@ -117,7 +99,7 @@ const Navbar = memo(function Navbar() {
             className="relative h-14 w-18 shrink-0 justify-self-center sm:w-32 md:col-start-2 md:h-16 md:w-36"
           >
             <div
-              className={`${isOpen ? "absolute left-1/2 top-1.5" : "absolute left-1/2 top-0"} z-50 -translate-x-1/2 rounded-[28px] border bg-background p-1 lg:p-2 shadow-2xl transition-[width,height,box-shadow] duration-500 ease-out ${isOpen ? "h-[428.5px] w-74 border-border" : "h-14 w-18 border-transparent shadow-none sm:w-32 md:h-16 md:w-36"}`}
+              className={`${isOpen ? "absolute left-1/2 top-1.5" : "absolute left-1/2 top-0"} z-50 -translate-x-1/2 rounded-[28px] border bg-background p-1 lg:p-2 shadow-2xl transition-[width,height,box-shadow] duration-[var(--motion-slow)] ease-out ${isOpen ? "h-[428.5px] w-74 border-border" : "h-14 w-18 border-transparent shadow-none sm:w-32 md:h-16 md:w-36"}`}
             >
             <button
               ref={menuButtonRef}
@@ -126,7 +108,7 @@ const Navbar = memo(function Navbar() {
               aria-expanded={isOpen}
               aria-controls="site-navigation-menu"
               onClick={() => setIsOpen((open) => !open)}
-              className={`focus-ring flex items-center justify-center gap-3 rounded-full border border-border bg-background text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-80 ${isOpen ? "mx-auto h-12 w-full" : "mx-auto h-12 w-14 sm:w-28 md:h-12 md:w-32"}`}
+              className={`focus-ring flex items-center justify-center gap-3 rounded-full border border-border bg-background text-sm font-medium text-foreground transition-opacity duration-[var(--motion-standard)] hover:opacity-80 ${isOpen ? "mx-auto h-12 w-full" : "mx-auto h-12 w-14 sm:w-28 md:h-12 md:w-32"}`}
             >
               {isOpen ? <X className="size-5.5 sm:size-6" aria-hidden="true" /> : <Menu className="size-5.5 sm:size-6" aria-hidden="true" />}
               <span className="hidden md:inline">{isOpen ? "Close" : "Menu"}</span>
@@ -138,7 +120,7 @@ const Navbar = memo(function Navbar() {
               aria-modal="true"
               aria-label="Site navigation"
               aria-hidden={!isOpen}
-              className={`overflow-hidden transition-[opacity,transform] duration-300 ease-out ${isOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"}`}
+              className={`overflow-hidden transition-[opacity,transform] duration-[var(--motion-standard)] ease-out ${isOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"}`}
             >
               <nav className="px-2 pt-7" aria-label="Site navigation links">
                 <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">Menu</p>

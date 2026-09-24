@@ -159,7 +159,7 @@ export default function HomeSections() {
               href="/about"
               className="focus-ring mt-9 inline-flex items-center gap-2 rounded-md text-sm font-semibold text-white hover:text-white/80"
             >
-              Meet Enov8 <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              Meet Enov8 Technologies <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
         </div>
@@ -214,7 +214,7 @@ export default function HomeSections() {
                   aria-label={`Explore ${group.label} solutions`}
                   className="focus-ring mt-8 inline-flex rounded-md text-brand"
                 >
-                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="h-5 w-5 motion-arrow group-hover:translate-x-1" />
                 </Link>
               </div>
             ))}
