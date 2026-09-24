@@ -120,9 +120,9 @@ const Navbar = memo(function Navbar() {
               aria-modal="true"
               aria-label="Site navigation"
               aria-hidden={!isOpen}
-              className={`overflow-hidden transition-[opacity,transform] duration-[var(--motion-standard)] ease-out ${isOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"}`}
+              className={`overflow-hidden ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
             >
-              <nav className="px-2 pt-7" aria-label="Site navigation links">
+              <nav className={`px-2 pt-7 transition-[opacity,transform] duration-[var(--motion-standard)] ease-out ${isOpen ? "translate-y-0 opacity-100 motion-safe:[transition-delay:var(--motion-standard)]" : "translate-y-4 opacity-0"}`} aria-label="Site navigation links">
                 <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">Menu</p>
                 <ul className="space-y-1">
                   {primaryNavigation.map((item) => {
@@ -144,7 +144,7 @@ const Navbar = memo(function Navbar() {
                 </ul>
               </nav>
 
-              <div className="mx-2 mt-7 border-t border-border pt-7">
+              <div className={`mx-2 mt-7 border-t border-border pt-7 transition-[opacity,transform] duration-[var(--motion-standard)] ease-out ${isOpen ? "translate-y-0 opacity-100 motion-safe:[transition-delay:calc(var(--motion-standard)+100ms)]" : "translate-y-4 opacity-0"}`}>
                 <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">Social media</p>
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
                   {socialLinks.map(({ label, href }) => (
