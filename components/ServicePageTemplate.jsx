@@ -116,7 +116,7 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
             aria-hidden="true"
             className="absolute inset-0 bg-foreground/75"
           />
-          <Container className="relative z-10 flex min-h-[28rem] flex-col justify-center py-24 md:min-h-[34rem] md:py-32">
+          <Container className="relative z-10 flex min-h-112 flex-col justify-center py-24 md:min-h-[34rem] md:py-32">
             <nav
               aria-label="Breadcrumb"
               className="mb-8 flex flex-wrap items-center gap-2 text-sm text-background/75"
@@ -213,7 +213,7 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                 {detailImages.map((image, index) => (
                   <figure
                     key={image}
-                    className={`relative overflow-hidden rounded-xl border border-border bg-surface ${index === 0 ? "sm:col-span-2 aspect-[16/8]" : "aspect-[4/3]"}`}
+                    className={`relative overflow-hidden rounded-xl border border-border bg-surface ${index === 0 ? "sm:col-span-2 aspect-16/8" : "aspect-4/3"}`}
                   >
                     <Image
                       src={image}
