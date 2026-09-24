@@ -30,7 +30,7 @@ function BrandMark({ compact = false, rotating = false }) {
           <Image src="/brand/logo.svg" alt="" fill sizes="32px" className="object-contain" />
         </span>
       </span>
-      <span className={`pointer-events-none absolute left-[52px] top-1/2 -translate-y-1/2 whitespace-nowrap text-sm font-bold tracking-tight text-foreground transition-[opacity,transform] duration-500 md:text-base ${compact ? "opacity-100" : "opacity-0 lg:group-hover:translate-x-0 lg:group-hover:opacity-100"}`}>
+      <span className={`pointer-events-none absolute left-13 top-1/2 -translate-y-1/2 whitespace-nowrap text-sm font-bold tracking-tight text-foreground transition-[opacity,transform] duration-500 md:text-base ${compact ? "opacity-100" : "opacity-0 lg:group-hover:translate-x-0 lg:group-hover:opacity-100"}`}>
         Enov8 Technologies
       </span>
     </span>
@@ -100,22 +100,24 @@ const Navbar = memo(function Navbar() {
       >
         <nav
           aria-label="Primary navigation"
-          className="relative mx-auto grid h-20 w-full grid-cols-[1fr_auto_1fr] items-center max-w-[var(--container-content)] lg:px-10"
+          className="relative mx-auto grid h-20 w-full grid-cols-[1fr_auto] items-center max-w-[var(--container-content)] px-6 sm:px-10 md:grid-cols-[1fr_auto_1fr] md:px-10"
         >
           <Link
             href="/"
             aria-label="Enov8 Technologies home"
             onClick={handleLogoClick}
-            className="focus-ring group inline-flex h-13 w-13 shrink-0 items-center justify-self-center justify-center overflow-hidden rounded-full border border-border bg-background transition-[width] duration-500 lg:justify-self-start lg:hover:w-55"
+            className="focus-ring group inline-flex h-13 w-13 shrink-0 items-center justify-self-start justify-center overflow-hidden rounded-full border border-border bg-background transition-[width] duration-500 lg:justify-self-start lg:hover:w-55"
           >
             <BrandMark rotating={isLogoRotating} />
           </Link>
 
+          <div className="col-start-2 flex items-center justify-end gap-3 md:contents">
+
           <div
-            className="relative col-start-2 h-14 w-18 justify-self-center sm:w-32 lg:h-16 lg:w-36"
+            className="relative h-14 w-18 shrink-0 justify-self-center sm:w-32 md:col-start-2 md:h-16 md:w-36"
           >
             <div
-              className={`absolute left-1/2 top-0 z-50 -translate-x-1/2 rounded-[28px] border bg-background p-1 lg:p-2 shadow-2xl transition-[width,height,box-shadow] duration-500 ease-out ${isOpen ? "top-1.5 h-[428.5px] w-74 border-border" : "h-14 w-18 border-transparent shadow-none sm:w-32 lg:h-16 lg:w-36"}`}
+              className={`${isOpen ? "absolute left-1/2 top-1.5" : "absolute left-1/2 top-0"} z-50 -translate-x-1/2 rounded-[28px] border bg-background p-1 lg:p-2 shadow-2xl transition-[width,height,box-shadow] duration-500 ease-out ${isOpen ? "h-[428.5px] w-74 border-border" : "h-14 w-18 border-transparent shadow-none sm:w-32 md:h-16 md:w-36"}`}
             >
             <button
               ref={menuButtonRef}
@@ -124,10 +126,10 @@ const Navbar = memo(function Navbar() {
               aria-expanded={isOpen}
               aria-controls="site-navigation-menu"
               onClick={() => setIsOpen((open) => !open)}
-              className={`focus-ring flex items-center justify-center gap-3 rounded-full border border-border bg-background text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-80 ${isOpen ? "mx-auto h-12 w-full" : "mx-auto h-12 w-14 sm:w-28 lg:h-12 lg:w-32"}`}
+              className={`focus-ring flex items-center justify-center gap-3 rounded-full border border-border bg-background text-sm font-medium text-foreground transition-opacity duration-300 hover:opacity-80 ${isOpen ? "mx-auto h-12 w-full" : "mx-auto h-12 w-14 sm:w-28 md:h-12 md:w-32"}`}
             >
-              {isOpen ? <X className="size-[22px] sm:size-6" aria-hidden="true" /> : <Menu className="size-[22px] sm:size-6" aria-hidden="true" />}
-              <span className="hidden lg:inline">{isOpen ? "Close" : "Menu"}</span>
+              {isOpen ? <X className="size-5.5 sm:size-6" aria-hidden="true" /> : <Menu className="size-5.5 sm:size-6" aria-hidden="true" />}
+              <span className="hidden md:inline">{isOpen ? "Close" : "Menu"}</span>
             </button>
 
             <div
@@ -183,11 +185,12 @@ const Navbar = memo(function Navbar() {
           </div>
           <ConsultationModal
             trigger={
-              <Button className="h-12 col-start-3 justify-self-center rounded-full bg-brand px-3 text-[11px] font-semibold text-on-brand hover:bg-brand-hover sm:h-13 sm:px-5 sm:text-sm lg:justify-self-end">
+              <Button className="h-12 shrink-0 rounded-full bg-brand px-3 text-[11px] font-semibold text-on-brand hover:bg-brand-hover sm:h-13 sm:px-5 sm:text-sm md:col-start-3 md:justify-self-end">
                 Start a Project
               </Button>
             }
           />
+          </div>
         </nav>
       </header>
 
