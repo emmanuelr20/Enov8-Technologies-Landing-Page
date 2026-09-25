@@ -1,7 +1,6 @@
 import "./globals.css";
 import localFont from "next/font/local";
 import Script from "next/script";
-import "../styles/performance.css";
 import Navbar from "./layouts/Navbar.jsx";
 import Analytics from "@/components/Analytics";
 import TawkMessenger from "@/components/TawkMessenger";

@@ -11,7 +11,7 @@ const ConsultationModal = ({ trigger }) => {
       <DialogPrimitive.Trigger asChild>{trigger}</DialogPrimitive.Trigger>
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className="fixed inset-0 z-200 bg-foreground/65 duration-[var(--motion-standard)] ease-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-        <DialogPrimitive.Content aria-describedby="consultation-description" className="focus-ring fixed inset-0 z-200 h-svh max-h-svh w-screen max-w-none overflow-y-auto overflow-x-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden bg-[url('/sections/transform-background.png')] bg-cover bg-center bg-no-repeat duration-[var(--motion-slow)] ease-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0">
+        <DialogPrimitive.Content className="focus-ring fixed inset-0 z-200 h-svh max-h-svh w-screen max-w-none overflow-y-auto overflow-x-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden bg-[url('/sections/transform-background.png')] bg-cover bg-center bg-no-repeat duration-[var(--motion-slow)] ease-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-black/7" />
           <div className="relative z-10 flex min-h-full flex-col">
             <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-6 py-6 md:px-12 md:py-10">
@@ -26,7 +26,7 @@ const ConsultationModal = ({ trigger }) => {
             </div>
 
             <div className="space-y-6 p-5 md:p-8">
-              <DialogPrimitive.Description id="consultation-description" className="type-body max-w-[65ch] text-muted-foreground">
+              <DialogPrimitive.Description className="type-body max-w-[65ch] text-muted-foreground">
                 Ready to bridge the gap between your operations and
                 digital-first growth? Choose how you'd like to connect with our
                 experts.
