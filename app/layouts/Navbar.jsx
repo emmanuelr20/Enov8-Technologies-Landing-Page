@@ -85,13 +85,13 @@ function MenuIcon({ open, reduceMotion }) {
   return (
     <span className="relative grid h-4 w-4 place-items-center" aria-hidden="true">
       <motion.span
-        className="absolute left-1/2 top-1/2 block h-[1.6px] w-[15px] -translate-x-1/2 rounded-full bg-current"
+        className="absolute left-1/2 top-1/2 block h-[1.6px] w-3.75 -translate-x-1/2 rounded-full bg-current"
         initial={false}
         animate={{ y: open ? 0 : -4, rotate: open ? 45 : 0 }}
         transition={transition}
       />
       <motion.span
-        className="absolute left-1/2 top-1/2 block h-[1.6px] w-[15px] -translate-x-1/2 rounded-full bg-current"
+        className="absolute left-1/2 top-1/2 block h-[1.6px] w-3.75 -translate-x-1/2 rounded-full bg-current"
         initial={false}
         animate={{ y: open ? 0 : 4, rotate: open ? -45 : 0 }}
         transition={transition}
@@ -223,7 +223,7 @@ const Navbar = memo(function Navbar() {
 
   return (
     <motion.header
-      initial={{ opacity: 0, y: reduceMotion ? 0 : -12 }}
+      initial={{ opacity: 0, y: -12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
         duration: reduceMotion ? 0.01 : 0.55,
@@ -234,7 +234,7 @@ const Navbar = memo(function Navbar() {
     >
       <nav
         aria-label="Primary navigation"
-        className="relative mx-auto grid h-20 w-full max-w-[var(--container-content)] grid-cols-[1fr_auto] items-center px-6 sm:px-10 md:grid-cols-3 md:px-10"
+        className="relative mx-auto grid h-20 w-full max-w-[var(--container-content)] grid-cols-[1fr_auto] items-center px-6 sm:px-10 lg:grid-cols-3 md:px-10"
       >
         <Link
           href="/"
@@ -256,7 +256,7 @@ const Navbar = memo(function Navbar() {
         <div className="col-start-2 flex items-center justify-end gap-3 md:contents">
           <div
             ref={menuSlotRef}
-            className="relative h-14 w-18 shrink-0 justify-self-center sm:w-32 md:col-start-2 md:h-16 md:w-36"
+            className="relative h-17 w-18 shrink-0 justify-self-center sm:w-32 md:col-start-2 md:h-16 md:w-36"
           >
             <motion.div
               initial={false}
@@ -265,7 +265,7 @@ const Navbar = memo(function Navbar() {
                 boxShadow: menuShadow,
               }}
               transition={shellTransition}
-              className="absolute left-1/2 z-50 w-18 -translate-x-1/2 rounded-[28px] p-2 sm:w-32 md:w-36"
+              className="absolute left-1/2 z-50 w-18 -translate-x-1/2 rounded-full p-2 sm:w-32 md:rounded-[28px] md:w-36"
             >
               <motion.div
                 initial={false}

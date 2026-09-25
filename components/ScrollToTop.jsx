@@ -33,7 +33,7 @@ export default function ScrollToTop() {
   }, []);
 
   return (
-    <div className={`fixed bottom-8 left-8 z-40 motion-fade ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"}`}>
+    <div className={`fixed bottom-8 right-8 z-40 motion-fade ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"}`}>
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top"

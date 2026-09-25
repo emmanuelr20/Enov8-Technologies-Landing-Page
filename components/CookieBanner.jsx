@@ -1,81 +1,104 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Button } from "./ui/button";
-import { X, Cookie } from "lucide-react";
+import Script from "next/script";
+
+const SILKTIDE_STYLESHEET =
+  "https://cdn.jsdelivr.net/gh/silktide/consent-manager@v2.0.1/silktide-consent-manager.css";
+const SILKTIDE_SCRIPT =
+  "https://cdn.jsdelivr.net/gh/silktide/consent-manager@v2.0.1/silktide-consent-manager.js";
+
+function initializeSilktideConsentManager() {
+  window.silktideConsentManager?.init({
+    backdrop: {
+      show: true,
+    },
+    icon: {
+      position: "bottomLeft",
+    },
+    prompt: {
+      position: "bottomRight",
+    },
+    consentTypes: [
+      {
+        id: "essential",
+        label: "Essential",
+        description:
+          "<p>These cookies are necessary for the website to function properly and cannot be switched off. They help with things like logging in and setting your privacy preferences.</p>",
+        required: true,
+      },
+      {
+        id: "analytics",
+        label: "Analytics",
+        description:
+          "<p>These cookies help us improve the site by tracking which pages are most popular and how visitors move around the site.</p>",
+        defaultValue: true,
+        gtag: "analytics_storage",
+      },
+      {
+        id: "marketing",
+        label: "Marketing",
+        description:
+          "<p>These cookies are used by us and our advertising partners to show you relevant ads on this site and elsewhere, and to measure how those campaigns perform.</p>",
+        gtag: ["ad_storage", "ad_user_data", "ad_personalization"],
+      },
+    ],
+    text: {
+      prompt: {
+        description:
+          "<p>We use cookies on our site to enhance your user experience, provide personalized content, and analyze our traffic.</p>",
+        acceptAllButtonText: "Accept all",
+        acceptAllButtonAccessibleLabel: "Accept all cookies",
+        rejectNonEssentialButtonText: "Reject non-essential",
+        rejectNonEssentialButtonAccessibleLabel:
+          "Reject all non-essential cookies",
+        preferencesButtonText: "Preferences",
+        preferencesButtonAccessibleLabel: "Toggle preferences",
+      },
+      preferences: {
+        title: "Customize your cookie preferences",
+        description:
+          "<p>We respect your right to privacy. You can choose not to allow some types of cookies. Your cookie preferences will apply across our website.</p>",
+        saveButtonText: "Save and close",
+        saveButtonAccessibleLabel: "Save your cookie preferences",
+        creditLinkText: "Get this banner for free",
+        creditLinkAccessibleLabel: "Get this banner for free",
+      },
+    },
+  });
+}
 
 export default function CookieBanner() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const consent = localStorage.getItem("cookie-consent");
-    if (!consent) {
-      const timer = setTimeout(() => setIsVisible(true), 2000);
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  const handleAccept = () => {
-    localStorage.setItem("cookie-consent", "accepted");
-    setIsVisible(false);
-  };
-
-  const handleDecline = () => {
-    localStorage.setItem("cookie-consent", "declined");
-    setIsVisible(false);
-  };
-
-  if (!isVisible) return null;
-
   return (
-    <section
-      className="pointer-events-none fixed inset-x-0 bottom-0 z-200 p-4 pb-[max(1rem,env(safe-area-inset-bottom))] sm:p-5 md:bottom-6 md:left-6 md:right-auto md:w-full md:max-w-md md:p-0 md:pb-0"
-      aria-label="Cookie consent"
-    >
-      <div className="pointer-events-auto relative w-full min-w-0 max-w-md rounded-2xl border border-border bg-surface p-5 shadow-xl sm:p-6">
-        <button
-          type="button"
-          onClick={() => setIsVisible(false)}
-          className="focus-ring absolute right-3 top-3 inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground sm:right-4 sm:top-4"
-          aria-label="Dismiss cookie notice"
-        >
-          <X size={18} />
-        </button>
-
-        <div className="mb-6 flex min-w-0 items-start gap-4 pr-10">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand sm:h-12 sm:w-12">
-            <Cookie className="text-brand" size={24} />
-          </div>
-          <div className="min-w-0">
-            <h3 className="type-h4 mb-1 text-foreground">
-              Cookie Consent
-            </h3>
-            <p className="type-small text-muted-foreground">
-              We use cookies to enhance your browsing experience, serve
-              personalized ads or content, and analyze our traffic. By clicking
-              "Accept All", you consent to our use of cookies.
-            </p>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <Button
-            type="button"
-            variant="outline"
-            onClick={handleDecline}
-            className="min-h-11 flex-1 rounded-md"
-          >
-            Decline
-          </Button>
-          <Button
-            type="button"
-            onClick={handleAccept}
-            className="min-h-11 flex-1 rounded-md"
-          >
-            Accept All
-          </Button>
-        </div>
-      </div>
-    </section>
+    <>
+      <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+      <link
+        rel="stylesheet"
+        id="silktide-consent-manager-css"
+        href={SILKTIDE_STYLESHEET}
+        integrity="sha384-EdMq+R+YOnsbelo08wPenoTlnxbAyxI11NMIxzugx/qAsbh64KcOkqxYqq6pfvO/"
+        crossOrigin="anonymous"
+      />
+      <style id="silktide-consent-manager-overrides">
+        {`#stcm-wrapper {
+  --boxShadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a;
+  --fontFamily: Helvetica Neue, Segoe UI, Arial, sans-serif;
+  --primaryColor: #0070F3;
+  --backgroundColor: #ffffff;
+  --textColor: #253b48;
+  --backdropBackgroundColor: #00000033;
+  --backdropBackgroundBlur: 0px;
+  --iconColor: #0070f3;
+  --iconBackgroundColor: #ffffff;
+}`}
+      </style>
+      <Script
+        id="silktide-consent-manager-js"
+        src={SILKTIDE_SCRIPT}
+        integrity="sha384-5Pt34uiIbCsvfiiZXoLi4HRf/YBXjr9c8e+gYeVo9smUaInNHYVtc8NZ8wUnXJIq"
+        crossOrigin="anonymous"
+        strategy="afterInteractive"
+        onLoad={initializeSilktideConsentManager}
+      />
+    </>
   );
 }
