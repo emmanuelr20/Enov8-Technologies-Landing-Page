@@ -9,7 +9,7 @@
   --font-dm-sans: "DM Sans";
   --light-primary: #0070f3;
   --light-accent: #00c8a0;
-  --footer-background: #00357b;
+  --footer-background: #1E2D40;
   --light-hover: #0057c2;
   --light-surface-card: #f9fafb;
   --light-secondary-surface: #e5e7eb;
@@ -141,6 +141,7 @@
   --color-light-hover: var(--light-hover);
   --color-light-surface-card: var(--light-surface-card);
   --color-light-secondary-surface: var(--light-secondary-surface);
+   --color-footer-background: var(--footer-background);
   --index-100: 100;
   --index-200: 200;
 }
@@ -210,6 +211,49 @@ html {
 
 @utility motion-fade { transition-property: opacity, transform; transition-duration: var(--motion-standard); transition-timing-function: var(--motion-ease); }
 @utility motion-arrow { transition-property: transform, color; transition-duration: var(--motion-fast); transition-timing-function: var(--motion-ease); }
+
+@keyframes motion-reveal-up {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.motion-reveal-visible {
+  animation: motion-reveal-up var(--motion-standard) var(--motion-ease) both;
+}
+
+.motion-reveal-group.motion-reveal-visible > * {
+  animation: motion-reveal-up var(--motion-standard) var(--motion-ease) both;
+}
+
+.motion-reveal-group.motion-reveal-visible > *:nth-child(2) { animation-delay: 70ms; }
+.motion-reveal-group.motion-reveal-visible > *:nth-child(3) { animation-delay: 140ms; }
+.motion-reveal-group.motion-reveal-visible > *:nth-child(4) { animation-delay: 210ms; }
+.motion-reveal-group.motion-reveal-visible > *:nth-child(5) { animation-delay: 280ms; }
+
+.motion-hero-sequence > * {
+  animation: motion-reveal-up var(--motion-standard) var(--motion-ease) both;
+}
+
+.motion-hero-sequence > *:nth-child(2) { animation-delay: 80ms; }
+.motion-hero-sequence > *:nth-child(3) { animation-delay: 160ms; }
+.motion-hero-sequence > *:nth-child(4) { animation-delay: 240ms; }
+.motion-service-content > *:nth-child(1) {
+  animation: motion-reveal-up var(--motion-standard) var(--motion-ease) both;
+}
+.motion-service-content > *:nth-child(2) {
+  animation: motion-reveal-up var(--motion-standard) var(--motion-ease) 100ms both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-reveal-visible,
+  .motion-reveal-group.motion-reveal-visible > *,
+  .motion-hero-sequence > *,
+  .motion-service-content > * {
+    animation: none !important;
+    animation-delay: 0s !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
 
 ::selection { background: color-mix(in oklab, var(--brand) 24%, transparent); color: var(--foreground); }
 

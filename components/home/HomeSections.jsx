@@ -189,7 +189,7 @@ export default function HomeSections() {
             immediate problem without losing sight of the operating model around
             it.
           </SectionIntro>
-          <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+          <div className="motion-reveal-group motion-reveal-visible mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             {pathGroups.map((group) => (
               <div
                 key={group.label}
@@ -232,7 +232,7 @@ export default function HomeSections() {
             eyebrow="Capability ecosystem"
             title="Connected capabilities, designed to work together."
           />
-          <div className="mt-12 grid gap-5 md:grid-cols-2">
+          <div className="motion-reveal-group motion-reveal-visible mt-12 grid gap-5 md:grid-cols-2">
             {capabilityGroups.map(({ icon: Icon, title, ids }) => (
               <div
                 key={title}

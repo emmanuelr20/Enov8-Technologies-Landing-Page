@@ -7,6 +7,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Container } from "@/components/ui/container";
 import { buildServicesIndexMetadata } from "@/lib/seoMetadata";
 import { servicesList } from "@/lib/servicesData";
+import MotionReveal from "@/components/MotionReveal";
 
 export const metadata = buildServicesIndexMetadata();
 
@@ -19,7 +20,7 @@ export default function ServicesPage() {
         <section className="relative isolate overflow-hidden bg-foreground text-background">
           <Image src="/sections/servicebackground.webp" alt="" fill preload sizes="100vw" className="object-cover" aria-hidden="true" />
           <div aria-hidden="true" className="absolute inset-0 bg-foreground/75" />
-          <Container className="relative z-10 flex min-h-112 flex-col justify-center py-24 md:min-h-136 md:py-32">
+          <Container className="relative z-10 motion-hero-sequence flex min-h-112 flex-col justify-center py-24 md:min-h-136 md:py-32">
             <p className="type-label mb-4 !text-white/95">Capability ecosystem</p>
             <h1 className="type-display max-w-4xl text-background">Solutions built around the work.</h1>
             <p className="type-body-lg mt-6 max-w-2xl !text-white/90">Explore the connected capabilities Enov8 uses to turn complex technology challenges into practical operating systems.</p>
@@ -33,7 +34,7 @@ export default function ServicesPage() {
               <h2 className="type-h2">Find the right technology path for the challenge in front of you.</h2>
               <p className="type-body-lg mt-5 text-muted-foreground">We specialize in driving organizational change and digital transformation through high-impact, practical solutions that connect strategy, implementation, and support.</p>
             </div>
-            <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            <MotionReveal as="div" group className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
               {servicesList.map((service) => {
                 const Icon = serviceIcons[service.id];
                 return (
@@ -56,7 +57,7 @@ export default function ServicesPage() {
                   </Card>
                 );
               })}
-            </div>
+            </MotionReveal>
           </Container>
         </section>
       </main>

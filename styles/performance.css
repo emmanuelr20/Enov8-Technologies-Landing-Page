@@ -20,8 +20,9 @@ html::-webkit-scrollbar {
 
 /* Optimize font loading */
 @font-face {
-  font-family: "Space Grotesk";
+  font-family: "DM Sans";
   font-display: swap;
+  src: local("DM Sans");
 }
 
 /* Critical CSS for above-the-fold content */

@@ -1,20 +1,21 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { team } from "@/lib/content/team";
+import MotionReveal from "@/components/MotionReveal";
 
 export default function TeamSection() {
   return (
     <section aria-labelledby="team-heading" className="border-t border-border bg-surface py-16 md:py-24">
       <Container>
-        <div className="max-w-3xl">
+        <MotionReveal className="max-w-3xl">
           <p className="type-label mb-4 text-brand">Leadership</p>
           <h2 id="team-heading" className="type-h2">Meet Our Team</h2>
           <p className="mt-5 max-w-2xl text-muted-foreground">
             The people building practical technology systems and partnerships for the organizations we serve.
           </p>
-        </div>
+        </MotionReveal>
 
-        <div className="mt-12 grid gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-10">
+        <MotionReveal as="div" group className="mt-12 grid gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-10">
           {team.map((member) => (
             <article key={member.name}>
               <div className="relative aspect-4/5 overflow-hidden rounded-2xl border border-border/70 bg-background">
@@ -35,7 +36,7 @@ export default function TeamSection() {
               </div>
             </article>
           ))}
-        </div>
+        </MotionReveal>
       </Container>
     </section>
   );

@@ -116,7 +116,7 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
             aria-hidden="true"
             className="absolute inset-0 bg-foreground/75"
           />
-          <Container className="relative z-10 flex min-h-112 flex-col justify-center py-24 md:min-h-[34rem] md:py-32">
+          <Container className="relative z-10 motion-hero-sequence flex min-h-112 flex-col justify-center py-24 md:min-h-[34rem] md:py-32">
             <nav
               aria-label="Breadcrumb"
               className="mb-8 flex flex-wrap items-center gap-2 text-sm text-background/75"
@@ -159,7 +159,7 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
         </section>
 
         <section className="border-b border-border bg-background py-16 md:py-24">
-          <Container className="grid gap-12 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-16">
+          <Container className="motion-service-content grid gap-12 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-16">
             <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
               <Card>
                 <CardHeader>

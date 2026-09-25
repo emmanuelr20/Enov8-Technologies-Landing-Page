@@ -16,9 +16,6 @@
 # next.js
 /.next/
 /out/
-/.impeccable/
-/.playwright-mcp/
-/.codex/
 
 
 # production
@@ -43,3 +40,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local agent and editor metadata
+/.agents/
+/.codex/
+/.impeccable/
+/.playwright-mcp/
+
