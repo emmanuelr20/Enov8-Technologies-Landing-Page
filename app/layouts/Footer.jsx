@@ -13,7 +13,7 @@ import { servicesList } from "@/lib/servicesData";
 
 const Footer = memo(function Footer() {
   return (
-    <footer className="z-50 border-t border-border bg-surface py-20 text-foreground md:py-24">
+    <footer className="z-50 border-t border-border bg-footer-background py-20 text-foreground md:py-24">
       <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 gap-12 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,1.65fr)] xl:gap-24">
           <div className="max-w-md">

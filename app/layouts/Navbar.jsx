@@ -99,7 +99,7 @@ const Navbar = memo(function Navbar() {
             className="relative h-14 w-18 shrink-0 justify-self-center sm:w-32 md:col-start-2 md:h-16 md:w-36"
           >
             <div
-              className={`${isOpen ? "absolute left-1/2 top-1.5" : "absolute left-1/2 top-0"} z-50 -translate-x-1/2 rounded-[28px] border bg-background p-1 lg:p-2 shadow-2xl transition-[width,height,box-shadow] duration-[var(--motion-slow)] ease-out ${isOpen ? "h-[428.5px] w-74 border-border" : "h-14 w-18 border-transparent shadow-none sm:w-32 md:h-16 md:w-36"}`}
+              className={`${isOpen ? "absolute left-1/2 top-1.5" : "absolute left-1/2 top-0"} z-50 -translate-x-1/2 rounded-[28px] border bg-background p-1 lg:p-2 shadow-2xl transition-[width,height,box-shadow,border-color] duration-[var(--motion-slow)] ease-out ${isOpen ? "h-[428.5px] w-74 border-border" : "h-14 w-18 border-transparent shadow-none sm:w-32 md:h-16 md:w-36 motion-safe:duration-[200ms]"}`}
             >
             <button
               ref={menuButtonRef}
@@ -122,7 +122,7 @@ const Navbar = memo(function Navbar() {
               aria-hidden={!isOpen}
               className={`overflow-hidden ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
             >
-              <nav className={`px-2 pt-7 transition-[opacity,transform] duration-[var(--motion-standard)] ease-out ${isOpen ? "translate-y-0 opacity-100 motion-safe:[transition-delay:var(--motion-standard)]" : "translate-y-4 opacity-0"}`} aria-label="Site navigation links">
+              <nav className={`px-2 pt-7 transition-[opacity,transform] duration-[var(--motion-standard)] ease-out ${isOpen ? "translate-y-0 opacity-100 motion-safe:[transition-delay:var(--motion-standard)]" : "translate-y-4 opacity-0 motion-safe:duration-[200ms]"}`} aria-label="Site navigation links">
                 <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">Menu</p>
                 <ul className="space-y-1">
                   {primaryNavigation.map((item) => {
@@ -144,7 +144,7 @@ const Navbar = memo(function Navbar() {
                 </ul>
               </nav>
 
-              <div className={`mx-2 mt-7 border-t border-border pt-7 transition-[opacity,transform] duration-[var(--motion-standard)] ease-out ${isOpen ? "translate-y-0 opacity-100 motion-safe:[transition-delay:calc(var(--motion-standard)+100ms)]" : "translate-y-4 opacity-0"}`}>
+              <div className={`mx-2 mt-7 border-t border-border pt-7 transition-[opacity,transform] duration-[var(--motion-standard)] ease-out ${isOpen ? "translate-y-0 opacity-100 motion-safe:[transition-delay:calc(var(--motion-standard)+100ms)]" : "translate-y-4 opacity-0 motion-safe:duration-[200ms]"}`}>
                 <p className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">Social media</p>
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
                   {socialLinks.map(({ label, href }) => (
