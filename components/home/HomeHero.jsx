@@ -50,15 +50,15 @@ export default function HomeHero() {
 
       {/* Industry Section — straight blue line on <lg, floats inside wave on lg+ */}
       <div className="relative z-30 w-full border-t border-[#56a6ff]/30 bg-brand py-8 md:py-10 lg:absolute lg:inset-x-0 lg:bottom-0 lg:border-t-0 lg:bg-transparent lg:pb-8 lg:pt-0">
-        <div className="mx-auto grid w-full max-w-[var(--container-content)] gap-6 px-6 md:px-12 lg:px-16 min-[1426px]:grid-cols-[1fr_auto] min-[1426px]:items-center min-[1426px]:gap-8">
-          <div className="lg:max-[1425px]:max-w-2xl lg:max-[1425px]:mx-auto lg:max-[1425px]:text-center min-[1426px]:max-w-none">
+        <div className="mx-auto grid w-full max-w-[var(--container-content)] gap-6 px-6 md:px-12 lg:px-16 min-[1600]:grid-cols-[1fr_auto] min-[1600px]:items-center min-[1600px]:gap-8">
+          <div className="lg:max-[1600px]:max-w-2xl lg:max-[1600px]:mx-auto lg:max-[1600px]:text-center min-[1600px]:max-w-none">
             <p className="type-label mb-2 !text-white">Built for complex work</p>
             <h2 id="proof-title" className="type-h3 !text-white">One technology partner across the transformation lifecycle.</h2>
           </div>
-          <div className="flex flex-wrap gap-2 lg:justify-center min-[1426px]:justify-end">
+          <div className="flex flex-wrap gap-2 lg:justify-center min-[1600px]:justify-end">
             {industries.map((industry) => (
               <span key={industry} className="rounded-full border border-white/30 px-3 py-1.5 text-sm text-white/85">
-                {industry}
+                {industry}wh
               </span>
             ))}
           </div>
