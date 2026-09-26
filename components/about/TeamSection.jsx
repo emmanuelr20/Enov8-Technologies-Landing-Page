@@ -5,7 +5,7 @@ import MotionReveal from "@/components/MotionReveal";
 
 export default function TeamSection() {
   return (
-    <section aria-labelledby="team-heading" className="border-t border-border bg-surface py-16 md:py-24">
+    <section aria-labelledby="team-heading" className="border-t border-border bg-sidebar-border/20 py-16 md:py-24">
       <Container>
         <MotionReveal className="max-w-3xl">
           <p className="type-label mb-4 text-brand">Leadership</p>

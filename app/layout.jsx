@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import Navbar from "./layouts/Navbar.jsx";
 import Analytics from "@/components/Analytics";
-import TawkMessenger from "@/components/TawkMessenger";
 
 import CookieBanner from "@/components/CookieBanner";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -249,7 +248,6 @@ export default function RootLayout({ children }) {
 
         <CookieBanner />
         <Toaster position="top-right" richColors />
-        {/* <TawkMessenger /> */}
       </body>
     </html>
   );

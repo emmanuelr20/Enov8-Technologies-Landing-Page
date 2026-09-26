@@ -222,14 +222,7 @@ const Navbar = memo(function Navbar() {
     : { duration: 0.44, ease: EASE };
 
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: reduceMotion ? 0.01 : 0.55,
-        ease: EASE,
-        delay: reduceMotion ? 0 : 0.12,
-      }}
+    <header
       className="fixed inset-x-0 top-0 z-50 w-full border-b border-border/70 bg-background backdrop-blur-md"
     >
       <nav
@@ -395,7 +388,7 @@ const Navbar = memo(function Navbar() {
           />
         </div>
       </nav>
-    </motion.header>
+    </header>
   );
 });
 
