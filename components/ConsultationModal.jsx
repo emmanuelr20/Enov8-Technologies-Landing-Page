@@ -40,19 +40,19 @@ const ConsultationModal = ({ trigger }) => {
                   rel="noopener noreferrer"
                   className="focus-ring group block min-w-0 rounded-xl"
                 >
-                  <div className="flex min-w-0 items-center gap-4 rounded-xl border border-border bg-background p-4 transition-colors hover:border-brand hover:bg-accent">
+                  <div className="relative flex min-w-0 flex-col items-start gap-3 rounded-xl border border-border bg-background p-4 transition-colors hover:border-brand hover:bg-accent sm:flex-row sm:items-center sm:gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
                       <Calendar className="h-6 w-6" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="group-hover:text-brand transition-colors">
+                      <h4 className="text-lg font-semibold leading-6 transition-colors group-hover:text-brand sm:text-xl sm:leading-6">
                         Book a Discovery Call
                       </h4>
-                      <p className="wrap-break-word">
+                      <p className="mt-1 text-sm leading-5 sm:text-base sm:leading-[1.6]">
                         Schedule a 30-minute consultation via Zoho Bookings.
                       </p>
                     </div>
-                    <ArrowRight aria-hidden="true" className="shrink-0 text-muted-foreground motion-arrow group-hover:translate-x-1 group-hover:text-brand" />
+                    <ArrowRight aria-hidden="true" className="absolute right-4 top-7 shrink-0 text-muted-foreground motion-arrow group-hover:translate-x-1 group-hover:text-brand sm:static" />
                   </div>
                 </a>
 
@@ -61,19 +61,22 @@ const ConsultationModal = ({ trigger }) => {
                   href="mailto:sales@enov8technologies.com?subject=Project Inquiry - Enov8 Technologies"
                   className="focus-ring group block min-w-0 rounded-xl"
                 >
-                  <div className="flex min-w-0 items-center gap-4 rounded-xl border border-border bg-background p-4 transition-colors hover:border-brand hover:bg-accent">
+                  <div className="relative flex min-w-0 flex-col items-start gap-3 rounded-xl border border-border bg-background p-4 transition-colors hover:border-brand hover:bg-accent sm:flex-row sm:items-center sm:gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-brand/30 bg-brand/5">
                       <Mail className="h-6 w-6 text-brand" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h4 className="group-hover:text-brand transition-colors">
+                      <h4 className="text-lg font-semibold leading-6 transition-colors group-hover:text-brand sm:text-xl sm:leading-6">
                         Send an Inquiry
                       </h4>
-                      <p className="break-all">
-                        Email our team directly at sales@enov8technologies.com
+                      <p className="mt-1 text-sm leading-5 sm:text-base sm:leading-[1.6]">
+                        Email our team directly at{" "}
+                        <span className="block break-all sm:inline sm:break-normal">
+                          sales@enov8technologies.com
+                        </span>
                       </p>
                     </div>
-                    <ArrowRight aria-hidden="true" className="shrink-0 text-muted-foreground motion-arrow group-hover:translate-x-1 group-hover:text-brand" />
+                    <ArrowRight aria-hidden="true" className="absolute right-4 top-7 shrink-0 text-muted-foreground motion-arrow group-hover:translate-x-1 group-hover:text-brand sm:static" />
                   </div>
                 </a>
               </div>

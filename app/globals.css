@@ -211,6 +211,22 @@ body::-webkit-scrollbar,
 @layer components {
   .type-hero { font-size: var(--font-size-hero); line-height: var(--leading-tight); letter-spacing: -0.035em; font-weight: 700; }
   .type-display { font-size: var(--font-size-display); line-height: var(--leading-tight); letter-spacing: -0.03em; font-weight: 700; }
+  .type-route-hero { font-size: 2rem; line-height: var(--leading-tight); letter-spacing: -0.03em; font-weight: 700; }
+  @media (min-width: 40rem) {
+    .type-route-hero { font-size: 2.25rem; }
+  }
+  @media (min-width: 48rem) {
+    .type-route-hero { font-size: 2.5rem; }
+  }
+  @media (min-width: 64rem) {
+    .type-route-hero { font-size: 3rem; }
+  }
+  @media (min-width: 80rem) {
+    .type-route-hero { font-size: 4rem; }
+  }
+  @media (min-width: 96rem) {
+    .type-route-hero { font-size: 4.5rem; }
+  }
   .type-h1 { font-size: var(--font-size-h1); line-height: var(--leading-tight); letter-spacing: -0.03em; font-weight: 700; }
   .type-h2 { font-size: var(--font-size-h2); line-height: var(--leading-heading); letter-spacing: -0.025em; font-weight: 700; }
   .type-h3 { font-size: var(--font-size-h3); line-height: var(--leading-heading); letter-spacing: -0.02em; font-weight: 600; }

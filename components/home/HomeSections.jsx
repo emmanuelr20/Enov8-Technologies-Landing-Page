@@ -311,7 +311,7 @@ export default function HomeSections() {
         className="overflow-x-clip border-y border-border/60 bg-surface/90 py-16 lg:py-20"
       >
         <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
-          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
             <SectionIntro
               titleId="ecosystem-title"
               eyebrow="Technology ecosystem"

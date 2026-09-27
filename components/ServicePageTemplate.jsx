@@ -149,10 +149,10 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
               </div>
             ) : null}
             <p className="type-label mb-4 !text-white">Service capability</p>
-            <h1 className="type-display max-w-4xl text-background">
+            <h1 className="type-route-hero max-w-4xl text-background">
               {service.title}
             </h1>
-            <p className="type-body-lg mt-6 max-w-2xl !text-white/85">
+            <p className="mt-6 max-w-2xl text-base leading-6 text-white/85 md:text-lg md:leading-[1.55]">
               {service.description}
             </p>
           </Container>

@@ -22,8 +22,8 @@ export default function ServicesPage() {
           <div aria-hidden="true" className="absolute inset-0 bg-foreground/75" />
           <Container className="relative z-10 motion-hero-sequence flex min-h-112 flex-col justify-center py-24 md:min-h-136 md:py-32">
             <p className="type-label mb-4 !text-white/95">Capability ecosystem</p>
-            <h1 className="type-display max-w-4xl text-background">Solutions built around the work.</h1>
-            <p className="type-body-lg mt-6 max-w-2xl !text-white/90">Explore the connected capabilities Enov8 uses to turn complex technology challenges into practical operating systems.</p>
+            <h1 className="type-route-hero max-w-4xl text-background">Solutions built around the work.</h1>
+            <p className="mt-6 max-w-2xl text-base leading-6 text-white/90 md:text-lg md:leading-[1.55]">Explore the connected capabilities Enov8 uses to turn complex technology challenges into practical operating systems.</p>
           </Container>
         </section>
 

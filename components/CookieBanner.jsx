@@ -87,8 +87,8 @@ export default function CookieBanner() {
   --textColor: #253b48;
   --backdropBackgroundColor: #00000033;
   --backdropBackgroundBlur: 0px;
-  --iconColor: #0070f3;
-  --iconBackgroundColor: #ffffff;
+  --iconColor: #253B48;
+  --iconBackgroundColor: #FFFFFF;
 }`}
       </style>
       <Script

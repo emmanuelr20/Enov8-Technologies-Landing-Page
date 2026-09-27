@@ -9,7 +9,7 @@ export default function LegalPage({ title, updated, sections }) {
         <section className="border-b border-border bg-surface py-16 md:py-24">
           <Container>
             <p className="type-label mb-4 text-brand">Enov8 Technologies</p>
-            <h1 className="type-h1 max-w-3xl">{title}</h1>
+            <h1 className="type-route-hero max-w-3xl">{title}</h1>
             <p className="mt-5 text-sm text-muted-foreground">Last updated: {updated}</p>
           </Container>
         </section>
