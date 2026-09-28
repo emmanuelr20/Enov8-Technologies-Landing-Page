@@ -121,7 +121,7 @@ export default function AboutPage() {
 
         <section className="border-y border-border bg-muted/25 py-16 md:py-24">
           <Container>
-            <MotionStagger itemClassName="h-full" className="grid gap-5 md:grid-cols-2">
+            <MotionStagger itemClassName="h-full" className="grid gap-5 lg:grid-cols-2">
             <Card className="h-full">
               <CardContent className="p-8 md:p-10">
                 <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-brand/10 text-xl font-bold text-brand">

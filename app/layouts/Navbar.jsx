@@ -264,7 +264,7 @@ const Navbar = memo(function Navbar() {
                 initial={false}
                 animate={{ opacity: isExpanded ? 1 : 0 }}
                 transition={reduceMotion ? { duration: 0.01 } : { duration: 0.3, ease: EASE }}
-                className="pointer-events-none absolute inset-0 rounded-[28px] bg-background"
+                className="pointer-events-none absolute inset-0 rounded-[28px] bg-background shadow-3xl"
                 aria-hidden="true"
               />
 

@@ -1,13 +1,10 @@
-"use client";
-
-import { memo } from "react";
 import { FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa6";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { company, industries } from "@/lib/content/company";
 import { resourceNavigation } from "@/lib/content/navigation";
 import { servicesList } from "@/lib/servicesData";
 
-const Footer = memo(function Footer() {
+export default function Footer() {
   return (
     <footer className="z-50 bg-footer-background py-20 md:py-24">
       <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
@@ -148,6 +145,4 @@ const Footer = memo(function Footer() {
       </div>
     </footer>
   );
-});
-
-export default Footer;
+}

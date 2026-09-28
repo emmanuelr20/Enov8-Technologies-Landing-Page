@@ -2,6 +2,7 @@ import { Container } from "@/components/ui/container";
 import { team } from "@/lib/content/team";
 import { MotionStagger } from "@/components/MotionEntrance";
 import TeamCarousel from "@/components/about/TeamCarousel";
+import TeamMemberCard from "@/components/about/TeamMemberCard";
 
 export default function TeamSection() {
   return (
@@ -16,7 +17,11 @@ export default function TeamSection() {
         </MotionStagger>
 
         <div className="mt-12">
-          <TeamCarousel members={team} />
+          <TeamCarousel>
+            {team.map((member) => (
+              <TeamMemberCard key={member.name} member={member} />
+            ))}
+          </TeamCarousel>
         </div>
       </Container>
     </section>

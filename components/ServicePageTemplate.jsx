@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import { ArrowRight, ChevronRight, Phone } from "lucide-react";
 import {
   LuBrainCircuit,
@@ -93,15 +90,20 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
   return (
     <>
       <main className="min-h-screen bg-background">
-        <Script id={`service-jsonld-${serviceId}`} type="application/ld+json">
-          {JSON.stringify(serviceJsonLd)}
-        </Script>
-        <Script
+        <script
+          id={`service-jsonld-${serviceId}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(serviceJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
           id={`service-breadcrumb-jsonld-${serviceId}`}
           type="application/ld+json"
-        >
-          {JSON.stringify(breadcrumbJsonLd)}
-        </Script>
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
 
         <section className="relative isolate overflow-hidden bg-foreground text-background">
           <Image
@@ -146,7 +148,7 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                   alt="Partner logo"
                   fill
                   className="object-contain"
-                  sizes="224px"
+                  sizes="(min-width: 768px) 224px, 176px"
                 />
               </div>
             ) : null}
@@ -175,6 +177,8 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                     <Link
                       key={item.id}
                       href={`/services/${item.id}`}
+                      // Avoid downloading all 12 routes before a service is chosen.
+                      prefetch={false}
                       className={`focus-ring flex rounded-md px-3 py-2.5 text-sm font-medium transition-colors ${item.id === serviceId ? "bg-brand text-on-brand" : "text-muted-foreground hover:bg-accent hover:text-foreground"}`}
                     >
                       {item.title}
@@ -228,7 +232,10 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                       src={image}
                       alt={`${service.title} supporting visual ${index + 1}`}
                       fill
-                      sizes="(max-width: 1023px) calc(100vw - 6rem), (max-width: 1439px) 58vw, 60vw"
+                      // Match the capped container, sidebar, gaps and figure border.
+                      sizes={index === 0
+                        ? "(min-width: 1360px) 878px, (min-width: 1024px) calc(100vw - 482px), (min-width: 768px) calc(100vw - 98px), calc(100vw - 50px)"
+                        : "(min-width: 1360px) 428px, (min-width: 1024px) calc(50vw - 252px), (min-width: 768px) calc(50vw - 60px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 50px)"}
                       className="object-cover"
                     />
                   </MotionEntrance>
