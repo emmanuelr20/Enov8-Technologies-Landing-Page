@@ -4,99 +4,89 @@ import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X, Calendar, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 const ConsultationModal = ({ trigger }) => {
   return (
     <DialogPrimitive.Root>
       <DialogPrimitive.Trigger asChild>{trigger}</DialogPrimitive.Trigger>
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 z-200 bg-black/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-        <DialogPrimitive.Content className="fixed left-[50%] top-[50%] z-200 w-[95vw] max-w-lg translate-x-[-50%] translate-y-[-50%] border bg-white dark:bg-zinc-950 p-0 shadow-2xl duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-none max-h-[90vh] overflow-y-auto">
-          <div className="flex flex-col">
-            {/* Header Image/Pattern */}
-            <div className="h-32 bg-light-primary relative overflow-hidden flex items-center px-8">
-              <div className="absolute inset-0 opacity-10">
-                <svg
-                  width="100%"
-                  height="100%"
-                  viewBox="0 0 100 100"
-                  preserveAspectRatio="none"
-                >
-                  <path
-                    d="M0 0 L100 100 M100 0 L0 100"
-                    stroke="white"
-                    strokeWidth="1"
-                  />
-                </svg>
-              </div>
-              <h2 className="text-white relative z-10">
+        <DialogPrimitive.Overlay className="fixed inset-0 z-200 bg-foreground/65 duration-[var(--motion-standard)] ease-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+        <DialogPrimitive.Content className="focus-ring fixed inset-0 z-200 h-svh max-h-svh w-screen max-w-none overflow-y-auto overflow-x-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden bg-[url('/sections/transform-background.png')] bg-cover bg-center bg-no-repeat duration-[var(--motion-slow)] ease-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-black/7" />
+          <div className="relative z-10 flex min-h-full flex-col">
+            <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-6 py-6 md:px-12 md:py-10">
+            <div className="flex min-h-28 items-center border-b border-white px-5 py-6 pr-16 md:px-8 md:pr-20">
+              <DialogPrimitive.Title className="type-h3 text-foreground">
                 Start Your Transformation
-              </h2>
-              <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none text-white">
+              </DialogPrimitive.Title>
+              <DialogPrimitive.Close className="focus-ring absolute right-4 top-4 inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">
                 <X className="h-6 w-6" />
                 <span className="sr-only">Close</span>
               </DialogPrimitive.Close>
             </div>
 
-            <div className="p-5 md:p-8 space-y-6">
-              <p className="dark:">
+            <div className="space-y-6 p-5 md:p-8">
+              <DialogPrimitive.Description className="type-body max-w-[65ch] text-muted-foreground">
                 Ready to bridge the gap between your operations and
                 digital-first growth? Choose how you'd like to connect with our
                 experts.
-              </p>
+              </DialogPrimitive.Description>
 
-              <div className="grid gap-4">
+              <div className="grid min-w-0 gap-4">
                 {/* Zoho Bookings Option */}
                 <a
                   href="https://user1-demo1912.zohobookings.com/#/4937930000000036076"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block"
+                  className="focus-ring group block min-w-0 rounded-xl"
                 >
-                  <div className="flex items-center gap-4 p-4 border-2 border-zinc-100 dark:border-zinc-800 hover:border-light-primary transition-all bg-zinc-50 dark:bg-zinc-900">
-                    <div className="w-12 h-12 bg-light-primary flex items-center justify-center shrink-0">
-                      <Calendar className="text-white w-6 h-6" />
+                  <div className="relative flex min-w-0 flex-col items-start gap-3 rounded-xl border border-border bg-background p-4 transition-colors hover:border-brand hover:bg-accent sm:flex-row sm:items-center sm:gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
+                      <Calendar className="h-6 w-6" />
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-[#1A1A37] dark:text-white group-hover:text-light-primary transition-colors">
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-lg font-semibold leading-6 transition-colors group-hover:text-brand sm:text-xl sm:leading-6">
                         Book a Discovery Call
                       </h4>
-                      <p>
+                      <p className="mt-1 text-sm leading-5 sm:text-base sm:leading-[1.6]">
                         Schedule a 30-minute consultation via Zoho Bookings.
                       </p>
                     </div>
-                    <ArrowRight className="text-zinc-400 group-hover:text-light-primary group-hover:translate-x-1 transition-all" />
+                    <ArrowRight aria-hidden="true" className="absolute right-4 top-7 shrink-0 text-muted-foreground motion-arrow group-hover:translate-x-1 group-hover:text-brand sm:static" />
                   </div>
                 </a>
 
                 {/* Email Option */}
                 <a
                   href="mailto:sales@enov8technologies.com?subject=Project Inquiry - Enov8 Technologies"
-                  className="group block"
+                  className="focus-ring group block min-w-0 rounded-xl"
                 >
-                  <div className="flex items-center gap-4 p-4 border-2 border-zinc-100 dark:border-zinc-800 hover:border-light-primary transition-all">
-                    <div className="w-12 h-12 border-2 border-light-primary flex items-center justify-center shrink-0">
-                      <Mail className="text-light-primary w-6 h-6" />
+                  <div className="relative flex min-w-0 flex-col items-start gap-3 rounded-xl border border-border bg-background p-4 transition-colors hover:border-brand hover:bg-accent sm:flex-row sm:items-center sm:gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-brand/30 bg-brand/5">
+                      <Mail className="h-6 w-6 text-brand" />
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-[#1A1A37] dark:text-white group-hover:text-light-primary transition-colors">
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-lg font-semibold leading-6 transition-colors group-hover:text-brand sm:text-xl sm:leading-6">
                         Send an Inquiry
                       </h4>
-                      <p>
-                        Email our team directly at sales@enov8technologies.com
+                      <p className="mt-1 text-sm leading-5 sm:text-base sm:leading-[1.6]">
+                        Email our team directly at{" "}
+                        <span className="block break-all sm:inline sm:break-normal">
+                          sales@enov8technologies.com
+                        </span>
                       </p>
                     </div>
-                    <ArrowRight className="text-zinc-400 group-hover:text-light-primary group-hover:translate-x-1 transition-all" />
+                    <ArrowRight aria-hidden="true" className="absolute right-4 top-7 shrink-0 text-muted-foreground motion-arrow group-hover:translate-x-1 group-hover:text-brand sm:static" />
                   </div>
                 </a>
               </div>
 
-              <div className="text-center pt-2">
-                <p className="uppercase">
+              <div className="border-t border-border pt-5 text-center">
+                <p className="type-label text-muted-foreground">
                   Architects of Digital Transformation
                 </p>
               </div>
+            </div>
             </div>
           </div>
         </DialogPrimitive.Content>

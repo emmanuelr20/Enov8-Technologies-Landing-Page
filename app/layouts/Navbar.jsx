@@ -1,445 +1,398 @@
 "use client";
 
-import { useState, useEffect, memo } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import {
-  Menu,
-  X,
-  Facebook,
-  Twitter,
-  Linkedin,
-  Instagram,
-  PhoneCall,
-  Mail,
-  ChevronDown,
-} from "lucide-react";
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+} from "motion/react";
 import { Button } from "@/components/ui/button";
-import ThemeToggle from "@/components/ThemeToggle";
 import ConsultationModal from "@/components/ConsultationModal";
+import { company } from "@/lib/content/company";
+import { primaryNavigation } from "@/lib/content/navigation";
 
-const MEGA_MENU_SERVICES = [
-  {
-    title: "Digital Signage",
-    href: "/services/digital-signage",
-    hints: [
-      "Dynamic Content Management",
-      "High-Impact Visual Displays",
-      "Real-Time Integration",
-    ],
-  },
-  {
-    title: "Business Automation",
-    href: "/services/automation",
-    hints: [
-      "ERP Solutions",
-      "Document Management System",
-      "Workflow Optimization",
-    ],
-  },
-  {
-    title: "Onboarding & ID",
-    href: "/services/onboarding",
-    hints: ["KYC", "AML", "Fraud Detection"],
-  },
-  {
-    title: "Cyber Security",
-    href: "/services/security",
-    hints: ["Audits", "Encryptions", "Security Ops"],
-  },
-  {
-    title: "Software Development",
-    href: "/services/software-dev",
-    hints: [""],
-  },
-  {
-    title: "IT Consulting",
-    href: "/services/consulting",
-    hints: ["IT Consulting", "Infrastructure Strategy", "Feasibility Studies"],
-  },
-  {
-    title: "ERP Deployment",
-    href: "/services/erp-deployment",
-    hints: ["Custom ERP Strategy", "Process Automation", "System Integration"],
-  },
-  {
-    title: "AI Deployment",
-    href: "/services/ai-deployment",
-    hints: [
-      "Intelligent Automation",
-      "Data-Driven Insights",
-      "Predictive Models",
-    ],
-  },
-  {
-    title: "Networking",
-    href: "/services/networking",
-    hints: [
-      "Digital Network Architecture",
-      "Structured Cabling",
-      "Wireless Solutions",
-      "Network Security",
-      "Enterprise Network Monitoring",
-    ],
-  },
-  {
-    title: "Zoho Implementations",
-    href: "/services/zoho-partner",
-    hints: ["Sales", "Finance", "Marketing", "Operations", "Support", "HR"],
-  },
-  {
-    title: "Document Management system",
-    href: "/services/document-management",
-    hints: [""],
-  },
-  {
-    title: "Hardware Procurement",
-    href: "/services/hardware-procurement",
-    hints: [
-      "Enterprise Sourcing",
-      "Deployment & Lifecycle",
-      "Vendor Management",
-    ],
-  },
+const EASE = [0.22, 1, 0.36, 1];
+
+function isCurrentRoute(pathname, item) {
+  if (item.id === "home") return pathname === "/";
+  if (item.id === "contact") return false;
+  return pathname === item.href || pathname.startsWith(`${item.href}/`);
+}
+
+const socialLinks = [
+  { label: "Follow us on LinkedIn", href: company.social.linkedin },
+  { label: "View our Instagram", href: company.social.instagram },
+  { label: "Follow us on Facebook", href: company.social.facebook },
 ];
 
-const Navbar = memo(function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isSticky, setIsSticky] = useState(false);
-  const pathname = usePathname();
+function createMenuPanelVariants(reduceMotion) {
+  return {
+    hidden: {
+      height: 0,
+      transition: {
+        when: "afterChildren",
+        staggerChildren: reduceMotion ? 0 : 0.02,
+        staggerDirection: -1,
+        height: { duration: reduceMotion ? 0.01 : 0.34, ease: EASE },
+      },
+    },
+    visible: {
+      height: "auto",
+      transition: {
+        height: { duration: reduceMotion ? 0.01 : 0.44, ease: EASE },
+      },
+    },
+  };
+}
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+function createMenuItemVariants(reduceMotion) {
+  return {
+    hidden: {
+      opacity: 0,
+      y: reduceMotion ? 0 : 14,
+      transition: { duration: reduceMotion ? 0.01 : 0.14, ease: EASE },
+    },
+    visible: (index) => {
+      const delay = reduceMotion ? 0 : 0.12 + 0.045 * index;
+      return {
+        opacity: 1,
+        y: 0,
+        transition: reduceMotion
+          ? { duration: 0.01 }
+          : {
+              opacity: { duration: 0.38, ease: EASE, delay },
+              y: {
+                type: "spring",
+                stiffness: 420,
+                damping: 42,
+                mass: 0.9,
+                delay,
+              },
+            },
+      };
+    },
+  };
+}
+
+function MenuIcon({ open, reduceMotion }) {
+  const transition = reduceMotion
+    ? { duration: 0.01 }
+    : { duration: 0.38, ease: EASE };
+
+  return (
+    <span className="relative grid h-4 w-4 place-items-center" aria-hidden="true">
+      <motion.span
+        className="absolute left-1/2 top-1/2 block h-[1.6px] w-3.75 -translate-x-1/2 rounded-full bg-current"
+        initial={false}
+        animate={{ y: open ? 0 : -4, rotate: open ? 45 : 0 }}
+        transition={transition}
+      />
+      <motion.span
+        className="absolute left-1/2 top-1/2 block h-[1.6px] w-3.75 -translate-x-1/2 rounded-full bg-current"
+        initial={false}
+        animate={{ y: open ? 0 : 4, rotate: open ? -45 : 0 }}
+        transition={transition}
+      />
+    </span>
+  );
+}
+
+function FlipLabel({ value, reduceMotion }) {
+  const minWidth = `${Math.max(value.length, 5)}ch`;
+
+  return (
+    <span
+      className="relative grid items-center overflow-hidden text-left"
+      style={{ minWidth }}
+      aria-hidden="true"
+    >
+      <AnimatePresence initial={false} mode="wait">
+        <motion.span
+          key={value}
+          className="col-start-1 row-start-1 whitespace-nowrap"
+          initial={reduceMotion ? { opacity: 0 } : { y: "100%", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={reduceMotion ? { opacity: 0 } : { y: "-100%", opacity: 0 }}
+          transition={{ duration: reduceMotion ? 0.01 : 0.26, ease: EASE }}
+        >
+          {value}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
+}
+
+const Navbar = memo(function Navbar() {
+  const pathname = usePathname();
+  const reduceMotion = useReducedMotion();
+  const [isOpen, setIsOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [closedWidth, setClosedWidth] = useState(null);
+  const menuButtonRef = useRef(null);
+  const menuSlotRef = useRef(null);
+  const isOpenRef = useRef(false);
+  const itemVariants = createMenuItemVariants(Boolean(reduceMotion));
+  const panelVariants = createMenuPanelVariants(Boolean(reduceMotion));
 
   useEffect(() => {
-    let ticking = false;
+    const slot = menuSlotRef.current;
+    if (!slot) return undefined;
 
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          setIsSticky(window.scrollY > 40);
-          ticking = false;
-        });
-        ticking = true;
+    const updateClosedWidth = () => {
+      setClosedWidth(slot.getBoundingClientRect().width);
+    };
+    updateClosedWidth();
+
+    const observer = new ResizeObserver(updateClosedWidth);
+    observer.observe(slot);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isExpanded) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape" && isOpenRef.current) {
+        isOpenRef.current = false;
+        setIsOpen(false);
+        menuButtonRef.current?.focus();
       }
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleNavClick = (e, id) => {
-    // If the id is not an anchor (doesn't start with #), it's a normal link
-    if (!id.startsWith("#")) {
-      setIsOpen(false);
-      return;
-    }
-
-    // If we're not on the homepage, let the link navigate normally to "/#section"
-    if (pathname !== "/") {
-      setIsOpen(false);
-      return;
-    }
-
-    // If we are on the homepage, do the smooth scroll
-    e.preventDefault();
-    try {
-      const section = document.querySelector(id);
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
+    const handlePointerDown = (event) => {
+      if (
+        isOpenRef.current &&
+        !menuSlotRef.current?.contains(event.target)
+      ) {
+        isOpenRef.current = false;
+        setIsOpen(false);
       }
-    } catch (err) {
-      console.error("Invalid selector:", id);
-    }
-    setTimeout(() => setIsOpen(false), 100);
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("pointerdown", handlePointerDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("pointerdown", handlePointerDown);
+    };
+  }, [isExpanded]);
+
+  useEffect(() => {
+    isOpenRef.current = false;
+    setIsOpen(false);
+  }, [pathname]);
+
+  const closeMenu = () => {
+    isOpenRef.current = false;
+    setIsOpen(false);
   };
 
+  const toggleMenu = () => {
+    if (isOpenRef.current) {
+      closeMenu();
+      return;
+    }
+
+    isOpenRef.current = true;
+    setIsExpanded(true);
+    setIsOpen(true);
+  };
+
+  const handleAnchorClick = (event, href) => {
+    if (!href.startsWith("/#") || pathname !== "/") return;
+    event.preventDefault();
+    closeMenu();
+    document.querySelector(href.slice(1))?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const menuWidth = isExpanded ? 296 : closedWidth;
+  const menuShadow = isExpanded
+    ? "0 30px 70px -24px rgba(0,0,0,0.25)"
+    : "0 30px 70px -24px rgba(0,0,0,0)";
+  const shellTransition = reduceMotion
+    ? { duration: 0.01 }
+    : { duration: 0.44, ease: EASE };
+
   return (
-    <>
-      {/* Section: TOP BAR (Contact & Socials) */}
-      <div className="hidden md:flex bg-white dark:bg-zinc-950 border-b border-[#ebebeb] dark:border-zinc-800 py-3 relative z-40">
-        <div className="container mx-auto px-6 md:px-12 lg:px-24 flex justify-between items-center text-xs text-gray-700 dark:text-white/90">
-          <div className="flex items-center gap-6">
-            <a
-              href="tel:+2347064838988"
-              className="flex items-center gap-2 hover:text-light-primary transition-colors text-sm"
-            >
-              <span className="text-light-primary">
-                <PhoneCall size={20} />
-              </span>
-              +234 913 363 2465
-            </a>
-            <a
-              href="mailto:sales@enov8technologies.com "
-              className="flex items-center gap-2 hover:text-light-primary transition-colors text-sm"
-            >
-              <span className="text-light-primary">
-                <Mail size={20} />
-              </span>
-              sales@enov8technologies.com
-            </a>
-          </div>
-          <div className="flex items-center gap-4 uppercase  text-[10px]">
-            <a
-              href="https://www.linkedin.com/company/enov8-technologies/"
-              className="text-light-primary hover:text-light-hover transition-colors"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a
-              href="https://www.instagram.com/Enov8_Technologies?igsh=YWZtNHNia2syanE1"
-              className="text-light-primary hover:text-light-hover transition-colors"
-            >
-              <Instagram size={20} />
-            </a>
-            <a
-              href="https://web.facebook.com/Enov8Technologies"
-              className="text-light-primary hover:text-light-hover transition-colors"
-            >
-              <Facebook size={20} />
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <header
-        className={`sticky lg:relative top-0 z-100 w-full ${
-          isSticky
-            ? "py-3 bg-white/95 dark:bg-black/95 backdrop-blur-md shadow-sm border-b border-gray-100 dark:border-white/5"
-            : "py-6 bg-white dark:bg-black border-b border-gray-100 dark:border-zinc-500"
-        }`}
+    <header
+      className="fixed inset-x-0 top-0 z-50 w-full border-b border-border/70 bg-background backdrop-blur-md"
+    >
+      <nav
+        aria-label="Primary navigation"
+        className="relative mx-auto grid h-20 w-full max-w-(--container-content) grid-cols-[1fr_auto] items-center px-6 sm:px-10 lg:grid-cols-3 md:px-10"
       >
-        <nav className="container mx-auto max-h-10 h-full px-6 md:px-12 lg:px-24 flex justify-between items-center">
-          <div className="flex items-center gap-2" suppressHydrationWarning>
-            <a
-              href="/"
-              className="flex items-center gap-1 group"
-              aria-label="Enov8 Technologies Home"
-            >
-              <div className="relative w-10 h-10" suppressHydrationWarning>
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 300 301"
-                  className="w-full h-full"
-                  aria-hidden="true"
-                >
-                  <g transform="translate(0.000000,301.000000) scale(0.100000,-0.100000)">
-                    <path
-                      d="M682 2446 c2 -8 84 -136 183 -285 l180 -271 639 0 c547 0 637 2 633 14 -3 8 -87 136 -186 285 l-181 271 -636 0 c-537 0 -635 -2 -632 -14z"
-                      className="fill-light-primary dark:fill-white transition-colors duration-200"
-                    />
-                    <path
-                      d="M462 938 l3 -693 929 -3 c800 -2 927 0 923 12 -3 8 -87 136 -186 285 l-181 271 -460 0 -460 0 0 130 0 130 375 0 375 0 -188 280 -187 280 -473 0 -472 0 2 -692z"
-                      className="fill-light-primary dark:fill-white transition-colors duration-200"
-                    />
-                  </g>
-                </svg>
-              </div>
-              <span className="capitalize text-base text-[#23252d] dark:text-white transition-colors duration-200 font-medium mt-1">
-                enov8 technologies
+        <Link
+          href="/"
+          aria-label="Enov8 Technologies home"
+          className="focus-ring col-start-1 inline-flex h-13 w-13 shrink-0 items-center justify-center justify-self-start overflow-hidden rounded-full border border-border bg-background md:w-55 md:justify-start md:px-2"
+        >
+          <span className="relative flex w-full items-center justify-start">
+            <span className="relative z-10 flex h-13 w-13 shrink-0 items-center justify-center" aria-hidden="true">
+              <span className="relative size-8 shrink-0">
+                <Image src="/brand/logo.svg" alt="" fill sizes="32px" className="object-contain" />
               </span>
-            </a>
-          </div>
+            </span>
+            <span className="hidden whitespace-nowrap text-sm font-bold tracking-tight text-foreground md:inline md:text-base">
+              Enov8 Technologies
+            </span>
+          </span>
+        </Link>
 
-          {/* Desktop Nav */}
-          <ul className="hidden lg:flex items-center gap-6 text-[12px] uppercase  dark:text-white relative">
-            <li className="relative z-50 group/menu">
-              <Link
-                href="/services"
-                className="flex items-center gap-1 py-4 hover:text-light-primary transition-colors font-medium"
-                onClick={(e) => handleNavClick(e, "/services")}
-              >
-                Services
-                <ChevronDown
-                  size={14}
-                  className="transition-transform group-hover/menu:rotate-180"
-                />
-              </Link>
+        <div className="col-start-2 flex items-center justify-end gap-3 md:contents">
+          <div
+            ref={menuSlotRef}
+            className="relative h-17 w-18 shrink-0 justify-self-center sm:w-32 md:col-start-2 md:h-16 md:w-36"
+          >
+            <motion.div
+              initial={false}
+              animate={{
+                ...(menuWidth ? { width: menuWidth } : {}),
+                boxShadow: menuShadow,
+              }}
+              transition={shellTransition}
+              className="absolute left-1/2 z-50 w-18 -translate-x-1/2 rounded-full p-2 sm:w-32 md:rounded-[28px] md:w-36"
+            >
+              <motion.div
+                initial={false}
+                animate={{ opacity: isExpanded ? 1 : 0 }}
+                transition={reduceMotion ? { duration: 0.01 } : { duration: 0.3, ease: EASE }}
+                className="pointer-events-none absolute inset-0 rounded-[28px] bg-background shadow-lg"
+                aria-hidden="true"
+              />
 
-              {/* Mega Menu Dropdown */}
-              <div
-                className="absolute top-16 left-1 -translate-x-1 w-[800px] bg-white dark:bg-zinc-900 shadow-2xl
-              py-12 px-10 columns-3 gap-10 opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible 
-              transition-all duration-300 translate-y-2 group-hover/menu:translate-y-0 z-200"
-                suppressHydrationWarning
-              >
-                {MEGA_MENU_SERVICES.map((service, idx) => (
-                  <div
-                    key={idx}
-                    className="break-inside-avoid mb-10 space-y-3"
-                    suppressHydrationWarning
+              <div className="relative z-10">
+                <div className="flex h-13 w-full items-center justify-center rounded-full border border-border bg-background px-1.5 text-foreground">
+                  <button
+                    ref={menuButtonRef}
+                    type="button"
+                    onClick={toggleMenu}
+                    aria-expanded={isOpen}
+                    aria-controls="site-navigation-menu"
+                    aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+                    className="focus-ring flex items-center justify-center gap-2.5 rounded-full px-3 py-1.5 text-sm font-medium transition-opacity hover:opacity-80"
                   >
-                    <div
-                      className="flex items-center gap-2"
-                      suppressHydrationWarning
-                    >
-                      <span className="w-1 h-5 bg-light-primary block" />
-                      <Link
-                        href={service.href}
-                        className=" text-base capitalize font-medium tracking-wide text-[#1A1A37] dark:text-white hover:text-light-primary transition-colors"
-                      >
-                        {service.title}
-                      </Link>
-                    </div>
-                    {service.hints.some((h) => h !== "") && (
-                      <ul className="space-y-1 pl-3 text-sm text-gray-500 capitalize dark:text-white/60">
-                        {service.hints
-                          .filter((h) => h !== "")
-                          .map((hint, hIdx) => (
-                            <li key={hIdx}>{hint}</li>
+                    <MenuIcon open={isOpen} reduceMotion={reduceMotion} />
+                    <span className="hidden md:grid">
+                      <FlipLabel value={isOpen ? "Close" : "Menu"} reduceMotion={reduceMotion} />
+                    </span>
+                  </button>
+                </div>
+
+                {isExpanded ? (
+                  <motion.div
+                    id="site-navigation-menu"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="Site navigation"
+                    aria-hidden={!isOpen}
+                    inert={!isOpen}
+                    initial="hidden"
+                    animate={isOpen ? "visible" : "hidden"}
+                    variants={panelVariants}
+                    transition={shellTransition}
+                    onAnimationComplete={(definition) => {
+                      if (definition === "hidden" && !isOpenRef.current) {
+                        setIsExpanded(false);
+                      }
+                    }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-4 pb-3 pt-7">
+                      <div className="flex flex-col gap-1">
+                        <motion.p
+                          custom={0}
+                          variants={itemVariants}
+                          className="mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground"
+                        >
+                          Menu
+                        </motion.p>
+
+                        {primaryNavigation.map((item, index) => {
+                          const current = isCurrentRoute(pathname, item);
+                          return (
+                            <motion.div
+                              key={item.id}
+                              custom={index + 1}
+                              variants={itemVariants}
+                            >
+                              <Link
+                                href={item.href}
+                                tabIndex={isOpen ? 0 : -1}
+                                aria-current={current ? "page" : undefined}
+                                onClick={(event) => {
+                                  closeMenu();
+                                  handleAnchorClick(event, item.href);
+                                }}
+                                className={`focus-ring block w-fit rounded-md py-1 text-[clamp(1.75rem,5vw,2rem)] font-medium leading-tight tracking-tight transition-colors hover:text-brand ${current ? "text-brand" : "text-foreground"}`}
+                              >
+                                {item.label}
+                              </Link>
+                            </motion.div>
+                          );
+                        })}
+                      </div>
+
+                      <motion.div
+                        custom={primaryNavigation.length + 1}
+                        variants={itemVariants}
+                        className="my-6 h-px w-full bg-border"
+                      />
+
+                      <div className="flex flex-col gap-3">
+                        <motion.p
+                          custom={primaryNavigation.length + 2}
+                          variants={itemVariants}
+                          className="text-xs font-medium uppercase tracking-wider text-muted-foreground"
+                        >
+                          Social media
+                        </motion.p>
+                        <div className="flex flex-wrap gap-x-5 gap-y-2">
+                          {socialLinks.map(({ label, href }, index) => (
+                            <motion.a
+                              key={label}
+                              href={href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              tabIndex={isOpen ? 0 : -1}
+                              onClick={closeMenu}
+                              custom={primaryNavigation.length + 3 + index}
+                              variants={itemVariants}
+                              className="focus-ring rounded-sm text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+                            >
+                              {label.replace("Follow us on ", "").replace("View our ", "")}
+                            </motion.a>
                           ))}
-                      </ul>
-                    )}
-                  </div>
-                ))}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ) : null}
               </div>
-            </li>
-            <li>
-              <Link
-                href="/about"
-                className="hover:text-light-primary transition-colors py-4 font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/#contact"
-                className="hover:text-light-primary transition-colors py-4 font-medium"
-                onClick={(e) => handleNavClick(e, "#contact")}
-              >
-                Contact
-              </Link>
-            </li>
-          </ul>
+            </motion.div>
+          </div>
 
           <div
-            className="hidden lg:flex items-center gap-4"
-            suppressHydrationWarning
+            className="shrink-0 md:col-start-3 md:justify-self-end"
           >
-            <ThemeToggle />
             <ConsultationModal
               trigger={
-                <Button
-                  className="bg-light-primary text-white px-10 h-14 text-[12px]  uppercase
-                  transition-all rounded-none hover:bg-light-primary/90 font-medium"
-                >
+                <Button className="h-12 shrink-0 rounded-full bg-brand px-3 text-[11px] font-semibold text-on-brand hover:bg-brand-hover sm:h-13 sm:px-5 sm:text-sm">
                   Start a Project
                 </Button>
               }
             />
           </div>
-
-          {/* Hamburger (Mobile) */}
-          <div
-            className="flex items-center gap-4 lg:hidden"
-            suppressHydrationWarning
-          >
-            <ThemeToggle />
-            <button
-              aria-label="Toggle navigation menu"
-              className="p-2 text-black dark:text-white"
-              onClick={toggleMenu}
-            >
-              {isOpen ? "" : <Menu size={24} />}
-            </button>
-          </div>
-        </nav>
-      </header>
-
-      {/* ── MOBILE NAV DRAWER (Modern Staggered Reveal) ────────────────────────────────── */}
-      {/* 1. Backdrop Dimmer */}
-      <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-md transition-opacity duration-700 z-110
-        ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
-        onClick={toggleMenu}
-        suppressHydrationWarning
-      />
-
-      {/* 2. Layer 1: Brand Curtain Slider */}
-      <div
-        className={`fixed top-0 right-0 h-full w-full bg-black/60 z-115 transform transition-transform duration-600 ease-[cubic-bezier(0.77,0,0.175,1)]
-        ${isOpen ? "translate-x-0" : "translate-x-full"}`}
-        style={{ transitionDelay: isOpen ? "0ms" : "150ms" }}
-        suppressHydrationWarning
-      />
-
-      {/* 3. Layer 2: Main Menu Drawer */}
-      <div
-        className={`fixed top-0 right-0 h-full w-full sm:w-[480px] bg-zinc-950 text-white z-120 
-              transform transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)] shadow-2xl 
-              ${isOpen ? "translate-x-0" : "translate-x-full"}`}
-        style={{ transitionDelay: isOpen ? "100ms" : "0ms" }}
-        suppressHydrationWarning
-      >
-        <div className="flex flex-col h-full p-8 sm:p-12">
-          {/* Header Area */}
-          <div
-            className="flex justify-between items-center mb-16"
-            suppressHydrationWarning
-          >
-            <div className="flex flex-col">
-              <span className="text-base text-zinc-500 uppercase tracking-wide mb-1">Menu</span>
-            </div>
-            <button
-              onClick={toggleMenu}
-              className="group relative p-4 text-white  active:scale-95"
-              aria-label="Close menu"
-            >
-              <X size={24} className="transition-transform group-hover:rotate-90" />
-            </button>
-          </div>
-
-          {/* Nav Links with staggered fade-in */}
-          <nav className="flex flex-col space-y-8">
-            {[
-              { label: "Home", href: "/", id: "home" },
-              { label: "Services", href: "/services", id: "/services" },
-              { label: "About Us", href: "/about", id: "about" },
-              { label: "Contact", href: "/#contact", id: "#contact" },
-            ].map((link, i) => (
-              <Link
-                key={link.id}
-                href={link.href}
-                className={`text-white/85 text-base uppercase font-medium tracking-wide
-                ${isOpen ? "translate-x-0 opacity-100" : "translate-x-12 opacity-0"}`}
-                style={{ 
-                  transitionDelay: isOpen ? `${300 + i * 70}ms` : "0ms",
-                }}
-                onClick={(e) => handleNavClick(e, link.id)}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Footer Info */}
-          <div
-            className={`mt-auto pt-10 border-t border-white/5 transition-all duration-1000 delay-700
-            ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-            suppressHydrationWarning
-          >
-            <p className="text-zinc-500 uppercase tracking-widest mb-6">Get in touch</p>
-            <div className="space-y-4">
-              <a
-                href="mailto:sales@enov8technologies.com"
-                className="block font-light"
-              >
-                sales@enov8technologies.com
-              </a>
-              <p className="font-medium">+234 913 363 2465</p>
-            </div>
-
-            <div className="mt-10 flex gap-6 text-zinc-400">
-              <a href="#" className="hover:text-light-primary transition-colors"><Linkedin size={20} /></a>
-              <a href="#" className="hover:text-light-primary transition-colors"><Instagram size={20} /></a>
-              <a href="#" className="hover:text-light-primary transition-colors"><Facebook size={20} /></a>
-            </div>
-          </div>
         </div>
-      </div>
-    </>
+      </nav>
+    </header>
   );
 });
 

@@ -1,6 +1,6 @@
-import Hero from "./layouts/Hero";
-import DynamicSections from "@/components/DynamicSections";
-import PerformanceMonitor from "@/components/PerformanceMonitor";
+import HomeHero from "@/components/home/HomeHero";
+import HomeSections from "@/components/home/HomeSections";
+import Footer from "@/app/layouts/Footer";
 
 export const metadata = {
   title: "Enov8 Technologies - End-to-End Digital Solutions & IT Services",
@@ -18,9 +18,9 @@ export const metadata = {
 export default function Home() {
   return (
     <main role="main">
-      <PerformanceMonitor />
-      <Hero />
-      <DynamicSections />
+      <HomeHero />
+      <HomeSections />
+      <Footer />
     </main>
   );
 }
