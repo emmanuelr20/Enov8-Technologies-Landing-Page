@@ -227,7 +227,7 @@ const Navbar = memo(function Navbar() {
     >
       <nav
         aria-label="Primary navigation"
-        className="relative mx-auto grid h-20 w-full max-w-[var(--container-content)] grid-cols-[1fr_auto] items-center px-6 sm:px-10 lg:grid-cols-3 md:px-10"
+        className="relative mx-auto grid h-20 w-full max-w-(--container-content) grid-cols-[1fr_auto] items-center px-6 sm:px-10 lg:grid-cols-3 md:px-10"
       >
         <Link
           href="/"

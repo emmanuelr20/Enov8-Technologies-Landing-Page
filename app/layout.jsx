@@ -2,7 +2,6 @@ import "./globals.css";
 import localFont from "next/font/local";
 import Script from "next/script";
 import Navbar from "./layouts/Navbar.jsx";
-import Analytics from "@/components/Analytics";
 
 import CookieBanner from "@/components/CookieBanner";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -241,7 +240,6 @@ export default function RootLayout({ children }) {
         <Script id="website-jsonld" type="application/ld+json">
           {JSON.stringify(jsonLdWebsite)}
         </Script>
-        <Analytics />
         <Navbar />
         {children}
         <ScrollToTop />

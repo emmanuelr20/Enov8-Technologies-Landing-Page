@@ -6,6 +6,26 @@ const SILKTIDE_STYLESHEET =
   "https://cdn.jsdelivr.net/gh/silktide/consent-manager@v2.0.1/silktide-consent-manager.css";
 const SILKTIDE_SCRIPT =
   "https://cdn.jsdelivr.net/gh/silktide/consent-manager@v2.0.1/silktide-consent-manager.js";
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
+const HAS_VALID_GA_ID =
+  /^G-[A-Z0-9]+$/i.test(GA_MEASUREMENT_ID ?? "") &&
+  !GA_MEASUREMENT_ID.includes("XXXXXXXXXX");
+
+function initializeGoogleAnalytics() {
+  if (!HAS_VALID_GA_ID) return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag =
+    window.gtag ||
+    function gtag() {
+      window.dataLayer.push(arguments);
+    };
+  window.gtag("js", new Date());
+  window.gtag("config", GA_MEASUREMENT_ID, {
+    page_title: document.title,
+    page_location: window.location.href,
+  });
+}
 
 function initializeSilktideConsentManager() {
   window.silktideConsentManager?.init({
@@ -33,6 +53,17 @@ function initializeSilktideConsentManager() {
           "<p>These cookies help us improve the site by tracking which pages are most popular and how visitors move around the site.</p>",
         defaultValue: true,
         gtag: "analytics_storage",
+        ...(HAS_VALID_GA_ID
+          ? {
+              scripts: [
+                {
+                  url: `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`,
+                  load: "async",
+                },
+              ],
+              onAccept: initializeGoogleAnalytics,
+            }
+          : {}),
       },
       {
         id: "marketing",
