@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { servicesList } from "@/lib/servicesData";
 import ConsultationModal from "@/components/ConsultationModal";
+import { MotionEntrance, MotionStagger } from "@/components/MotionEntrance";
 import { Button } from "@/components/ui/button";
 import PartnerScroller from "@/components/home/PartnerScroller";
 import OperatingModelDiagram from "@/components/home/OperatingModelDiagram";
@@ -124,7 +125,7 @@ export default function HomeSections() {
         aria-labelledby="about-title"
         className="relative z-20 -mt-1 flex items-center border-0 bg-brand py-16 text-white lg:py-30"
       >
-        <div className="mx-auto grid w-full max-w-[var(--container-content)] gap-12 px-6 md:px-12 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:px-16">
+        <MotionStagger className="mx-auto grid w-full max-w-[var(--container-content)] gap-12 px-6 md:px-12 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:px-16">
           <OperatingModelDiagram />
           <div>
             <SectionIntro
@@ -162,7 +163,7 @@ export default function HomeSections() {
               Meet Enov8 Technologies <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
-        </div>
+        </MotionStagger>
       </section>
 
       <section
@@ -180,20 +181,25 @@ export default function HomeSections() {
         />
         <div aria-hidden="true" className="absolute inset-0 bg-black/3" />
         <div className="relative z-10 mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
-          <SectionIntro
-            titleId="paths-title"
-            eyebrow="Transformation paths"
-            title="Start with the business challenge, then choose the right technology path."
+          <MotionEntrance className="max-w-3xl">
+            <SectionIntro
+              titleId="paths-title"
+              eyebrow="Transformation paths"
+              title="Start with the business challenge, then choose the right technology path."
+            >
+              A connected service portfolio gives your team room to solve the
+              immediate problem without losing sight of the operating model around
+              it.
+            </SectionIntro>
+          </MotionEntrance>
+          <MotionStagger
+            itemClassName="h-full"
+            className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-5"
           >
-            A connected service portfolio gives your team room to solve the
-            immediate problem without losing sight of the operating model around
-            it.
-          </SectionIntro>
-          <div className="motion-reveal-group motion-reveal-visible mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             {pathGroups.map((group) => (
               <div
                 key={group.label}
-                className="group rounded-xl border border-border bg-background/90 p-6 transition-colors hover:border-brand/50 hover:bg-accent"
+                className="group h-full rounded-xl border border-border bg-background/90 p-6 transition-colors hover:border-brand/50 hover:bg-accent"
               >
                 <span className="type-label text-brand">{group.label}</span>
                 <h3 className="type-h4 mt-8 min-h-14">{group.title}</h3>
@@ -218,7 +224,7 @@ export default function HomeSections() {
                 </Link>
               </div>
             ))}
-          </div>
+          </MotionStagger>
         </div>
       </section>
 
@@ -227,12 +233,14 @@ export default function HomeSections() {
         className="bg-background py-16 lg:py-20"
       >
         <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
-          <SectionIntro
-            titleId="capabilities-title"
-            eyebrow="Capability ecosystem"
-            title="Connected capabilities, designed to work together."
-          />
-          <div className="motion-reveal-group motion-reveal-visible mt-12 grid gap-5 md:grid-cols-2">
+          <MotionEntrance className="max-w-3xl">
+            <SectionIntro
+              titleId="capabilities-title"
+              eyebrow="Capability ecosystem"
+              title="Connected capabilities, designed to work together."
+            />
+          </MotionEntrance>
+          <MotionStagger className="mt-12 grid gap-5 md:grid-cols-2">
             {capabilityGroups.map(({ icon: Icon, title, ids }) => (
               <div
                 key={title}
@@ -258,7 +266,7 @@ export default function HomeSections() {
                 </div>
               </div>
             ))}
-          </div>
+          </MotionStagger>
         </div>
       </section>
 
@@ -276,32 +284,36 @@ export default function HomeSections() {
         />
         <div aria-hidden="true" className="absolute inset-0 bg-zinc-950/80" />
         <div className="relative z-10 mx-auto grid w-full max-w-[var(--container-content)] gap-12 px-6 md:px-12 min-[1426px]:grid-cols-[.75fr_1.25fr] lg:px-16">
-          <SectionIntro
-            eyebrowClassName="!text-white"
-            titleClassName="!text-white"
-            bodyClassName="!text-white/70"
-            titleId="delivery-title"
-            eyebrow="How we deliver"
-            title="From strategic clarity to supported operations."
-          >
-            The work moves from understanding the business to implementing the
-            right system and supporting it in practice.
-          </SectionIntro>
-          <ol
+          <MotionEntrance className="max-w-3xl">
+            <SectionIntro
+              eyebrowClassName="!text-white"
+              titleClassName="!text-white"
+              bodyClassName="!text-white/70"
+              titleId="delivery-title"
+              eyebrow="How we deliver"
+              title="From strategic clarity to supported operations."
+            >
+              The work moves from understanding the business to implementing the
+              right system and supporting it in practice.
+            </SectionIntro>
+          </MotionEntrance>
+          <MotionStagger
+            as="ol"
+            itemAs="li"
             aria-label="Enov8 delivery stages"
             className="grid gap-0 md:grid-cols-5"
           >
             {deliverySteps.map(([title, description], index) => (
-              <li
+              <div
                 key={title}
                 className="border-l border-white/15 py-5 pl-5 md:border-l-0 md:border-t md:pl-0 md:pt-5 md:pr-5"
               >
                 <span className="type-label text-blue-200">0{index + 1}</span>
                 <h3 className="type-h4 mt-6 text-white">{title}</h3>
                 <p className="mt-3 text-sm !text-white/75">{description}</p>
-              </li>
+              </div>
             ))}
-          </ol>
+          </MotionStagger>
         </div>
       </section>
 
@@ -311,7 +323,7 @@ export default function HomeSections() {
         className="overflow-x-clip border-y border-border/60 bg-surface/90 py-16 lg:py-20"
       >
         <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
-          <div className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
+          <MotionStagger className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
             <SectionIntro
               titleId="ecosystem-title"
               eyebrow="Technology ecosystem"
@@ -322,8 +334,10 @@ export default function HomeSections() {
               ecosystem. Partnership and certification claims should be
               confirmed directly before publication.
             </p>
-          </div>
-          <PartnerScroller />
+          </MotionStagger>
+          <MotionEntrance>
+            <PartnerScroller />
+          </MotionEntrance>
         </div>
       </section>
 
@@ -332,7 +346,7 @@ export default function HomeSections() {
         aria-labelledby="final-cta-title"
         className="bg-brand py-20 text-on-brand md:py-28"
       >
-        <div className="mx-auto flex w-full max-w-[var(--container-content)] flex-col gap-8 px-6 md:px-12 lg:flex-row lg:items-end lg:justify-between lg:px-16">
+        <MotionStagger className="mx-auto flex w-full max-w-[var(--container-content)] flex-col gap-8 px-6 md:px-12 lg:flex-row lg:items-end lg:justify-between lg:px-16">
           <div className="max-w-2xl">
             <p className="type-label mb-4 !text-white/70">Ready when you are</p>
             <h2 id="final-cta-title" className="type-display text-white">
@@ -354,7 +368,7 @@ export default function HomeSections() {
               </Button>
             }
           />
-        </div>
+        </MotionStagger>
       </section>
     </>
   );

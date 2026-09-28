@@ -232,7 +232,7 @@ const Navbar = memo(function Navbar() {
         <Link
           href="/"
           aria-label="Enov8 Technologies home"
-          className="focus-ring inline-flex h-13 w-13 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border bg-background md:w-55 md:justify-start md:px-2"
+          className="focus-ring col-start-1 inline-flex h-13 w-13 shrink-0 items-center justify-center justify-self-start overflow-hidden rounded-full border border-border bg-background md:w-55 md:justify-start md:px-2"
         >
           <span className="relative flex w-full items-center justify-start">
             <span className="relative z-10 flex h-13 w-13 shrink-0 items-center justify-center" aria-hidden="true">
@@ -264,7 +264,7 @@ const Navbar = memo(function Navbar() {
                 initial={false}
                 animate={{ opacity: isExpanded ? 1 : 0 }}
                 transition={reduceMotion ? { duration: 0.01 } : { duration: 0.3, ease: EASE }}
-                className="pointer-events-none absolute inset-0 rounded-[28px] border border-border bg-background"
+                className="pointer-events-none absolute inset-0 rounded-[28px] bg-background"
                 aria-hidden="true"
               />
 
@@ -379,13 +379,17 @@ const Navbar = memo(function Navbar() {
             </motion.div>
           </div>
 
-          <ConsultationModal
-            trigger={
-              <Button className="h-12 shrink-0 rounded-full bg-brand px-3 text-[11px] font-semibold text-on-brand hover:bg-brand-hover sm:h-13 sm:px-5 sm:text-sm md:col-start-3 md:justify-self-end">
-                Start a Project
-              </Button>
-            }
-          />
+          <div
+            className="shrink-0 md:col-start-3 md:justify-self-end"
+          >
+            <ConsultationModal
+              trigger={
+                <Button className="h-12 shrink-0 rounded-full bg-brand px-3 text-[11px] font-semibold text-on-brand hover:bg-brand-hover sm:h-13 sm:px-5 sm:text-sm">
+                  Start a Project
+                </Button>
+              }
+            />
+          </div>
         </div>
       </nav>
     </header>

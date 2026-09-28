@@ -2,11 +2,12 @@ import Image from "next/image";
 import { Award, Globe, Handshake, Lightbulb } from "lucide-react";
 import Footer from "@/app/layouts/Footer";
 import TeamSection from "@/components/about/TeamSection";
+import { MotionEntrance, MotionStagger } from "@/components/MotionEntrance";
 import { Card, CardContent } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 
 export const metadata = {
-  title: "Who We Are | Enov8 Technologies",
+  title: "Who We Are",
   description:
     "Learn about Enov8 Technologies, our vision, mission, and the core values that drive our commitment to delivering world-class digital solutions.",
 };
@@ -61,22 +62,24 @@ export default function AboutPage() {
             className="absolute inset-0 bg-foreground/75"
           />
           <Container className="relative z-10 flex min-h-[28rem] flex-col justify-center py-24 md:min-h-[34rem] md:py-32">
-            <p className="type-label mb-4 text-white/95">Company overview</p>
-            <h1 className="type-route-hero max-w-4xl text-background">
-              Who we are.
-            </h1>
-            <p className="mt-6 max-w-3xl text-base leading-6 text-white/90 md:text-lg md:leading-[1.55]">
-              Enov8 Technologies Ltd. is a Nigerian-based technology company
-              delivering end-to-end digital solutions. We are a forward-thinking
-              team united by one purpose: turning complex technology challenges
-              into competitive advantages for our clients.
-            </p>
+            <MotionStagger trigger="mount" className="w-full">
+              <p className="type-label mb-4 !text-white/95">Company overview</p>
+              <h1 className="type-route-hero max-w-4xl text-background">
+                Who we are.
+              </h1>
+              <p className="mt-6 max-w-3xl text-base leading-6 text-white/90 md:text-lg md:leading-[1.55]">
+                Enov8 Technologies Ltd. is a Nigerian-based technology company
+                delivering end-to-end digital solutions. We are a forward-thinking
+                team united by one purpose: turning complex technology challenges
+                into competitive advantages for our clients.
+              </p>
+            </MotionStagger>
           </Container>
         </section>
 
         <section className="py-16 md:py-24">
           <Container className="grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-20">
-            <div className="max-w-2xl">
+            <MotionEntrance pattern="fadeLeft" className="max-w-2xl">
               <p className="type-label mb-4 text-brand">Our approach</p>
               <h2 className="type-h2">Built to last. Designed to grow.</h2>
               <div className="mt-6 space-y-5 text-muted-foreground">
@@ -100,8 +103,8 @@ export default function AboutPage() {
                 <span aria-hidden="true">•</span>
                 <span>Innovation-led</span>
               </div>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
+            </MotionEntrance>
+            <MotionStagger className="grid gap-4 sm:grid-cols-2">
               {stats.map(([value, label]) => (
                 <Card key={label}>
                   <CardContent className="p-6">
@@ -112,13 +115,14 @@ export default function AboutPage() {
                   </CardContent>
                 </Card>
               ))}
-            </div>
+            </MotionStagger>
           </Container>
         </section>
 
         <section className="border-y border-border bg-muted/25 py-16 md:py-24">
-          <Container className="grid gap-5 md:grid-cols-2">
-            <Card>
+          <Container>
+            <MotionStagger itemClassName="h-full" className="grid gap-5 md:grid-cols-2">
+            <Card className="h-full">
               <CardContent className="p-8 md:p-10">
                 <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-brand/10 text-xl font-bold text-brand">
                   V
@@ -137,7 +141,7 @@ export default function AboutPage() {
                 </blockquote>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="h-full">
               <CardContent className="p-8 md:p-10">
                 <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-brand/10 text-xl font-bold text-brand">
                   M
@@ -152,22 +156,23 @@ export default function AboutPage() {
                 </p>
               </CardContent>
             </Card>
+            </MotionStagger>
           </Container>
         </section>
 
         <section className="py-16 md:py-24">
           <Container>
-            <div className="max-w-3xl">
+            <MotionEntrance className="max-w-3xl">
               <p className="type-label mb-4 text-brand">How we work</p>
               <h2 className="type-h2">The principles behind the delivery.</h2>
               <p className="mt-5 text-muted-foreground">
                 The foundational principles that guide our decisions, shape our
                 culture, and define how we partner with our clients.
               </p>
-            </div>
-            <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            </MotionEntrance>
+            <MotionStagger className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
               {values.map(([title, Icon, description]) => (
-                <Card key={title}>
+                <Card key={title} className="h-full">
                   <CardContent className="p-6">
                     <Icon className="h-8 w-8 text-brand" aria-hidden="true" />
                     <h3 className="type-h4 mt-8">{title}</h3>
@@ -175,7 +180,7 @@ export default function AboutPage() {
                   </CardContent>
                 </Card>
               ))}
-            </div>
+            </MotionStagger>
           </Container>
         </section>
         <TeamSection />

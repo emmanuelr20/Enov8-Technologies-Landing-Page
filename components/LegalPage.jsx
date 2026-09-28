@@ -1,6 +1,6 @@
 import Footer from "@/app/layouts/Footer";
 import { Container } from "@/components/ui/container";
-import MotionReveal from "@/components/MotionReveal";
+import { MotionEntrance, MotionStagger } from "@/components/MotionEntrance";
 
 export default function LegalPage({ title, updated, sections }) {
   return (
@@ -8,14 +8,16 @@ export default function LegalPage({ title, updated, sections }) {
       <main className="min-h-screen bg-background">
         <section className="border-b border-border bg-surface py-16 md:py-24">
           <Container>
-            <p className="type-label mb-4 text-brand">Enov8 Technologies</p>
-            <h1 className="type-route-hero max-w-3xl">{title}</h1>
-            <p className="mt-5 text-sm text-muted-foreground">Last updated: {updated}</p>
+            <MotionStagger trigger="mount" className="max-w-3xl">
+              <p className="type-label mb-4 text-brand">Enov8 Technologies</p>
+              <h1 className="type-route-hero">{title}</h1>
+              <p className="mt-5 text-sm text-muted-foreground">Last updated: {updated}</p>
+            </MotionStagger>
           </Container>
         </section>
         <section className="py-16 md:py-24">
           <Container>
-            <MotionReveal as="article" className="max-w-3xl space-y-10 text-muted-foreground">
+            <MotionEntrance as="article" pattern="fade" className="max-w-3xl space-y-10 text-muted-foreground">
               {sections.map((section) => (
                 <section key={section.heading}>
                   <h2 className="type-h4 text-foreground">{section.heading}</h2>
@@ -23,7 +25,7 @@ export default function LegalPage({ title, updated, sections }) {
                   {section.list ? <ul className="mt-4 list-disc space-y-2 pl-6 leading-7">{section.list.map((item) => <li key={item}>{item}</li>)}</ul> : null}
                 </section>
               ))}
-            </MotionReveal>
+            </MotionEntrance>
           </Container>
         </section>
       </main>

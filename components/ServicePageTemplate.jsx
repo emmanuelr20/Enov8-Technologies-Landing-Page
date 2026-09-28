@@ -22,6 +22,7 @@ import ConsultationModal from "@/components/ConsultationModal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
+import { MotionEntrance, MotionStagger } from "@/components/MotionEntrance";
 import { servicesData, servicesList } from "@/lib/servicesData";
 
 const iconMap = {
@@ -116,7 +117,8 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
             aria-hidden="true"
             className="absolute inset-0 bg-foreground/75"
           />
-          <Container className="relative z-10 motion-hero-sequence flex min-h-112 flex-col justify-center py-24 md:min-h-[34rem] md:py-32">
+          <Container className="relative z-10 flex min-h-112 flex-col justify-center py-24 md:min-h-[34rem] md:py-32">
+            <MotionStagger trigger="mount" className="w-full">
             <nav
               aria-label="Breadcrumb"
               className="mb-8 flex flex-wrap items-center gap-2 text-sm text-background/75"
@@ -155,11 +157,14 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
             <p className="mt-6 max-w-2xl text-base leading-6 text-white/85 md:text-lg md:leading-[1.55]">
               {service.description}
             </p>
+            </MotionStagger>
           </Container>
         </section>
 
         <section className="border-b border-border bg-background py-16 md:py-24">
-          <Container className="motion-service-content grid gap-12 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-16">
+          <Container>
+            <div className="grid gap-12 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-16">
+            <MotionEntrance className="min-w-0">
             <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
               <Card>
                 <CardHeader>
@@ -207,12 +212,16 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                 </CardContent>
               </Card>
             </aside>
+            </MotionEntrance>
 
+            <MotionEntrance className="min-w-0">
             <div className="min-w-0">
               <div className="grid gap-5 sm:grid-cols-2">
                 {detailImages.map((image, index) => (
-                  <figure
+                  <MotionEntrance
+                    as="figure"
                     key={image}
+                    delay={index * 0.08}
                     className={`relative overflow-hidden rounded-xl border border-border bg-surface ${index === 0 ? "sm:col-span-2 aspect-16/8" : "aspect-4/3"}`}
                   >
                     <Image
@@ -222,10 +231,10 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                       sizes="(max-width: 1023px) calc(100vw - 6rem), (max-width: 1439px) 58vw, 60vw"
                       className="object-cover"
                     />
-                  </figure>
+                  </MotionEntrance>
                 ))}
               </div>
-              <div className="mt-12 grid gap-x-10 gap-y-10 md:grid-cols-2">
+              <MotionStagger className="mt-12 grid gap-x-10 gap-y-10 md:grid-cols-2">
                 {service.content.map((item) => (
                   <article
                     key={item.heading}
@@ -235,17 +244,17 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                     <p className="mt-3 text-muted-foreground">{item.text}</p>
                   </article>
                 ))}
-              </div>
+              </MotionStagger>
               <div className="mt-16 border-t border-border pt-8">
                 <p className="type-label mb-4 text-brand">
                   Explore related capabilities
                 </p>
-                <div className="grid gap-3 sm:grid-cols-3">
+                <MotionStagger className="grid gap-3 sm:grid-cols-3">
                   {relatedServices.map((item) => (
                     <Link
                       key={item.id}
                       href={`/services/${item.id}`}
-                      className="focus-ring rounded-lg border border-border p-4 transition-colors hover:border-brand/50 hover:bg-accent"
+                      className="focus-ring flex h-full flex-col rounded-lg border border-border p-4 transition-colors hover:border-brand/50 hover:bg-accent"
                     >
                       <span className="font-medium">{item.title}</span>
                       <ArrowRight
@@ -254,8 +263,10 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                       />
                     </Link>
                   ))}
-                </div>
+                </MotionStagger>
               </div>
+            </div>
+            </MotionEntrance>
             </div>
           </Container>
         </section>

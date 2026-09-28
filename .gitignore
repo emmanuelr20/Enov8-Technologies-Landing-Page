@@ -48,4 +48,5 @@ next-env.d.ts
 /.impeccable/
 /.playwright-mcp/
 /.copilot/
-
+/.aider-desk/
+/.codestudio/

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { MotionEntrance, MotionStagger } from "@/components/MotionEntrance";
 import { industries } from "@/lib/content/company";
 
 export default function HomeHero() {
@@ -20,7 +21,7 @@ export default function HomeHero() {
         <div aria-hidden="true" className="absolute inset-0 bg-black/85" />
 
         <div className="relative z-10 mx-auto flex w-full max-w-[var(--container-content)] flex-1 items-center justify-center px-6 pb-12 pt-28 md:px-12 md:pb-16 md:pt-32 lg:min-h-100svh lg:px-16 lg:pb-[clamp(18rem,28vw,26rem)] lg:pt-32">
-          <div className="mx-auto max-w-6xl text-center motion-hero-sequence min-[1426px]:pt-12">
+          <MotionStagger trigger="mount" className="mx-auto max-w-6xl text-center min-[1426px]:pt-12">
             <h1 id="home-title" className="type-hero text-[2rem] leading-[1.12] text-balance text-white min-[480px]:text-[2.25rem] min-[640px]:text-[2.5rem] md:text-[2.75rem] lg:text-[3.25rem] xl:text-[4.25rem] 2xl:text-[5rem]">
               <span className="block">Turn complex technology into</span>
               <span className="block">dependable business systems.</span>
@@ -36,7 +37,7 @@ export default function HomeHero() {
                 Explore solutions <ArrowRight aria-hidden="true" />
               </Link>
             </div>
-          </div>
+          </MotionStagger>
 
           <p className="sr-only">The visual represents Enov8&apos;s connected approach across software, security, infrastructure, and practical operational support.</p>
         </div>
@@ -51,7 +52,7 @@ export default function HomeHero() {
       </section>
 
       <div className="relative z-30 w-full border-t border-[#56a6ff]/30 bg-brand py-8 md:py-10 lg:absolute lg:inset-x-0 lg:bottom-0 lg:border-t-0 lg:bg-transparent lg:pb-8 lg:pt-0">
-        <div className="mx-auto grid w-full max-w-[var(--container-content)] gap-6 px-6 md:px-12 lg:px-16 min-[1600]:grid-cols-[1fr_auto] min-[1600px]:items-center min-[1600px]:gap-8">
+        <MotionEntrance className="mx-auto grid w-full max-w-[var(--container-content)] gap-6 px-6 md:px-12 lg:px-16 min-[1600]:grid-cols-[1fr_auto] min-[1600px]:items-center min-[1600px]:gap-8">
           <div className="lg:max-[1600px]:max-w-xl lg:max-[1600px]:mx-auto lg:max-[1600px]:text-center min-[1600px]:max-w-none">
             <p className="type-label mb-2 text-white">Built for complex work</p>
             <h2 id="proof-title" className="type-h3 text-white">One technology partner across the transformation lifecycle.</h2>
@@ -63,7 +64,7 @@ export default function HomeHero() {
               </span>
             ))}
           </div>
-        </div>
+        </MotionEntrance>
       </div>
     </div>
   );

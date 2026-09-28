@@ -1,23 +1,23 @@
 import { Container } from "@/components/ui/container";
 import { team } from "@/lib/content/team";
-import MotionReveal from "@/components/MotionReveal";
+import { MotionStagger } from "@/components/MotionEntrance";
 import TeamCarousel from "@/components/about/TeamCarousel";
 
 export default function TeamSection() {
   return (
     <section aria-labelledby="team-heading" className="border-t border-border bg-muted/25 py-16 md:py-24">
       <Container>
-        <MotionReveal className="max-w-3xl">
+        <MotionStagger className="max-w-3xl">
           <p className="type-label mb-4 text-brand">Leadership</p>
           <h2 id="team-heading" className="type-h2">Meet Our Team</h2>
           <p className="mt-5 max-w-2xl text-muted-foreground">
             The people building practical technology systems and partnerships for the organizations we serve.
           </p>
-        </MotionReveal>
+        </MotionStagger>
 
-        <MotionReveal as="div" group className="mt-12">
+        <div className="mt-12">
           <TeamCarousel members={team} />
-        </MotionReveal>
+        </div>
       </Container>
     </section>
   );
