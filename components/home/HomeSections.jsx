@@ -194,34 +194,56 @@ export default function HomeSections() {
           </MotionEntrance>
           <MotionStagger
             itemClassName="h-full"
-            className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-5"
+            className="mt-12 grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-5 lg:[&>div:first-child]:col-span-2"
           >
-            {pathGroups.map((group) => (
+            {pathGroups.map((group, index) => (
               <div
                 key={group.label}
-                className="group h-full rounded-xl border border-border bg-background/90 p-6 transition-colors hover:border-brand/50 hover:bg-accent"
+                className={`group h-full rounded-xl border border-border bg-background/90 p-6 transition-colors hover:border-brand/50 hover:bg-accent ${
+                  index === 0
+                    ? "lg:grid lg:grid-cols-2 lg:items-center lg:gap-10"
+                    : ""
+                }`}
               >
-                <span className="type-label text-brand">{group.label}</span>
-                <h3 className="type-h4 mt-8 min-h-14">{group.title}</h3>
-                <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
-                  {group.ids.map((id) => (
-                    <li key={id}>
-                      <Link
-                        href={`/services/${id}`}
-                        className="focus-ring rounded-sm hover:text-brand"
-                      >
-                        {serviceById[id].title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={`/services/${group.ids[0]}`}
-                  aria-label={`Explore ${group.label} solutions`}
-                  className="focus-ring mt-8 inline-flex rounded-md text-brand"
+                <div>
+                  <span className="type-label text-brand">{group.label}</span>
+                  <h3 className="type-h4 mt-8 min-h-14 lg:mt-5 lg:min-h-0">
+                    {group.title}
+                  </h3>
+                </div>
+                <div
+                  className={
+                    index === 0
+                      ? "lg:border-l lg:border-border/70 lg:pl-8"
+                      : ""
+                  }
                 >
-                  <ArrowRight className="h-5 w-5 motion-arrow group-hover:translate-x-1" />
-                </Link>
+                  <ul
+                    className={`mt-6 space-y-2 text-sm text-muted-foreground ${
+                      index === 0 ? "lg:mt-0" : "lg:mt-4"
+                    }`}
+                  >
+                    {group.ids.map((id) => (
+                      <li key={id}>
+                        <Link
+                          href={`/services/${id}`}
+                          className="focus-ring rounded-sm hover:text-brand"
+                        >
+                          {serviceById[id].title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href={`/services/${group.ids[0]}`}
+                    aria-label={`Explore ${group.label} solutions`}
+                    className={`mt-8 inline-flex rounded-md text-brand focus-ring ${
+                      index === 0 ? "lg:mt-6" : "lg:mt-5"
+                    }`}
+                  >
+                    <ArrowRight className="h-5 w-5 motion-arrow group-hover:translate-x-1" />
+                  </Link>
+                </div>
               </div>
             ))}
           </MotionStagger>
