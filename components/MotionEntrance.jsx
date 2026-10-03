@@ -29,12 +29,13 @@ export function createEntranceVariants(pattern = "fadeUp", reduceMotion = false,
   };
 }
 
-export function createStaggerVariants(reduceMotion = false, staggerDelay = 0.08) {
+export function createStaggerVariants(reduceMotion = false, staggerDelay = 0.08, delay = 0) {
   return {
     hidden: {},
     visible: {
       transition: {
         when: "beforeChildren",
+        delay: reduceMotion ? 0 : delay,
         delayChildren: reduceMotion ? 0 : stagger(staggerDelay),
       },
     },
@@ -84,6 +85,7 @@ export function MotionStagger({
   itemPattern = "fadeUp",
   trigger = "viewport",
   staggerDelay = 0.08,
+  delay = 0,
   ...props
 }) {
   const Component = motion[as];
@@ -97,7 +99,7 @@ export function MotionStagger({
       data-motion-entrance=""
       initial="hidden"
       {...getTriggerProps(trigger)}
-      variants={createStaggerVariants(false, staggerDelay)}
+      variants={createStaggerVariants(false, staggerDelay, delay)}
     >
       {items.map((child, index) => (
         <Item

@@ -253,17 +253,18 @@ export default function HomeSections() {
                   </span>
                 </div>
                 <h3 className="type-h3 mt-10">{title}</h3>
-                <div className="mt-5 flex flex-wrap gap-2">
+                <ul className="mt-5 flex list-none flex-wrap gap-2 p-0">
                   {ids.map((id) => (
-                    <Link
-                      key={id}
-                      href={`/services/${id}`}
-                      className="focus-ring rounded-full border border-border px-3 py-1.5 text-sm text-muted-foreground hover:border-brand/50 hover:text-brand"
-                    >
-                      {serviceById[id].title}
-                    </Link>
+                    <li key={id}>
+                      <Link
+                        href={`/services/${id}`}
+                        className="focus-ring rounded-full border border-border px-3 py-1.5 text-sm text-muted-foreground hover:border-brand/50 hover:text-brand"
+                      >
+                        {serviceById[id].title}
+                      </Link>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             ))}
           </MotionStagger>

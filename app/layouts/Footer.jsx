@@ -19,35 +19,43 @@ export default function Footer() {
             {/* Social Media Links */}
             <div className="mt-8">
               <h5 className="mb-3 text-white">Follow Us</h5>
-              <div className="flex space-x-4">
-                <a
-                  href="https://www.linkedin.com/company/enov8-technologies/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="focus-ring inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm text-white/90 transition-colors hover:text-brand"
-                  aria-label="Follow us on LinkedIn"
-                >
-                  <FaLinkedin size={24} />
-                </a>
-                <a
-                  href="https://www.instagram.com/enov8_technologies?igsh=YWZtNHNia2syanE1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="focus-ring inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm text-white/90 transition-colors hover:text-brand"
-                  aria-label="View our Instagram"
-                >
-                  <FaInstagram size={24} />
-                </a>
-                <a
-                  href="https://www.facebook.com/Enov8Technologies"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="focus-ring inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm text-white/90 transition-colors hover:text-brand"
-                  aria-label="Follow us on Facebook"
-                >
-                  <FaFacebook size={24} />
-                </a>
-              </div>
+              <nav aria-label="Follow us on social media">
+                <ul className="flex list-none gap-4 p-0">
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/company/enov8-technologies/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="focus-ring inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm text-white/90 transition-colors hover:text-brand"
+                      aria-label="LinkedIn"
+                    >
+                      <FaLinkedin size={24} aria-hidden="true" />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/enov8_technologies?igsh=YWZtNHNia2syanE1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="focus-ring inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm text-white/90 transition-colors hover:text-brand"
+                      aria-label="Instagram"
+                    >
+                      <FaInstagram size={24} aria-hidden="true" />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.facebook.com/Enov8Technologies"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="focus-ring inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm text-white/90 transition-colors hover:text-brand"
+                      aria-label="Facebook"
+                    >
+                      <FaFacebook size={24} aria-hidden="true" />
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
           </div>
 

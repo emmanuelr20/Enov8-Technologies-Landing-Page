@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { MotionEntrance, MotionStagger } from "@/components/MotionEntrance";
@@ -8,20 +7,19 @@ export default function HomeHero() {
   return (
     <div className="relative">
       <section id="home" aria-labelledby="home-title" className="relative isolate flex min-h-[100svh] flex-col justify-between overflow-hidden bg-zinc-950 text-white">
-        <Image
-          src="/sections/hero/hero4.webp"
-          alt=""
-          fill
-          preload
-          sizes="100vw"
-          quality={75}
-          className="object-cover"
+        <video
+          src="/video/hero-background.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
           aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover"
         />
         <div aria-hidden="true" className="absolute inset-0 bg-black/85" />
 
         <div className="relative z-10 mx-auto flex w-full max-w-[var(--container-content)] flex-1 items-center justify-center px-6 pb-12 pt-28 md:px-12 md:pb-16 md:pt-32 lg:min-h-100svh lg:px-16 lg:pb-[clamp(18rem,28vw,26rem)] lg:pt-32">
-          <MotionStagger trigger="mount" className="mx-auto max-w-6xl text-center min-[1426px]:pt-12">
+          <MotionStagger trigger="mount" delay={0.25} className="mx-auto max-w-6xl text-center min-[1426px]:pt-12">
             <h1 id="home-title" className="type-hero text-[2rem] leading-[1.12] text-balance text-white min-[480px]:text-[2.25rem] min-[640px]:text-[2.5rem] md:text-[2.75rem] lg:text-[3.25rem] xl:text-[4.25rem] 2xl:text-[5rem]">
               <span className="block">Turn complex technology into</span>
               <span className="block">dependable business systems.</span>
@@ -29,14 +27,18 @@ export default function HomeHero() {
             <p className="mx-auto mt-6 max-w-2xl text-base leading-6 text-white/80 md:text-lg md:leading-[1.55]">
               Enov8 Technologies connects strategy, implementation, and operational support to help organizations modernize with confidence.
             </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link href="/#contact" className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-on-brand shadow-sm transition-colors hover:bg-brand-hover">
-                Start a consultation <ArrowRight aria-hidden="true" />
-              </Link>
-              <Link href="/services" className="focus-ring inline-flex min-h-12 items-center gap-2 text-sm font-semibold text-brand hover:text-brand-hover">
-                Explore solutions <ArrowRight aria-hidden="true" />
-              </Link>
-            </div>
+            <ul className="mt-8 flex list-none flex-col items-center justify-center gap-4 p-0 sm:flex-row">
+              <li>
+                <Link href="/#contact" className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-on-brand shadow-sm transition-colors hover:bg-brand-hover">
+                  Start a consultation <ArrowRight aria-hidden="true" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="focus-ring inline-flex min-h-12 items-center gap-2 text-sm font-semibold text-[#5FA3FF] hover:text-[#8bbcff]">
+                  Explore solutions <ArrowRight aria-hidden="true" />
+                </Link>
+              </li>
+            </ul>
           </MotionStagger>
 
           <p className="sr-only">The visual represents Enov8&apos;s connected approach across software, security, infrastructure, and practical operational support.</p>
@@ -57,13 +59,15 @@ export default function HomeHero() {
             <p className="type-label mb-2 text-white">Built for complex work</p>
             <h2 id="proof-title" className="type-h3 text-white">One technology partner across the transformation lifecycle.</h2>
           </div>
-          <div className="flex flex-wrap gap-2 lg:justify-center min-[1600px]:justify-end">
+          <ul className="flex list-none flex-wrap gap-2 p-0 lg:justify-center min-[1600px]:justify-end">
             {industries.map((industry) => (
-              <span key={industry} className="rounded-full border border-white/30 px-3 py-1.5 text-sm text-white/85">
-                {industry}
-              </span>
+              <li key={industry}>
+                <span className="rounded-full border border-white/30 px-3 py-1.5 text-sm text-white/85">
+                  {industry}
+                </span>
+              </li>
             ))}
-          </div>
+          </ul>
         </MotionEntrance>
       </div>
     </div>
