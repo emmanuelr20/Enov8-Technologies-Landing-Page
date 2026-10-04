@@ -9,7 +9,7 @@
   --font-dm-sans: "DM Sans";
   --light-primary: #0070f3;
   --light-accent: #00c8a0;
-  --footer-background: #1E2D40;
+  --footer-background: #101923;
   --light-hover: #0057c2;
   --light-surface-card: #f9fafb;
   --light-secondary-surface: #e5e7eb;
@@ -260,7 +260,7 @@ body::-webkit-scrollbar,
 
   position: relative;
   width: 100%;
-  max-width: 52rem;
+  max-width: var(--container-content);
   aspect-ratio: 1;
   margin: 2.5rem auto 0;
   background: #101923;
@@ -337,6 +337,30 @@ body::-webkit-scrollbar,
   background: #d8eaff;
   box-shadow: 0 0 0.35rem 0.12rem rgb(var(--orbit-blue-rgb) / 85%), 0 0 1rem 0.2rem rgb(var(--orbit-blue-rgb) / 42%);
   translate: -50% 0;
+}
+
+.orbit-light-track::after {
+  position: absolute;
+  bottom: -0.24rem;
+  left: 50%;
+  width: 0.42rem;
+  height: 0.42rem;
+  border: 1px solid rgb(226 239 255 / 90%);
+  border-radius: 50%;
+  background: #d8eaff;
+  box-shadow: 0 0 0.35rem 0.12rem rgb(var(--orbit-blue-rgb) / 85%), 0 0 1rem 0.2rem rgb(var(--orbit-blue-rgb) / 42%);
+  content: "";
+  translate: -50% 0;
+}
+
+.orbit-light-track-middle::after {
+  width: 0.34rem;
+  height: 0.34rem;
+}
+
+.orbit-light-track-inner::after {
+  width: 0.28rem;
+  height: 0.28rem;
 }
 
 .orbit-light-track-middle .orbit-light {
@@ -525,10 +549,6 @@ body::-webkit-scrollbar,
 }
 
 @media (min-width: 48rem) and (max-width: 63.99rem) {
-  .orbit-container {
-    max-width: 42rem;
-  }
-
   .orbit-center {
     display: none;
   }
