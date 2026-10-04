@@ -14,6 +14,7 @@ import { MotionEntrance, MotionStagger } from "@/components/MotionEntrance";
 import { Button } from "@/components/ui/button";
 import PartnerScroller from "@/components/home/PartnerScroller";
 import OperatingModelDiagram from "@/components/home/OperatingModelDiagram";
+import TransformationOrbit from "@/components/home/TransformationOrbit";
 
 const pathGroups = [
   {
@@ -169,21 +170,15 @@ export default function HomeSections() {
       <section
         id="services"
         aria-labelledby="paths-title"
-        className="relative isolate overflow-hidden border-y border-border/60 bg-background py-16 lg:py-20"
+        className="transformation-section relative isolate overflow-hidden border-y py-16 text-white lg:py-20"
       >
-        <Image
-          src="/sections/transform-background.png"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover"
-          aria-hidden="true"
-        />
-        <div aria-hidden="true" className="absolute inset-0 bg-black/3" />
         <div className="relative z-10 mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
           <MotionEntrance className="max-w-3xl">
             <SectionIntro
               titleId="paths-title"
+              eyebrowClassName="!text-[#5FA3FF]"
+              titleClassName="!text-white"
+              bodyClassName="!text-white/70"
               eyebrow="Transformation paths"
               title="Start with the business challenge, then choose the right technology path."
             >
@@ -192,61 +187,7 @@ export default function HomeSections() {
               it.
             </SectionIntro>
           </MotionEntrance>
-          <MotionStagger
-            itemClassName="h-full"
-            className="mt-12 grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-5 lg:[&>div:first-child]:col-span-2"
-          >
-            {pathGroups.map((group, index) => (
-              <div
-                key={group.label}
-                className={`group h-full rounded-xl border border-border bg-background/90 p-6 transition-colors hover:border-brand/50 hover:bg-accent ${
-                  index === 0
-                    ? "lg:grid lg:grid-cols-2 lg:items-center lg:gap-10"
-                    : ""
-                }`}
-              >
-                <div>
-                  <span className="type-label text-brand">{group.label}</span>
-                  <h3 className="type-h4 mt-8 min-h-14 lg:mt-5 lg:min-h-0">
-                    {group.title}
-                  </h3>
-                </div>
-                <div
-                  className={
-                    index === 0
-                      ? "lg:border-l lg:border-border/70 lg:pl-8"
-                      : ""
-                  }
-                >
-                  <ul
-                    className={`mt-6 space-y-2 text-sm text-muted-foreground ${
-                      index === 0 ? "lg:mt-0" : "lg:mt-4"
-                    }`}
-                  >
-                    {group.ids.map((id) => (
-                      <li key={id}>
-                        <Link
-                          href={`/services/${id}`}
-                          className="focus-ring rounded-sm hover:text-brand"
-                        >
-                          {serviceById[id].title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href={`/services/${group.ids[0]}`}
-                    aria-label={`Explore ${group.label} solutions`}
-                    className={`mt-8 inline-flex rounded-md text-brand focus-ring ${
-                      index === 0 ? "lg:mt-6" : "lg:mt-5"
-                    }`}
-                  >
-                    <ArrowRight className="h-5 w-5 motion-arrow group-hover:translate-x-1" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </MotionStagger>
+          <TransformationOrbit pathGroups={pathGroups} />
         </div>
       </section>
 
