@@ -20,7 +20,7 @@ export default function HomeHero() {
 
         <div className="relative z-10 mx-auto flex w-full max-w-[var(--container-content)] flex-1 items-center justify-center px-6 pb-12 pt-28 md:px-12 md:pb-16 md:pt-32 lg:min-h-100svh lg:px-16 lg:pb-[clamp(18rem,28vw,26rem)] lg:pt-32">
           <MotionStagger trigger="mount" delay={0.25} className="mx-auto max-w-6xl text-center min-[1426px]:pt-12">
-            <h1 id="home-title" className="type-hero text-[2rem] leading-[1.12] text-balance text-white min-[480px]:text-[2.25rem] min-[640px]:text-[2.5rem] md:text-[2.75rem] lg:text-[3.25rem] xl:text-[4.25rem] 2xl:text-[5rem]">
+            <h1 id="home-title" className="type-hero text-[1.875rem] leading-[1.12] text-balance text-white min-[480px]:text-[2rem] min-[640px]:text-[2.25rem] md:text-[2.5rem] lg:text-[2.75rem] xl:text-[3.5rem] 2xl:text-[4rem]">
               <span className="block">Turn complex technology into</span>
               <span className="block">dependable business systems.</span>
             </h1>

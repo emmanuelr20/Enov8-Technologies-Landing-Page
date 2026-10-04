@@ -177,7 +177,7 @@ export default function HomeSections() {
             <SectionIntro
               titleId="paths-title"
               eyebrowClassName="!text-[#5FA3FF]"
-              titleClassName="!text-white"
+              titleClassName="!text-white !text-[clamp(1.6rem,2.8vw,2.25rem)]"
               bodyClassName="!text-white/70"
               eyebrow="Transformation paths"
               title="Start with the business challenge, then choose the right technology path."

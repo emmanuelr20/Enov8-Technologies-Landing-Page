@@ -261,7 +261,7 @@ body::-webkit-scrollbar,
   position: relative;
   width: 100%;
   max-width: var(--container-content);
-  aspect-ratio: 1;
+  aspect-ratio: 1.65;
   margin: 2.5rem auto 0;
   background: #101923;
   isolation: isolate;
@@ -549,6 +549,10 @@ body::-webkit-scrollbar,
 }
 
 @media (min-width: 48rem) and (max-width: 63.99rem) {
+  .orbit-container {
+    aspect-ratio: 1.35;
+  }
+
   .orbit-center {
     display: none;
   }
