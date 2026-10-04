@@ -251,7 +251,7 @@ body::-webkit-scrollbar,
 
 .transformation-section {
   border-color: rgb(95 163 255 / 16%);
-  background: #1c1c1e;
+  background: #101923;
 }
 
 .orbit-container {
@@ -263,7 +263,7 @@ body::-webkit-scrollbar,
   max-width: 52rem;
   aspect-ratio: 1;
   margin: 2.5rem auto 0;
-  background: #1c1c1e;
+  background: #101923;
   isolation: isolate;
 }
 
