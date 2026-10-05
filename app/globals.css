@@ -250,8 +250,278 @@ body::-webkit-scrollbar,
 ::selection { background: color-mix(in oklab, var(--brand) 24%, transparent); color: var(--foreground); }
 
 .transformation-section {
-  border-color: rgb(95 163 255 / 16%);
-  background: #101923;
+  /* border-color: rgb(0 112 243 / 58%); */
+  /* background: #0b111a; */
+  min-height: 100svh;
+  max-height: 110svh;
+}
+
+.transformation-section::before,
+.capabilities-section::before,
+.transformation-section::after,
+.capabilities-section::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+}
+
+.transformation-section::before,
+.capabilities-section::before {
+  z-index: -2;
+  background: url("/sections/transform-background.png") center top / cover no-repeat;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.capabilities-section {
+  background: oklch(17.618% 0.02104 258.336);
+}
+
+.capabilities-section::before {
+  transform: scaleX(-1) translateZ(0);
+}
+
+.transformation-section::after,
+.capabilities-section::after {
+  z-index: -1;
+  background: rgb(0 0 0 / 10%);
+}
+
+.transformation-section-inner {
+  min-height: calc(100svh - 2px);
+}
+
+.transformation-path {
+  --path-blue: var(--brand);
+  --path-blue-rgb: 0 112 243;
+  width: 100%;
+  margin-top: clamp(2.5rem, 6vh, 4.5rem);
+}
+
+.transformation-path-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 1.15rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.62);
+}
+
+.transformation-path-kicker {
+  margin: 0 0 0.55rem;
+  color: var(--path-blue);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.transformation-path-heading h3 {
+  max-width: 38rem;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+}
+
+.transformation-path-link {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.5rem;
+  color: #dbeafe;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color var(--motion-fast) ease;
+}
+
+.transformation-path-link:hover,
+.transformation-path-link:focus-visible {
+  color: var(--path-blue);
+}
+
+.transformation-path-link svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  transition: transform var(--motion-fast) ease;
+}
+
+.transformation-path-link:hover svg,
+.transformation-path-link:focus-visible svg {
+  transform: translateX(0.2rem);
+}
+
+.transformation-path-list {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 1.15rem 0 0;
+  list-style: none;
+}
+
+.transformation-path-list::before {
+  position: absolute;
+  top: 0;
+  right: 10%;
+  left: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(var(--path-blue-rgb) / 62%), transparent);
+  content: "";
+}
+
+.transformation-path-item {
+  position: relative;
+  padding-top: 0.9rem;
+}
+
+.transformation-path-item::before {
+  position: absolute;
+  top: -0.23rem;
+  left: 1.25rem;
+  z-index: 1;
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 2px solid #0b111a;
+  border-radius: 50%;
+  background: var(--path-blue);
+  box-shadow: 0 0 0 1px rgb(var(--path-blue-rgb) / 50%), 0 0 0.8rem rgb(var(--path-blue-rgb) / 38%);
+  content: "";
+}
+
+.transformation-path-card {
+  display: flex;
+  min-height: 8.75rem;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid rgb(15 23 42 / 14%);
+  border-radius: 0.45rem;
+  background: rgb(255 255 255 / 86%);
+  color: #111827;
+  text-decoration: none;
+  transition: background-color var(--motion-standard) ease, border-color var(--motion-standard) ease, transform var(--motion-standard) ease, box-shadow var(--motion-standard) ease;
+}
+
+.transformation-path-card:hover,
+.transformation-path-card:focus-visible {
+  border-color: rgb(var(--path-blue-rgb) / 65%);
+  background: rgb(255 255 255 / 98%);
+  box-shadow: 0 0.8rem 1.8rem rgb(15 23 42 / 12%);
+  transform: translateY(-0.22rem);
+}
+
+.transformation-path-index {
+  color: var(--path-blue);
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.transformation-path-copy {
+  display: grid;
+  gap: 0.38rem;
+}
+
+.transformation-path-copy strong {
+  color: #111827;
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
+.transformation-path-copy span {
+  color: #64748b;
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.transformation-path-arrow {
+  display: grid;
+  width: 1.6rem;
+  height: 1.6rem;
+  place-items: center;
+  border: 1px solid rgb(15 23 42 / 18%);
+  border-radius: 50%;
+  color: var(--path-blue);
+}
+
+.transformation-path-arrow svg {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+@media (max-width: 63.99rem) {
+  .transformation-path-list {
+    grid-template-columns: repeat(5, minmax(9rem, 1fr));
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .transformation-path-card {
+    min-height: 8.25rem;
+  }
+}
+
+@media (max-width: 47.999rem) {
+  .transformation-section {
+    max-height: none;
+  }
+
+  .transformation-section-inner {
+    min-height: 100svh;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .transformation-path {
+    margin-top: 2.5rem;
+  }
+
+  .transformation-path-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .transformation-path-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+    overflow: visible;
+    padding-top: 1rem;
+  }
+
+  .transformation-path-list::before,
+  .transformation-path-item::before {
+    display: none;
+  }
+
+  .transformation-path-item {
+    padding-top: 0;
+  }
+
+  .transformation-path-card {
+    min-height: 4.75rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transformation-path-card,
+  .transformation-path-link,
+  .transformation-path-link svg {
+    transition: none;
+  }
 }
 
 .orbit-container {

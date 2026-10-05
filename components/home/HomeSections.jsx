@@ -107,7 +107,9 @@ function SectionIntro({
 }) {
   return (
     <div className="max-w-3xl">
-      <p className={`type-label mb-4 ${eyebrowClassName}`}>{eyebrow}</p>
+      {eyebrow ? (
+        <p className={`type-label mb-4 ${eyebrowClassName}`}>{eyebrow}</p>
+      ) : null}
       <h2 id={titleId} className={`type-h2 ${titleClassName}`}>
         {title}
       </h2>
@@ -170,15 +172,15 @@ export default function HomeSections() {
       <section
         id="services"
         aria-labelledby="paths-title"
-        className="transformation-section relative isolate overflow-hidden border-y py-16 text-white lg:py-20"
+        className="transformation-section relative isolate overflow-hidden border-b !border-white/50 text-white"
       >
-        <div className="relative z-10 mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
+        <div className="transformation-section-inner relative z-10 mx-auto flex w-full max-w-[var(--container-content)] flex-col justify-center px-6 py-12 md:px-12 lg:px-16 lg:py-14">
           <MotionEntrance className="max-w-3xl">
             <SectionIntro
               titleId="paths-title"
-              eyebrowClassName="!text-[#5FA3FF]"
+              eyebrowClassName="!text-brand"
               titleClassName="!text-white !text-[clamp(1.6rem,2.8vw,2.25rem)]"
-              bodyClassName="!text-white/70"
+              bodyClassName="!text-muted-foreground/70"
               eyebrow="Transformation paths"
               title="Start with the business challenge, then choose the right technology path."
             >
@@ -187,27 +189,38 @@ export default function HomeSections() {
               it.
             </SectionIntro>
           </MotionEntrance>
-          <TransformationOrbit pathGroups={pathGroups} />
+          <MotionEntrance delay={0.5} className="w-full">
+            <TransformationOrbit pathGroups={pathGroups} />
+          </MotionEntrance>
         </div>
       </section>
 
       <section
         aria-labelledby="capabilities-title"
-        className="bg-background py-16 lg:py-20"
+        className="capabilities-section relative isolate overflow-hidden py-16 lg:py-20"
       >
-        <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
+        <div className="relative z-10 mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
           <MotionEntrance className="max-w-3xl">
             <SectionIntro
               titleId="capabilities-title"
-              eyebrow="Capability ecosystem"
-              title="Connected capabilities, designed to work together."
-            />
+              titleClassName="!text-white"
+              bodyClassName="!text-muted-foreground/70"
+              eyebrow={null}
+              title="The capabilities to make transformation work in practice."
+            >
+              From business systems and identity to security, software, and
+              intelligence, our teams bring the right expertise together around
+              the way your organization operates.
+            </SectionIntro>
           </MotionEntrance>
-          <MotionStagger className="mt-12 grid gap-5 md:grid-cols-2">
+          <MotionStagger
+            trigger="mount"
+            className="mt-12 grid gap-5 md:grid-cols-2"
+          >
             {capabilityGroups.map(({ icon: Icon, title, ids }) => (
               <div
                 key={title}
-                className="rounded-xl border border-border/70 bg-surface/90 p-6 md:p-8"
+                className="rounded-xl border border-border/70 bg-surface/90 p-6 h-full md:p-8"
               >
                 <div className="flex items-start justify-between gap-4">
                   <Icon className="h-7 w-7 text-brand" aria-hidden="true" />
