@@ -77,8 +77,9 @@ export default function AboutPage() {
           </Container>
         </section>
 
-        <section className="py-16 md:py-24">
-          <Container className="grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-20">
+        <section className="about-grid-section relative isolate overflow-hidden py-16 md:py-24">
+          <div className="surface-grid-canvas" aria-hidden="true" />
+          <Container className="relative z-10 grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-20">
             <MotionEntrance pattern="fadeLeft" className="max-w-2xl">
               <p className="type-label mb-4 text-brand">Our approach</p>
               <h2 className="type-h2">Built to last. Designed to grow.</h2>
@@ -160,8 +161,9 @@ export default function AboutPage() {
           </Container>
         </section>
 
-        <section className="py-16 md:py-24">
-          <Container>
+        <section className="about-grid-section relative isolate overflow-hidden py-16 md:py-24">
+          <div className="surface-grid-canvas" aria-hidden="true" />
+          <Container className="relative z-10">
             <MotionEntrance className="max-w-3xl">
               <p className="type-label mb-4 text-brand">How we work</p>
               <h2 className="type-h2">The principles behind the delivery.</h2>

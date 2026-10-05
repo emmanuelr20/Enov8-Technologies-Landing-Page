@@ -300,6 +300,10 @@ body::-webkit-scrollbar,
 }
 
 @media (max-width: 47.999rem) {
+  .surface-grid-canvas {
+    --grid-size: 3rem;
+  }
+
   .transformation-capabilities-shell,
   .services-index-section {
     --grid-size: 3rem;
