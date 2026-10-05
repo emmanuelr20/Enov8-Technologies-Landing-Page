@@ -47,14 +47,20 @@ export default function HomeHero() {
         {/* Circle Wave — only rendered on lg (1024px) upwards */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-[-2px] z-20 hidden h-[calc(clamp(15rem,32vw,30rem)+2px)] lg:block min-[1426px]:h-[calc(clamp(15rem,20vw,30rem)+2px)]">
           <svg viewBox="0 0 1440 402" preserveAspectRatio="none" className="block h-full w-full">
-            <path d="M0 402V320C320 32 1120 32 1440 320V402Z" fill="var(--brand)" />
+            <defs>
+              <linearGradient id="hero-wave-fill" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#007bff" />
+                <stop offset="100%" stopColor="#001b43" />
+              </linearGradient>
+            </defs>
+            <path d="M0 402V320C320 32 1120 32 1440 320V402Z" fill="url(#hero-wave-fill)" />
             <path d="M0 320C320 32 1120 32 1440 320" fill="none" stroke="#56a6ff" strokeWidth="4" />
           </svg>
         </div>
       </section>
 
       <div className="relative z-30 w-full border-t border-[#56a6ff]/30 bg-brand py-8 md:py-10 lg:absolute lg:inset-x-0 lg:bottom-0 lg:border-t-0 lg:bg-transparent lg:pb-8 lg:pt-0">
-        <MotionEntrance className="mx-auto grid w-full max-w-[var(--container-content)] gap-6 px-6 md:px-12 lg:px-16 min-[1600]:grid-cols-[1fr_auto] min-[1600px]:items-center min-[1600px]:gap-8">
+        <MotionEntrance className="mx-auto grid w-full max-w-[var(--container-content)] gap-6 px-6 md:px-12 lg:px-16 min-[1600px]:grid-cols-[1fr_auto] min-[1600px]:items-center min-[1600px]:gap-8">
           <div className="lg:max-[1600px]:max-w-xl lg:max-[1600px]:mx-auto lg:max-[1600px]:text-center min-[1600px]:max-w-none">
             <p className="type-label mb-2 text-white">Built for complex work</p>
             <h2 id="proof-title" className="type-h3 text-white">One technology partner across the transformation lifecycle.</h2>

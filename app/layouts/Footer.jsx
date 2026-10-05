@@ -6,12 +6,12 @@ import { servicesList } from "@/lib/servicesData";
 
 export default function Footer() {
   return (
-    <footer className="z-50 bg-footer-background py-20 md:py-24">
+    <footer className="z-50 bg-footer-background py-20 text-white md:py-24">
       <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 gap-12 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,1.65fr)] xl:gap-24">
           <div className="max-w-md ">
             <h3 className="mb-4 text-white">Enov8 Technologies</h3>
-            <p className="mb-6 !text-white/90">
+            <p className="mb-6 text-white/90">
               Transforming businesses through innovative software solutions,
               mobile applications, and professional development training.
             </p>
@@ -26,7 +26,7 @@ export default function Footer() {
                       href="https://www.linkedin.com/company/enov8-technologies/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="focus-ring inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm text-white/90 transition-colors hover:text-brand"
+                      className="focus-ring inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm text-white transition-colors hover:text-[#8bbcff]"
                       aria-label="LinkedIn"
                     >
                       <FaLinkedin size={24} aria-hidden="true" />
@@ -37,7 +37,7 @@ export default function Footer() {
                       href="https://www.instagram.com/enov8_technologies?igsh=YWZtNHNia2syanE1"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="focus-ring inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm text-white/90 transition-colors hover:text-brand"
+                      className="focus-ring inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm text-white transition-colors hover:text-[#8bbcff]"
                       aria-label="Instagram"
                     >
                       <FaInstagram size={24} aria-hidden="true" />
@@ -48,7 +48,7 @@ export default function Footer() {
                       href="https://www.facebook.com/Enov8Technologies"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="focus-ring inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm text-white/90 transition-colors hover:text-brand"
+                      className="focus-ring inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm text-white transition-colors hover:text-[#8bbcff]"
                       aria-label="Facebook"
                     >
                       <FaFacebook size={24} aria-hidden="true" />
@@ -62,12 +62,12 @@ export default function Footer() {
           <div className="grid gap-10 sm:grid-cols-2 xl:grid-cols-3">
             <div>
               <h5 className="mb-4 text-white">Services</h5>
-              <ul className="space-y-3 text-sm text-white/90">
+              <ul className="space-y-3 text-sm text-white/95">
                 {servicesList.slice(0, 6).map((service) => (
                   <li key={service.id}>
                     <a
                       href={`/services/${service.id}`}
-                      className="focus-ring rounded-sm transition-colors hover:text-white/85"
+                      className="focus-ring rounded-sm transition-colors hover:text-white"
                     >
                       {service.title}
                     </a>
@@ -78,12 +78,12 @@ export default function Footer() {
 
             <div>
               <h5 className="mb-4 text-white">Industries</h5>
-              <ul className="space-y-3 text-sm text-white/90">
+              <ul className="space-y-3 text-sm text-white/95">
                 {industries.map((industry) => (
                   <li key={industry}>
                     <a
                       href="#about"
-                      className="focus-ring rounded-sm transition-colors hover:text-white/85"
+                      className="focus-ring rounded-sm transition-colors hover:text-white"
                     >
                       {industry}
                     </a>
@@ -94,12 +94,12 @@ export default function Footer() {
 
             <div>
               <h5 className="mb-4 text-white">Contact Info</h5>
-              <div className="space-y-4 text-sm text-white/90">
+              <div className="space-y-4 text-sm text-white/95">
                 <div className="flex items-center space-x-3">
                   <Mail size={18} className="shrink-0" />
                   <a
                     href={`mailto:${company.emails.general}`}
-                    className="focus-ring rounded-sm transition-colors hover:text-white/85"
+                    className="focus-ring rounded-sm transition-colors hover:text-white"
                   >
                     {company.emails.general}
                   </a>
@@ -108,7 +108,7 @@ export default function Footer() {
                   <Phone size={18} className="shrink-0" />
                   <a
                     href={`tel:${company.phones.service.replace(/\s/g, "")}`}
-                    className="focus-ring rounded-sm transition-colors hover:text-white/85"
+                    className="focus-ring rounded-sm transition-colors hover:text-white"
                   >
                     {company.phones.service}
                   </a>
@@ -121,12 +121,12 @@ export default function Footer() {
 
               <div className="mt-8">
                 <h5 className="mb-3 text-white">Resources</h5>
-                <ul className="space-y-3 text-sm text-white/90">
+                <ul className="space-y-3 text-sm text-white/95">
                   {resourceNavigation.map((resource) => (
                     <li key={resource.id}>
                       <a
                         href={resource.href}
-                        className="focus-ring rounded-sm transition-colors hover:text-white/85"
+                        className="focus-ring rounded-sm transition-colors hover:text-white"
                       >
                         {resource.label}
                       </a>
@@ -139,12 +139,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-12 flex flex-col items-center justify-between border-t border-border pt-8 text-center md:flex-row md:text-left">
-          <p className="mb-4 text-sm !text-white/90 md:mb-0">
+        <div className="mt-12 flex flex-col items-center justify-between border-t border-white/10 pt-8 text-center md:flex-row md:text-left">
+          <p className="mb-4 text-sm text-white/95 md:mb-0">
             © 2025 Enov8 Technologies. All rights reserved.
           </p>
 
-          <div className="flex flex-col items-center gap-2 text-sm text-white/90 md:flex-row md:gap-6">
+          <div className="flex flex-col items-center gap-2 text-sm text-white/95 md:flex-row md:gap-6">
             <span>Nigeria-based technology solutions</span>
             <span className="hidden md:inline">•</span>
             <span>ISO 27001 Compliant</span>

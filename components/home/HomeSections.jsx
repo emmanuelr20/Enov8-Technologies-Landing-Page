@@ -126,7 +126,8 @@ export default function HomeSections() {
       <section
         id="about"
         aria-labelledby="about-title"
-        className="relative z-20 -mt-1 flex items-center border-0 bg-brand py-16 text-white lg:py-30"
+        className="relative z-20 -mt-1 flex items-center border-0 py-16 text-white lg:py-30"
+        style={{ background: "linear-gradient(90deg, #007bff 0%, #001b43 100%)" }}
       >
         <MotionStagger className="mx-auto grid w-full max-w-[var(--container-content)] gap-12 px-6 md:px-12 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:px-16">
           <OperatingModelDiagram />
@@ -172,15 +173,15 @@ export default function HomeSections() {
       <section
         id="services"
         aria-labelledby="paths-title"
-        className="transformation-section relative isolate overflow-hidden border-b !border-white/50 text-white"
+        className="transformation-section relative isolate overflow-hidden text-foreground"
       >
         <div className="transformation-section-inner relative z-10 mx-auto flex w-full max-w-[var(--container-content)] flex-col justify-center px-6 py-12 md:px-12 lg:px-16 lg:py-14">
           <MotionEntrance className="max-w-3xl">
             <SectionIntro
               titleId="paths-title"
               eyebrowClassName="!text-brand"
-              titleClassName="!text-white !text-[clamp(1.6rem,2.8vw,2.25rem)]"
-              bodyClassName="!text-muted-foreground/70"
+              titleClassName="!text-foreground !text-[clamp(1.6rem,2.8vw,2.25rem)]"
+              bodyClassName="!text-muted-foreground"
               eyebrow="Transformation paths"
               title="Start with the business challenge, then choose the right technology path."
             >
@@ -203,8 +204,8 @@ export default function HomeSections() {
           <MotionEntrance className="max-w-3xl">
             <SectionIntro
               titleId="capabilities-title"
-              titleClassName="!text-white"
-              bodyClassName="!text-muted-foreground/70"
+              titleClassName="!text-foreground"
+              bodyClassName="!text-muted-foreground"
               eyebrow={null}
               title="The capabilities to make transformation work in practice."
             >
