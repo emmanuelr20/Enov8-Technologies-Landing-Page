@@ -29,8 +29,9 @@ export default function ServicesPage() {
           </Container>
         </section>
 
-        <section className="border-b border-border bg-surface py-12 md:py-16">
-          <Container>
+        <section className="services-index-section relative isolate overflow-hidden border-b border-border bg-surface py-12 md:py-16">
+          <div className="surface-grid-canvas" aria-hidden="true" />
+          <Container className="relative z-10">
             <div className="max-w-3xl">
               <p className="type-label mb-4 text-brand">Our services</p>
               <h2 className="type-h2 !text-[clamp(1.6rem,2.8vw,2.25rem)]">Find the right technology path for the challenge in front of you.</h2>

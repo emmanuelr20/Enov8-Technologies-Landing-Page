@@ -170,10 +170,13 @@ export default function HomeSections() {
         </MotionStagger>
       </section>
 
+      <div className="transformation-capabilities-shell relative isolate overflow-hidden">
+      <div className="surface-grid-canvas" aria-hidden="true" />
+
       <section
         id="services"
         aria-labelledby="paths-title"
-        className="transformation-section relative isolate overflow-hidden text-foreground"
+        className="transformation-section relative z-10 isolate overflow-hidden text-foreground"
       >
         <div className="transformation-section-inner relative z-10 mx-auto flex w-full max-w-[var(--container-content)] flex-col justify-center px-6 py-12 md:px-12 lg:px-16 lg:py-14">
           <MotionEntrance className="max-w-3xl">
@@ -198,7 +201,7 @@ export default function HomeSections() {
 
       <section
         aria-labelledby="capabilities-title"
-        className="capabilities-section relative isolate overflow-hidden py-16 lg:py-20"
+        className="capabilities-section relative z-10 isolate overflow-hidden pb-16 lg:pb-20"
       >
         <div className="relative z-10 mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
           <MotionEntrance className="max-w-3xl">
@@ -247,6 +250,8 @@ export default function HomeSections() {
           </MotionStagger>
         </div>
       </section>
+
+      </div>
 
       <section
         aria-labelledby="delivery-title"

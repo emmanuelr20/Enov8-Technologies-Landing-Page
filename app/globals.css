@@ -250,7 +250,8 @@ body::-webkit-scrollbar,
 ::selection { background: color-mix(in oklab, var(--brand) 24%, transparent); color: var(--foreground); }
 
 .transformation-capabilities-shell {
-  background: #f7f8fa;
+  --grid-size: 3.75rem;
+  background-color: #f7f8fa;
 }
 
 .transformation-capabilities-shell::before {
@@ -262,6 +263,33 @@ body::-webkit-scrollbar,
   pointer-events: none;
 }
 
+.surface-grid-canvas {
+  --grid-size: 3.75rem;
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgb(51 65 85 / 5%) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(51 65 85 / 5%) 1px, transparent 1px);
+  background-position: 0 0;
+  background-size: var(--grid-size) var(--grid-size);
+  -webkit-mask-image: radial-gradient(
+    ellipse 92% 82% at 50% 18%,
+    #000 58%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 92% 82% at 50% 18%,
+    #000 58%,
+    transparent 100%
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  pointer-events: none;
+}
+
 .transformation-capabilities-element {
   z-index: 1;
   object-fit: cover;
@@ -269,6 +297,13 @@ body::-webkit-scrollbar,
   opacity: 0.82;
   pointer-events: none;
   mix-blend-mode: multiply;
+}
+
+@media (max-width: 47.999rem) {
+  .transformation-capabilities-shell,
+  .services-index-section {
+    --grid-size: 3rem;
+  }
 }
 
 .transformation-section {
