@@ -163,8 +163,9 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
           </Container>
         </section>
 
-        <section className="border-b border-border bg-background py-16 md:py-24">
-          <Container>
+        <section className="service-detail-grid-section relative isolate overflow-hidden border-b border-border py-16 md:py-24">
+          <div className="surface-grid-canvas" aria-hidden="true" />
+          <Container className="relative z-10">
             <div className="grid gap-12 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-16">
             <MotionEntrance className="min-w-0">
             <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
