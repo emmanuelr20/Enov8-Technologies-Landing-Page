@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,18 +31,26 @@ const socialLinks = [
 function createMenuPanelVariants(reduceMotion) {
   return {
     hidden: {
-      height: 0,
+      opacity: 0,
+      scaleY: 0.96,
+      y: reduceMotion ? 0 : -6,
       transition: {
         when: "afterChildren",
         staggerChildren: reduceMotion ? 0 : 0.02,
         staggerDirection: -1,
-        height: { duration: reduceMotion ? 0.01 : 0.34, ease: EASE },
+        opacity: { duration: reduceMotion ? 0.01 : 0.18, ease: EASE },
+        scaleY: { duration: reduceMotion ? 0.01 : 0.22, ease: EASE },
+        y: { duration: reduceMotion ? 0.01 : 0.22, ease: EASE },
       },
     },
     visible: {
-      height: "auto",
+      opacity: 1,
+      scaleY: 1,
+      y: 0,
       transition: {
-        height: { duration: reduceMotion ? 0.01 : 0.44, ease: EASE },
+        opacity: { duration: reduceMotion ? 0.01 : 0.22, ease: EASE },
+        scaleY: { duration: reduceMotion ? 0.01 : 0.28, ease: EASE },
+        y: { duration: reduceMotion ? 0.01 : 0.28, ease: EASE },
       },
     },
   };
@@ -131,28 +139,54 @@ const Navbar = memo(function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [closedWidth, setClosedWidth] = useState(null);
+  const [viewportWidth, setViewportWidth] = useState(0);
   const menuButtonRef = useRef(null);
   const menuSlotRef = useRef(null);
   const isOpenRef = useRef(false);
-  const itemVariants = createMenuItemVariants(Boolean(reduceMotion));
-  const panelVariants = createMenuPanelVariants(Boolean(reduceMotion));
+  const isCompactViewport = viewportWidth > 0 && viewportWidth < 1024;
+  const itemVariants = useMemo(
+    () => createMenuItemVariants(Boolean(reduceMotion)),
+    [reduceMotion],
+  );
+  const panelVariants = useMemo(
+    () => createMenuPanelVariants(Boolean(reduceMotion)),
+    [reduceMotion],
+  );
+
+  useEffect(() => {
+    const updateViewportWidth = () => setViewportWidth(window.innerWidth);
+    updateViewportWidth();
+    window.addEventListener("resize", updateViewportWidth);
+    return () => window.removeEventListener("resize", updateViewportWidth);
+  }, []);
 
   useEffect(() => {
     const slot = menuSlotRef.current;
     if (!slot) return undefined;
 
-    const updateClosedWidth = () => {
-      setClosedWidth(slot.getBoundingClientRect().width);
-    };
-    updateClosedWidth();
+    let isObserving = true;
+    const observer = new ResizeObserver((entries) => {
+      if (!isObserving) return;
 
-    const observer = new ResizeObserver(updateClosedWidth);
+      const entry = entries[0];
+      if (!entry) return;
+
+      const nextWidth = Math.round(entry.contentRect.width);
+      if (nextWidth > 0) {
+        setClosedWidth((currentWidth) =>
+          currentWidth === nextWidth ? currentWidth : nextWidth,
+        );
+      }
+    });
     observer.observe(slot);
-    return () => observer.disconnect();
+    return () => {
+      isObserving = false;
+      observer.disconnect();
+    };
   }, []);
 
   useEffect(() => {
-    if (!isExpanded) return undefined;
+    if (!isOpen) return undefined;
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -183,7 +217,7 @@ const Navbar = memo(function Navbar() {
       document.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("pointerdown", handlePointerDown);
     };
-  }, [isExpanded]);
+  }, [isOpen]);
 
   useEffect(() => {
     isOpenRef.current = false;
@@ -213,7 +247,11 @@ const Navbar = memo(function Navbar() {
     document.querySelector(href.slice(1))?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const menuWidth = isExpanded ? 296 : closedWidth;
+  const menuWidth = isExpanded
+    ? isCompactViewport
+      ? Math.max(viewportWidth - 32, 0)
+      : 500
+    : closedWidth;
   const menuShadow = isExpanded
     ? "0 30px 70px -24px rgba(0,0,0,0.25)"
     : "0 30px 70px -24px rgba(0,0,0,0)";
@@ -258,16 +296,23 @@ const Navbar = memo(function Navbar() {
                 boxShadow: menuShadow,
               }}
               transition={shellTransition}
-              className="absolute left-1/2 z-50 w-18 -translate-x-1/2 rounded-full p-2 sm:w-32 md:rounded-[28px] md:w-36"
+              className={`${
+                isExpanded && isCompactViewport
+                  ? "fixed left-1/2 top-2"
+                  : "absolute left-1/2"
+              } z-50 w-18 max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-full p-2 sm:w-32 md:rounded-[28px] md:w-36`}
             >
               <motion.div
                 initial={false}
                 animate={{ opacity: isExpanded ? 1 : 0 }}
-                transition={reduceMotion ? { duration: 0.01 } : { duration: 0.3, ease: EASE }}
+                transition={
+                  reduceMotion
+                    ? { duration: 0.01 }
+                    : { duration: 0.3, ease: EASE }
+                }
                 className="pointer-events-none absolute inset-0 rounded-[28px] bg-background shadow-lg"
                 aria-hidden="true"
               />
-
               <div className="relative z-10">
                 <div className="flex h-13 w-full items-center justify-center rounded-full border border-border bg-background px-1.5 text-foreground">
                   <button
@@ -304,12 +349,12 @@ const Navbar = memo(function Navbar() {
                     }}
                     className="overflow-hidden"
                   >
-                    <div className="px-4 pb-3 pt-7">
-                      <div className="flex flex-col gap-1">
+                    <div className="px-5 pb-4 pt-7">
+                      <div className="grid grid-cols-1 gap-y-1 lg:grid-cols-2 lg:gap-x-8">
                         <motion.p
                           custom={0}
                           variants={itemVariants}
-                          className="mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground"
+                          className="col-span-full mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground"
                         >
                           Menu
                         </motion.p>
