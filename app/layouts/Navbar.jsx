@@ -15,6 +15,7 @@ import { company } from "@/lib/content/company";
 import { primaryNavigation } from "@/lib/content/navigation";
 
 const EASE = [0.22, 1, 0.36, 1];
+const MENU_CLOSE_DURATION = 0.44;
 
 function isCurrentRoute(pathname, item) {
   if (item.id === "home") return pathname === "/";
@@ -35,12 +36,18 @@ function createMenuPanelVariants(reduceMotion) {
       scaleY: 0.96,
       y: reduceMotion ? 0 : -6,
       transition: {
-        when: "afterChildren",
-        staggerChildren: reduceMotion ? 0 : 0.02,
-        staggerDirection: -1,
-        opacity: { duration: reduceMotion ? 0.01 : 0.18, ease: EASE },
-        scaleY: { duration: reduceMotion ? 0.01 : 0.22, ease: EASE },
-        y: { duration: reduceMotion ? 0.01 : 0.22, ease: EASE },
+        opacity: {
+          duration: reduceMotion ? 0.01 : MENU_CLOSE_DURATION,
+          ease: EASE,
+        },
+        scaleY: {
+          duration: reduceMotion ? 0.01 : MENU_CLOSE_DURATION,
+          ease: EASE,
+        },
+        y: {
+          duration: reduceMotion ? 0.01 : MENU_CLOSE_DURATION,
+          ease: EASE,
+        },
       },
     },
     visible: {
@@ -61,7 +68,10 @@ function createMenuItemVariants(reduceMotion) {
     hidden: {
       opacity: 0,
       y: reduceMotion ? 0 : 14,
-      transition: { duration: reduceMotion ? 0.01 : 0.14, ease: EASE },
+      transition: {
+        duration: reduceMotion ? 0.01 : MENU_CLOSE_DURATION,
+        ease: EASE,
+      },
     },
     visible: (index) => {
       const delay = reduceMotion ? 0 : 0.12 + 0.045 * index;
@@ -257,7 +267,7 @@ const Navbar = memo(function Navbar() {
     : "0 30px 70px -24px rgba(0,0,0,0)";
   const shellTransition = reduceMotion
     ? { duration: 0.01 }
-    : { duration: 0.44, ease: EASE };
+    : { duration: MENU_CLOSE_DURATION, ease: EASE };
 
   return (
     <header
