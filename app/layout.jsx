@@ -232,6 +232,9 @@ export default function RootLayout({ children }) {
         className="min-h-svh text-foreground bg-background overflow-x-hidden antialiased"
         suppressHydrationWarning
       >
+        <a className="skip-link" href="#main-content">
+          Skip to main content
+        </a>
         {/* Organization Schema */}
         <Script id="organization-jsonld" type="application/ld+json">
           {JSON.stringify(jsonLd)}

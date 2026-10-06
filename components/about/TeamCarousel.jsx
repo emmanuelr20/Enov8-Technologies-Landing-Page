@@ -8,7 +8,7 @@ import "swiper/css";
 
 function TeamNavigation({ activeIndex, memberCount, onPrevious, onNext }) {
   return (
-    <div
+    <nav
       className="mt-8 flex justify-end gap-3"
       aria-label="Team carousel navigation"
     >
@@ -30,7 +30,7 @@ function TeamNavigation({ activeIndex, memberCount, onPrevious, onNext }) {
       >
         <ArrowRight className="size-5" aria-hidden="true" />
       </button>
-    </div>
+    </nav>
   );
 }
 

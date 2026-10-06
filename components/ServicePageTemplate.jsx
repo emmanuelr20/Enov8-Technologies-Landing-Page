@@ -89,7 +89,7 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
 
   return (
     <>
-      <main className="min-h-screen bg-background">
+      <main id="main-content" tabIndex={-1} className="min-h-screen bg-background">
         <script
           id={`service-jsonld-${serviceId}`}
           type="application/ld+json"
@@ -110,7 +110,8 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
             src={service.heroImage}
             alt=""
             fill
-            preload
+            priority
+            quality={72}
             sizes="100vw"
             className="object-cover"
             aria-hidden="true"
@@ -163,7 +164,7 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
           </Container>
         </section>
 
-        <section className="service-detail-grid-section relative isolate overflow-hidden border-b border-border py-16 md:py-24">
+        <section className="service-detail-grid-section gradient-grid-surface relative isolate overflow-hidden border-b border-border py-16 md:py-24">
           <div className="surface-grid-canvas" aria-hidden="true" />
           <Container className="relative z-10">
             <div className="grid gap-12 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-16">
@@ -173,19 +174,22 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                 <CardHeader>
                   <CardTitle className="type-h4">Our services</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-1">
-                  {servicesList.map((item) => (
-                    <Link
-                      key={item.id}
-                      href={`/services/${item.id}`}
-                      // Avoid downloading all 12 routes before a service is chosen.
-                      prefetch={false}
-                      className={`focus-ring flex rounded-md px-3 py-2.5 text-sm font-medium transition-colors ${item.id === serviceId ? "bg-brand text-on-brand" : "text-muted-foreground hover:bg-accent hover:text-foreground"}`}
-                    >
-                      {item.title}
-                    </Link>
-                  ))}
-                </CardContent>
+                  <CardContent>
+                    <ul className="list-none space-y-1 p-0">
+                      {servicesList.map((item) => (
+                        <li key={item.id}>
+                          <Link
+                            href={`/services/${item.id}`}
+                            // Avoid downloading all 12 routes before a service is chosen.
+                            prefetch={false}
+                            className={`focus-ring flex rounded-md px-3 py-2.5 text-sm font-medium transition-colors ${item.id === serviceId ? "bg-brand text-on-brand" : "text-muted-foreground hover:bg-accent hover:text-foreground"}`}
+                          >
+                            {item.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
               </Card>
               <Card className="border-brand/20 bg-brand text-on-brand">
                 <CardContent className="p-6">
@@ -195,7 +199,7 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                   <h2 className="type-h4 !text-white">
                     Ready to make this practical?
                   </h2>
-                  <p className="mt-3 text-sm !text-white/85">
+                  <p className="mt-3 text-sm !text-white">
                     Start a conversation about the right next step for your
                     organization.
                   </p>
@@ -233,6 +237,8 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                       src={image}
                       alt={`${service.title} supporting visual ${index + 1}`}
                       fill
+                      quality={72}
+                      loading="lazy"
                       // Match the capped container, sidebar, gaps and figure border.
                       sizes={index === 0
                         ? "(min-width: 1360px) 878px, (min-width: 1024px) calc(100vw - 482px), (min-width: 768px) calc(100vw - 98px), calc(100vw - 50px)"
@@ -246,15 +252,15 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                 {service.content.map((item) => (
                   <article
                     key={item.heading}
-                    className="border-t border-border pt-6"
+                    className="border-t border-brand/70 pt-6"
                   >
                     <h2 className="type-h4">{item.heading}</h2>
                     <p className="mt-3 text-muted-foreground">{item.text}</p>
                   </article>
                 ))}
               </MotionStagger>
-              <div className="mt-16 border-t border-border pt-8">
-                <p className="type-label mb-4 text-brand">
+              <div className="mt-16 border-t border-brand/70 pt-8">
+                <p className="type-label mb-4 !text-[#0066d6]">
                   Explore related capabilities
                 </p>
                 <MotionStagger className="grid gap-3 sm:grid-cols-3">

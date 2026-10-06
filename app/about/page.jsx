@@ -46,7 +46,7 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      <main className="min-h-screen bg-background">
+      <main id="main-content" tabIndex={-1} className="min-h-screen bg-background">
         <section className="relative isolate overflow-hidden bg-foreground text-background">
           <Image
             src="/sections/servicebackground.webp"
@@ -77,7 +77,7 @@ export default function AboutPage() {
           </Container>
         </section>
 
-        <section className="about-grid-section relative isolate overflow-hidden py-16 md:py-24">
+        <section className="about-grid-section gradient-grid-surface relative isolate overflow-hidden py-16 md:py-24">
           <div className="surface-grid-canvas" aria-hidden="true" />
           <Container className="relative z-10 grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-20">
             <MotionEntrance pattern="fadeLeft" className="max-w-2xl">
@@ -161,7 +161,7 @@ export default function AboutPage() {
           </Container>
         </section>
 
-        <section className="about-grid-section relative isolate overflow-hidden py-16 md:py-24">
+        <section className="about-grid-section gradient-grid-surface relative isolate overflow-hidden py-16 md:py-24">
           <div className="surface-grid-canvas" aria-hidden="true" />
           <Container className="relative z-10">
             <MotionEntrance className="max-w-3xl">

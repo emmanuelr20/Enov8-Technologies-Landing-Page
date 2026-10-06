@@ -16,7 +16,7 @@ const serviceIcons = { "digital-signage": MonitorPlay, automation: Boxes, onboar
 export default function ServicesPage() {
   return (
     <>
-      <main className="min-h-screen bg-background">
+      <main id="main-content" tabIndex={-1} className="min-h-screen bg-background">
         <section className="relative isolate overflow-hidden bg-foreground text-background">
           <Image src="/sections/servicebackground.webp" alt="" fill preload sizes="100vw" className="object-cover" aria-hidden="true" />
           <div aria-hidden="true" className="absolute inset-0 bg-foreground/75" />
@@ -29,15 +29,15 @@ export default function ServicesPage() {
           </Container>
         </section>
 
-        <section className="services-index-section relative isolate overflow-hidden border-b border-border bg-surface py-12 md:py-16">
+        <section className="services-index-section gradient-grid-surface relative isolate overflow-hidden border-b border-border py-12 md:py-16">
           <div className="surface-grid-canvas" aria-hidden="true" />
           <Container className="relative z-10">
-            <div className="max-w-3xl">
-              <p className="type-label mb-4 text-brand">Our services</p>
+            <MotionEntrance trigger="mount" className="max-w-3xl">
+              <p className="type-label mb-4 text-[#0066d6]">Our services</p>
               <h2 className="type-h2 !text-[clamp(1.6rem,2.8vw,2.25rem)]">Find the right technology path for the challenge in front of you.</h2>
               <p className="type-body-lg mt-4 text-muted-foreground">We specialize in driving organizational change and digital transformation through high-impact, practical solutions that connect strategy, implementation, and support.</p>
-            </div>
-            <MotionStagger className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            </MotionEntrance>
+            <MotionStagger trigger="mount" className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {servicesList.map((service) => {
                 const Icon = serviceIcons[service.id];
                 return (

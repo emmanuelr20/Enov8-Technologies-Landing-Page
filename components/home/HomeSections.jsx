@@ -182,7 +182,7 @@ export default function HomeSections() {
           <MotionEntrance className="max-w-3xl">
             <SectionIntro
               titleId="paths-title"
-              eyebrowClassName="!text-brand"
+              eyebrowClassName="!text-[#0066d6]"
               titleClassName="!text-foreground !text-[clamp(1.6rem,2.8vw,2.25rem)]"
               bodyClassName="!text-muted-foreground"
               eyebrow="Transformation paths"
@@ -209,7 +209,7 @@ export default function HomeSections() {
               titleId="capabilities-title"
               titleClassName="!text-foreground"
               bodyClassName="!text-muted-foreground"
-              eyebrow={null}
+              eyebrow="Capability ecosystem"
               title="The capabilities to make transformation work in practice."
             >
               From business systems and identity to security, software, and
@@ -331,11 +331,11 @@ export default function HomeSections() {
       >
         <MotionStagger className="mx-auto flex w-full max-w-[var(--container-content)] flex-col gap-8 px-6 md:px-12 lg:flex-row lg:items-end lg:justify-between lg:px-16">
           <div className="max-w-2xl">
-            <p className="type-label mb-4 !text-white/70">Ready when you are</p>
+            <p className="type-label mb-4 !text-white">Ready when you are</p>
             <h2 id="final-cta-title" className="type-display text-white">
               Let’s turn the next complex problem into a working system.
             </h2>
-            <p className="mt-5 max-w-xl text-lg !text-white/80">
+            <p className="mt-5 max-w-xl text-lg !text-white">
               Start with a conversation about where your organization is now and
               what needs to change next.
             </p>

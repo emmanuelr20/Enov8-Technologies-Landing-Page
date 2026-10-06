@@ -11,7 +11,7 @@ const ConsultationModal = ({ trigger }) => {
       <DialogPrimitive.Trigger asChild>{trigger}</DialogPrimitive.Trigger>
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className="fixed inset-0 z-200 bg-foreground/65 duration-[var(--motion-standard)] ease-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-        <DialogPrimitive.Content className="focus-ring fixed inset-0 z-200 h-svh max-h-svh w-screen max-w-none overflow-y-auto overflow-x-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden bg-[url('/sections/transform-background.png')] bg-cover bg-center bg-no-repeat duration-[var(--motion-slow)] ease-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0">
+        <DialogPrimitive.Content className="focus-ring fixed inset-0 z-200 h-svh max-h-svh w-screen max-w-none overflow-y-auto overflow-x-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden bg-[url('/sections/transform-background.webp')] bg-cover bg-center bg-no-repeat duration-[var(--motion-slow)] ease-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-black/7" />
           <div className="relative z-10 flex min-h-full flex-col">
             <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-6 py-6 md:px-12 md:py-10">
@@ -20,7 +20,7 @@ const ConsultationModal = ({ trigger }) => {
                 Start Your Transformation
               </DialogPrimitive.Title>
               <DialogPrimitive.Close className="focus-ring absolute right-4 top-4 inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">
-                <X className="h-6 w-6" />
+                <X className="h-6 w-6" aria-hidden="true" />
                 <span className="sr-only">Close</span>
               </DialogPrimitive.Close>
             </div>
@@ -42,7 +42,7 @@ const ConsultationModal = ({ trigger }) => {
                 >
                   <div className="relative flex min-w-0 flex-col items-start gap-3 rounded-xl border border-border bg-background p-4 transition-colors hover:border-brand hover:bg-accent sm:flex-row sm:items-center sm:gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
-                      <Calendar className="h-6 w-6" />
+                      <Calendar className="h-6 w-6" aria-hidden="true" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <h4 className="text-lg font-semibold leading-6 transition-colors group-hover:text-brand sm:text-xl sm:leading-6">
@@ -63,7 +63,7 @@ const ConsultationModal = ({ trigger }) => {
                 >
                   <div className="relative flex min-w-0 flex-col items-start gap-3 rounded-xl border border-border bg-background p-4 transition-colors hover:border-brand hover:bg-accent sm:flex-row sm:items-center sm:gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-brand/30 bg-brand/5">
-                      <Mail className="h-6 w-6 text-brand" />
+                      <Mail className="h-6 w-6 text-brand" aria-hidden="true" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <h4 className="text-lg font-semibold leading-6 transition-colors group-hover:text-brand sm:text-xl sm:leading-6">

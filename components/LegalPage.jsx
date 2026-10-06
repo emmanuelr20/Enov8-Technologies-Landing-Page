@@ -5,7 +5,7 @@ import { MotionEntrance, MotionStagger } from "@/components/MotionEntrance";
 export default function LegalPage({ title, updated, sections }) {
   return (
     <>
-      <main className="min-h-screen bg-background">
+      <main id="main-content" tabIndex={-1} className="min-h-screen bg-background">
         <section className="border-b border-border bg-surface py-16 md:py-24">
           <Container>
             <MotionStagger trigger="mount" className="max-w-3xl">

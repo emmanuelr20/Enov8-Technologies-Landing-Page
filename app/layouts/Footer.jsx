@@ -1,5 +1,6 @@
 import { FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa6";
 import { Mail, Phone, MapPin } from "lucide-react";
+import Link from "next/link";
 import { company, industries } from "@/lib/content/company";
 import { resourceNavigation } from "@/lib/content/navigation";
 import { servicesList } from "@/lib/servicesData";
@@ -10,7 +11,7 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 gap-12 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,1.65fr)] xl:gap-24">
           <div className="max-w-md ">
-            <h3 className="mb-4 text-white">Enov8 Technologies</h3>
+            <h2 className="mb-4 text-[1.875rem] leading-[1.2] font-semibold text-white">Enov8 Technologies</h2>
             <p className="mb-6 text-white/90">
               Transforming businesses through innovative software solutions,
               mobile applications, and professional development training.
@@ -18,7 +19,7 @@ export default function Footer() {
 
             {/* Social Media Links */}
             <div className="mt-8">
-              <h5 className="mb-3 text-white">Follow Us</h5>
+              <h3 className="mb-3 text-[1.0625rem] leading-[1.2] font-semibold text-white">Follow Us</h3>
               <nav aria-label="Follow us on social media">
                 <ul className="flex list-none gap-4 p-0">
                   <li>
@@ -61,7 +62,7 @@ export default function Footer() {
 
           <div className="grid gap-10 sm:grid-cols-2 xl:grid-cols-3">
             <div>
-              <h5 className="mb-4 text-white">Services</h5>
+              <h2 className="mb-4 text-[1.0625rem] leading-[1.2] font-semibold text-white">Services</h2>
               <ul className="space-y-3 text-sm text-white/95">
                 {servicesList.slice(0, 6).map((service) => (
                   <li key={service.id}>
@@ -77,26 +78,26 @@ export default function Footer() {
             </div>
 
             <div>
-              <h5 className="mb-4 text-white">Industries</h5>
+              <h2 className="mb-4 text-[1.0625rem] leading-[1.2] font-semibold text-white">Industries</h2>
               <ul className="space-y-3 text-sm text-white/95">
                 {industries.map((industry) => (
                   <li key={industry}>
-                    <a
-                      href="#about"
+                    <Link
+                      href="/#about"
                       className="focus-ring rounded-sm transition-colors hover:text-white"
                     >
                       {industry}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
             <div>
-              <h5 className="mb-4 text-white">Contact Info</h5>
+              <h2 className="mb-4 text-[1.0625rem] leading-[1.2] font-semibold text-white">Contact Info</h2>
               <div className="space-y-4 text-sm text-white/95">
                 <div className="flex items-center space-x-3">
-                  <Mail size={18} className="shrink-0" />
+                  <Mail size={18} className="shrink-0" aria-hidden="true" />
                   <a
                     href={`mailto:${company.emails.general}`}
                     className="focus-ring rounded-sm transition-colors hover:text-white"
@@ -105,7 +106,7 @@ export default function Footer() {
                   </a>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Phone size={18} className="shrink-0" />
+                  <Phone size={18} className="shrink-0" aria-hidden="true" />
                   <a
                     href={`tel:${company.phones.service.replace(/\s/g, "")}`}
                     className="focus-ring rounded-sm transition-colors hover:text-white"
@@ -114,13 +115,13 @@ export default function Footer() {
                   </a>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <MapPin size={18} className="mt-1 shrink-0" />
+                  <MapPin size={18} className="mt-1 shrink-0" aria-hidden="true" />
                   <span>{company.location}</span>
                 </div>
               </div>
 
               <div className="mt-8">
-                <h5 className="mb-3 text-white">Resources</h5>
+                <h3 className="mb-3 text-[1.0625rem] leading-[1.2] font-semibold text-white">Resources</h3>
                 <ul className="space-y-3 text-sm text-white/95">
                   {resourceNavigation.map((resource) => (
                     <li key={resource.id}>

@@ -17,7 +17,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main role="main">
+    <main id="main-content" tabIndex={-1}>
       <HomeHero />
       <HomeSections />
       <Footer />

@@ -289,8 +289,7 @@ const Navbar = memo(function Navbar() {
                 {isExpanded ? (
                   <motion.div
                     id="site-navigation-menu"
-                    role="dialog"
-                    aria-modal="true"
+                    role="region"
                     aria-label="Site navigation"
                     aria-hidden={!isOpen}
                     inert={!isOpen}
@@ -331,7 +330,7 @@ const Navbar = memo(function Navbar() {
                                   closeMenu();
                                   handleAnchorClick(event, item.href);
                                 }}
-                                className={`focus-ring block w-fit rounded-md py-1 text-[clamp(1.75rem,5vw,2rem)] font-medium leading-tight tracking-tight transition-colors hover:text-brand ${current ? "text-brand" : "text-foreground"}`}
+                                className={`focus-ring block w-fit rounded-md py-1 text-[clamp(1.25rem,3vw,1.5rem)] font-medium leading-tight tracking-tight transition-colors hover:text-brand ${current ? "text-brand" : "text-foreground"}`}
                               >
                                 {item.label}
                               </Link>

@@ -8,11 +8,13 @@ export default function HomeHero() {
     <div className="relative">
       <section id="home" aria-labelledby="home-title" className="relative isolate flex min-h-[100svh] flex-col justify-between overflow-hidden bg-zinc-950 text-white">
         <video
-          src="/video/hero-background.mp4"
+          src="/video/hero-background-optimized.mp4"
+          poster="/video/hero-background-poster.jpg"
           autoPlay
           muted
           loop
           playsInline
+          preload="metadata"
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -59,7 +61,7 @@ export default function HomeHero() {
         </div>
       </section>
 
-      <div className="relative z-30 w-full border-t border-[#56a6ff]/30 bg-brand py-8 md:py-10 lg:absolute lg:inset-x-0 lg:bottom-0 lg:border-t-0 lg:bg-transparent lg:pb-8 lg:pt-0">
+      <div className="hero-industry-band relative z-30 w-full py-8 md:py-10 lg:absolute lg:inset-x-0 lg:bottom-0 lg:pb-8 lg:pt-0">
         <MotionEntrance className="mx-auto grid w-full max-w-[var(--container-content)] gap-6 px-6 md:px-12 lg:px-16 min-[1600px]:grid-cols-[1fr_auto] min-[1600px]:items-center min-[1600px]:gap-8">
           <div className="lg:max-[1600px]:max-w-xl lg:max-[1600px]:mx-auto lg:max-[1600px]:text-center min-[1600px]:max-w-none">
             <p className="type-label mb-2 text-white">Built for complex work</p>
