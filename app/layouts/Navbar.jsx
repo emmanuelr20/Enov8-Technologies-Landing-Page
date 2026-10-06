@@ -32,33 +32,22 @@ const socialLinks = [
 function createMenuPanelVariants(reduceMotion) {
   return {
     hidden: {
-      opacity: 0,
-      scaleY: 0.96,
-      y: reduceMotion ? 0 : -6,
       transition: {
-        opacity: {
-          duration: reduceMotion ? 0.01 : MENU_CLOSE_DURATION,
-          ease: EASE,
-        },
-        scaleY: {
-          duration: reduceMotion ? 0.01 : MENU_CLOSE_DURATION,
-          ease: EASE,
-        },
-        y: {
-          duration: reduceMotion ? 0.01 : MENU_CLOSE_DURATION,
-          ease: EASE,
-        },
+        height: { duration: reduceMotion ? 0.01 : MENU_CLOSE_DURATION, ease: EASE },
       },
+      height: 0,
     },
     visible: {
-      opacity: 1,
-      scaleY: 1,
-      y: 0,
       transition: {
-        opacity: { duration: reduceMotion ? 0.01 : 0.22, ease: EASE },
-        scaleY: { duration: reduceMotion ? 0.01 : 0.28, ease: EASE },
-        y: { duration: reduceMotion ? 0.01 : 0.28, ease: EASE },
+        height: { duration: reduceMotion ? 0.01 : MENU_CLOSE_DURATION, ease: EASE },
       },
+      height: "auto",
+    },
+    closing: {
+      transition: {
+        height: { duration: reduceMotion ? 0.01 : MENU_CLOSE_DURATION, ease: EASE },
+      },
+      height: 0,
     },
   };
 }
@@ -68,10 +57,11 @@ function createMenuItemVariants(reduceMotion) {
     hidden: {
       opacity: 0,
       y: reduceMotion ? 0 : 14,
-      transition: {
-        duration: reduceMotion ? 0.01 : MENU_CLOSE_DURATION,
-        ease: EASE,
-      },
+      transition: { duration: reduceMotion ? 0.01 : 0.14, ease: EASE },
+    },
+    closing: {
+      y: reduceMotion ? 0 : -4,
+      transition: { duration: reduceMotion ? 0.01 : MENU_CLOSE_DURATION, ease: EASE },
     },
     visible: (index) => {
       const delay = reduceMotion ? 0 : 0.12 + 0.045 * index;
@@ -349,11 +339,11 @@ const Navbar = memo(function Navbar() {
                     aria-hidden={!isOpen}
                     inert={!isOpen}
                     initial="hidden"
-                    animate={isOpen ? "visible" : "hidden"}
+                    animate={isOpen ? "visible" : "closing"}
                     variants={panelVariants}
                     transition={shellTransition}
                     onAnimationComplete={(definition) => {
-                      if (definition === "hidden" && !isOpenRef.current) {
+                      if (definition === "closing" && !isOpenRef.current) {
                         setIsExpanded(false);
                       }
                     }}
