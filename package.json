@@ -7,6 +7,8 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint .",
+    "test:smoke": "pnpm run build && playwright test --project=chromium --project=firefox",
+    "test:smoke:webkit": "playwright test --project=webkit",
     "analyze": "node scripts/analyze-bundle.js",
     "perf": "pnpm run build && pnpm run analyze",
     "lighthouse": "lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html --chrome-flags='--headless'"
@@ -19,7 +21,6 @@
     "lucide-react": "^0.525.0",
     "motion": "^13.4.3",
     "next": "16.3.5",
-    "next-themes": "^0.4.6",
     "radix-ui": "^1.4.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -30,6 +31,7 @@
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4.2.2",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.3.5",

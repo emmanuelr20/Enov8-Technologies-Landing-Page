@@ -5,8 +5,13 @@ import { MotionEntrance, MotionStagger } from "@/components/MotionEntrance";
 export default function LegalPage({ title, updated, sections }) {
   return (
     <>
-      <main id="main-content" tabIndex={-1} className="min-h-screen bg-background">
-        <section className="border-b border-border bg-surface py-16 md:py-24">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="gradient-grid-surface relative isolate min-h-screen overflow-hidden"
+      >
+        <div className="surface-grid-canvas" aria-hidden="true" />
+        <section className="relative z-10 border-b border-[#0066d6] py-16 md:py-24">
           <Container>
             <MotionStagger trigger="mount" className="max-w-3xl">
               <p className="type-label mb-4 text-brand">Enov8 Technologies</p>
@@ -15,7 +20,7 @@ export default function LegalPage({ title, updated, sections }) {
             </MotionStagger>
           </Container>
         </section>
-        <section className="py-16 md:py-24">
+        <section className="relative z-10 py-16 md:py-24">
           <Container>
             <MotionEntrance as="article" pattern="fade" className="max-w-3xl space-y-10 text-muted-foreground">
               {sections.map((section) => (

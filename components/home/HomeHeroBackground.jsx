@@ -27,6 +27,7 @@ export default function HomeHeroBackground() {
       {motionAllowed ? (
         <video
           src="/video/hero-background-optimized.mp4"
+          poster="/video/hero-background-poster.jpg"
           autoPlay
           muted
           loop

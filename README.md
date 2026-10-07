@@ -8,7 +8,7 @@ A modern, responsive landing page for Enov8 Technologies - a leading software de
 - **SEO Optimized** - Comprehensive SEO implementation with structured data
 - **Performance Focused** - Fast loading with Next.js optimization
 - **Modern UI/UX** - Clean design with smooth animations using ScrollReveal
-- **Dark Mode Support** - Toggle between light and dark themes
+- **Light Theme** - The current site uses a light-only theme; dark mode is not implemented
 - **PWA Ready** - Progressive Web App capabilities
 - **Accessibility** - WCAG compliant with proper ARIA labels
 
@@ -20,7 +20,7 @@ A modern, responsive landing page for Enov8 Technologies - a leading software de
 - **Icons**: Lucide React & React Icons
 - **Animations**: ScrollReveal
 - **Fonts**: Space Grotesk & Mulish (Google Fonts)
-- **Theme**: next-themes for dark mode
+- **Theme**: Light-only CSS theme
 
 ## 📁 Project Structure
 
@@ -38,6 +38,14 @@ A modern, responsive landing page for Enov8 Technologies - a leading software de
 ├── public/               # Static assets
 └── SEO_CHECKLIST.md     # SEO optimization checklist
 ```
+
+## Browser smoke tests
+
+Run `pnpm run test:smoke` to build the production site and test it in Chromium
+and Firefox. The suite covers the core routes, responsive widths, keyboard
+navigation, the consultation dialog, hero-video fallback, and reduced motion.
+Run `pnpm run test:smoke:webkit` separately where the Playwright WebKit runtime
+can navigate to local HTTP pages.
 
 ## 🚀 Getting Started
 
