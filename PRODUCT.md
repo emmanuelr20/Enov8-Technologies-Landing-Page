@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Existing Next.js application using React, Tailwind CSS, Radix UI primitives, Lucide/React Icons, next-themes, and ScrollReveal. The repository includes a local development command (`npm run dev`) and is configured for deployment on Vercel, Netlify, AWS Amplify, or comparable hosting.
+Existing Next.js application using React, Tailwind CSS, Radix UI primitives, Lucide/React Icons, and ScrollReveal. The repository includes a local development command (`pnpm dev`) and is configured for deployment on Vercel, Netlify, AWS Amplify, or comparable hosting.
 
 ## Users
 
@@ -31,7 +31,7 @@ Visitors typically evaluate Enov8 while exploring a new project, replacing or mo
 - Service scope includes Digital Signage Solutions; Business Automation; Customer Onboarding & ID Verification; Custom Software Development; Cybersecurity; IT Consulting; ERP Deployment; AI Deployment; Networking; Zoho Implementations; Document Management Systems; and Hardware Procurement.
 - Delivery language in the existing site includes custom web and mobile applications, legacy modernization, KYC/biometric verification, workflow and document automation, cybersecurity audits and managed security operations, ERP and Zoho implementation, AI-enabled automation and insights, network architecture, secure connectivity, hardware sourcing/deployment, and post-deployment support.
 - Existing contact paths include `contact@enov8technologies.com`, `sales@enov8technologies.com`, phone/WhatsApp contact at `+2347064838988`, and a Zoho Bookings discovery-call flow. A service template also displays `+234 913 363 2465`; verify which number is authoritative before changing contact content.
-- The website supports responsive layouts, dark mode, SEO metadata and structured data, PWA assets, cookie/privacy/terms pages, and an accessibility statement targeting WCAG 2.1 Level AA.
+- The website supports responsive layouts, a light-only theme (dark mode is not implemented), SEO metadata and structured data, PWA assets, cookie/privacy/terms pages, and an accessibility statement targeting WCAG 2.1 Level AA.
 - Nigeria is the primary country context in the repository; the organization is presented as serving Africa and global clients. Exact office location, team structure, pricing, delivery SLAs, certifications, and sector-specific case-study claims remain undecided unless supported by approved source material.
 
 ## Brand Commitments

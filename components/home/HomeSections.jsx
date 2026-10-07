@@ -97,19 +97,14 @@ const serviceById = Object.fromEntries(
 );
 
 function SectionIntro({
-  eyebrow,
   title,
   titleId,
-  eyebrowClassName = "text-brand",
   titleClassName = "",
   bodyClassName = "text-muted-foreground",
   children,
 }) {
   return (
     <div className="max-w-3xl">
-      {eyebrow ? (
-        <p className={`type-label mb-4 ${eyebrowClassName}`}>{eyebrow}</p>
-      ) : null}
       <h2 id={titleId} className={`type-h2 ${titleClassName}`}>
         {title}
       </h2>
@@ -133,11 +128,9 @@ export default function HomeSections() {
           <OperatingModelDiagram />
           <div>
             <SectionIntro
-              eyebrowClassName="!text-white"
               titleClassName="!text-white"
-              bodyClassName="!text-white/70"
+              bodyClassName="!text-white/90"
               titleId="about-title"
-              eyebrow="The Enov8 Technologies approach"
               title="Strategy is only useful when it becomes operational."
             >
               Enov8 Technologies helps organizations bridge the gap between
@@ -182,10 +175,8 @@ export default function HomeSections() {
           <MotionEntrance className="max-w-3xl">
             <SectionIntro
               titleId="paths-title"
-              eyebrowClassName="!text-[#0066d6]"
               titleClassName="!text-foreground !text-[clamp(1.6rem,2.8vw,2.25rem)]"
               bodyClassName="!text-muted-foreground"
-              eyebrow="Transformation paths"
               title="Start with the business challenge, then choose the right technology path."
             >
               A connected service portfolio gives your team room to solve the
@@ -193,9 +184,7 @@ export default function HomeSections() {
               it.
             </SectionIntro>
           </MotionEntrance>
-          <MotionEntrance delay={0.5} className="w-full">
-            <TransformationOrbit pathGroups={pathGroups} />
-          </MotionEntrance>
+          <TransformationOrbit pathGroups={pathGroups} />
         </div>
       </section>
 
@@ -209,7 +198,6 @@ export default function HomeSections() {
               titleId="capabilities-title"
               titleClassName="!text-foreground"
               bodyClassName="!text-muted-foreground"
-              eyebrow="Capability ecosystem"
               title="The capabilities to make transformation work in practice."
             >
               From business systems and identity to security, software, and
@@ -271,11 +259,9 @@ export default function HomeSections() {
         <div className="relative z-10 mx-auto grid w-full max-w-[var(--container-content)] gap-12 px-6 md:px-12 min-[1426px]:grid-cols-[.75fr_1.25fr] lg:px-16">
           <MotionEntrance className="max-w-3xl">
             <SectionIntro
-              eyebrowClassName="!text-white"
               titleClassName="!text-white"
               bodyClassName="!text-white/70"
               titleId="delivery-title"
-              eyebrow="How we deliver"
               title="From strategic clarity to supported operations."
             >
               The work moves from understanding the business to implementing the
@@ -311,7 +297,6 @@ export default function HomeSections() {
           <MotionStagger className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
             <SectionIntro
               titleId="ecosystem-title"
-              eyebrow="Technology ecosystem"
               title="A delivery network built around the work."
             />
             <p className="max-w-md text-sm text-muted-foreground">
@@ -333,7 +318,6 @@ export default function HomeSections() {
       >
         <MotionStagger className="mx-auto flex w-full max-w-[var(--container-content)] flex-col gap-8 px-6 md:px-12 lg:flex-row lg:items-end lg:justify-between lg:px-16">
           <div className="max-w-2xl">
-            <p className="type-label mb-4 !text-white">Ready when you are</p>
             <h2 id="final-cta-title" className="type-display text-white">
               Let’s turn the next complex problem into a working system.
             </h2>

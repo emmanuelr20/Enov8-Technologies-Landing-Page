@@ -37,6 +37,7 @@ export default function ScrollToTop() {
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top"
+        tabIndex={isVisible ? 0 : -1}
         className="group relative flex h-12 w-12 items-center justify-center overflow-hidden bg-light-primary text-white shadow-lg"
       >
         <ArrowUp className="h-6 w-6" />

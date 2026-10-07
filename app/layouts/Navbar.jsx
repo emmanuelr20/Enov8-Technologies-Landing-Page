@@ -375,7 +375,7 @@ const Navbar = memo(function Navbar() {
                                   closeMenu();
                                   handleAnchorClick(event, item.href);
                                 }}
-                                className={`focus-ring block w-fit rounded-md py-1 text-[clamp(1.25rem,3vw,1.5rem)] font-medium leading-tight tracking-tight transition-colors hover:text-brand ${current ? "text-brand" : "text-foreground"}`}
+                                className={`focus-ring flex min-h-11 w-full items-center rounded-md px-2 text-[clamp(1.25rem,3vw,1.5rem)] font-medium leading-tight tracking-tight transition-colors hover:text-brand ${current ? "text-brand" : "text-foreground"}`}
                               >
                                 {item.label}
                               </Link>
@@ -409,7 +409,7 @@ const Navbar = memo(function Navbar() {
                               onClick={closeMenu}
                               custom={primaryNavigation.length + 3 + index}
                               variants={itemVariants}
-                              className="focus-ring rounded-sm text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+                              className="focus-ring inline-flex min-h-11 items-center rounded-sm px-2 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
                             >
                               {label.replace("Follow us on ", "").replace("View our ", "")}
                             </motion.a>

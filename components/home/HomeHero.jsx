@@ -2,22 +2,13 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { MotionEntrance, MotionStagger } from "@/components/MotionEntrance";
 import { industries } from "@/lib/content/company";
+import HomeHeroBackground from "@/components/home/HomeHeroBackground";
 
 export default function HomeHero() {
   return (
     <div className="relative">
       <section id="home" aria-labelledby="home-title" className="relative isolate flex min-h-[100svh] flex-col justify-between overflow-hidden bg-zinc-950 text-white">
-        <video
-          src="/video/hero-background-optimized.mp4"
-          poster="/video/hero-background-poster.jpg"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        <HomeHeroBackground />
         <div aria-hidden="true" className="absolute inset-0 bg-black/85" />
 
         <div className="relative z-10 mx-auto flex w-full max-w-[var(--container-content)] flex-1 items-center justify-center px-6 pb-12 pt-28 md:px-12 md:pb-16 md:pt-32 lg:min-h-100svh lg:px-16 lg:pb-[clamp(18rem,28vw,26rem)] lg:pt-32">
