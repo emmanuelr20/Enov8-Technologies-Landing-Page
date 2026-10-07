@@ -271,7 +271,7 @@ const Navbar = memo(function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 w-full transition-[background-color,backdrop-filter,border-color,box-shadow] duration-300 ease-out ${
         isScrolled
-          ? "border-b border-white/55 bg-white/72 shadow-[0_12px_32px_-20px_rgba(15,23,42,0.28)] backdrop-blur-xl"
+          ? "border-b border-white/55 bg-white/95 shadow-[0_12px_32px_-20px_rgba(15,23,42,0.28)] backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       }`}
     >
