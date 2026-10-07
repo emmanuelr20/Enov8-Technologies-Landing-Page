@@ -138,6 +138,7 @@ const Navbar = memo(function Navbar() {
   const reduceMotion = useReducedMotion();
   const [isOpen, setIsOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [closedWidth, setClosedWidth] = useState(null);
   const [viewportWidth, setViewportWidth] = useState(0);
   const menuButtonRef = useRef(null);
@@ -158,6 +159,13 @@ const Navbar = memo(function Navbar() {
     updateViewportWidth();
     window.addEventListener("resize", updateViewportWidth);
     return () => window.removeEventListener("resize", updateViewportWidth);
+  }, []);
+
+  useEffect(() => {
+    const updateScrollState = () => setIsScrolled(window.scrollY > 20);
+    updateScrollState();
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrollState);
   }, []);
 
   useEffect(() => {
@@ -261,7 +269,11 @@ const Navbar = memo(function Navbar() {
 
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50 w-full border-b border-border/70 bg-background backdrop-blur-md"
+      className={`fixed inset-x-0 top-0 z-50 w-full transition-[background-color,backdrop-filter,border-color,box-shadow] duration-300 ease-out ${
+        isScrolled
+          ? "border-b border-white/55 bg-white/72 shadow-[0_12px_32px_-20px_rgba(15,23,42,0.28)] backdrop-blur-xl"
+          : "border-b border-transparent bg-transparent"
+      }`}
     >
       <nav
         aria-label="Primary navigation"
