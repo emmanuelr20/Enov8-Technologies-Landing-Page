@@ -350,7 +350,7 @@ const Navbar = memo(function Navbar() {
                     className="overflow-hidden"
                   >
                     <div className="px-5 pb-4 pt-7">
-                      <div className="grid grid-cols-1 gap-y-1 lg:grid-cols-2 lg:gap-x-8">
+                      <div className="grid grid-cols-2 gap-x-8 gap-y-1">
                         <motion.p
                           custom={0}
                           variants={itemVariants}

@@ -222,30 +222,32 @@ export default function HomeSections() {
             className="mt-12 grid gap-5 md:grid-cols-2"
           >
             {capabilityGroups.map(({ icon: Icon, title, ids }) => (
-              <div
+              <article
                 key={title}
-                className="rounded-xl border border-border/70 bg-surface/90 p-6 h-full md:p-8"
+                className="group h-full rounded-xl border border-border/70 bg-surface/90 p-6 transition-[border-color,box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-md motion-reduce:transition-none motion-reduce:hover:translate-y-0 md:p-8"
               >
                 <div className="flex items-start justify-between gap-4">
-                  <Icon className="h-7 w-7 text-brand" aria-hidden="true" />
-                  <span className="type-caption">
+                  <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-brand/10 text-brand transition-transform duration-200 ease-out group-hover:scale-105 motion-reduce:transition-none">
+                    <Icon className="size-6" aria-hidden="true" />
+                  </span>
+                  <span className="rounded-full bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground">
                     {ids.length} capabilities
                   </span>
                 </div>
-                <h3 className="type-h3 mt-10">{title}</h3>
+                <h3 className="type-h3 mt-6">{title}</h3>
                 <ul className="mt-5 flex list-none flex-wrap gap-2 p-0">
                   {ids.map((id) => (
                     <li key={id}>
                       <Link
                         href={`/services/${id}`}
-                        className="focus-ring rounded-full border border-border px-3 py-1.5 text-sm text-muted-foreground hover:border-brand/50 hover:text-brand"
+                        className="focus-ring inline-flex min-h-11 items-center rounded-full border border-border bg-background/80 px-3.5 py-2 text-sm text-muted-foreground transition-[border-color,background-color,color] duration-150 ease-out hover:border-brand/50 hover:bg-brand/5 hover:text-brand"
                       >
                         {serviceById[id].title}
                       </Link>
                     </li>
                   ))}
                 </ul>
-              </div>
+              </article>
             ))}
           </MotionStagger>
         </div>

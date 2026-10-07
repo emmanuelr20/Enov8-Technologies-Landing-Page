@@ -110,8 +110,8 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
             src={service.heroImage}
             alt=""
             fill
-            priority
-            quality={72}
+            preload
+            unoptimized
             sizes="100vw"
             className="object-cover"
             aria-hidden="true"
@@ -237,8 +237,8 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                       src={image}
                       alt={`${service.title} supporting visual ${index + 1}`}
                       fill
-                      quality={72}
-                      loading="lazy"
+                      preload
+                      unoptimized
                       // Match the capped container, sidebar, gaps and figure border.
                       sizes={index === 0
                         ? "(min-width: 1360px) 878px, (min-width: 1024px) calc(100vw - 482px), (min-width: 768px) calc(100vw - 98px), calc(100vw - 50px)"
