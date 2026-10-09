@@ -282,7 +282,7 @@ const Navbar = memo(function Navbar() {
         <Link
           href="/"
           aria-label="Enov8 Technologies home"
-          className="focus-ring col-start-1 inline-flex h-13 w-13 shrink-0 items-center justify-center justify-self-start overflow-hidden rounded-full border border-border bg-background md:w-55 md:justify-start md:px-2"
+          className="focus-ring col-start-1 inline-flex h-13 w-13 shrink-0 items-center justify-center justify-self-start overflow-hidden rounded-full border border-border bg-background/95 backdrop-blur-xl md:w-55 md:justify-start md:px-2"
         >
           <span className="relative flex w-full items-center justify-start">
             <span className="relative z-10 flex h-13 w-13 shrink-0 items-center justify-center" aria-hidden="true">
@@ -326,7 +326,7 @@ const Navbar = memo(function Navbar() {
                 aria-hidden="true"
               />
               <div className="relative z-10">
-                <div className="flex h-13 w-full items-center justify-center rounded-full border border-border bg-background px-1.5 text-foreground">
+                <div className="flex h-13 w-full items-center justify-center rounded-full border border-border bg-background/95 backdrop-blur-xl px-1.5 text-foreground">
                   <button
                     ref={menuButtonRef}
                     type="button"
