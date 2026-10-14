@@ -4,18 +4,17 @@ import { memo, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  AnimatePresence,
-  motion,
-  useReducedMotion,
-} from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import ConsultationModal from "@/components/ConsultationModal";
 import { company } from "@/lib/content/company";
 import { primaryNavigation } from "@/lib/content/navigation";
 
 const EASE = [0.22, 1, 0.36, 1];
-const MENU_CLOSE_DURATION = 0.44;
+const MENU_DURATION = 0.35;
+const MENU_BG_DURATION = 0.35;
+const MENU_OPEN_WIDTH = 500;
+const MENU_SHELL_PADDING = 16;
 
 function isCurrentRoute(pathname, item) {
   if (item.id === "home") return pathname === "/";
@@ -29,54 +28,27 @@ const socialLinks = [
   { label: "Follow us on Facebook", href: company.social.facebook },
 ];
 
-function createMenuPanelVariants(reduceMotion) {
-  return {
-    hidden: {
-      transition: {
-        height: { duration: reduceMotion ? 0.01 : MENU_CLOSE_DURATION, ease: EASE },
-      },
-      height: 0,
-    },
-    visible: {
-      transition: {
-        height: { duration: reduceMotion ? 0.01 : MENU_CLOSE_DURATION, ease: EASE },
-      },
-      height: "auto",
-    },
-    closing: {
-      transition: {
-        height: { duration: reduceMotion ? 0.01 : MENU_CLOSE_DURATION, ease: EASE },
-      },
-      height: 0,
-    },
-  };
-}
-
 function createMenuItemVariants(reduceMotion) {
   return {
     hidden: {
       opacity: 0,
-      y: reduceMotion ? 0 : 14,
-      transition: { duration: reduceMotion ? 0.01 : 0.14, ease: EASE },
-    },
-    closing: {
-      y: reduceMotion ? 0 : -4,
-      transition: { duration: reduceMotion ? 0.01 : MENU_CLOSE_DURATION, ease: EASE },
+      y: reduceMotion ? 0 : 18,
     },
     visible: (index) => {
-      const delay = reduceMotion ? 0 : 0.12 + 0.045 * index;
+      const delay = reduceMotion ? 0 : 0.14 + 0.045 * index;
       return {
         opacity: 1,
         y: 0,
         transition: reduceMotion
           ? { duration: 0.01 }
           : {
-              opacity: { duration: 0.38, ease: EASE, delay },
+              opacity: { duration: MENU_DURATION, ease: EASE, delay },
               y: {
                 type: "spring",
                 stiffness: 420,
                 damping: 42,
                 mass: 0.9,
+                restDelta: 0.01,
                 delay,
               },
             },
@@ -91,7 +63,10 @@ function MenuIcon({ open, reduceMotion }) {
     : { duration: 0.38, ease: EASE };
 
   return (
-    <span className="relative grid h-4 w-4 place-items-center" aria-hidden="true">
+    <span
+      className="relative grid h-4 w-4 place-items-center"
+      aria-hidden="true"
+    >
       <motion.span
         className="absolute left-1/2 top-1/2 block h-[1.6px] w-3.75 -translate-x-1/2 rounded-full bg-current"
         initial={false}
@@ -141,16 +116,15 @@ const Navbar = memo(function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [closedWidth, setClosedWidth] = useState(null);
   const [viewportWidth, setViewportWidth] = useState(0);
+  const [contentWidth, setContentWidth] = useState(
+    MENU_OPEN_WIDTH - MENU_SHELL_PADDING,
+  );
   const menuButtonRef = useRef(null);
   const menuSlotRef = useRef(null);
   const isOpenRef = useRef(false);
   const isCompactViewport = viewportWidth > 0 && viewportWidth < 1024;
   const itemVariants = useMemo(
     () => createMenuItemVariants(Boolean(reduceMotion)),
-    [reduceMotion],
-  );
-  const panelVariants = useMemo(
-    () => createMenuPanelVariants(Boolean(reduceMotion)),
     [reduceMotion],
   );
 
@@ -208,10 +182,7 @@ const Navbar = memo(function Navbar() {
     };
 
     const handlePointerDown = (event) => {
-      if (
-        isOpenRef.current &&
-        !menuSlotRef.current?.contains(event.target)
-      ) {
+      if (isOpenRef.current && !menuSlotRef.current?.contains(event.target)) {
         isOpenRef.current = false;
         setIsOpen(false);
       }
@@ -232,6 +203,9 @@ const Navbar = memo(function Navbar() {
     setIsOpen(false);
   }, [pathname]);
 
+  const getOpenShellWidth = () =>
+    isCompactViewport ? Math.max(viewportWidth - 32, 0) : MENU_OPEN_WIDTH;
+
   const closeMenu = () => {
     isOpenRef.current = false;
     setIsOpen(false);
@@ -243,7 +217,9 @@ const Navbar = memo(function Navbar() {
       return;
     }
 
+    const openShellWidth = getOpenShellWidth();
     isOpenRef.current = true;
+    setContentWidth(Math.max(openShellWidth - MENU_SHELL_PADDING, 0));
     setIsExpanded(true);
     setIsOpen(true);
   };
@@ -252,20 +228,23 @@ const Navbar = memo(function Navbar() {
     if (!href.startsWith("/#") || pathname !== "/") return;
     event.preventDefault();
     closeMenu();
-    document.querySelector(href.slice(1))?.scrollIntoView({ behavior: "smooth" });
+    document
+      .querySelector(href.slice(1))
+      ?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const menuWidth = isExpanded
-    ? isCompactViewport
-      ? Math.max(viewportWidth - 32, 0)
-      : 500
-    : closedWidth;
-  const menuShadow = isExpanded
+  // Width follows isOpen immediately so close squeezes width + height together
+  // (Space FS). isExpanded keeps the panel mounted until height finishes.
+  const menuWidth = isOpen ? getOpenShellWidth() : closedWidth;
+  const menuShadow = isOpen
     ? "0 30px 70px -24px rgba(0,0,0,0.25)"
     : "0 30px 70px -24px rgba(0,0,0,0)";
   const shellTransition = reduceMotion
     ? { duration: 0.01 }
-    : { duration: MENU_CLOSE_DURATION, ease: EASE };
+    : { duration: MENU_DURATION, ease: EASE };
+  const bgTransition = reduceMotion
+    ? { duration: 0.01 }
+    : { duration: MENU_BG_DURATION, ease: EASE };
 
   return (
     <header
@@ -277,29 +256,42 @@ const Navbar = memo(function Navbar() {
     >
       <nav
         aria-label="Primary navigation"
-        className="relative mx-auto grid h-20 w-full max-w-(--container-content) grid-cols-[1fr_auto] items-center px-6 sm:px-10 lg:grid-cols-3 md:px-10"
+        className="relative mx-auto grid h-20 w-full max-w-(--container-content) grid-cols-3 items-center px-6 sm:px-10 md:px-10"
       >
-        <Link
-          href="/"
-          aria-label="Enov8 Technologies home"
-          className="focus-ring col-start-1 inline-flex h-13 w-13 shrink-0 items-center justify-center justify-self-start overflow-hidden rounded-full border border-border bg-background/95 backdrop-blur-xl md:w-55 md:justify-start md:px-2"
-        >
-          <span className="relative flex w-full items-center justify-start">
-            <span className="relative z-10 flex h-13 w-13 shrink-0 items-center justify-center" aria-hidden="true">
-              <span className="relative size-8 shrink-0">
-                <Image src="/brand/logo.svg" alt="" fill sizes="32px" className="object-contain" />
+        {/* Column 1: Logo */}
+        <div className="col-span-1 flex items-center justify-start min-w-0">
+          <Link
+            href="/"
+            aria-label="Enov8 Technologies home"
+            className="focus-ring inline-flex h-13 shrink-0 items-center overflow-hidden rounded-full border border-border bg-background px-2"
+          >
+            <span className="relative flex items-center justify-start gap-2">
+              <span
+                className="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center"
+                aria-hidden="true"
+              >
+                <span className="relative size-7 shrink-0">
+                  <Image
+                    src="/brand/logo.svg"
+                    alt=""
+                    fill
+                    sizes="28px"
+                    className="object-contain"
+                  />
+                </span>
+              </span>
+              <span className="hidden whitespace-nowrap text-sm font-bold tracking-tight text-foreground md:inline md:text-base pr-2">
+                Enov8 Technologies
               </span>
             </span>
-            <span className="hidden whitespace-nowrap text-sm font-bold tracking-tight text-foreground md:inline md:text-base">
-              Enov8 Technologies
-            </span>
-          </span>
-        </Link>
+          </Link>
+        </div>
 
-        <div className="col-start-2 flex items-center justify-end gap-3 md:contents">
+        {/* Column 2: Centered Menu Button Slot */}
+        <div className="col-span-1 flex justify-center items-center">
           <div
             ref={menuSlotRef}
-            className="relative h-17 w-18 shrink-0 justify-self-center sm:w-32 md:col-start-2 md:h-16 md:w-36"
+            className="relative h-17 w-18 shrink-0 justify-self-center sm:w-32 md:h-16 md:w-36"
           >
             <motion.div
               initial={false}
@@ -316,29 +308,30 @@ const Navbar = memo(function Navbar() {
             >
               <motion.div
                 initial={false}
-                animate={{ opacity: isExpanded ? 1 : 0 }}
-                transition={
-                  reduceMotion
-                    ? { duration: 0.01 }
-                    : { duration: 0.3, ease: EASE }
-                }
+                animate={{ opacity: isOpen ? 1 : 0 }}
+                transition={bgTransition}
                 className="pointer-events-none absolute inset-0 rounded-[28px] bg-background shadow-lg"
                 aria-hidden="true"
               />
               <div className="relative z-10">
-                <div className="flex h-13 w-full items-center justify-center rounded-full border border-border bg-background/95 backdrop-blur-xl px-1.5 text-foreground">
+                <div className="flex h-13 w-full items-center justify-center rounded-full border border-border bg-background backdrop-blur-xl px-1.5 text-foreground">
                   <button
                     ref={menuButtonRef}
                     type="button"
                     onClick={toggleMenu}
                     aria-expanded={isOpen}
                     aria-controls="site-navigation-menu"
-                    aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+                    aria-label={
+                      isOpen ? "Close navigation menu" : "Open navigation menu"
+                    }
                     className="focus-ring flex items-center justify-center gap-2.5 rounded-full px-3 py-1.5 text-sm font-medium transition-opacity hover:opacity-80"
                   >
                     <MenuIcon open={isOpen} reduceMotion={reduceMotion} />
                     <span className="hidden md:grid">
-                      <FlipLabel value={isOpen ? "Close" : "Menu"} reduceMotion={reduceMotion} />
+                      <FlipLabel
+                        value={isOpen ? "Close" : "Menu"}
+                        reduceMotion={reduceMotion}
+                      />
                     </span>
                   </button>
                 </div>
@@ -350,18 +343,22 @@ const Navbar = memo(function Navbar() {
                     aria-label="Site navigation"
                     aria-hidden={!isOpen}
                     inert={!isOpen}
-                    initial="hidden"
-                    animate={isOpen ? "visible" : "closing"}
-                    variants={panelVariants}
+                    initial={{ height: 0 }}
+                    animate={{ height: isOpen ? "auto" : 0 }}
                     transition={shellTransition}
-                    onAnimationComplete={(definition) => {
-                      if (definition === "closing" && !isOpenRef.current) {
+                    onAnimationComplete={() => {
+                      if (!isOpenRef.current) {
                         setIsExpanded(false);
                       }
                     }}
                     className="overflow-hidden"
                   >
-                    <div className="px-5 pb-4 pt-7">
+                    <motion.div
+                      initial="hidden"
+                      animate="visible"
+                      style={{ width: contentWidth }}
+                      className="px-5 pb-4 pt-7"
+                    >
                       <div className="grid grid-cols-2 gap-x-8 gap-y-1">
                         <motion.p
                           custom={0}
@@ -423,29 +420,30 @@ const Navbar = memo(function Navbar() {
                               variants={itemVariants}
                               className="focus-ring inline-flex min-h-11 items-center rounded-sm px-2 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
                             >
-                              {label.replace("Follow us on ", "").replace("View our ", "")}
+                              {label
+                                .replace("Follow us on ", "")
+                                .replace("View our ", "")}
                             </motion.a>
                           ))}
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   </motion.div>
                 ) : null}
               </div>
             </motion.div>
           </div>
+        </div>
 
-          <div
-            className="shrink-0 md:col-start-3 md:justify-self-end"
-          >
-            <ConsultationModal
-              trigger={
-                <Button className="h-12 shrink-0 rounded-full bg-brand px-3 text-[11px] font-semibold text-on-brand hover:bg-brand-hover sm:h-13 sm:px-5 sm:text-sm">
-                  Start a Project
-                </Button>
-              }
-            />
-          </div>
+        {/* Column 3: Consultation Button */}
+        <div className="col-span-1 flex items-center justify-end min-w-0">
+          <ConsultationModal
+            trigger={
+              <Button className="h-12 shrink-0 rounded-full bg-brand px-3 text-[11px] font-semibold text-on-brand hover:bg-brand-hover sm:h-13 sm:px-5 sm:text-sm">
+                Start a Project
+              </Button>
+            }
+          />
         </div>
       </nav>
     </header>
