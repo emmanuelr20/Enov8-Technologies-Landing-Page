@@ -11,11 +11,16 @@ export default function LegalPage({ title, updated, sections }) {
         className="relative isolate min-h-screen overflow-hidden"
       >
         <section
-          className="relative z-10 flex min-h-[27rem] items-center overflow-hidden pt-20 text-white md:min-h-[34rem]"
-          style={{ background: "linear-gradient(90deg, #007bff 0%, #001b43 100%)" }}
+          className="relative z-10 flex min-h-112 items-center overflow-hidden pt-20 text-white md:min-h-[34rem]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgb(0 27 67 / 58%), rgb(0 27 67 / 72%)), url('/sections/background.svg')",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
         >
-          <Container className="flex justify-center">
-            <MotionStagger trigger="mount" className="relative max-w-3xl text-center">
+          <Container className="flex justify-start">
+            <MotionStagger trigger="mount" className="relative max-w-3xl text-left">
               <h1 className="text-4xl font-bold leading-tight tracking-[-0.03em] text-white md:text-5xl lg:text-6xl">{title}</h1>
               <p className="mt-5 text-sm text-blue-100/90">Last updated: {updated}</p>
             </MotionStagger>

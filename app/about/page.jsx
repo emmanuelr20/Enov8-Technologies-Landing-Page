@@ -49,7 +49,7 @@ export default function AboutPage() {
       <main id="main-content" tabIndex={-1} className="min-h-screen bg-background">
         <section className="relative isolate overflow-hidden bg-foreground text-background">
           <Image
-            src="/sections/about.svg"
+            src="/sections/background.svg"
             alt=""
             fill
             preload
@@ -59,7 +59,11 @@ export default function AboutPage() {
           />
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-foreground/75"
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(rgb(0 27 67 / 58%), rgb(0 27 67 / 72%))",
+            }}
           />
           <Container className="relative z-10 flex min-h-112 flex-col justify-center py-24 md:min-h-160 md:pt-35">
             <MotionStagger trigger="mount" className="w-full">

@@ -7,7 +7,7 @@ import HomeHeroBackground from "@/components/home/HomeHeroBackground";
 export default function HomeHero() {
   return (
     <div className="relative">
-      <section id="home" aria-labelledby="home-title" className="relative isolate flex min-h-[100svh] flex-col justify-between overflow-hidden bg-zinc-950 text-white">
+      <section id="home" aria-labelledby="home-title" className="relative isolate flex min-h-svh flex-col justify-between overflow-hidden bg-zinc-950 text-white">
         <HomeHeroBackground />
         <div aria-hidden="true" className="absolute inset-0 bg-black/85" />
 
@@ -38,7 +38,7 @@ export default function HomeHero() {
         </div>
 
         {/* Circle Wave — only rendered on lg (1024px) upwards */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-[-2px] z-20 hidden h-[calc(clamp(15rem,32vw,30rem)+2px)] lg:block min-[1426px]:h-[calc(clamp(15rem,20vw,30rem)+2px)]">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0.5 z-20 hidden h-[calc(clamp(15rem,32vw,30rem)+2px)] lg:block min-[1426px]:h-[calc(clamp(15rem,20vw,30rem)+2px)]">
           <svg viewBox="0 0 1440 402" preserveAspectRatio="none" className="block h-full w-full">
             <defs>
               <linearGradient id="hero-wave-fill" x1="0%" y1="0%" x2="100%" y2="0%">
