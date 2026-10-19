@@ -20,17 +20,17 @@ export default function HomeHero() {
             <p className="mx-auto mt-6 max-w-2xl text-base leading-6 text-white/80 md:text-lg md:leading-[1.55]">
               Enov8 Technologies connects strategy, implementation, and operational support to help organizations modernize with confidence.
             </p>
-            <ul className="mt-8 flex list-none flex-col items-center justify-center gap-4 p-0 sm:flex-row">
+            <ul className="mt-8 flex list-none flex-col items-center justify-center gap-4 p-0 ">
               <li>
-                <Link href="/#contact" className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-on-brand shadow-sm transition-colors hover:bg-brand-hover">
-                  Start a consultation <ArrowRight aria-hidden="true" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="focus-ring inline-flex min-h-12 items-center gap-2 text-sm font-semibold text-[#5FA3FF] hover:text-[#8bbcff]">
+                <Link href="/services" className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-on-brand shadow-sm transition-colors hover:bg-brand-hover">
                   Explore solutions <ArrowRight aria-hidden="true" />
                 </Link>
               </li>
+              {/* <li>
+                <Link href="/services" className="focus-ring inline-flex min-h-12 items-center gap-2 text-sm font-semibold text-[#5FA3FF] hover:text-[#8bbcff]">
+                  Explore solutions <ArrowRight aria-hidden="true" />
+                </Link>
+              </li> */}
             </ul>
           </MotionStagger>
 

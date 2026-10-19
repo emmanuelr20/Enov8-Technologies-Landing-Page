@@ -49,7 +49,7 @@ export default function AboutPage() {
       <main id="main-content" tabIndex={-1} className="min-h-screen bg-background">
         <section className="relative isolate overflow-hidden bg-foreground text-background">
           <Image
-            src="/sections/servicebackground.webp"
+            src="/sections/about.svg"
             alt=""
             fill
             preload
@@ -61,13 +61,13 @@ export default function AboutPage() {
             aria-hidden="true"
             className="absolute inset-0 bg-foreground/75"
           />
-          <Container className="relative z-10 flex min-h-[28rem] flex-col justify-center py-24 md:min-h-[34rem] md:py-32">
+          <Container className="relative z-10 flex min-h-112 flex-col justify-center py-24 md:min-h-160 md:pt-35">
             <MotionStagger trigger="mount" className="w-full">
-              <p className="type-label mb-4 !text-white/95">Company overview</p>
+              <p className="type-label mb-4 text-white/95">Company overview</p>
               <h1 className="type-route-hero max-w-4xl text-background">
                 Who we are.
               </h1>
-              <p className="mt-6 max-w-3xl text-base leading-6 text-white/90 md:text-lg md:leading-[1.55]">
+              <p className="mt-6 max-w-2xl text-base leading-6 text-white/90 md:text-lg md:leading-[1.55]">
                 Enov8 Technologies Ltd. is a Nigerian-based technology company
                 delivering end-to-end digital solutions. We are a forward-thinking
                 team united by one purpose: turning complex technology challenges
@@ -77,7 +77,7 @@ export default function AboutPage() {
           </Container>
         </section>
 
-        <section className="about-grid-section gradient-grid-surface relative isolate overflow-hidden py-16 md:py-24">
+        <section className="about-grid-section gradient-grid-surface relative isolate overflow-hidden py-12 md:py-16">
           <div className="surface-grid-canvas" aria-hidden="true" />
           <Container className="relative z-10 grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-20">
             <MotionEntrance pattern="fadeLeft" className="max-w-2xl">
