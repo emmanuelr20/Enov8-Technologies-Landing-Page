@@ -7,7 +7,7 @@ export default function TeamMemberCard({ member }) {
   const bioParagraphs = Array.isArray(member.bio) ? member.bio : [member.bio];
 
   return (
-    <article className="grid gap-8 md:h-full xl:grid-cols-[minmax(15rem,0.8fr)_minmax(0,1.2fr)] md:gap-10 lg:gap-4 xl:gap-8">
+    <article className="grid w-full min-w-0 grid-cols-1 gap-8 md:h-full md:gap-10 lg:gap-4 xl:grid-cols-[minmax(15rem,0.8fr)_minmax(0,1.2fr)] xl:gap-8">
       <div className="relative flex h-full items-center justify-center">
         <div className="relative aspect-4/5 w-full overflow-hidden border border-border/70 bg-background xl:aspect-auto lg:h-full">
           <Image
@@ -23,11 +23,11 @@ export default function TeamMemberCard({ member }) {
         </Badge>
       </div>
 
-      <div className="flex flex-col border-t border-border pt-6 md:h-full md:min-h-0 md:border-t-0 md:pt-2">
+      <div className="col-span-1 flex w-full min-w-0 flex-col border-t border-border pt-6 md:h-full md:min-h-0 md:border-t-0 md:pt-2">
         <h3 className="type-h4 mb-3">{member.name}</h3>
         <div className="space-y-3 text-muted-foreground">
           {bioParagraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
+            <span key={paragraph}>{paragraph}</span>
           ))}
         </div>
         {member.linkedin ? (
