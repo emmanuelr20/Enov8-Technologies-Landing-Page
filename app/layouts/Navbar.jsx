@@ -288,7 +288,7 @@ const Navbar = memo(function Navbar() {
                       ? { duration: 0.01 }
                       : { duration: MENU_DURATION, ease: EASE }
                   }
-                  className="pointer-events-none absolute inset-0 rounded-[28px] bg-background/95 shadow-lg"
+                  className="pointer-events-none absolute inset-0 rounded-[28px] bg-background shadow-lg"
                   aria-hidden="true"
                 />
                 <div className="relative z-10 flex h-13 w-full items-center justify-center rounded-full border border-border bg-background/95 px-1.5 text-foreground shadow-sm backdrop-blur-xl">

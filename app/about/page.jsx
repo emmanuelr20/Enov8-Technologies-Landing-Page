@@ -65,13 +65,13 @@ export default function AboutPage() {
                 "linear-gradient(rgb(0 27 67 / 58%), rgb(0 27 67 / 72%))",
             }}
           />
-          <Container className="relative z-10 flex min-h-112 flex-col justify-center py-24 md:min-h-160 md:pt-35">
+          <Container className="relative z-10 flex min-h-112 flex-col justify-center pt-28 md:min-h-160 md:pt-35">
             <MotionStagger trigger="mount" className="w-full">
-              <p className="type-label mb-4 text-white/95">Company overview</p>
+              <p className="type-label mb-2 text-white/95">Company overview</p>
               <h1 className="type-route-hero max-w-4xl text-background">
                 Who we are.
               </h1>
-              <p className="mt-6 max-w-2xl text-base leading-6 text-white/90 md:text-lg md:leading-[1.55]">
+              <p className="mt-4 max-w-2xl text-base leading-6 text-white/90 md:text-lg md:leading-[1.55]">
                 Enov8 Technologies Ltd. is a Nigerian-based technology company
                 delivering end-to-end digital solutions. We are a forward-thinking
                 team united by one purpose: turning complex technology challenges

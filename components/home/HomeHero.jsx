@@ -61,7 +61,7 @@ export default function HomeHero() {
           <ul className="flex list-none flex-wrap gap-2 p-0 lg:justify-center min-[1600px]:justify-end">
             {industries.map((industry) => (
               <li key={industry}>
-                <span className="rounded-full border border-white/30 px-3 py-1.5 text-sm text-white/85">
+                <span className="rounded-full border border-white/30 px-3 py-1 lg:py-1.5 text-sm text-white/85">
                   {industry}
                 </span>
               </li>

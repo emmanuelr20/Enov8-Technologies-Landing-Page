@@ -71,9 +71,9 @@ export default function ServicesPage() {
                 "linear-gradient(rgb(0 27 67 / 58%), rgb(0 27 67 / 72%))",
             }}
           />
-          <Container className="relative z-10 flex min-h-112 flex-col justify-center py-24 md:min-h-160 md:pt-35">
+          <Container className="relative z-10 flex min-h-112 flex-col justify-center pt-20 md:min-h-160 md:pt-35">
             <MotionStagger trigger="mount" className="w-full">
-              <p className="type-label mb-4 text-white/95">
+              <p className="type-label mb-2 text-white/95">
                 Capability ecosystem
               </p>
               <h1 className="type-route-hero max-w-xl text-[clamp(2rem,4vw,3.5rem)]! text-background">
