@@ -28,6 +28,8 @@ export default function HomeHeroBackground() {
         <video
           src="/video/hero-background-optimized.mp4"
           poster="/video/hero-background-poster.jpg"
+          aria-hidden="true"
+          tabIndex={-1}
           autoPlay
           muted
           loop

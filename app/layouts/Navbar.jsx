@@ -227,25 +227,26 @@ const Navbar = memo(function Navbar() {
             textClassName={isScrolled ? "text-foreground" : "text-white"}
           />
           <div className="absolute left-1/2 -translate-x-1/2 rounded-full border border-white/30 bg-white/15 px-3 py-2 shadow-[0_12px_32px_-20px_rgba(15,23,42,0.3)] backdrop-blur-lg">
-            <div
-              className="flex items-center gap-1"
+            <ul
+              className="flex list-none items-center gap-1 p-0"
               aria-label="Desktop navigation links"
             >
               {desktopNavigation.map((item) => {
                 const current = isCurrentRoute(pathname, item);
                 return (
-                  <Link
-                    key={item.id}
-                    href={item.href}
-                    aria-current={current ? "page" : undefined}
-                    onClick={(event) => handleAnchorClick(event, item.href)}
-                    className={`focus-ring rounded-full px-4 py-2 text-sm font-semibold transition-colors ${isScrolled ? "hover:bg-white/55" : "hover:bg-white/15"} ${current ? (isScrolled ? "bg-white/70 text-brand" : "bg-white/20 text-white") : isScrolled ? "text-foreground" : "text-white"}`}
-                  >
-                    {item.label}
-                  </Link>
+                  <li key={item.id}>
+                    <Link
+                      href={item.href}
+                      aria-current={current ? "page" : undefined}
+                      onClick={(event) => handleAnchorClick(event, item.href)}
+                      className={`focus-ring rounded-full px-4 py-2 text-sm font-semibold transition-colors ${isScrolled ? "hover:bg-white/55" : "hover:bg-white/15"} ${current ? (isScrolled ? "bg-white/70 text-brand" : "bg-white/20 text-white") : isScrolled ? "text-foreground" : "text-white"}`}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
           </div>
           <ConsultationModal
             trigger={
@@ -337,8 +338,8 @@ const Navbar = memo(function Navbar() {
                       variants={{ hidden: {}, visible: {} }}
                       className="w-full px-5 pb-4 pt-7"
                     >
-                      <div className="grid grid-cols-2 gap-x-8 gap-y-1">
-                        <motion.p
+                      <ul className="grid list-none grid-cols-2 gap-x-8 gap-y-1 p-0">
+                        <motion.li
                           initial="hidden"
                           animate="visible"
                           custom={0}
@@ -346,11 +347,11 @@ const Navbar = memo(function Navbar() {
                           className="col-span-full mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground"
                         >
                           Menu
-                        </motion.p>
+                        </motion.li>
                         {primaryNavigation.map((item, index) => {
                           const current = isCurrentRoute(pathname, item);
                           return (
-                            <motion.div
+                            <motion.li
                               key={item.id}
                               initial="hidden"
                               animate="visible"
@@ -369,10 +370,10 @@ const Navbar = memo(function Navbar() {
                               >
                                 {item.label}
                               </Link>
-                            </motion.div>
+                            </motion.li>
                           );
                         })}
-                      </div>
+                      </ul>
                       <motion.div
                         initial="hidden"
                         animate="visible"
@@ -390,27 +391,30 @@ const Navbar = memo(function Navbar() {
                         >
                           Social media
                         </motion.p>
-                        <div className="flex flex-wrap gap-x-5 gap-y-2">
+                      <ul className="flex list-none flex-wrap gap-x-5 gap-y-2 p-0">
                           {socialLinks.map(({ label, href }, index) => (
-                            <motion.a
+                            <motion.li
                               key={label}
-                              href={href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              tabIndex={isOpen ? 0 : -1}
-                              onClick={closeMenu}
                               initial="hidden"
                               animate="visible"
                               custom={primaryNavigation.length + 3 + index}
                               variants={itemVariants}
-                              className="focus-ring inline-flex min-h-11 items-center rounded-sm px-2 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
                             >
-                              {label
-                                .replace("Follow us on ", "")
-                                .replace("View our ", "")}
-                            </motion.a>
+                              <a
+                                href={href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                tabIndex={isOpen ? 0 : -1}
+                                onClick={closeMenu}
+                                className="focus-ring inline-flex min-h-11 items-center rounded-sm px-2 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+                              >
+                                {label
+                                  .replace("Follow us on ", "")
+                                  .replace("View our ", "")}
+                              </a>
+                            </motion.li>
                           ))}
-                        </div>
+                      </ul>
                       </div>
                     </motion.div>
                   </motion.div>
