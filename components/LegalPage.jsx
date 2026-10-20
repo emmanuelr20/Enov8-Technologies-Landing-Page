@@ -11,7 +11,7 @@ export default function LegalPage({ title, updated, sections }) {
         className="relative isolate min-h-screen overflow-hidden"
       >
         <section
-          className="relative z-10 flex min-h-112 items-center overflow-hidden pt-20 text-white md:min-h-[34rem]"
+          className="relative z-10 flex min-h-112 items-center overflow-hidden pt-20 text-white md:min-h-160"
           style={{
             backgroundImage:
               "linear-gradient(rgb(0 27 67 / 58%), rgb(0 27 67 / 72%)), url('/sections/background.svg')",
@@ -29,7 +29,7 @@ export default function LegalPage({ title, updated, sections }) {
         <section className="gradient-grid-surface relative min-h-[calc(100svh-1rem)] overflow-hidden py-16 md:py-24">
           <div className="surface-grid-canvas" aria-hidden="true" />
           <Container className="text-left">
-            <MotionEntrance as="article" pattern="fade" className="relative z-10 max-w-3xl space-y-10 text-left text-muted-foreground">
+            <MotionStagger as="article" trigger="mount" className="relative z-10 max-w-3xl space-y-10 text-left text-muted-foreground">
               {sections.map((section) => (
                 <section key={section.heading}>
                   <h2 className="type-h4 text-left text-foreground">{section.heading}</h2>
@@ -37,7 +37,7 @@ export default function LegalPage({ title, updated, sections }) {
                   {section.list ? <ul className="mt-4 list-disc space-y-2 pl-6 leading-7">{section.list.map((item) => <li key={item}>{item}</li>)}</ul> : null}
                 </section>
               ))}
-            </MotionEntrance>
+            </MotionStagger>
           </Container>
         </section>
       </main>
