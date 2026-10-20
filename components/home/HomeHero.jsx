@@ -55,7 +55,7 @@ export default function HomeHero() {
       <div className="hero-industry-band relative z-30 w-full py-8 md:py-10 lg:absolute lg:inset-x-0 lg:bottom-0 lg:pb-8 lg:pt-0">
         <MotionEntrance className="mx-auto grid w-full max-w-[var(--container-content)] gap-6 px-6 md:px-12 lg:px-16 min-[1600px]:grid-cols-[1fr_auto] min-[1600px]:items-center min-[1600px]:gap-8">
           <div className="lg:max-[1600px]:max-w-xl lg:max-[1600px]:mx-auto lg:max-[1600px]:text-center min-[1600px]:max-w-none">
-            <p className="type-label mb-2 text-white">Built for complex work</p>
+            <span className="type-label mb-2 font-normal! text-white">Built for complex work</span>
             <h2 id="proof-title" className="type-h3 text-white">One technology partner across the transformation lifecycle.</h2>
           </div>
           <ul className="flex list-none flex-wrap gap-2 p-0 lg:justify-center min-[1600px]:justify-end">

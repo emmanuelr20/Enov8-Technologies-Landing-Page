@@ -15,14 +15,6 @@ import {
   Workflow,
 } from "lucide-react";
 import Footer from "@/app/layouts/Footer";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { buildServicesIndexMetadata } from "@/lib/seoMetadata";
 import { servicesList } from "@/lib/servicesData";
@@ -87,62 +79,80 @@ export default function ServicesPage() {
           </Container>
         </section>
 
-        <section className="services-index-section gradient-grid-surface relative isolate overflow-hidden border-b border-border py-12 md:py-16">
+        <section className="services-index-section gradient-grid-surface relative isolate overflow-hidden border-b border-border py-16 md:py-24">
           <div className="surface-grid-canvas" aria-hidden="true" />
           <Container className="relative z-10">
-            <MotionEntrance trigger="mount" className="max-w-3xl">
-              <p className="type-label mb-4 text-[#0066d6]">Our services</p>
-              <h2 className="type-h2 text-[clamp(1.6rem,2.8vw,2.25rem)]!">
-                Find the right technology path for the challenge in front of
-                you.
+            <MotionEntrance
+              trigger="mount"
+              className="mx-auto"
+            >
+              <p className="type-label text-brand">Our services</p>
+              <h2 className="type-h2 mt-3 text-[clamp(2rem,4vw,2.5rem)]!">
+                Expertise that carries a decision all the way to delivery.
               </h2>
-              <p className="type-body-lg mt-4 text-muted-foreground">
-                We specialize in driving organizational change and digital
-                transformation through high-impact, practical solutions that
-                connect strategy, implementation, and support.
+              <p className="type-body-lg mt-3 max-w-2xl text-muted-foreground">
+                Start with the problem in front of you, then bring together the
+                right strategy, systems, and support to make progress last.
               </p>
             </MotionEntrance>
-            <MotionStagger
-              trigger="mount"
-              className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3"
-            >
-              {servicesList.map((service) => {
+
+            <MotionStagger trigger="mount" staggerDelay={0.06} className="mt-14 md:mt-20">
+              {servicesList.map((service, index) => {
                 const Icon = serviceIcons[service.id];
+                const imageFirst = index % 2 === 1;
+
                 return (
-                  <Card
+                  <article
                     key={service.id}
-                    className="group h-full gap-4 py-5 transition-colors hover:border-brand/50"
+                    className="grid items-center gap-10 py-14 md:grid-cols-2 md:gap-16 md:py-20 lg:gap-24"
                   >
-                    <CardHeader className="px-5">
-                      <div className="flex items-start justify-between gap-4">
-                        <Icon
-                          className="h-7 w-7 text-brand"
-                          aria-hidden="true"
-                        />
+                    <div className={imageFirst ? "md:order-1" : "md:order-2"}>
+                      <Link
+                        href={`/services/${service.id}`}
+                        className="group focus-ring block"
+                        aria-label={`Explore ${service.title}`}
+                      >
+                        <div className="relative mx-auto aspect-square w-full max-w-100 overflow-hidden rounded-xl border border-border/70 bg-muted shadow-[0_24px_50px_-36px_rgba(15,23,42,0.55)]">
+                          <Image
+                            src={service.heroImage}
+                            alt=""
+                            fill
+                            sizes="(min-width: 768px) 42vw, 100vw"
+                            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.035]"
+                          />
+                        </div>
+                      </Link>
+                    </div>
+
+                    <div className={imageFirst ? "md:order-2" : "md:order-1"}>
+                      <div className="flex items-center gap-3 text-brand">
+                        <Icon className="size-5" aria-hidden="true" />
                         <span className="type-caption">
                           {service.content.length} capabilities
                         </span>
                       </div>
-                      <CardTitle className="type-h3 mt-5 text-[clamp(1.2rem,1.5vw,1.45rem)]!">
+                      <h3 className="type-h3 mt-5 max-w-xl text-[clamp(2rem,3.2vw,3rem)]!">
                         {service.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="flex-1 px-5">
-                      <p className="text-muted-foreground">
+                      </h3>
+                      <p className="mt-5 max-w-[46ch] text-base leading-7 text-muted-foreground md:text-lg md:leading-8">
                         {service.description}
                       </p>
-                    </CardContent>
-                    <CardFooter className="px-5">
+                      <ul className="mt-6 flex max-w-xl flex-wrap gap-x-5 gap-y-2 p-0 text-sm text-muted-foreground">
+                        {service.menuHints.map((hint) => (
+                          <li key={hint} className="before:mr-2 before:text-brand before:content-['•']">
+                            {hint}
+                          </li>
+                        ))}
+                      </ul>
                       <Link
                         href={`/services/${service.id}`}
-                        className="focus-ring rounded-md"
+                        className="group focus-ring mt-8 inline-flex items-center gap-3 text-sm font-semibold text-brand transition-colors duration-200 ease-out hover:text-foreground"
                       >
-                        <Button variant="text" className="px-0">
-                          Explore service <ArrowRight aria-hidden="true" />
-                        </Button>
+                        Explore service
+                        <ArrowRight className="size-5 transition-transform duration-200 ease-out group-hover:translate-x-1" aria-hidden="true" />
                       </Link>
-                    </CardFooter>
-                  </Card>
+                    </div>
+                  </article>
                 );
               })}
             </MotionStagger>
