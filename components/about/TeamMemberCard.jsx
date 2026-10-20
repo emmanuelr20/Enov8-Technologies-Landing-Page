@@ -10,13 +10,23 @@ export default function TeamMemberCard({ member }) {
     <article className="grid w-full min-w-0 grid-cols-1 gap-8 md:h-full md:gap-10 lg:gap-4 xl:grid-cols-[minmax(15rem,0.8fr)_minmax(0,1.2fr)] xl:gap-8">
       <div className="relative flex h-full items-center justify-center">
         <div className="relative aspect-4/5 w-full overflow-hidden border border-border/70 bg-background xl:aspect-auto lg:h-full">
-          <Image
-            src={member.image}
-            alt={`${member.name}, ${member.role}`}
-            fill
-            sizes="(min-width: 1360px) 478px, (min-width: 1280px) calc(40vw - 66px), (min-width: 1024px) calc(100vw - 130px), (min-width: 768px) calc(100vw - 98px), calc(100vw - 50px)"
-            className="object-cover"
-          />
+          {member.image ? (
+            <Image
+              src={member.image}
+              alt={`${member.name}, ${member.role}`}
+              fill
+              sizes="(min-width: 1360px) 478px, (min-width: 1280px) calc(40vw - 66px), (min-width: 1024px) calc(100vw - 130px), (min-width: 768px) calc(100vw - 98px), calc(100vw - 50px)"
+              className="object-cover"
+            />
+          ) : (
+            <div
+              role="img"
+              aria-label={`${member.name}'s portrait is coming soon`}
+              className="flex h-full min-h-72 items-center justify-center border-2 border-dashed border-border bg-muted px-6 text-center text-sm font-medium text-muted-foreground"
+            >
+              Portrait coming soon
+            </div>
+          )}
         </div>
         <Badge className="absolute left-3 top-3 z-10 rounded-sm border-border/70 bg-background/95 px-2 py-1 text-foreground shadow-sm">
           {member.role}
