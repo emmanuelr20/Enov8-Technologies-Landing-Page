@@ -20,7 +20,7 @@
   --success: oklch(0.62 0.17 155);
   --warning: oklch(0.72 0.16 75);
   --font-size-hero: clamp(2.75rem, 5.2vw, 5rem);
-  --font-size-display: clamp(2.5rem, 5vw, 4.5rem);
+  --font-size-display: clamp(2.5rem, 5vw, 3.5rem);
   --font-size-h1: clamp(2.25rem, 4vw, 3.75rem);
   --font-size-h2: clamp(1.875rem, 3vw, 2.75rem);
   --font-size-h3: clamp(1.375rem, 2vw, 1.875rem);
@@ -37,7 +37,7 @@
   --text-muted: var(--muted-foreground);
   --focus: var(--ring);
   --space-section: clamp(4rem, 8vw, 8rem);
-  --container-content: 85rem;
+  --container-content: 95rem;
   --motion-fast: 150ms;
   --motion-standard: 250ms;
   --motion-slow: 500ms;

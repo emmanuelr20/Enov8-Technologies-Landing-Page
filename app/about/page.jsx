@@ -86,7 +86,7 @@ export default function AboutPage() {
           <Container className="relative z-10 grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-20">
             <MotionEntrance pattern="fadeLeft" className="max-w-2xl">
               <p className="type-label mb-4 text-brand">Our approach</p>
-              <h2 className="type-h2">Built to last. Designed to grow.</h2>
+              <h2 className="type-h2 text-[clamp(1.65rem,2.8vw,2.35rem)]!">Built to last. Designed to grow.</h2>
               <div className="mt-6 space-y-5 text-muted-foreground">
                 <p>
                   Founded on principles of quality, innovation, and client
@@ -170,7 +170,7 @@ export default function AboutPage() {
           <Container className="relative z-10">
             <MotionEntrance className="max-w-3xl">
               <p className="type-label mb-4 text-brand">How we work</p>
-              <h2 className="type-h2">The principles behind the delivery.</h2>
+              <h2 className="type-h2 text-[clamp(1.65rem,2.8vw,2.35rem)]!">The principles behind the delivery.</h2>
               <p className="mt-5 text-muted-foreground">
                 The foundational principles that guide our decisions, shape our
                 culture, and define how we partner with our clients.
@@ -181,7 +181,7 @@ export default function AboutPage() {
                 <Card key={title} className="h-full">
                   <CardContent className="p-6">
                     <Icon className="h-8 w-8 text-brand" aria-hidden="true" />
-                    <h3 className="type-h4 mt-8">{title}</h3>
+                    <h3 className="type-h4  mt-8">{title}</h3>
                     <p className="mt-4 text-muted-foreground">{description}</p>
                   </CardContent>
                 </Card>

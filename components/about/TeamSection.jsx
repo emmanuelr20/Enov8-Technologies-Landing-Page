@@ -10,7 +10,9 @@ export default function TeamSection() {
       <Container>
         <MotionStagger className="max-w-3xl">
           <p className="type-label mb-4 text-brand">Leadership</p>
-          <h2 id="team-heading" className="type-h2">Meet Our Team</h2>
+          <h2 id="team-heading" className="type-h2 text-[clamp(1.65rem,2.8vw,2.35rem)]!">
+            Meet Our Team
+          </h2>
           <p className="mt-5 max-w-2xl text-muted-foreground">
             The people building practical technology systems and partnerships for the organizations we serve.
           </p>

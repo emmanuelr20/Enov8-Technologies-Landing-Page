@@ -2,108 +2,78 @@
 
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { X, Calendar, Mail, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, Calendar, Mail, X } from "lucide-react";
 
 const ConsultationModal = ({ trigger }) => {
   const [open, setOpen] = React.useState(false);
-  const [backgroundReady, setBackgroundReady] = React.useState(false);
-
-  React.useEffect(() => {
-    if (!open) {
-      setBackgroundReady(false);
-      return undefined;
-    }
-
-    const frame = requestAnimationFrame(() => {
-      setBackgroundReady(true);
-    });
-
-    return () => cancelAnimationFrame(frame);
-  }, [open]);
 
   return (
     <DialogPrimitive.Root open={open} onOpenChange={setOpen}>
       <DialogPrimitive.Trigger asChild>{trigger}</DialogPrimitive.Trigger>
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 z-200 bg-foreground/65 duration-[var(--motion-standard)] ease-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-        <DialogPrimitive.Content className={`focus-ring fixed inset-0 z-200 h-svh max-h-svh w-screen max-w-none overflow-y-auto overflow-x-hidden bg-background [scrollbar-width:none] [&::-webkit-scrollbar]:hidden duration-200 ease-out will-change-[opacity,transform] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 ${backgroundReady ? "bg-[url('/sections/transform-background.webp')] bg-cover bg-center bg-no-repeat" : ""}`}>
-          <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-black/7" />
-          <div className="relative z-10 flex min-h-full flex-col">
-            <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-6 py-6 md:px-12 md:py-10">
-            <div className="flex min-h-28 items-center border-b border-white px-5 py-6 pr-16 md:px-8 md:pr-20">
-              <DialogPrimitive.Title className="type-h3 text-foreground">
-                Start Your Transformation
-              </DialogPrimitive.Title>
-              <DialogPrimitive.Close className="focus-ring absolute right-4 top-4 inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">
-                <X className="h-6 w-6" aria-hidden="true" />
-                <span className="sr-only">Close</span>
-              </DialogPrimitive.Close>
+        <DialogPrimitive.Overlay className="fixed inset-0 z-200 bg-foreground/65 duration-200 ease-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+        <DialogPrimitive.Content className="focus-ring fixed inset-y-0 right-0 z-200 flex h-svh w-full max-w-2xl flex-col overflow-y-auto bg-background/95 backdrop-blur-2xl shadow-2xl duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right">
+          <div className="relative flex items-center justify-center px-6 py-6 md:px-10 md:py-8">
+            <DialogPrimitive.Title className="type-h3 text-center text-foreground">
+              Start your transformation
+            </DialogPrimitive.Title>
+            <DialogPrimitive.Close className="focus-ring absolute right-4 top-4 inline-flex min-h-11 min-w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">
+              <X className="size-6" aria-hidden="true" />
+              <span className="sr-only">Close consultation options</span>
+            </DialogPrimitive.Close>
+          </div>
+
+          <div className="flex flex-1 flex-col px-6 pb-8 md:px-10 md:pb-10">
+            <DialogPrimitive.Description className="type-body mx-auto mt-3 max-w-xl text-center text-muted-foreground">
+              Choose the clearest next step for your team, and we’ll help turn
+              the opportunity into a practical plan.
+            </DialogPrimitive.Description>
+
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              <a
+                href="https://user1-demo1912.zohobookings.com/#/4937930000000036076"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group focus-ring relative isolate flex aspect-square flex-col justify-end overflow-hidden rounded-2xl bg-foreground p-6 text-background shadow-lg transition-transform duration-200 ease-out hover:-translate-y-1"
+              >
+                <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[url('/sections/book.webp')] bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-105" />
+                <div aria-hidden="true" className="absolute inset-0 -z-10 bg-foreground/65" />
+                <Calendar className="mb-auto size-8 text-white" aria-hidden="true" />
+                <div>
+                  <h3 className="text-xl font-semibold text-white">Book a discovery call</h3>
+                  <p className="mt-2 text-sm leading-6 text-white/80">
+                    Schedule a focused 30-minute conversation with our team.
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                    Schedule now
+                    <ArrowRight className="size-5 transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
+                  </span>
+                </div>
+              </a>
+
+              <a
+                href="mailto:sales@enov8technologies.com?subject=Project Inquiry - Enov8 Technologies"
+                className="group focus-ring relative isolate flex aspect-square flex-col justify-end overflow-hidden rounded-2xl bg-foreground p-6 text-background shadow-lg transition-transform duration-200 ease-out hover:-translate-y-1"
+              >
+                <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[url('/sections/send.webp')] bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-105" />
+                <div aria-hidden="true" className="absolute inset-0 -z-10 bg-foreground/65" />
+                <Mail className="mb-auto size-8 text-white" aria-hidden="true" />
+                <div>
+                  <h3 className="text-xl font-semibold text-white">Send an inquiry</h3>
+                  <p className="mt-2 text-sm leading-6 text-white/80">
+                    Tell us what you’re building and where you need support.
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                    Email our team
+                    <ArrowRight className="size-5 transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
+                  </span>
+                </div>
+              </a>
             </div>
 
-            <div className="space-y-6 p-5 md:p-8">
-              <DialogPrimitive.Description className="type-body max-w-[65ch] text-muted-foreground">
-                Ready to bridge the gap between your operations and
-                digital-first growth? Choose how you'd like to connect with our
-                experts.
-              </DialogPrimitive.Description>
-
-              <div className="grid min-w-0 gap-4">
-                {/* Zoho Bookings Option */}
-                <a
-                  href="https://user1-demo1912.zohobookings.com/#/4937930000000036076"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="focus-ring group block min-w-0 rounded-xl"
-                >
-                  <div className="relative flex min-w-0 flex-col items-start gap-3 rounded-xl border border-border bg-background p-4 transition-colors hover:border-brand hover:bg-accent sm:flex-row sm:items-center sm:gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
-                      <Calendar className="h-6 w-6" aria-hidden="true" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <h4 className="text-lg font-semibold leading-6 transition-colors group-hover:text-brand sm:text-xl sm:leading-6">
-                        Book a Discovery Call
-                      </h4>
-                      <p className="mt-1 text-sm leading-5 sm:text-base sm:leading-[1.6]">
-                        Schedule a 30-minute consultation via Zoho Bookings.
-                      </p>
-                    </div>
-                    <ArrowRight aria-hidden="true" className="absolute right-4 top-7 shrink-0 text-muted-foreground motion-arrow group-hover:translate-x-1 group-hover:text-brand sm:static" />
-                  </div>
-                </a>
-
-                {/* Email Option */}
-                <a
-                  href="mailto:sales@enov8technologies.com?subject=Project Inquiry - Enov8 Technologies"
-                  className="focus-ring group block min-w-0 rounded-xl"
-                >
-                  <div className="relative flex min-w-0 flex-col items-start gap-3 rounded-xl border border-border bg-background p-4 transition-colors hover:border-brand hover:bg-accent sm:flex-row sm:items-center sm:gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-brand/30 bg-brand/5">
-                      <Mail className="h-6 w-6 text-brand" aria-hidden="true" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <h4 className="text-lg font-semibold leading-6 transition-colors group-hover:text-brand sm:text-xl sm:leading-6">
-                        Send an Inquiry
-                      </h4>
-                      <p className="mt-1 text-sm leading-5 sm:text-base sm:leading-[1.6]">
-                        Email our team directly at{" "}
-                        <span className="block break-all sm:inline sm:break-normal">
-                          sales@enov8technologies.com
-                        </span>
-                      </p>
-                    </div>
-                    <ArrowRight aria-hidden="true" className="absolute right-4 top-7 shrink-0 text-muted-foreground motion-arrow group-hover:translate-x-1 group-hover:text-brand sm:static" />
-                  </div>
-                </a>
-              </div>
-
-              <div className="border-t border-border pt-5 text-center">
-                <p className="type-label text-muted-foreground">
-                  Architects of Digital Transformation
-                </p>
-              </div>
-            </div>
-            </div>
+            <span className="type-label mt-10 text-center text-muted-foreground font-normal">
+              Architects of digital transformation
+            </span>
           </div>
         </DialogPrimitive.Content>
       </DialogPrimitive.Portal>

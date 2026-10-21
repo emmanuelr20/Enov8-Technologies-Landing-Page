@@ -87,7 +87,7 @@ export default function ServicesPage() {
               className="mx-auto"
             >
               <p className="type-label text-brand">Our services</p>
-              <h2 className="type-h2 mt-3 text-[clamp(2rem,4vw,2.5rem)]!">
+              <h2 className="type-h2 mt-3 max-w-2xl text-[clamp(1.65rem,2.8vw,2.35rem)]!">
                 Expertise that carries a decision all the way to delivery.
               </h2>
               <p className="type-body-lg mt-3 max-w-2xl text-muted-foreground">
@@ -131,7 +131,7 @@ export default function ServicesPage() {
                           {service.content.length} capabilities
                         </span>
                       </div>
-                      <h3 className="type-h3 mt-5 max-w-xl text-[clamp(2rem,3.2vw,3rem)]!">
+                      <h3 className="type-h3 mt-5 max-w-xl text-[clamp(1.5rem,3.2vw,2.2rem)]!">
                         {service.title}
                       </h3>
                       <p className="mt-5 max-w-[46ch] text-base leading-7 text-muted-foreground md:text-lg md:leading-8">

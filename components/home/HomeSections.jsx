@@ -128,7 +128,7 @@ export default function HomeSections() {
           <OperatingModelDiagram />
           <div>
             <SectionIntro
-              titleClassName="!text-white"
+              titleClassName="!text-white max-w-xl lg:max-w-2xl !text-[clamp(1.65rem,2.8vw,2.35rem)]"
               bodyClassName="!text-white/90"
               titleId="about-title"
               title="Strategy is only useful when it becomes operational."
@@ -175,7 +175,7 @@ export default function HomeSections() {
           <MotionEntrance className="max-w-3xl">
             <SectionIntro
               titleId="paths-title"
-              titleClassName="!text-foreground !text-[clamp(1.6rem,2.8vw,2.25rem)]"
+              titleClassName="!text-foreground !text-[clamp(1.65rem,2.8vw,2.35rem)]"
               bodyClassName="!text-muted-foreground"
               title="Start with the business challenge, then choose the right technology path."
             >
@@ -193,10 +193,10 @@ export default function HomeSections() {
         className="capabilities-section relative z-10 isolate overflow-hidden pb-16 lg:pb-20"
       >
         <div className="relative z-10 mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
-          <MotionEntrance className="max-w-3xl">
+          <MotionEntrance className="max-w-2xl">
             <SectionIntro
               titleId="capabilities-title"
-              titleClassName="!text-foreground"
+              titleClassName="!text-foreground !text-[clamp(1.65rem,2.8vw,2.35rem)]"
               bodyClassName="!text-muted-foreground"
               title="The capabilities to make transformation work in practice."
             >
@@ -219,7 +219,7 @@ export default function HomeSections() {
                     <Icon className="size-6" aria-hidden="true" />
                   </span>
                   <span className="rounded-full bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground">
-                    {ids.length} capabilities
+                    {ids.le3gth} capabilities
                   </span>
                 </div>
                 <h3 className="type-h3 mt-6">{title}</h3>
@@ -257,9 +257,9 @@ export default function HomeSections() {
         />
         <div aria-hidden="true" className="absolute inset-0 bg-zinc-950/80" />
         <div className="relative z-10 mx-auto grid w-full max-w-[var(--container-content)] gap-12 px-6 md:px-12 min-[1426px]:grid-cols-[.75fr_1.25fr] lg:px-16">
-          <MotionEntrance className="max-w-3xl">
+          <MotionEntrance className="max-w-2xl">
             <SectionIntro
-              titleClassName="!text-white"
+              titleClassName="!text-white !text-[clamp(1.6rem,2.8vw,2.35rem)]"
               bodyClassName="!text-white/70"
               titleId="delivery-title"
               title="From strategic clarity to supported operations."
@@ -296,10 +296,11 @@ export default function HomeSections() {
         <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
           <MotionStagger className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
             <SectionIntro
+              titleClassName="!text-foreground !text-[clamp(1.65rem,2.8vw,2.35rem)]"
               titleId="ecosystem-title"
               title="A delivery network built around the work."
             />
-            <p className="max-w-md text-sm text-muted-foreground">
+            <p className="max-w-md text-lg text-muted-foreground">
               Selected technology marks currently represented in Enov8's working
               ecosystem. Partnership and certification claims should be
               confirmed directly before publication.
