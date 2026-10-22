@@ -29,7 +29,7 @@ export default function OperatingModelDiagram() {
           <circle cx="320" cy="320" r="10" fill="var(--brand)" />
         </g>
 
-        <g fill="var(--foreground)" fontFamily="var(--font-dm-sans), sans-serif">
+        <g fill="var(--foreground)" fontFamily="var(--font-geist), sans-serif">
           <text x="122" y="70" textAnchor="middle" fontSize="17" fontWeight="700" letterSpacing="2">SOFTWARE</text>
           <text x="122" y="94" textAnchor="middle" fontSize="14" fill="var(--muted-foreground)">Software Development</text>
 
@@ -49,7 +49,7 @@ export default function OperatingModelDiagram() {
           <text x="490" y="590" textAnchor="middle" fontSize="14" fill="var(--muted-foreground)">CyberSecurity</text>
         </g>
 
-        <g fill="var(--foreground)" textAnchor="middle" fontFamily="var(--font-dm-sans), sans-serif">
+        <g fill="var(--foreground)" textAnchor="middle" fontFamily="var(--font-geist), sans-serif">
           {/* <text x="320" y="168" fontSize="13" fontWeight="700" letterSpacing="1.4">ENOV8 TECHNOLOGIES OPERATING MODEL</text> */}
           <text x="320" y="214" fontSize="29" fontWeight="500">Strategy into</text>
           <text x="320" y="250" fontSize="29" fontWeight="500">systems</text>

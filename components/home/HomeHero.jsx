@@ -13,7 +13,7 @@ export default function HomeHero() {
 
         <div className="relative z-10 mx-auto flex w-full max-w-[var(--container-content)] flex-1 items-center justify-center px-6 pb-12 pt-28 md:px-12 md:pb-16 md:pt-32 lg:min-h-100svh lg:px-16 lg:pb-[clamp(18rem,28vw,26rem)] lg:pt-32">
           <MotionStagger trigger="mount" delay={0.25} className="mx-auto max-w-6xl text-center min-[1426px]:pt-12">
-            <h1 id="home-title" className="type-hero text-[1.875rem] leading-[1.12] text-balance text-white min-[480px]:text-[2rem] min-[640px]:text-[2.25rem] md:text-[2.5rem] lg:text-[2.75rem] xl:text-[3.5rem] 2xl:text-[4rem]">
+            <h1 id="home-title" className="type-hero text-[1.875rem]! leading-[1.12]! text-balance text-white min-[480px]:text-[2rem]! min-[640px]:text-[2.25rem]! md:text-[2.5rem]! lg:text-[2.75rem]! xl:text-[3.5rem]! 2xl:text-[4rem]!">
               <span className="block">Turn complex technology into</span>
               <span className="block">dependable business systems.</span>
             </h1>
@@ -22,15 +22,10 @@ export default function HomeHero() {
             </p>
             <ul className="mt-8 flex list-none flex-col items-center justify-center gap-4 p-0 ">
               <li>
-                <Link href="/services" className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-on-brand shadow-sm transition-colors hover:bg-brand-hover">
+                <Link href="/services" className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-bold text-on-brand shadow-sm transition-colors hover:bg-brand-hover">
                   Explore solutions <ArrowRight aria-hidden="true" />
                 </Link>
               </li>
-              {/* <li>
-                <Link href="/services" className="focus-ring inline-flex min-h-12 items-center gap-2 text-sm font-semibold text-[#5FA3FF] hover:text-[#8bbcff]">
-                  Explore solutions <ArrowRight aria-hidden="true" />
-                </Link>
-              </li> */}
             </ul>
           </MotionStagger>
 

@@ -121,14 +121,14 @@ export default function HomeSections() {
       <section
         id="about"
         aria-labelledby="about-title"
-        className="relative z-20 -mt-1 flex items-center border-0 py-16 text-white lg:py-30"
+        className="relative z-20 -mt-1 flex items-center border-0 py-16 text-white lg:py-20"
         style={{ background: "linear-gradient(90deg, #007bff 0%, #001b43 100%)" }}
       >
         <MotionStagger className="mx-auto grid w-full max-w-[var(--container-content)] gap-12 px-6 md:px-12 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:px-16">
           <OperatingModelDiagram />
           <div>
             <SectionIntro
-              titleClassName="!text-white max-w-xl lg:max-w-2xl !text-[clamp(1.65rem,2.8vw,2.35rem)]"
+              titleClassName="!text-white max-w-xl lg:max-w-2xl font-semibold !text-[clamp(1.65rem,2.8vw,2.35rem)]"
               bodyClassName="!text-white/90"
               titleId="about-title"
               title="Strategy is only useful when it becomes operational."
@@ -171,11 +171,11 @@ export default function HomeSections() {
         aria-labelledby="paths-title"
         className="transformation-section relative z-10 isolate overflow-hidden text-foreground"
       >
-        <div className="transformation-section-inner relative z-10 mx-auto flex w-full max-w-[var(--container-content)] flex-col justify-center px-6 py-12 md:px-12 lg:px-16 lg:py-14">
+        <div className="transformation-section-inner relative z-10 mx-auto flex w-full max-w-[var(--container-content)] flex-col justify-center px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20">
           <MotionEntrance className="max-w-3xl">
             <SectionIntro
               titleId="paths-title"
-              titleClassName="!text-foreground !text-[clamp(1.65rem,2.8vw,2.35rem)]"
+              titleClassName="!text-foreground font-semibold !text-[clamp(1.65rem,2.8vw,2.35rem)]"
               bodyClassName="!text-muted-foreground"
               title="Start with the business challenge, then choose the right technology path."
             >
@@ -196,7 +196,7 @@ export default function HomeSections() {
           <MotionEntrance className="max-w-2xl">
             <SectionIntro
               titleId="capabilities-title"
-              titleClassName="!text-foreground !text-[clamp(1.65rem,2.8vw,2.35rem)]"
+              titleClassName="!text-foreground font-semibold !text-[clamp(1.65rem,2.8vw,2.35rem)]"
               bodyClassName="!text-muted-foreground"
               title="The capabilities to make transformation work in practice."
             >
@@ -222,7 +222,7 @@ export default function HomeSections() {
                     {ids.le3gth} capabilities
                   </span>
                 </div>
-                <h3 className="type-h3 mt-6">{title}</h3>
+                <h3 className="type-h3 mt-6 max-w-xl text-[clamp(1.35rem,3.2vw,1.6rem)]!">{title}</h3>
                 <ul className="mt-5 flex list-none flex-wrap gap-2 p-0">
                   {ids.map((id) => (
                     <li key={id}>
@@ -259,7 +259,7 @@ export default function HomeSections() {
         <div className="relative z-10 mx-auto grid w-full max-w-[var(--container-content)] gap-12 px-6 md:px-12 min-[1426px]:grid-cols-[.75fr_1.25fr] lg:px-16">
           <MotionEntrance className="max-w-2xl">
             <SectionIntro
-              titleClassName="!text-white !text-[clamp(1.6rem,2.8vw,2.35rem)]"
+              titleClassName="!text-white font-semibold !text-[clamp(1.6rem,2.8vw,2.35rem)]"
               bodyClassName="!text-white/70"
               titleId="delivery-title"
               title="From strategic clarity to supported operations."
@@ -296,14 +296,13 @@ export default function HomeSections() {
         <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
           <MotionStagger className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
             <SectionIntro
-              titleClassName="!text-foreground !text-[clamp(1.65rem,2.8vw,2.35rem)]"
+              titleClassName="!text-foreground font-semibold !text-[clamp(1.65rem,2.8vw,2.35rem)]"
               titleId="ecosystem-title"
               title="A delivery network built around the work."
             />
             <p className="max-w-md text-lg text-muted-foreground">
-              Selected technology marks currently represented in Enov8's working
-              ecosystem. Partnership and certification claims should be
-              confirmed directly before publication.
+              Our trusted technology partners help us bring the right platforms,
+              expertise, and delivery support to every engagement.
             </p>
           </MotionStagger>
           <MotionEntrance>
@@ -319,7 +318,7 @@ export default function HomeSections() {
       >
         <MotionStagger className="mx-auto flex w-full max-w-[var(--container-content)] flex-col gap-8 px-6 md:px-12 lg:flex-row lg:items-end lg:justify-between lg:px-16">
           <div className="max-w-2xl">
-            <h2 id="final-cta-title" className="type-display text-white">
+            <h2 id="final-cta-title" className="type-display font-semibold text-white">
               Let’s turn the next complex problem into a working system.
             </h2>
             <p className="mt-5 max-w-xl text-lg !text-white">
@@ -332,7 +331,7 @@ export default function HomeSections() {
               <Button
                 variant="secondary"
                 size="lg"
-                className="shrink-0 bg-white text-zinc-950 hover:bg-white/90"
+                className="shrink-0 bg-white font-bold text-zinc-950 hover:bg-white/90"
               >
                 Start a consultation <ArrowRight aria-hidden="true" />
               </Button>

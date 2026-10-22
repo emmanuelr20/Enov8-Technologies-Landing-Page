@@ -250,7 +250,7 @@ const Navbar = memo(function Navbar() {
           </div>
           <ConsultationModal
             trigger={
-              <Button className="h-12 rounded-full bg-brand px-5 text-sm font-semibold text-on-brand hover:bg-brand-hover">
+              <Button className="h-12 rounded-full bg-brand px-5 text-sm font-bold text-on-brand hover:bg-brand-hover">
                 Start a Project
               </Button>
             }
@@ -424,7 +424,7 @@ const Navbar = memo(function Navbar() {
           <div className="flex">
             <ConsultationModal
               trigger={
-                <Button className="h-11 rounded-full bg-brand px-2.5 text-[11px] font-semibold text-on-brand hover:bg-brand-hover sm:px-4 sm:text-sm">
+                <Button className="h-11 rounded-full bg-brand px-2.5 text-[11px] font-bold text-on-brand hover:bg-brand-hover sm:px-4 sm:text-sm">
                   Start a Project
                 </Button>
               }

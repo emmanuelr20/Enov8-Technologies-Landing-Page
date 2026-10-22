@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 gap-12 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,1.65fr)] xl:gap-24">
           <div className="max-w-md ">
-            <h2 className="mb-4 text-[1.875rem] leading-[1.2] font-semibold text-white">Enov8 Technologies</h2>
+            <h2 className="mb-4 text-[1.875rem] leading-[1.2] font-medium text-white">Enov8 Technologies</h2>
             <p className="mb-6 text-white/90">
               Transforming businesses through innovative software solutions,
               mobile applications, and professional development training.

@@ -7,13 +7,11 @@ import CookieBanner from "@/components/CookieBanner";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Toaster } from "@/components/ui/sonner";
 
-const dmSans = localFont({
-  src: [
-    { path: "../public/fonts/dm-sans-400.woff2", weight: "400", style: "normal" },
-    { path: "../public/fonts/dm-sans-500.woff2", weight: "500", style: "normal" },
-    { path: "../public/fonts/dm-sans-700.woff2", weight: "700", style: "normal" },
-  ],
-  variable: "--font-dm-sans",
+const geist = localFont({
+  src: "../public/fonts/Geist-VariableFont_wght.ttf",
+  weight: "100 900",
+  style: "normal",
+  variable: "--font-geist",
   display: "swap",
   preload: true,
 });
@@ -226,7 +224,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${dmSans.variable} overflow-x-hidden max-w-full`}
+      className={`${geist.variable} overflow-x-hidden max-w-full`}
     >
       <body
         className="min-h-svh text-foreground bg-background overflow-x-hidden antialiased"

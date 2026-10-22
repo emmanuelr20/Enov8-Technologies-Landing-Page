@@ -11,8 +11,8 @@ const ConsultationModal = ({ trigger }) => {
     <DialogPrimitive.Root open={open} onOpenChange={setOpen}>
       <DialogPrimitive.Trigger asChild>{trigger}</DialogPrimitive.Trigger>
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 z-200 bg-foreground/65 duration-200 ease-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-        <DialogPrimitive.Content className="focus-ring fixed inset-y-0 right-0 z-200 flex h-svh w-full max-w-2xl flex-col overflow-y-auto bg-background/95 backdrop-blur-2xl shadow-2xl duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right">
+        <DialogPrimitive.Overlay className="consultation-overlay fixed inset-0 z-200 bg-foreground/65" />
+        <DialogPrimitive.Content className="consultation-sheet focus-ring fixed inset-y-0 right-0 z-200 flex h-svh w-full max-w-2xl flex-col overflow-y-auto bg-background/95 shadow-2xl backdrop-blur-2xl">
           <div className="relative flex items-center justify-center px-6 py-6 md:px-10 md:py-8">
             <DialogPrimitive.Title className="type-h3 text-center text-foreground">
               Start your transformation

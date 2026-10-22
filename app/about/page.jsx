@@ -68,7 +68,7 @@ export default function AboutPage() {
           <Container className="relative z-10 flex min-h-112 flex-col justify-center pt-28 md:min-h-160 md:pt-35">
             <MotionStagger trigger="mount" className="w-full">
               <p className="type-label mb-2 text-white/95">Company overview</p>
-              <h1 className="type-route-hero max-w-4xl text-background">
+              <h1 className="type-route-hero max-w-4xl font-medium text-[clamp(2rem,4vw,3.5rem)]!text-[clamp(2rem,4vw,3.5rem)]! text-background">
                 Who we are.
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-6 text-white/90 md:text-lg md:leading-[1.55]">
@@ -86,7 +86,7 @@ export default function AboutPage() {
           <Container className="relative z-10 grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-20">
             <MotionEntrance pattern="fadeLeft" className="max-w-2xl">
               <p className="type-label mb-4 text-brand">Our approach</p>
-              <h2 className="type-h2 text-[clamp(1.65rem,2.8vw,2.35rem)]!">Built to last. Designed to grow.</h2>
+              <h2 className="type-h2 font-semibold text-[clamp(1.65rem,2.8vw,2.35rem)]!">Built to last. Designed to grow.</h2>
               <div className="mt-6 space-y-5 text-muted-foreground">
                 <p>
                   Founded on principles of quality, innovation, and client
@@ -170,7 +170,7 @@ export default function AboutPage() {
           <Container className="relative z-10">
             <MotionEntrance className="max-w-3xl">
               <p className="type-label mb-4 text-brand">How we work</p>
-              <h2 className="type-h2 text-[clamp(1.65rem,2.8vw,2.35rem)]!">The principles behind the delivery.</h2>
+              <h2 className="type-h2 font-semibold text-[clamp(1.65rem,2.8vw,2.35rem)]!">The principles behind the delivery.</h2>
               <p className="mt-5 text-muted-foreground">
                 The foundational principles that guide our decisions, shape our
                 culture, and define how we partner with our clients.

@@ -6,7 +6,7 @@
 
 :root {
   color-scheme: light;
-  --font-dm-sans: "DM Sans";
+  --font-geist: "Geist";
   --light-primary: #0070f3;
   --light-accent: #001b43;
   --footer-background: #1a1a1a;
@@ -42,6 +42,8 @@
   --motion-standard: 250ms;
   --motion-slow: 500ms;
   --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
   --hero-tint: oklch(0.975 0.018 255);
   --hero-band: oklch(0.975 0.035 82);
   --hero-band-line: oklch(0.82 0.13 82);
@@ -98,8 +100,8 @@
   --color-hero-band-line: var(--hero-band-line);
   --color-hero-wave: var(--hero-wave);
   --color-hero-wave-line: var(--hero-wave-line);
-  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui;
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui;
+  --font-mono: var(--font-geist), ui-monospace, monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -163,7 +165,7 @@
 
 /* Global/base styles */
 body {
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   font-size: var(--font-size-body);
   line-height: var(--leading-body);
   font-weight: 400;
@@ -269,6 +271,52 @@ body::-webkit-scrollbar,
 
 ::selection { background: color-mix(in oklab, var(--brand) 24%, transparent); color: var(--foreground); }
 
+@keyframes consultation-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes consultation-overlay-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes consultation-sheet-in {
+  from { opacity: 0; transform: translate3d(100%, 0, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes consultation-sheet-out {
+  from { opacity: 1; transform: translate3d(0, 0, 0); }
+  to { opacity: 0; transform: translate3d(100%, 0, 0); }
+}
+
+.consultation-overlay[data-state="open"] {
+  animation: consultation-overlay-in 180ms var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1)) both;
+}
+
+.consultation-overlay[data-state="closed"] {
+  animation: consultation-overlay-out 180ms var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1)) both;
+}
+
+.consultation-sheet[data-state="open"] {
+  animation: consultation-sheet-in 240ms 40ms var(--ease-drawer, cubic-bezier(0.32, 0.72, 0, 1)) both;
+}
+
+.consultation-sheet[data-state="closed"] {
+  animation: consultation-sheet-out 220ms 180ms var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1)) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .consultation-overlay[data-state="open"],
+  .consultation-overlay[data-state="closed"],
+  .consultation-sheet[data-state="open"],
+  .consultation-sheet[data-state="closed"] {
+    animation-duration: 1ms;
+    animation-delay: 0ms;
+  }
+}
+
 .transformation-capabilities-shell {
   --grid-size: 3.75rem;
   background-color: #f6f6f6;
@@ -347,8 +395,6 @@ body::-webkit-scrollbar,
 
 .transformation-section {
   background: transparent;
-  min-height: 100svh;
-  max-height: 110svh;
 }
 
 .capabilities-section {
@@ -356,7 +402,7 @@ body::-webkit-scrollbar,
 }
 
 .transformation-section-inner {
-  min-height: calc(100svh - 2px);
+  min-height: auto;
 }
 
 .transformation-path {
@@ -383,8 +429,8 @@ body::-webkit-scrollbar,
 .transformation-path-line {
   position: absolute;
   top: 1.15rem;
-  right: 10%;
-  left: 10%;
+  right: 0;
+  left: 1.5rem;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgb(var(--path-blue-rgb) / 62%), transparent);
   transform-origin: left center;
@@ -393,6 +439,7 @@ body::-webkit-scrollbar,
 
 .transformation-path-item {
   position: relative;
+  display: flex;
   padding-top: 0.9rem;
 }
 
@@ -411,6 +458,8 @@ body::-webkit-scrollbar,
 
 .transformation-path-card {
   display: flex;
+  width: 100%;
+  height: 100%;
   min-height: 8.75rem;
   flex-direction: column;
   justify-content: space-between;
@@ -475,9 +524,8 @@ body::-webkit-scrollbar,
 
 @media (max-width: 63.99rem) {
   .transformation-path-list {
-    grid-template-columns: repeat(5, minmax(9rem, 1fr));
-    overflow-x: auto;
-    padding-bottom: 0.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow: visible;
   }
 
   .transformation-path-card {
@@ -485,15 +533,20 @@ body::-webkit-scrollbar,
   }
 }
 
-@media (max-width: 47.999rem) {
-  .transformation-section {
-    max-height: none;
+@media (min-width: 48rem) and (max-width: 63.99rem) {
+  .transformation-path-line,
+  .transformation-path-item::before {
+    display: none;
   }
 
+  .transformation-path-item {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 47.999rem) {
   .transformation-section-inner {
-    min-height: 100svh;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    min-height: auto;
   }
 
   .transformation-path {
