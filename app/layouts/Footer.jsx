@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 gap-12 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,1.65fr)] xl:gap-24">
           <div className="max-w-md ">
-            <h2 className="mb-4 text-[1.875rem] leading-[1.2] font-medium text-white">Enov8 Technologies</h2>
+            <h2 className="type-h4 mb-4 text-white">Enov8 Technologies</h2>
             <p className="mb-6 text-white/90">
               Transforming businesses through innovative software solutions,
               mobile applications, and professional development training.
@@ -19,7 +19,7 @@ export default function Footer() {
 
             {/* Social Media Links */}
             <div className="mt-8">
-              <h3 className="mb-3 text-[1.0625rem] leading-[1.2] font-semibold text-white">Follow Us</h3>
+              <h3 className="mb-3 text-base leading-[1.2] font-medium text-white">Follow Us</h3>
               <nav aria-label="Follow us on social media">
                 <ul className="flex list-none gap-4 p-0">
                   <li>
@@ -62,7 +62,7 @@ export default function Footer() {
 
           <div className="grid gap-10 sm:grid-cols-2 xl:grid-cols-3">
             <div>
-              <h2 className="mb-4 text-[1.0625rem] leading-[1.2] font-semibold text-white">Services</h2>
+              <h2 className="mb-4 text-base leading-[1.2] font-medium text-white">Services</h2>
               <ul className="space-y-3 text-sm text-white/95">
                 {servicesList.slice(0, 6).map((service) => (
                   <li key={service.id}>
@@ -78,7 +78,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h2 className="mb-4 text-[1.0625rem] leading-[1.2] font-semibold text-white">Industries</h2>
+              <h2 className="mb-4 text-base leading-[1.2] font-medium text-white">Industries</h2>
               <ul className="space-y-3 text-sm text-white/95">
                 {industries.map((industry) => (
                   <li key={industry}>
@@ -94,7 +94,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h2 className="mb-4 text-[1.0625rem] leading-[1.2] font-semibold text-white">Contact Info</h2>
+              <h2 className="mb-4 text-base leading-[1.2] font-medium text-white">Contact Info</h2>
               <div className="space-y-4 text-sm text-white/95">
                 <div className="flex items-center space-x-3">
                   <Mail size={18} className="shrink-0" aria-hidden="true" />
@@ -121,7 +121,7 @@ export default function Footer() {
               </div>
 
               <div className="mt-8">
-                <h3 className="mb-3 text-[1.0625rem] leading-[1.2] font-semibold text-white">Resources</h3>
+                <h3 className="mb-3 text-base leading-[1.2] font-medium text-white">Resources</h3>
                 <ul className="space-y-3 text-sm text-white/95">
                   {resourceNavigation.map((resource) => (
                     <li key={resource.id}>

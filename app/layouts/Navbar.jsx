@@ -239,7 +239,7 @@ const Navbar = memo(function Navbar() {
                       href={item.href}
                       aria-current={current ? "page" : undefined}
                       onClick={(event) => handleAnchorClick(event, item.href)}
-                      className={`focus-ring rounded-full px-4 py-2 text-sm font-semibold transition-colors ${isScrolled ? "hover:bg-white/55" : "hover:bg-white/15"} ${current ? (isScrolled ? "bg-white/70 text-brand" : "bg-white/20 text-white") : isScrolled ? "text-foreground" : "text-white"}`}
+                      className={`focus-ring rounded-full px-4 py-2 text-sm font-medium transition-colors ${isScrolled ? "hover:bg-white/55" : "hover:bg-white/15"} ${current ? (isScrolled ? "bg-white/70 text-brand" : "bg-white/20 text-white") : isScrolled ? "text-foreground" : "text-white"}`}
                     >
                       {item.label}
                     </Link>
@@ -250,7 +250,7 @@ const Navbar = memo(function Navbar() {
           </div>
           <ConsultationModal
             trigger={
-              <Button className="h-12 rounded-full bg-brand px-5 text-sm font-bold text-on-brand hover:bg-brand-hover">
+              <Button className="h-12 rounded-full bg-brand px-5 text-sm font-medium text-on-brand hover:bg-brand-hover">
                 Start a Project
               </Button>
             }
@@ -366,7 +366,7 @@ const Navbar = memo(function Navbar() {
                                   closeMenu();
                                   handleAnchorClick(event, item.href);
                                 }}
-                                className={`focus-ring flex min-h-11 w-full items-center rounded-md px-2 text-[clamp(1.25rem,3vw,1.5rem)] font-medium leading-tight tracking-tight transition-colors hover:text-brand ${current ? "text-brand" : "text-foreground"}`}
+                                className={`focus-ring flex min-h-11 w-full items-center rounded-md px-2 text-xl font-medium leading-tight tracking-tight transition-colors hover:text-brand ${current ? "text-brand" : "text-foreground"}`}
                               >
                                 {item.label}
                               </Link>
@@ -424,7 +424,7 @@ const Navbar = memo(function Navbar() {
           <div className="flex">
             <ConsultationModal
               trigger={
-                <Button className="h-11 rounded-full bg-brand px-2.5 text-[11px] font-bold text-on-brand hover:bg-brand-hover sm:px-4 sm:text-sm">
+                <Button className="h-11 rounded-full bg-brand px-2.5 text-xs font-medium text-on-brand hover:bg-brand-hover sm:px-4 sm:text-sm">
                   Start a Project
                 </Button>
               }

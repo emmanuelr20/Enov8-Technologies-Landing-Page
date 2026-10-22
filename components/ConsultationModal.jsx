@@ -40,11 +40,11 @@ const ConsultationModal = ({ trigger }) => {
                 <div aria-hidden="true" className="absolute inset-0 -z-10 bg-foreground/65" />
                 <Calendar className="mb-auto size-8 text-white" aria-hidden="true" />
                 <div>
-                  <h3 className="text-xl font-semibold text-white">Book a discovery call</h3>
-                  <p className="mt-2 text-sm leading-6 text-white/80">
+                  <h3 className="type-h3 text-white">Book a discovery call</h3>
+                  <p className="mt-2 text-sm leading-[1.4] text-white/80">
                     Schedule a focused 30-minute conversation with our team.
                   </p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-white">
                     Schedule now
                     <ArrowRight className="size-5 transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
                   </span>
@@ -59,11 +59,11 @@ const ConsultationModal = ({ trigger }) => {
                 <div aria-hidden="true" className="absolute inset-0 -z-10 bg-foreground/65" />
                 <Mail className="mb-auto size-8 text-white" aria-hidden="true" />
                 <div>
-                  <h3 className="text-xl font-semibold text-white">Send an inquiry</h3>
-                  <p className="mt-2 text-sm leading-6 text-white/80">
+                  <h3 className="type-h3 text-white">Send an inquiry</h3>
+                  <p className="mt-2 text-sm leading-[1.4] text-white/80">
                     Tell us what you’re building and where you need support.
                   </p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-white">
                     Email our team
                     <ArrowRight className="size-5 transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
                   </span>

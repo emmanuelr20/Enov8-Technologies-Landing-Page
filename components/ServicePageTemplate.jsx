@@ -157,7 +157,7 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
             <h1 className="type-route-hero max-w-4xl text-background">
               {service.title}
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-6 text-white/85 md:text-lg md:leading-[1.55]">
+            <p className="mt-6 max-w-2xl text-base leading-[1.4] text-white/85 md:text-lg md:leading-[1.4]">
               {service.description}
             </p>
             </MotionStagger>
@@ -254,7 +254,7 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                     key={item.heading}
                     className="border-t border-brand/70 pt-6"
                   >
-                    <h2 className="type-h4">{item.heading}</h2>
+                    <h2 className="type-h3">{item.heading}</h2>
                     <p className="mt-3 text-muted-foreground">{item.text}</p>
                   </article>
                 ))}

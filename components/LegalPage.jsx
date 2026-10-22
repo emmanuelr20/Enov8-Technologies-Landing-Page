@@ -21,7 +21,7 @@ export default function LegalPage({ title, updated, sections }) {
         >
           <Container className="flex justify-start">
             <MotionStagger trigger="mount" className="relative max-w-3xl text-left">
-              <h1 className="text-4xl font-bold leading-tight tracking-[-0.03em] text-white md:text-5xl lg:text-6xl">{title}</h1>
+              <h1 className="type-route-hero text-white">{title}</h1>
               <p className="mt-5 text-sm text-blue-100/90">Last updated: {updated}</p>
             </MotionStagger>
           </Container>
@@ -33,8 +33,8 @@ export default function LegalPage({ title, updated, sections }) {
               {sections.map((section) => (
                 <section key={section.heading}>
                   <h2 className="type-h4 text-left text-foreground">{section.heading}</h2>
-                  {section.paragraphs?.map((paragraph) => <p key={paragraph} className="mt-4 leading-7">{paragraph}</p>)}
-                  {section.list ? <ul className="mt-4 list-disc space-y-2 pl-6 leading-7">{section.list.map((item) => <li key={item}>{item}</li>)}</ul> : null}
+                  {section.paragraphs?.map((paragraph) => <p key={paragraph} className="mt-4">{paragraph}</p>)}
+                  {section.list ? <ul className="mt-4 list-disc space-y-2 pl-6">{section.list.map((item) => <li key={item}>{item}</li>)}</ul> : null}
                 </section>
               ))}
             </MotionStagger>
