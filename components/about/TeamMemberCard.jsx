@@ -35,7 +35,7 @@ export default function TeamMemberCard({ member }) {
 
       <div className="col-span-1 flex w-full min-w-0 flex-col border-t border-border pt-6 md:h-full md:min-h-0 md:border-t-0 md:pt-2">
         <h3 className="type-h4 mb-3">{member.name}</h3>
-        <div className="space-y-3 text-base leading-[1.4] text-muted-foreground md:text-lg md:leading-[1.4]">
+        <div className="space-y-3 leading-[1.4] text-muted-foreground md:leading-[1.4]">
           {bioParagraphs.map((paragraph) => (
             <span key={paragraph} className="block">
               {paragraph}

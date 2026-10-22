@@ -85,7 +85,7 @@ export default function AboutPage() {
           <div className="surface-grid-canvas" aria-hidden="true" />
           <Container className="relative z-10 grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-20">
             <MotionEntrance pattern="fadeLeft" className="max-w-2xl">
-              <p className="type-label mb-4 text-brand">Our approach</p>
+              <p className="type-label mb-4 text-brand-hover">Our approach</p>
               <h2 className="type-h2">Built to last. Designed to grow.</h2>
               <div className="mt-6 space-y-5 text-muted-foreground">
                 <p>
@@ -101,7 +101,7 @@ export default function AboutPage() {
                   procurement, cloud infrastructure, and licensing.
                 </p>
               </div>
-              <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium uppercase tracking-[0.12em] text-brand">
+              <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-sm uppercase tracking-[0.12em] text-brand-hover">
                 <span>Quality-driven</span>
                 <span aria-hidden="true">•</span>
                 <span>Client-centric</span>

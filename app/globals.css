@@ -232,13 +232,13 @@ body::-webkit-scrollbar,
     transform: translateY(0);
   }
 
-  .type-hero { font-size: var(--font-size-hero); line-height: var(--leading-tight); letter-spacing: -0.03em; font-weight: 300; }
-  .type-display { font-size: var(--font-size-display); line-height: 1.03; letter-spacing: -0.03em; font-weight: 300; }
-  .type-route-hero { font-size: var(--font-size-h1); line-height: var(--leading-tight); letter-spacing: -0.03em; font-weight: 300; }
-  .type-h1 { font-size: var(--font-size-h1); line-height: var(--leading-tight); letter-spacing: -0.03em; font-weight: 300; }
-  .type-h2 { font-size: var(--font-size-h2); line-height: var(--leading-heading); letter-spacing: -0.025em; font-weight: 300; }
-  .type-h3 { font-size: var(--font-size-h3); line-height: 1.12; letter-spacing: -0.02em; font-weight: 300; }
-  .type-h4 { font-size: var(--font-size-h4); line-height: 1.2; font-weight: 300; }
+  .type-hero { font-size: var(--font-size-hero); line-height: var(--leading-tight); letter-spacing: -0.03em; font-weight: 500; }
+  .type-display { font-size: var(--font-size-display); line-height: 1.03; letter-spacing: -0.03em; font-weight: 500; }
+  .type-route-hero { font-size: var(--font-size-h1); line-height: var(--leading-tight); letter-spacing: -0.03em; font-weight: 500; }
+  .type-h1 { font-size: var(--font-size-h1); line-height: var(--leading-tight); letter-spacing: -0.03em; font-weight: 500; }
+  .type-h2 { font-size: var(--font-size-h2); line-height: var(--leading-heading); letter-spacing: -0.025em; font-weight: 500; }
+  .type-h3 { font-size: var(--font-size-h3); line-height: 1.12; letter-spacing: -0.02em; font-weight: 500; }
+  .type-h4 { font-size: var(--font-size-h4); line-height: 1.2; font-weight: 400; }
   .type-body-lg { font-size: var(--font-size-body-lg); line-height: 1.4; }
   .type-body { font-size: var(--font-size-body); line-height: var(--leading-body); }
   .type-small { font-size: var(--font-size-small); line-height: 1.4; }
