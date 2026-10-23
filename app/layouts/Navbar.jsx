@@ -107,13 +107,13 @@ function Brand({ compact = false, textClassName = "text-foreground" }) {
     <Link
       href="/"
       aria-label="Enov8 Technologies home"
-      className={`focus-ring inline-flex shrink-0 items-center gap-2 ${compact ? "size-13 justify-center rounded-full border border-border bg-background/95 p-2 shadow-[0_12px_28px_-16px_rgba(15,23,42,0.55)] backdrop-blur-xl" : ""} ${textClassName}`}
+      className={`focus-ring inline-flex shrink-0 items-center gap-1 ${compact ? "size-13 justify-center rounded-full border border-border bg-background/95 p-2 shadow-[0_12px_28px_-16px_rgba(15,23,42,0.55)] backdrop-blur-xl" : ""} ${textClassName}`}
     >
       <span className="relative flex size-9 shrink-0 items-center justify-center" aria-hidden="true">
         <Image src="/brand/logo.svg" alt="" fill sizes="36px" className="object-contain" />
       </span>
       {!compact ? (
-        <span className="whitespace-nowrap text-base font-bold tracking-tight">
+        <span className="whitespace-nowrap text-base font-bold tracking-tight mt-2">
           Enov8 Technologies
         </span>
       ) : null}
@@ -219,7 +219,7 @@ const Navbar = memo(function Navbar() {
     >
       <nav
         aria-label="Primary navigation"
-        className="mx-auto w-full max-w-(--container-content) px-8 sm:px-10"
+        className="w-full px-6 lg:px-12"
       >
         {/* Desktop: clean brand, centered glass navigation, and CTA. */}
         <div className="hidden h-20 items-center justify-between lg:flex">

@@ -3,6 +3,7 @@
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { ArrowRight, Calendar, Mail, X } from "lucide-react";
+import Image from "next/image";
 
 const ConsultationModal = ({ trigger }) => {
   const [open, setOpen] = React.useState(false);
@@ -36,7 +37,17 @@ const ConsultationModal = ({ trigger }) => {
                 rel="noopener noreferrer"
                 className="group focus-ring relative isolate flex aspect-square flex-col justify-end overflow-hidden rounded-2xl bg-foreground p-6 text-background shadow-lg transition-transform duration-200 ease-out hover:-translate-y-1"
               >
-                <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[url('/sections/book.webp')] bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-105" />
+                <Image
+                  src="/sections/book.webp"
+                  alt=""
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 3rem), (max-width: 1024px) 40vw, 320px"
+                  quality={75}
+                  loading={open ? "eager" : "lazy"}
+                  fetchPriority={open ? "high" : "auto"}
+                  aria-hidden="true"
+                  className="-z-10 object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+                />
                 <div aria-hidden="true" className="absolute inset-0 -z-10 bg-foreground/65" />
                 <Calendar className="mb-auto size-8 text-white" aria-hidden="true" />
                 <div>
@@ -55,7 +66,17 @@ const ConsultationModal = ({ trigger }) => {
                 href="mailto:sales@enov8technologies.com?subject=Project Inquiry - Enov8 Technologies"
                 className="group focus-ring relative isolate flex aspect-square flex-col justify-end overflow-hidden rounded-2xl bg-foreground p-6 text-background shadow-lg transition-transform duration-200 ease-out hover:-translate-y-1"
               >
-                <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[url('/sections/send.webp')] bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-105" />
+                <Image
+                  src="/sections/send.webp"
+                  alt=""
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 3rem), (max-width: 1024px) 40vw, 320px"
+                  quality={75}
+                  loading={open ? "eager" : "lazy"}
+                  fetchPriority={open ? "high" : "auto"}
+                  aria-hidden="true"
+                  className="-z-10 object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+                />
                 <div aria-hidden="true" className="absolute inset-0 -z-10 bg-foreground/65" />
                 <Mail className="mb-auto size-8 text-white" aria-hidden="true" />
                 <div>
