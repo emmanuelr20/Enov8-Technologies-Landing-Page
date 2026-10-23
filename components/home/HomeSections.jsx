@@ -131,11 +131,11 @@ export default function HomeSections() {
               titleClassName="!text-white max-w-xl lg:max-w-2xl"
               bodyClassName="!text-white/90"
               titleId="about-title"
-              title="Strategy is only useful when it becomes operational."
+              title="Your technology should make the business easier to run."
             >
-              Enov8 Technologies helps organizations bridge the gap between
-              legacy operations and digital-first growth by combining IT
-              consulting with hands-on delivery.
+              Enov8 helps growing businesses replace disconnected tools,
+              manual work, and fragile processes with connected systems that
+              people can actually use and teams can depend on.
             </SectionIntro>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {[
@@ -157,7 +157,7 @@ export default function HomeSections() {
               href="/about"
               className="focus-ring mt-9 inline-flex items-center gap-2 rounded-md text-sm font-medium text-white hover:text-white/80"
             >
-              Meet Enov8 Technologies <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              See how we work <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
         </MotionStagger>
@@ -177,11 +177,10 @@ export default function HomeSections() {
               titleId="paths-title"
               titleClassName="!text-foreground"
               bodyClassName="!text-muted-foreground"
-              title="Start with the business challenge, then choose the right technology path."
+              title="Start with the operational problem, then build the right system."
             >
-              A connected service portfolio gives your team room to solve the
-              immediate problem without losing sight of the operating model around
-              it.
+              We bring the right platforms, software, infrastructure, and
+              support together around the way your organization actually works.
             </SectionIntro>
           </MotionEntrance>
           <TransformationOrbit pathGroups={pathGroups} />
@@ -198,11 +197,10 @@ export default function HomeSections() {
               titleId="capabilities-title"
               titleClassName="!text-foreground"
               bodyClassName="!text-muted-foreground"
-              title="The capabilities to make transformation work in practice."
+              title="Four ways we make operations work better."
             >
-              From business systems and identity to security, software, and
-              intelligence, our teams bring the right expertise together around
-              the way your organization operates.
+              Every engagement is focused on a practical outcome: connected
+              workflows, modern systems, secure foundations, and reliable support.
             </SectionIntro>
           </MotionEntrance>
           <MotionStagger
@@ -262,10 +260,11 @@ export default function HomeSections() {
               titleClassName="!text-white"
               bodyClassName="!text-white/70"
               titleId="delivery-title"
-              title="From strategic clarity to supported operations."
+              title="A repeatable method from clarity to supported operations."
             >
-              The work moves from understanding the business to implementing the
-              right system and supporting it in practice.
+              The Enov8 Systems Method turns a complex technology decision into
+              a clear plan, a working implementation, and an operating system
+              your team can sustain.
             </SectionIntro>
           </MotionEntrance>
           <MotionStagger
@@ -298,11 +297,11 @@ export default function HomeSections() {
             <SectionIntro
               titleClassName="!text-foreground"
               titleId="ecosystem-title"
-              title="A delivery network built around the work."
+              title="The right ecosystem for the system you need."
             />
             <p className="max-w-md text-lg leading-[1.4] text-muted-foreground">
-              Our trusted technology partners help us bring the right platforms,
-              expertise, and delivery support to every engagement.
+              We stay platform-agnostic while bringing proven partners into the
+              delivery when they improve the outcome for your organization.
             </p>
           </MotionStagger>
           <MotionEntrance>
@@ -319,11 +318,11 @@ export default function HomeSections() {
         <MotionStagger className="mx-auto flex w-full max-w-[var(--container-content)] flex-col gap-8 px-6 md:px-12 lg:flex-row lg:items-end lg:justify-between lg:px-16">
           <div className="max-w-2xl">
             <h2 id="final-cta-title" className="type-display text-white">
-              Let’s turn the next complex problem into a working system.
+              Let’s make your next complex operation easier to run.
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-[1.4] !text-white">
-              Start with a conversation about where your organization is now and
-              what needs to change next.
+              Start with a systems assessment of where your organization is now,
+              what is slowing it down, and what needs to change next.
             </p>
           </div>
           <ConsultationModal
@@ -333,7 +332,7 @@ export default function HomeSections() {
                 size="lg"
                 className="shrink-0 bg-white font-medium text-zinc-950 hover:bg-white/90"
               >
-                Start a consultation <ArrowRight aria-hidden="true" />
+                Book a systems assessment <ArrowRight aria-hidden="true" />
               </Button>
             }
           />

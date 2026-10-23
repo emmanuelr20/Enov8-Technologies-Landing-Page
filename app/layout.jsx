@@ -20,25 +20,21 @@ export const metadata = {
   metadataBase: new URL("https://enov8technologies.com"),
   title: {
     default:
-      "Enov8 Technologies - Custom Software Development & Digital Solutions",
+    "Enov8 Technologies - Connected Business Systems for Growing African Businesses",
     template: "%s | Enov8 Technologies",
   },
   description:
-    "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation. Expert React Native, Next.js, and full-stack development services.",
+    "Enov8 helps growing African businesses replace fragmented operations with connected, secure business systems through practical implementation and ongoing support.",
   keywords: [
-    "custom software development",
-    "mobile app development",
-    "web application development",
-    "enterprise solutions",
-    "technology training",
-    "digital transformation",
-    "React Native development",
-    "Next.js development",
-    "fintech solutions",
-    "e-commerce development",
-    "UI/UX design",
-    "full-stack development",
-    "software consulting",
+    "business systems transformation",
+    "operations automation",
+    "ERP implementation",
+    "Zoho implementation",
+    "business process automation",
+    "systems integration",
+    "secure business systems",
+    "document management",
+    "software modernization",
     "Nigeria software company",
     "African tech solutions",
   ],
@@ -64,9 +60,9 @@ export const metadata = {
   manifest: "/brand/manifest.json",
   openGraph: {
     title:
-      "Enov8 Technologies - Custom Software Development & Digital Solutions",
+      "Enov8 Technologies - Connected Business Systems for Growing African Businesses",
     description:
-      "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
+      "Enov8 helps growing African businesses replace fragmented operations with connected, secure business systems.",
     url: "https://enov8technologies.com",
     siteName: "Enov8 Technologies",
     locale: "en_NG",
@@ -76,7 +72,7 @@ export const metadata = {
         url: "https://enov8technologies.com/brand/image.png",
         width: 1200,
         height: 630,
-        alt: "Enov8 Technologies - Custom Software Development",
+        alt: "Enov8 Technologies - Connected Business Systems",
       },
     ],
   },
@@ -101,9 +97,9 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Enov8 Technologies - Custom Software Development & Digital Solutions",
+      "Enov8 Technologies - Connected Business Systems for Growing African Businesses",
     description:
-      "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
+      "Enov8 helps growing African businesses replace fragmented operations with connected, secure business systems.",
     images: ["/brand/image.png"],
   },
 };
@@ -122,18 +118,15 @@ const jsonLd = {
   },
   image: "https://enov8technologies.com/brand/image.png",
   description:
-    "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
+    "Enov8 helps growing African businesses replace fragmented operations with connected, secure business systems.",
   foundingDate: "2020",
-  slogan: "Building custom solutions that drive business growth",
+  slogan: "Connected systems for businesses ready to operate better",
   knowsAbout: [
-    "Software Development",
-    "Mobile App Development",
-    "Web Development",
-    "Enterprise Solutions",
-    "Digital Transformation",
-    "UI/UX Design",
-    "React Native",
-    "Next.js",
+    "Business Systems Transformation",
+    "Operations Automation",
+    "ERP and Zoho Implementation",
+    "Secure Infrastructure",
+    "Software Modernization",
   ],
   serviceArea: {
     "@type": "Place",
@@ -174,38 +167,38 @@ const jsonLd = {
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Software Development Services",
+    name: "Connected Business Systems",
     itemListElement: [
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Mobile App Development",
-          description: "Custom iOS and Android mobile applications",
+          name: "Operations Automation",
+          description: "Connected workflows that reduce manual operational work",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Web Application Development",
-          description: "Scalable web applications and websites",
+          name: "ERP and Platform Implementation",
+          description: "Business platforms configured around real operating processes",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Enterprise Solutions",
-          description: "Custom enterprise software and systems",
+          name: "Secure Infrastructure",
+          description: "Reliable infrastructure and security foundations for growth",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Digital Transformation",
-          description: "End-to-end digital transformation consulting",
+          name: "Software Modernization",
+          description: "Dependable software and system modernization for growing teams",
         },
       },
     ],

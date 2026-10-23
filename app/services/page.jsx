@@ -39,14 +39,15 @@ export default function ServicesPage() {
           <Container className="relative z-10 flex min-h-112 flex-col justify-center pt-20 md:min-h-160 md:pt-35">
             <MotionStagger trigger="mount" className="w-full">
               <p className="type-label mb-2 text-white/95">
-                Capability ecosystem
+                Business systems capability
               </p>
-              <h1 className="type-route-hero max-w-xl text-background">
-                Solutions built around the work.
+              <h1 className="type-route-hero max-w-4xl text-background">
+                Unified operations for growing, connected businesses.
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-[1.4] text-white/90 md:text-lg md:leading-[1.4]">
-                Explore the connected capabilities Enov8 uses to turn complex
-                technology challenges into practical operating systems.
+                We help growing African businesses replace disconnected tools and
+                manual processes with dependable systems, from first assessment
+                through implementation and support.
               </p>
             </MotionStagger>
           </Container>
@@ -56,13 +57,14 @@ export default function ServicesPage() {
           <div className="surface-grid-canvas" aria-hidden="true" />
           <Container className="relative z-10">
             <MotionEntrance trigger="mount" className="mx-auto">
-              <p className="type-label text-brand-hover">Our services</p>
+              <p className="type-label text-brand-hover">What we make work</p>
               <h2 className="type-h2 mt-3 max-w-2xl">
-                Expertise that carries a decision all the way to delivery.
+                One operating model, connected from strategy to delivery.
               </h2>
               <p className="type-body-lg mt-3 max-w-2xl text-muted-foreground">
-                Start with the problem in front of you, then bring together the
-                right strategy, systems, and support to make progress last.
+                Choose the part of your operation that needs to work better. We
+                will bring together the right platforms, software, infrastructure,
+                and support around it.
               </p>
             </MotionEntrance>
 

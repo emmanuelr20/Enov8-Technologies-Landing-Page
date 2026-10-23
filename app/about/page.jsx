@@ -7,9 +7,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 
 export const metadata = {
-  title: "Who We Are",
+  title: "Business Systems Transformation Partner",
   description:
-    "Learn about Enov8 Technologies, our vision, mission, and the core values that drive our commitment to delivering world-class digital solutions.",
+    "Learn how Enov8 helps growing African businesses replace fragmented operations with connected, secure business systems.",
 };
 
 const stats = [
@@ -39,7 +39,7 @@ const values = [
   [
     "Excellence",
     Globe,
-    "Building world-class digital solutions that are accessible, scalable, and built for the future of the continent's digital economy.",
+    "Building dependable business systems that help African organizations operate better and grow with confidence.",
   ],
 ];
 
@@ -67,15 +67,15 @@ export default function AboutPage() {
           />
           <Container className="relative z-10 flex min-h-112 flex-col justify-center pt-28 md:min-h-160 md:pt-35">
             <MotionStagger trigger="mount" className="w-full">
-              <p className="type-label mb-2 text-white/95">Company overview</p>
+              <p className="type-label mb-2 text-white/95">Systems transformation partner</p>
               <h1 className="type-route-hero max-w-4xl text-background">
                 Who we are.
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-[1.4] text-white/90 md:text-lg md:leading-[1.4]">
-                Enov8 Technologies Ltd. is a Nigerian-based technology company
-                delivering end-to-end digital solutions. We are a forward-thinking
-                team united by one purpose: turning complex technology challenges
-                into competitive advantages for our clients.
+                Enov8 Technologies is a Nigerian-based systems partner for
+                growing African businesses. We turn fragmented operations,
+                disconnected tools, and complex technology decisions into
+                dependable systems that help teams move forward.
               </p>
             </MotionStagger>
           </Container>
@@ -85,20 +85,17 @@ export default function AboutPage() {
           <div className="surface-grid-canvas" aria-hidden="true" />
           <Container className="relative z-10 grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-20">
             <MotionEntrance pattern="fadeLeft" className="max-w-2xl">
-              <p className="type-label mb-4 text-brand-hover">Our approach</p>
-              <h2 className="type-h2">Built to last. Designed to grow.</h2>
+              <p className="type-label mb-4 text-brand-hover">The problem we solve</p>
+              <h2 className="type-h2">Make the way your business works easier to depend on.</h2>
               <div className="mt-6 space-y-5 text-muted-foreground">
                 <p>
-                  Founded on principles of quality, innovation, and client
-                  partnership, Enov8 Technologies serves clients across fintech,
-                  education, e-commerce, healthcare, transport, and the public
-                  sector.
+                  Growing organizations often outgrow spreadsheets, disconnected
+                  platforms, and manual handoffs before they have the internal
+                  team to connect everything properly.
                 </p>
                 <p>
-                  From a startup&apos;s first digital product to an
-                  enterprise&apos;s cloud migration, we deliver technology
-                  across software development, managed IT services, hardware
-                  procurement, cloud infrastructure, and licensing.
+                  We help them understand the operating problem, choose the right
+                  system, implement it properly, and stay close after launch.
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-sm uppercase tracking-[0.12em] text-brand-hover">
@@ -134,10 +131,9 @@ export default function AboutPage() {
                 </div>
                 <h2 className="type-h3">Our vision</h2>
                 <p className="mt-5 text-muted-foreground">
-                  To be the most trusted technology partner for businesses
-                  across Africa, delivering world-class digital solutions that
-                  are accessible, scalable, and built for the future of the
-                  continent&apos;s digital economy.
+                  To be the trusted systems partner for growing businesses
+                  across Africa, helping them operate with clearer information,
+                  connected workflows, and dependable technology.
                 </p>
                 <blockquote className="mt-8 border-t border-border pt-5 text-muted-foreground italic">
                   “The technology your organisation needs to compete globally
@@ -169,11 +165,11 @@ export default function AboutPage() {
           <div className="surface-grid-canvas" aria-hidden="true" />
           <Container className="relative z-10">
             <MotionEntrance className="max-w-3xl">
-              <p className="type-label mb-4 text-brand">How we work</p>
-              <h2 className="type-h2">The principles behind the delivery.</h2>
+              <p className="type-label mb-4 text-brand">The Enov8 Systems Method</p>
+              <h2 className="type-h2">Clarity first. Dependable delivery next.</h2>
               <p className="mt-5 text-muted-foreground">
-                The foundational principles that guide our decisions, shape our
-                culture, and define how we partner with our clients.
+                Our process is designed to reduce risk between the first decision
+                and the moment your team relies on the system every day.
               </p>
             </MotionEntrance>
             <MotionStagger className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">

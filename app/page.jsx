@@ -3,14 +3,14 @@ import HomeSections from "@/components/home/HomeSections";
 import Footer from "@/app/layouts/Footer";
 
 export const metadata = {
-  title: "Enov8 Technologies: Business Transformation & Digital Solutions in Nigeria",
+  title: "Enov8 Technologies: Connected Business Systems for Growing African Businesses",
   description:
-    "Enov8 Technologies delivers world-class digital solutions across software development, managed IT services, hardware infrastructure, cloud platforms, and cybersecurity.",
+    "Enov8 helps growing African businesses replace fragmented operations with connected, secure business systems—from assessment and implementation through ongoing support.",
   openGraph: {
     title:
-      "Enov8 Technologies: Business Transformation & Digital Solutions in Nigeria",
+      "Enov8 Technologies: Connected Business Systems for Growing African Businesses",
     description:
-      "Enov8 Technologies delivers world-class digital solutions across software development, managed IT services, hardware infrastructure, cloud platforms, and cybersecurity.",
+      "Enov8 helps growing African businesses replace fragmented operations with connected, secure business systems.",
     type: "website",
   },
 };

@@ -153,7 +153,6 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                 />
               </div>
             ) : null}
-            <p className="type-label mb-4 !text-white">Service capability</p>
             <h1 className="type-route-hero max-w-4xl text-background">
               {service.title}
             </h1>
@@ -172,7 +171,7 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
             <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
               <Card>
                 <CardHeader>
-                  <CardTitle className="type-h4">Our services</CardTitle>
+                  <CardTitle className="type-h4">Connected capabilities</CardTitle>
                 </CardHeader>
                   <CardContent>
                     <ul className="list-none space-y-1 p-0">
@@ -197,11 +196,11 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                     <Icon className="mb-6 h-8 w-8" aria-hidden="true" />
                   ) : null}
                   <h2 className="type-h4 !text-white">
-                    Ready to make this practical?
+                    Ready to make this operational?
                   </h2>
                   <p className="mt-3 text-sm !text-white">
-                    Start a conversation about the right next step for your
-                    organization.
+                    Start with a systems assessment of the problem your team is
+                    trying to solve.
                   </p>
                   <div className="mt-6 flex items-center gap-2 text-sm font-medium">
                     <Phone className="h-4 w-4" aria-hidden="true" /> +234 913
@@ -214,7 +213,7 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                         size="lg"
                         className="mt-6 w-full bg-white text-foreground hover:bg-white/90"
                       >
-                        Start a consultation <ArrowRight aria-hidden="true" />
+                        Book a systems assessment <ArrowRight aria-hidden="true" />
                       </Button>
                     }
                   />

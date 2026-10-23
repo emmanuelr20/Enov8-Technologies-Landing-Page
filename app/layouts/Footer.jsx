@@ -8,13 +8,13 @@ import { servicesList } from "@/lib/servicesData";
 export default function Footer() {
   return (
     <footer className="z-50 bg-footer-background py-20 text-white md:py-24">
-      <div className="w-full px-6 lg:px-12">
+      <div className="w-full px-6 lg:px-18">
         <div className="grid grid-cols-1 gap-12 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,1.65fr)] xl:gap-24">
           <div className="max-w-md ">
             <h2 className="type-h4 mb-4 text-white">Enov8 Technologies</h2>
             <p className="mb-6 text-white/90">
-              Transforming businesses through innovative software solutions,
-              mobile applications, and professional development training.
+              Enov8 helps growing African businesses replace fragmented
+              operations with connected, secure business systems.
             </p>
 
             {/* Social Media Links */}
