@@ -20,8 +20,8 @@ const ConsultationModal = ({ trigger }) => {
     <DialogPrimitive.Root open={open} onOpenChange={setOpen}>
       <DialogPrimitive.Trigger asChild>{trigger}</DialogPrimitive.Trigger>
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="consultation-overlay fixed inset-0 z-200 bg-foreground/65" />
-        <DialogPrimitive.Content className="consultation-sheet focus-ring fixed inset-y-0 right-0 z-200 flex h-svh w-full max-w-2xl flex-col overflow-y-auto bg-background/95 shadow-2xl backdrop-blur-2xl">
+        <DialogPrimitive.Overlay className="consultation-overlay fixed inset-0 z-200 bg-foreground/45 backdrop-blur-md" />
+        <DialogPrimitive.Content className="consultation-sheet focus-ring fixed inset-y-0 right-0 z-200 flex h-svh w-full max-w-2xl flex-col overflow-y-auto bg-background/95 shadow-2xl backdrop-blur-md">
           <div className="relative flex items-center justify-center px-6 py-6 md:px-10 md:py-8">
             <DialogPrimitive.Title className="type-h3 text-center text-foreground">
               Book a systems assessment
@@ -43,7 +43,7 @@ const ConsultationModal = ({ trigger }) => {
                 href="https://user1-demo1912.zohobookings.com/#/4937930000000036076"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group focus-ring relative isolate flex aspect-square flex-col justify-end overflow-hidden rounded-2xl bg-foreground p-6 text-background shadow-lg transition-transform duration-200 ease-out hover:-translate-y-1"
+                className="group focus-ring relative isolate flex aspect-square flex-col justify-end overflow-hidden rounded-2xl bg-foreground p-6 text-background shadow-lg transition-transform duration-200 ease-out"
               >
                 <Image
                   src="/sections/book.webp"
@@ -51,7 +51,7 @@ const ConsultationModal = ({ trigger }) => {
                   fill
                   sizes="(max-width: 640px) calc(100vw - 3rem), (max-width: 1024px) 40vw, 320px"
                   quality={75}
-                  loading={open ? "eager" : "lazy"}
+                  loading={open ? "lazy" : "eager"}
                   unoptimized
                   fetchPriority={open ? "high" : "auto"}
                   aria-hidden="true"
@@ -73,7 +73,7 @@ const ConsultationModal = ({ trigger }) => {
 
               <a
                 href="mailto:sales@enov8technologies.com?subject=Project Inquiry - Enov8 Technologies"
-                className="group focus-ring relative isolate flex aspect-square flex-col justify-end overflow-hidden rounded-2xl bg-foreground p-6 text-background shadow-lg transition-transform duration-200 ease-out hover:-translate-y-1"
+                className="group focus-ring relative isolate flex aspect-square flex-col justify-end overflow-hidden rounded-2xl bg-foreground p-6 text-background shadow-lg transition-transform duration-200 ease-out"
               >
                 <Image
                   src="/sections/send.webp"
@@ -81,8 +81,7 @@ const ConsultationModal = ({ trigger }) => {
                   fill
                   sizes="(max-width: 640px) calc(100vw - 3rem), (max-width: 1024px) 40vw, 320px"
                   quality={75}
-                  loading={open ? "eager" : "lazy"}
-                  preload
+                  loading={open ? "lazy" : "eager"}
                   unoptimized
                   fetchPriority={open ? "high" : "auto"}
                   aria-hidden="true"
