@@ -1,45 +1,40 @@
 import "./globals.css";
+import localFont from "next/font/local";
 import Script from "next/script";
-import "../styles/performance.css";
 import Navbar from "./layouts/Navbar.jsx";
-import Analytics from "@/components/Analytics";
-import TawkMessenger from "@/components/TawkMessenger";
 
 import CookieBanner from "@/components/CookieBanner";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Toaster } from "@/components/ui/sonner";
-import { Open_Sans } from "next/font/google";
 
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+const geist = localFont({
+  src: "../public/fonts/Geist-VariableFont_wght.ttf",
+  weight: "100 900",
+  style: "normal",
+  variable: "--font-geist",
   display: "swap",
+  preload: true,
 });
 
 export const metadata = {
   metadataBase: new URL("https://enov8technologies.com"),
   title: {
     default:
-      "Enov8 Technologies - Custom Software Development & Digital Solutions",
+    "Enov8 Technologies - Connected Business Systems for Growing African Businesses",
     template: "%s | Enov8 Technologies",
   },
   description:
-    "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation. Expert React Native, Next.js, and full-stack development services.",
+    "Enov8 Technologies helps growing African businesses replace fragmented operations with connected, secure business systems through practical implementation and ongoing support.",
   keywords: [
-    "custom software development",
-    "mobile app development",
-    "web application development",
-    "enterprise solutions",
-    "technology training",
-    "digital transformation",
-    "React Native development",
-    "Next.js development",
-    "fintech solutions",
-    "e-commerce development",
-    "UI/UX design",
-    "full-stack development",
-    "software consulting",
+    "business systems transformation",
+    "operations automation",
+    "ERP implementation",
+    "Zoho implementation",
+    "business process automation",
+    "systems integration",
+    "secure business systems",
+    "document management",
+    "software modernization",
     "Nigeria software company",
     "African tech solutions",
   ],
@@ -65,9 +60,9 @@ export const metadata = {
   manifest: "/brand/manifest.json",
   openGraph: {
     title:
-      "Enov8 Technologies - Custom Software Development & Digital Solutions",
+      "Enov8 Technologies - Connected Business Systems for Growing African Businesses",
     description:
-      "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
+      "Enov8 Technologies helps growing African businesses replace fragmented operations with connected, secure business systems.",
     url: "https://enov8technologies.com",
     siteName: "Enov8 Technologies",
     locale: "en_NG",
@@ -77,7 +72,7 @@ export const metadata = {
         url: "https://enov8technologies.com/brand/image.png",
         width: 1200,
         height: 630,
-        alt: "Enov8 Technologies - Custom Software Development",
+        alt: "Enov8 Technologies - Connected Business Systems",
       },
     ],
   },
@@ -102,9 +97,9 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Enov8 Technologies - Custom Software Development & Digital Solutions",
+      "Enov8 Technologies - Connected Business Systems for Growing African Businesses",
     description:
-      "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
+      "Enov8 Technologies helps growing African businesses replace fragmented operations with connected, secure business systems.",
     images: ["/brand/image.png"],
   },
 };
@@ -113,7 +108,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Enov8 Technologies",
-  alternateName: "Enov8 Tech",
+  alternateName: "Enov8 Technologies",
   url: "https://enov8technologies.com",
   logo: {
     "@type": "ImageObject",
@@ -123,18 +118,15 @@ const jsonLd = {
   },
   image: "https://enov8technologies.com/brand/image.png",
   description:
-    "Leading software development company specializing in custom mobile apps, web applications, enterprise solutions, and digital transformation.",
+    "Enov8 Technologies helps growing African businesses replace fragmented operations with connected, secure business systems.",
   foundingDate: "2020",
-  slogan: "Building custom solutions that drive business growth",
+  slogan: "Connected systems for businesses ready to operate better",
   knowsAbout: [
-    "Software Development",
-    "Mobile App Development",
-    "Web Development",
-    "Enterprise Solutions",
-    "Digital Transformation",
-    "UI/UX Design",
-    "React Native",
-    "Next.js",
+    "Business Systems Transformation",
+    "Operations Automation",
+    "ERP and Zoho Implementation",
+    "Secure Infrastructure",
+    "Software Modernization",
   ],
   serviceArea: {
     "@type": "Place",
@@ -175,38 +167,38 @@ const jsonLd = {
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Software Development Services",
+    name: "Connected Business Systems",
     itemListElement: [
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Mobile App Development",
-          description: "Custom iOS and Android mobile applications",
+          name: "Operations Automation",
+          description: "Connected workflows that reduce manual operational work",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Web Application Development",
-          description: "Scalable web applications and websites",
+          name: "ERP and Platform Implementation",
+          description: "Business platforms configured around real operating processes",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Enterprise Solutions",
-          description: "Custom enterprise software and systems",
+          name: "Secure Infrastructure",
+          description: "Reliable infrastructure and security foundations for growth",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Digital Transformation",
-          description: "End-to-end digital transformation consulting",
+          name: "Software Modernization",
+          description: "Dependable software and system modernization for growing teams",
         },
       },
     ],
@@ -225,22 +217,15 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className="overflow-x-hidden max-w-full"
+      className={`${geist.variable} overflow-x-hidden max-w-full`}
     >
-      <head>
-        <link
-          rel="preload"
-          href="/videos/hero1_compressed.mp4"
-          as="video"
-          type="video/mp4"
-        />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      </head>
       <body
-        className={`${openSans.variable} min-h-svh text-foreground bg-background overflow-x-hidden antialiased`}
+        className="min-h-svh text-foreground bg-background overflow-x-hidden antialiased"
         suppressHydrationWarning
       >
+        <a className="skip-link" href="#main-content">
+          Skip to main content
+        </a>
         {/* Organization Schema */}
         <Script id="organization-jsonld" type="application/ld+json">
           {JSON.stringify(jsonLd)}
@@ -249,14 +234,12 @@ export default function RootLayout({ children }) {
         <Script id="website-jsonld" type="application/ld+json">
           {JSON.stringify(jsonLdWebsite)}
         </Script>
-        <Analytics />
         <Navbar />
         {children}
         <ScrollToTop />
 
         <CookieBanner />
         <Toaster position="top-right" richColors />
-        {/* <TawkMessenger /> */}
       </body>
     </html>
   );

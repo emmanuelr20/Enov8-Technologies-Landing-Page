@@ -2,102 +2,109 @@
 
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { X, Calendar, Mail, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { ArrowRight, Calendar, Mail, X } from "lucide-react";
+import Image from "next/image";
 
 const ConsultationModal = ({ trigger }) => {
+  const [open, setOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    ["/sections/book.webp", "/sections/send.webp"].forEach((src) => {
+      const image = new window.Image();
+      image.decoding = "async";
+      image.src = src;
+    });
+  }, []);
+
   return (
-    <DialogPrimitive.Root>
+    <DialogPrimitive.Root open={open} onOpenChange={setOpen}>
       <DialogPrimitive.Trigger asChild>{trigger}</DialogPrimitive.Trigger>
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 z-200 bg-black/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-        <DialogPrimitive.Content className="fixed left-[50%] top-[50%] z-200 w-[95vw] max-w-lg translate-x-[-50%] translate-y-[-50%] border bg-white dark:bg-zinc-950 p-0 shadow-2xl duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-none max-h-[90vh] overflow-y-auto">
-          <div className="flex flex-col">
-            {/* Header Image/Pattern */}
-            <div className="h-32 bg-light-primary relative overflow-hidden flex items-center px-8">
-              <div className="absolute inset-0 opacity-10">
-                <svg
-                  width="100%"
-                  height="100%"
-                  viewBox="0 0 100 100"
-                  preserveAspectRatio="none"
-                >
-                  <path
-                    d="M0 0 L100 100 M100 0 L0 100"
-                    stroke="white"
-                    strokeWidth="1"
-                  />
-                </svg>
-              </div>
-              <h2 className="text-white relative z-10">
-                Start Your Transformation
-              </h2>
-              <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none text-white">
-                <X className="h-6 w-6" />
-                <span className="sr-only">Close</span>
-              </DialogPrimitive.Close>
+        <DialogPrimitive.Overlay className="consultation-overlay fixed inset-0 z-200 bg-foreground/45 backdrop-blur-md" />
+        <DialogPrimitive.Content className="consultation-sheet focus-ring fixed inset-y-0 right-0 z-200 flex h-svh w-full max-w-2xl flex-col overflow-y-auto bg-background/95 shadow-2xl backdrop-blur-md">
+          <div className="relative flex items-center justify-center px-6 py-6 md:px-10 md:py-8">
+            <DialogPrimitive.Title className="type-h3 text-center text-foreground">
+              Book a systems assessment
+            </DialogPrimitive.Title>
+            <DialogPrimitive.Close className="focus-ring absolute right-4 top-4 inline-flex min-h-11 min-w-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">
+              <X className="size-6" aria-hidden="true" />
+              <span className="sr-only">Close consultation options</span>
+            </DialogPrimitive.Close>
+          </div>
+
+          <div className="flex flex-1 flex-col px-6 pb-8 md:px-10 md:pb-10">
+            <DialogPrimitive.Description className="type-body mx-auto mt-3 max-w-xl text-center text-muted-foreground">
+              Tell us where operations are slowing down. We’ll help you identify
+              the clearest next step and turn it into a practical plan.
+            </DialogPrimitive.Description>
+
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              <a
+                href="https://user1-demo1912.zohobookings.com/#/4937930000000036076"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group focus-ring relative isolate flex aspect-square flex-col justify-end overflow-hidden rounded-2xl bg-foreground p-6 text-background shadow-lg transition-transform duration-200 ease-out"
+              >
+                <Image
+                  src="/sections/book.webp"
+                  alt=""
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 3rem), (max-width: 1024px) 40vw, 320px"
+                  quality={75}
+                  loading={open ? "lazy" : "eager"}
+                  unoptimized
+                  fetchPriority={open ? "high" : "auto"}
+                  aria-hidden="true"
+                  className="-z-10 object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+                />
+                <div aria-hidden="true" className="absolute inset-0 -z-10 bg-foreground/65" />
+                <Calendar className="mb-auto size-8 text-white" aria-hidden="true" />
+                <div>
+                  <h3 className="type-h3 text-white">Book a discovery call</h3>
+                  <p className="mt-2 text-sm leading-[1.4] text-white/80">
+                    Schedule a focused 30-minute systems assessment.
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-white">
+                    Book the assessment
+                    <ArrowRight className="size-5 transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
+                  </span>
+                </div>
+              </a>
+
+              <a
+                href="mailto:sales@enov8technologies.com?subject=Project Inquiry - Enov8 Technologies"
+                className="group focus-ring relative isolate flex aspect-square flex-col justify-end overflow-hidden rounded-2xl bg-foreground p-6 text-background shadow-lg transition-transform duration-200 ease-out"
+              >
+                <Image
+                  src="/sections/send.webp"
+                  alt=""
+                  fill
+                  sizes="(max-width: 640px) calc(100vw - 3rem), (max-width: 1024px) 40vw, 320px"
+                  quality={75}
+                  loading={open ? "lazy" : "eager"}
+                  unoptimized
+                  fetchPriority={open ? "high" : "auto"}
+                  aria-hidden="true"
+                  className="-z-10 object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+                />
+                <div aria-hidden="true" className="absolute inset-0 -z-10 bg-foreground/65" />
+                <Mail className="mb-auto size-8 text-white" aria-hidden="true" />
+                <div>
+                  <h3 className="type-h3 text-white">Send an inquiry</h3>
+                  <p className="mt-2 text-sm leading-[1.4] text-white/80">
+                    Tell us what is slowing your operation down and where you need support.
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-white">
+                    Send your inquiry
+                    <ArrowRight className="size-5 transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
+                  </span>
+                </div>
+              </a>
             </div>
 
-            <div className="p-5 md:p-8 space-y-6">
-              <p className="dark:">
-                Ready to bridge the gap between your operations and
-                digital-first growth? Choose how you'd like to connect with our
-                experts.
-              </p>
-
-              <div className="grid gap-4">
-                {/* Zoho Bookings Option */}
-                <a
-                  href="https://user1-demo1912.zohobookings.com/#/4937930000000036076"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block"
-                >
-                  <div className="flex items-center gap-4 p-4 border-2 border-zinc-100 dark:border-zinc-800 hover:border-light-primary transition-all bg-zinc-50 dark:bg-zinc-900">
-                    <div className="w-12 h-12 bg-light-primary flex items-center justify-center shrink-0">
-                      <Calendar className="text-white w-6 h-6" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-[#1A1A37] dark:text-white group-hover:text-light-primary transition-colors">
-                        Book a Discovery Call
-                      </h4>
-                      <p>
-                        Schedule a 30-minute consultation via Zoho Bookings.
-                      </p>
-                    </div>
-                    <ArrowRight className="text-zinc-400 group-hover:text-light-primary group-hover:translate-x-1 transition-all" />
-                  </div>
-                </a>
-
-                {/* Email Option */}
-                <a
-                  href="mailto:sales@enov8technologies.com?subject=Project Inquiry - Enov8 Technologies"
-                  className="group block"
-                >
-                  <div className="flex items-center gap-4 p-4 border-2 border-zinc-100 dark:border-zinc-800 hover:border-light-primary transition-all">
-                    <div className="w-12 h-12 border-2 border-light-primary flex items-center justify-center shrink-0">
-                      <Mail className="text-light-primary w-6 h-6" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-[#1A1A37] dark:text-white group-hover:text-light-primary transition-colors">
-                        Send an Inquiry
-                      </h4>
-                      <p>
-                        Email our team directly at sales@enov8technologies.com
-                      </p>
-                    </div>
-                    <ArrowRight className="text-zinc-400 group-hover:text-light-primary group-hover:translate-x-1 transition-all" />
-                  </div>
-                </a>
-              </div>
-
-              <div className="text-center pt-2">
-                <p className="uppercase">
-                  Architects of Digital Transformation
-                </p>
-              </div>
-            </div>
+            <span className="type-label mt-10 text-center text-muted-foreground font-normal">
+              Connected systems for better operations
+            </span>
           </div>
         </DialogPrimitive.Content>
       </DialogPrimitive.Portal>

@@ -1,81 +1,135 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Button } from "./ui/button";
-import { X, Cookie } from "lucide-react";
+import Script from "next/script";
+
+const SILKTIDE_STYLESHEET =
+  "https://cdn.jsdelivr.net/gh/silktide/consent-manager@v2.0.1/silktide-consent-manager.css";
+const SILKTIDE_SCRIPT =
+  "https://cdn.jsdelivr.net/gh/silktide/consent-manager@v2.0.1/silktide-consent-manager.js";
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
+const HAS_VALID_GA_ID =
+  /^G-[A-Z0-9]+$/i.test(GA_MEASUREMENT_ID ?? "") &&
+  !GA_MEASUREMENT_ID.includes("XXXXXXXXXX");
+
+function initializeGoogleAnalytics() {
+  if (!HAS_VALID_GA_ID) return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag =
+    window.gtag ||
+    function gtag() {
+      window.dataLayer.push(arguments);
+    };
+  window.gtag("js", new Date());
+  window.gtag("config", GA_MEASUREMENT_ID, {
+    page_title: document.title,
+    page_location: window.location.href,
+  });
+}
+
+function initializeSilktideConsentManager() {
+  window.silktideConsentManager?.init({
+    backdrop: {
+      show: true,
+    },
+    icon: {
+      position: "bottomLeft",
+    },
+    prompt: {
+      position: "bottomRight",
+    },
+    consentTypes: [
+      {
+        id: "essential",
+        label: "Essential",
+        description:
+          "<p>These cookies are necessary for the website to function properly and cannot be switched off. They help with things like logging in and setting your privacy preferences.</p>",
+        required: true,
+      },
+      {
+        id: "analytics",
+        label: "Analytics",
+        description:
+          "<p>These cookies help us improve the site by tracking which pages are most popular and how visitors move around the site.</p>",
+        defaultValue: true,
+        gtag: "analytics_storage",
+        ...(HAS_VALID_GA_ID
+          ? {
+              scripts: [
+                {
+                  url: `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`,
+                  load: "async",
+                },
+              ],
+              onAccept: initializeGoogleAnalytics,
+            }
+          : {}),
+      },
+      {
+        id: "marketing",
+        label: "Marketing",
+        description:
+          "<p>These cookies are used by us and our advertising partners to show you relevant ads on this site and elsewhere, and to measure how those campaigns perform.</p>",
+        gtag: ["ad_storage", "ad_user_data", "ad_personalization"],
+      },
+    ],
+    text: {
+      prompt: {
+        description:
+          "<p>We use cookies on our site to enhance your user experience, provide personalized content, and analyze our traffic.</p>",
+        acceptAllButtonText: "Accept all",
+        acceptAllButtonAccessibleLabel: "Accept all cookies",
+        rejectNonEssentialButtonText: "Reject non-essential",
+        rejectNonEssentialButtonAccessibleLabel:
+          "Reject all non-essential cookies",
+        preferencesButtonText: "Preferences",
+        preferencesButtonAccessibleLabel: "Toggle preferences",
+      },
+      preferences: {
+        title: "Customize your cookie preferences",
+        description:
+          "<p>We respect your right to privacy. You can choose not to allow some types of cookies. Your cookie preferences will apply across our website.</p>",
+        saveButtonText: "Save and close",
+        saveButtonAccessibleLabel: "Save your cookie preferences",
+        creditLinkText: "Get this banner for free",
+        creditLinkAccessibleLabel: "Get this banner for free",
+      },
+    },
+  });
+}
 
 export default function CookieBanner() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const consent = localStorage.getItem("cookie-consent");
-    if (!consent) {
-      const timer = setTimeout(() => setIsVisible(true), 2000);
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  const handleAccept = () => {
-    localStorage.setItem("cookie-consent", "accepted");
-    setIsVisible(false);
-  };
-
-  const handleDecline = () => {
-    localStorage.setItem("cookie-consent", "declined");
-    setIsVisible(false);
-  };
-
-  if (!isVisible) return null;
-
   return (
-    <section
-      className="fixed inset-x-0 bottom-0 z-[200] p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:bottom-6 md:left-6 md:right-auto md:w-full md:max-w-md md:p-0 md:pb-0 pointer-events-none"
-      aria-label="Cookie consent"
-    >
-      <div className="pointer-events-auto w-full min-w-0 max-w-md bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-700 shadow-2xl p-4 sm:p-6 rounded-none relative">
-        <button
-          type="button"
-          onClick={() => setIsVisible(false)}
-          className="absolute top-3 right-3 sm:top-4 sm:right-4 text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-white transition-colors p-1"
-          aria-label="Dismiss cookie notice"
-        >
-          <X size={18} />
-        </button>
-
-        <div className="flex items-start gap-3 sm:gap-4 mb-5 sm:mb-6 pr-8 min-w-0">
-          <div className="bg-light-primary/10 p-2.5 sm:p-3 rounded-none shrink-0">
-            <Cookie className="text-light-primary" size={24} />
-          </div>
-          <div className="min-w-0">
-            <h3 className="mb-1 text-zinc-900 dark:text-white uppercase tracking-tight">
-              Cookie Consent
-            </h3>
-            <p className="dark:">
-              We use cookies to enhance your browsing experience, serve
-              personalized ads or content, and analyze our traffic. By clicking
-              "Accept All", you consent to our use of cookies.
-            </p>
-          </div>
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3">
-          <Button
-            type="button"
-            variant="outline"
-            onClick={handleDecline}
-            className="flex-1 min-h-11 rounded-none uppercase text-[11px]  border-zinc-300 text-zinc-900 bg-zinc-50/80 hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-100 dark:border-zinc-500 dark:bg-zinc-800/60 dark:hover:bg-zinc-800 dark:hover:text-white"
-          >
-            Decline
-          </Button>
-          <Button
-            type="button"
-            onClick={handleAccept}
-            className="flex-1 min-h-11 rounded-none bg-light-primary hover:bg-light-primary/90 text-white uppercase text-[11px]  shadow-lg shadow-light-primary/20"
-          >
-            Accept All
-          </Button>
-        </div>
-      </div>
-    </section>
+    <>
+      <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+      <link
+        rel="stylesheet"
+        id="silktide-consent-manager-css"
+        href={SILKTIDE_STYLESHEET}
+        integrity="sha384-EdMq+R+YOnsbelo08wPenoTlnxbAyxI11NMIxzugx/qAsbh64KcOkqxYqq6pfvO/"
+        crossOrigin="anonymous"
+      />
+      <style id="silktide-consent-manager-overrides">
+        {`#stcm-wrapper {
+  --boxShadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a;
+  --fontFamily: Helvetica Neue, Segoe UI, Arial, sans-serif;
+  --primaryColor: #0070F3;
+  --backgroundColor: #ffffff;
+  --textColor: #253b48;
+  --backdropBackgroundColor: #00000033;
+  --backdropBackgroundBlur: 0px;
+  --iconColor: #253B48;
+  --iconBackgroundColor: #FFFFFF;
+}`}
+      </style>
+      <Script
+        id="silktide-consent-manager-js"
+        src={SILKTIDE_SCRIPT}
+        integrity="sha384-5Pt34uiIbCsvfiiZXoLi4HRf/YBXjr9c8e+gYeVo9smUaInNHYVtc8NZ8wUnXJIq"
+        crossOrigin="anonymous"
+        strategy="afterInteractive"
+        onLoad={initializeSilktideConsentManager}
+      />
+    </>
   );
 }

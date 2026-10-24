@@ -1,26 +1,26 @@
-import Hero from "./layouts/Hero";
-import DynamicSections from "@/components/DynamicSections";
-import PerformanceMonitor from "@/components/PerformanceMonitor";
+import HomeHero from "@/components/home/HomeHero";
+import HomeSections from "@/components/home/HomeSections";
+import Footer from "@/app/layouts/Footer";
 
 export const metadata = {
-  title: "Enov8 Technologies - End-to-End Digital Solutions & IT Services",
+  title: "Enov8 Technologies: Connected Business Systems for Growing African Businesses",
   description:
-    "Enov8 Technologies delivers world-class digital solutions across software development, managed IT services, hardware infrastructure, cloud platforms, and cybersecurity.",
+    "Enov8 Technologies helps growing African businesses replace fragmented operations with connected, secure business systems—from assessment and implementation through ongoing support.",
   openGraph: {
     title:
-      "Enov8 Technologies - End-to-End Digital Solutions & IT Services",
+      "Enov8 Technologies: Connected Business Systems for Growing African Businesses",
     description:
-      "Enov8 Technologies delivers world-class digital solutions across software development, managed IT services, hardware infrastructure, cloud platforms, and cybersecurity.",
+      "Enov8 Technologies helps growing African businesses replace fragmented operations with connected, secure business systems.",
     type: "website",
   },
 };
 
 export default function Home() {
   return (
-    <main role="main">
-      <PerformanceMonitor />
-      <Hero />
-      <DynamicSections />
+    <main id="main-content" tabIndex={-1}>
+      <HomeHero />
+      <HomeSections />
+      <Footer />
     </main>
   );
 }

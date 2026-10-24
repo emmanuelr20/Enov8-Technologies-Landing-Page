@@ -48,7 +48,7 @@ const OptimizedImage = ({
             setIsLoading(false);
             setHasError(true);
           }}
-          className={`transition-opacity duration-300 ${
+          className={`transition-opacity duration-[var(--motion-standard)] ${
             isLoading ? "opacity-0" : "opacity-100"
           }`}
           {...props}

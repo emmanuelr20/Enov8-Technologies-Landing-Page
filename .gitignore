@@ -1,4 +1,4 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+clear# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 /node_modules
@@ -12,10 +12,13 @@
 
 # testing
 /coverage
+/test-results/
+/playwright-report/
 
 # next.js
 /.next/
 /out/
+
 
 # production
 /build
@@ -32,6 +35,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+.mcp.json
 
 # vercel
 .vercel
@@ -39,3 +43,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local agent and editor metadata
+/.agents/
+/.codex/
+/.impeccable/
+/.playwright-mcp/
+/.copilot/
+/.github/
+/.claude/
+/.codestudio/
+/.aider-desk/

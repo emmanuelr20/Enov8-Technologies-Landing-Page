@@ -1,0 +1,343 @@
+import Image from "next/image";
+import Link from "next/link";
+import {
+  ArrowRight,
+  Bot,
+  Check,
+  Fingerprint,
+  ShieldCheck,
+  Workflow,
+} from "lucide-react";
+import { servicesList } from "@/lib/servicesData";
+import ConsultationModal from "@/components/ConsultationModal";
+import { MotionEntrance, MotionStagger } from "@/components/MotionEntrance";
+import { Button } from "@/components/ui/button";
+import PartnerScroller from "@/components/home/PartnerScroller";
+import OperatingModelDiagram from "@/components/home/OperatingModelDiagram";
+import TransformationOrbit from "@/components/home/TransformationOrbit";
+
+const pathGroups = [
+  {
+    label: "Acquire",
+    title: "Bring people into your ecosystem",
+    ids: ["onboarding", "digital-signage"],
+  },
+  {
+    label: "Automate",
+    title: "Remove friction from daily operations",
+    ids: ["automation", "document-management", "zoho-partner"],
+  },
+  {
+    label: "Protect",
+    title: "Build trust into every layer",
+    ids: ["security", "networking"],
+  },
+  {
+    label: "Modernize",
+    title: "Turn legacy complexity into capability",
+    ids: ["software-dev", "erp-deployment", "ai-deployment"],
+  },
+  {
+    label: "Equip",
+    title: "Put the right technology in place",
+    ids: ["hardware-procurement", "consulting"],
+  },
+];
+
+const capabilityGroups = [
+  {
+    icon: Workflow,
+    title: "Business systems",
+    ids: [
+      "automation",
+      "erp-deployment",
+      "zoho-partner",
+      "document-management",
+    ],
+  },
+  {
+    icon: Fingerprint,
+    title: "Identity and experience",
+    ids: ["onboarding", "digital-signage"],
+  },
+  {
+    icon: ShieldCheck,
+    title: "Security and resilience",
+    ids: ["security", "networking"],
+  },
+  {
+    icon: Bot,
+    title: "Software and intelligence",
+    ids: ["software-dev", "ai-deployment"],
+  },
+];
+
+const deliverySteps = [
+  [
+    "Understand",
+    "Clarify the business context, constraints, and desired change.",
+  ],
+  [
+    "Design",
+    "Shape a practical roadmap and solution around the way your organization works.",
+  ],
+  [
+    "Implement",
+    "Turn the plan into dependable software, systems, and infrastructure.",
+  ],
+  [
+    "Secure",
+    "Build protection, governance, and operational resilience into delivery.",
+  ],
+  ["Support", "Stay close after launch so the solution keeps creating value."],
+];
+
+const serviceById = Object.fromEntries(
+  servicesList.map((service) => [service.id, service]),
+);
+
+function SectionIntro({
+  title,
+  titleId,
+  titleClassName = "",
+  bodyClassName = "text-muted-foreground",
+  children,
+}) {
+  return (
+    <div className="max-w-3xl">
+      <h2 id={titleId} className={`type-h2 ${titleClassName}`}>
+        {title}
+      </h2>
+      {children ? (
+        <p className={`type-body-lg mt-5 ${bodyClassName}`}>{children}</p>
+      ) : null}
+    </div>
+  );
+}
+
+export default function HomeSections() {
+  return (
+    <>
+      <section
+        id="about"
+        aria-labelledby="about-title"
+        className="relative z-20 -mt-1 flex items-center border-0 py-16 text-white lg:py-20"
+        style={{ background: "linear-gradient(90deg, #007bff 0%, #001b43 100%)" }}
+      >
+        <MotionStagger className="mx-auto grid w-full max-w-[var(--container-content)] gap-12 px-6 md:px-12 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:px-16">
+          <OperatingModelDiagram />
+          <div>
+            <SectionIntro
+              titleClassName="!text-white max-w-xl lg:max-w-2xl"
+              bodyClassName="!text-white/90"
+              titleId="about-title"
+              title="Your technology should make the business easier to run."
+            >
+              Enov8 Technologies helps growing businesses replace disconnected tools,
+              manual work, and fragile processes with connected systems that
+              people can actually use and teams can depend on.
+            </SectionIntro>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {[
+                "Scalable strategy",
+                "Expert execution",
+                "Secure foundations",
+                "Practical support",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3 border-t border-white/25 pt-4 text-sm font-medium text-white"
+                >
+                  <Check className="h-4 w-4 text-white" aria-hidden="true" />
+                  {item}
+                </div>
+              ))}
+            </div>
+            <Link
+              href="/about"
+              className="focus-ring mt-9 inline-flex items-center gap-2 rounded-md text-sm font-medium text-white hover:text-white/80"
+            >
+              See how we work <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+        </MotionStagger>
+      </section>
+
+      <div className="transformation-capabilities-shell relative isolate overflow-hidden">
+      <div className="surface-grid-canvas" aria-hidden="true" />
+
+      <section
+        id="services"
+        aria-labelledby="paths-title"
+        className="transformation-section relative z-10 isolate overflow-hidden text-foreground"
+      >
+        <div className="transformation-section-inner relative z-10 mx-auto flex w-full max-w-[var(--container-content)] flex-col justify-center px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20">
+          <MotionEntrance className="max-w-3xl">
+            <SectionIntro
+              titleId="paths-title"
+              titleClassName="!text-foreground"
+              bodyClassName="!text-muted-foreground"
+              title="Start with the operational problem, then build the right system."
+            >
+              We bring the right platforms, software, infrastructure, and
+              support together around the way your organization actually works.
+            </SectionIntro>
+          </MotionEntrance>
+          <TransformationOrbit pathGroups={pathGroups} />
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="capabilities-title"
+        className="capabilities-section relative z-10 isolate overflow-hidden pb-16 lg:pb-20"
+      >
+        <div className="relative z-10 mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
+          <MotionEntrance className="max-w-2xl">
+            <SectionIntro
+              titleId="capabilities-title"
+              titleClassName="!text-foreground"
+              bodyClassName="!text-muted-foreground"
+              title="Four ways we make operations work better."
+            >
+              Every engagement is focused on a practical outcome: connected
+              workflows, modern systems, secure foundations, and reliable support.
+            </SectionIntro>
+          </MotionEntrance>
+          <MotionStagger
+            trigger="mount"
+            className="mt-12 grid gap-5 md:grid-cols-2"
+          >
+            {capabilityGroups.map(({ icon: Icon, title, ids }) => (
+              <article
+                key={title}
+                className="group h-full rounded-xl border border-border/70 bg-surface/90 p-6 transition-[border-color,box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-md motion-reduce:transition-none motion-reduce:hover:translate-y-0 md:p-8"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-brand/10 text-brand transition-transform duration-200 ease-out group-hover:scale-105 motion-reduce:transition-none">
+                    <Icon className="size-6" aria-hidden="true" />
+                  </span>
+                  <span className="rounded-full bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground">
+                    {ids.le3gth} capabilities
+                  </span>
+                </div>
+                <h3 className="type-h3 mt-6 max-w-xl">{title}</h3>
+                <ul className="mt-5 flex list-none flex-wrap gap-2 p-0">
+                  {ids.map((id) => (
+                    <li key={id}>
+                      <Link
+                        href={`/services/${id}`}
+                        className="focus-ring inline-flex min-h-11 items-center rounded-full border border-border bg-background/80 px-3.5 py-2 text-sm text-muted-foreground transition-[border-color,background-color,color] duration-150 ease-out hover:border-brand/50 hover:bg-brand/5 hover:text-brand"
+                      >
+                        {serviceById[id].title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </MotionStagger>
+        </div>
+      </section>
+
+      </div>
+
+      <section
+        aria-labelledby="delivery-title"
+        className="relative isolate overflow-hidden bg-zinc-950 py-16 text-white lg:py-20"
+      >
+        <Image
+          src="/sections/review.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+          aria-hidden="true"
+        />
+        <div aria-hidden="true" className="absolute inset-0 bg-zinc-950/80" />
+        <div className="relative z-10 mx-auto grid w-full max-w-[var(--container-content)] gap-12 px-6 md:px-12 min-[1426px]:grid-cols-[.75fr_1.25fr] lg:px-16">
+          <MotionEntrance className="max-w-2xl">
+            <SectionIntro
+              titleClassName="!text-white"
+              bodyClassName="!text-white/70"
+              titleId="delivery-title"
+              title="A repeatable method from clarity to supported operations."
+            >
+              The Enov8 Technologies Systems Method turns a complex technology decision into
+              a clear plan, a working implementation, and an operating system
+              your team can sustain.
+            </SectionIntro>
+          </MotionEntrance>
+          <MotionStagger
+            as="ol"
+            itemAs="li"
+            aria-label="Enov8 Technologies delivery stages"
+            className="grid gap-0 md:grid-cols-5"
+          >
+            {deliverySteps.map(([title, description], index) => (
+              <div
+                key={title}
+                className="border-l border-white/15 py-5 pl-5 md:border-l-0 md:border-t md:pl-0 md:pt-5 md:pr-5"
+              >
+                <span className="type-label text-blue-200">0{index + 1}</span>
+                <h3 className="type-h4 mt-6 text-white">{title}</h3>
+                <p className="mt-3 text-sm !text-white/75">{description}</p>
+              </div>
+            ))}
+          </MotionStagger>
+        </div>
+      </section>
+
+      <section
+        id="partners"
+        aria-labelledby="ecosystem-title"
+        className="overflow-x-clip border-y border-border/60 bg-surface/90 py-16 lg:py-20"
+      >
+        <div className="mx-auto w-full max-w-[var(--container-content)] px-6 md:px-12 lg:px-16">
+          <MotionStagger className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
+            <SectionIntro
+              titleClassName="!text-foreground"
+              titleId="ecosystem-title"
+              title="The right ecosystem for the system you need."
+            />
+            <p className="max-w-md text-lg leading-[1.4] text-muted-foreground">
+              We stay platform-agnostic while bringing proven partners into the
+              delivery when they improve the outcome for your organization.
+            </p>
+          </MotionStagger>
+          <MotionEntrance>
+            <PartnerScroller />
+          </MotionEntrance>
+        </div>
+      </section>
+
+      <section
+        id="contact"
+        aria-labelledby="final-cta-title"
+        className="bg-brand py-20 text-on-brand md:py-28"
+      >
+        <MotionStagger className="mx-auto flex w-full max-w-[var(--container-content)] flex-col gap-8 px-6 md:px-12 lg:flex-row lg:items-end lg:justify-between lg:px-16">
+          <div className="max-w-2xl">
+            <h2 id="final-cta-title" className="type-display text-white">
+              Let’s make your next complex operation easier to run.
+            </h2>
+            <p className="mt-5 max-w-xl text-lg leading-[1.4] !text-white">
+              Start with a systems assessment of where your organization is now,
+              what is slowing it down, and what needs to change next.
+            </p>
+          </div>
+          <ConsultationModal
+            trigger={
+              <Button
+                variant="secondary"
+                size="lg"
+                className="shrink-0 bg-white font-medium text-zinc-950 hover:bg-white/90"
+              >
+                Book a systems assessment <ArrowRight aria-hidden="true" />
+              </Button>
+            }
+          />
+        </MotionStagger>
+      </section>
+    </>
+  );
+}
