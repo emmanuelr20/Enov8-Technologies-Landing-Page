@@ -8,6 +8,14 @@ import Image from "next/image";
 const ConsultationModal = ({ trigger }) => {
   const [open, setOpen] = React.useState(false);
 
+  React.useEffect(() => {
+    ["/sections/book.webp", "/sections/send.webp"].forEach((src) => {
+      const image = new window.Image();
+      image.decoding = "async";
+      image.src = src;
+    });
+  }, []);
+
   return (
     <DialogPrimitive.Root open={open} onOpenChange={setOpen}>
       <DialogPrimitive.Trigger asChild>{trigger}</DialogPrimitive.Trigger>

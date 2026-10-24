@@ -33,8 +33,8 @@ export default function LegalPage({ title, updated, sections }) {
               {sections.map((section) => (
                 <section key={section.heading}>
                   <h2 className="type-h4 text-left text-foreground">{section.heading}</h2>
-                  {section.paragraphs?.map((paragraph) => <p key={paragraph} className="mt-4">{paragraph}</p>)}
-                  {section.list ? <ul className="mt-4 list-disc space-y-2 pl-6">{section.list.map((item) => <li key={item}>{item}</li>)}</ul> : null}
+                  {section.paragraphs?.map((paragraph) => <p key={paragraph} className="mt-4 type-body-lg">{paragraph}</p>)}
+                  {section.list ? <ul className="mt-4 type-body-lg list-disc space-y-2 pl-6">{section.list.map((item) => <li key={item}>{item}</li>)}</ul> : null}
                 </section>
               ))}
             </MotionStagger>

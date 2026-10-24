@@ -133,7 +133,7 @@ export default function HomeSections() {
               titleId="about-title"
               title="Your technology should make the business easier to run."
             >
-              Enov8 helps growing businesses replace disconnected tools,
+              Enov8 Technologies helps growing businesses replace disconnected tools,
               manual work, and fragile processes with connected systems that
               people can actually use and teams can depend on.
             </SectionIntro>
@@ -262,7 +262,7 @@ export default function HomeSections() {
               titleId="delivery-title"
               title="A repeatable method from clarity to supported operations."
             >
-              The Enov8 Systems Method turns a complex technology decision into
+              The Enov8 Technologies Systems Method turns a complex technology decision into
               a clear plan, a working implementation, and an operating system
               your team can sustain.
             </SectionIntro>
@@ -270,7 +270,7 @@ export default function HomeSections() {
           <MotionStagger
             as="ol"
             itemAs="li"
-            aria-label="Enov8 delivery stages"
+            aria-label="Enov8 Technologies delivery stages"
             className="grid gap-0 md:grid-cols-5"
           >
             {deliverySteps.map(([title, description], index) => (

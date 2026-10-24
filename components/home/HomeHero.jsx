@@ -26,10 +26,10 @@ export default function HomeHero() {
             className="mx-auto max-w-6xl text-center min-[1426px]:pt-12"
           >
             <h1 id="home-title" className="type-hero text-balance text-white">
-              <span className="block">Turn fragmented operations into</span>
-              <span className="block">dependable business systems.</span>
+              <span className="block">Turn fragmented operations into dependable business systems.</span>
+              {/* <span className="block">dependable business systems.</span> */}
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-[1.4] text-white/80 md:text-lg md:leading-[1.4]">
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-[1.4] text-white/80 md:text-[1.08rem] md:leading-[1.4]">
               We help growing African businesses connect their workflows,
               platforms, and infrastructure so they can operate with less
               friction and scale with confidence.
@@ -50,7 +50,7 @@ export default function HomeHero() {
           </MotionStagger>
 
           <p className="sr-only">
-            The visual represents Enov8&apos;s connected approach across
+            The visual represents Enov8 Technologies&apos; connected approach across
             software, security, infrastructure, and practical operational
             support.
           </p>

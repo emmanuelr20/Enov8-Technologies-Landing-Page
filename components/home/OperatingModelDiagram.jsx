@@ -6,9 +6,9 @@ export default function OperatingModelDiagram() {
       aria-labelledby="operating-model-title operating-model-description"
     >
       <svg viewBox="0 0 640 640" className="h-full w-full" aria-hidden="true">
-        <title id="operating-model-title">Enov8 connected systems model</title>
+        <title id="operating-model-title">Enov8 Technologies connected systems model</title>
         <desc id="operating-model-description">
-          Enov8 connects operations, modern systems, secure foundations, and supported adoption into one dependable business system.
+          Enov8 Technologies connects operations, modern systems, secure foundations, and supported adoption into one dependable business system.
         </desc>
 
         <circle cx="320" cy="320" r="118" fill="none" stroke="var(--brand)" strokeOpacity="0.22" strokeWidth="2" />

@@ -5,12 +5,12 @@ import Footer from "@/app/layouts/Footer";
 export const metadata = {
   title: "Enov8 Technologies: Connected Business Systems for Growing African Businesses",
   description:
-    "Enov8 helps growing African businesses replace fragmented operations with connected, secure business systems—from assessment and implementation through ongoing support.",
+    "Enov8 Technologies helps growing African businesses replace fragmented operations with connected, secure business systems—from assessment and implementation through ongoing support.",
   openGraph: {
     title:
       "Enov8 Technologies: Connected Business Systems for Growing African Businesses",
     description:
-      "Enov8 helps growing African businesses replace fragmented operations with connected, secure business systems.",
+      "Enov8 Technologies helps growing African businesses replace fragmented operations with connected, secure business systems.",
     type: "website",
   },
 };

@@ -9,7 +9,7 @@ import { Container } from "@/components/ui/container";
 export const metadata = {
   title: "Business Systems Transformation Partner",
   description:
-    "Learn how Enov8 helps growing African businesses replace fragmented operations with connected, secure business systems.",
+    "Learn how Enov8 Technologies helps growing African businesses replace fragmented operations with connected, secure business systems.",
 };
 
 const stats = [
@@ -130,12 +130,12 @@ export default function AboutPage() {
                   V
                 </div>
                 <h2 className="type-h3">Our vision</h2>
-                <p className="mt-5 text-muted-foreground">
+                <p className="mt-5 type-body-lg text-muted-foreground">
                   To be the trusted systems partner for growing businesses
                   across Africa, helping them operate with clearer information,
                   connected workflows, and dependable technology.
                 </p>
-                <blockquote className="mt-8 border-t border-border pt-5 text-muted-foreground italic">
+                <blockquote className="mt-8 border-t border-border pt-5 type-body-lg text-muted-foreground italic">
                   “The technology your organisation needs to compete globally
                   should not require a global budget. We are here to close that
                   gap.”
@@ -148,7 +148,7 @@ export default function AboutPage() {
                   M
                 </div>
                 <h2 className="type-h3">Our mission</h2>
-                <p className="mt-5 text-muted-foreground">
+                <p className="mt-5 type-body-lg text-muted-foreground">
                   To empower businesses and institutions with innovative,
                   reliable, and tailored technology solutions, spanning software
                   development, managed services, hardware infrastructure, and
@@ -165,7 +165,7 @@ export default function AboutPage() {
           <div className="surface-grid-canvas" aria-hidden="true" />
           <Container className="relative z-10">
             <MotionEntrance className="max-w-3xl">
-              <p className="type-label mb-4 text-brand">The Enov8 Systems Method</p>
+              <p className="type-label mb-4 text-brand">The Enov8 Technologies Systems Method</p>
               <h2 className="type-h2">Clarity first. Dependable delivery next.</h2>
               <p className="mt-5 text-muted-foreground">
                 Our process is designed to reduce risk between the first decision
@@ -178,7 +178,7 @@ export default function AboutPage() {
                   <CardContent className="p-6">
                     <Icon className="h-8 w-8 text-brand" aria-hidden="true" />
                     <h3 className="type-h4  mt-8">{title}</h3>
-                    <p className="mt-4 text-muted-foreground">{description}</p>
+                    <p className="mt-4 type-body-lg text-muted-foreground">{description}</p>
                   </CardContent>
                 </Card>
               ))}

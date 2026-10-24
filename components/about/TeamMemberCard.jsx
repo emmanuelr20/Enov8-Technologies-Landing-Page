@@ -37,7 +37,7 @@ export default function TeamMemberCard({ member }) {
         <h3 className="type-h4 mb-3">{member.name}</h3>
         <div className="space-y-3 leading-[1.4] text-muted-foreground md:leading-[1.4]">
           {bioParagraphs.map((paragraph) => (
-            <span key={paragraph} className="block">
+            <span key={paragraph} className="block type-body-lg">
               {paragraph}
             </span>
           ))}

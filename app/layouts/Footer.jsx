@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="max-w-md ">
             <h2 className="type-h4 mb-4 text-white">Enov8 Technologies</h2>
             <p className="mb-6 text-white/90">
-              Enov8 helps growing African businesses replace fragmented
+              Enov8 Technologies helps growing African businesses replace fragmented
               operations with connected, secure business systems.
             </p>
 

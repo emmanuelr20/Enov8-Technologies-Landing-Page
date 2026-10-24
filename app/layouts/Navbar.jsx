@@ -175,6 +175,7 @@ const Navbar = memo(function Navbar() {
   useEffect(() => {
     if (!isOpen) return undefined;
     const previousOverflow = document.body.style.overflow;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
     const closeOnEscape = (event) => {
       if (event.key === "Escape") {
         isOpenRef.current = false;
@@ -188,13 +189,22 @@ const Navbar = memo(function Navbar() {
         setIsOpen(false);
       }
     };
+    const preventPageScroll = (event) => {
+      if (!menuSlotRef.current?.contains(event.target)) event.preventDefault();
+    };
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
     document.addEventListener("keydown", closeOnEscape);
     document.addEventListener("pointerdown", closeOnOutsidePointer);
+    document.addEventListener("wheel", preventPageScroll, { passive: false });
+    document.addEventListener("touchmove", preventPageScroll, { passive: false });
     return () => {
       document.body.style.overflow = previousOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
       document.removeEventListener("keydown", closeOnEscape);
       document.removeEventListener("pointerdown", closeOnOutsidePointer);
+      document.removeEventListener("wheel", preventPageScroll);
+      document.removeEventListener("touchmove", preventPageScroll);
     };
   }, [isOpen]);
 
@@ -220,7 +230,19 @@ const Navbar = memo(function Navbar() {
   };
 
   return (
-    <header
+    <>
+      {isOpen ? (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={reduceMotion ? { duration: 0.01 } : { duration: 0.2 }}
+          aria-hidden="true"
+          onClick={closeMenu}
+          className="fixed inset-x-0 bottom-0 top-0 z-40 bg-foreground/20 backdrop-blur-md lg:hidden"
+        />
+      ) : null}
+      <header
       className={`fixed inset-x-0 top-0 z-50 w-full transition-[background-color,backdrop-filter,border-color,box-shadow] duration-300 ease-out ${isScrolled ? "border-b border-white/55 bg-white/90 shadow-[0_12px_32px_-20px_rgba(15,23,42,0.28)] backdrop-blur-xl" : "border-b border-transparent bg-transparent"}`}
     >
       <nav aria-label="Primary navigation" className="w-full px-6 lg:px-18">
@@ -260,13 +282,24 @@ const Navbar = memo(function Navbar() {
         </div>
 
         {/* Mobile and tablet intentionally share this exact three-column composition. */}
+        {isOpen ? (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={reduceMotion ? { duration: 0.01 } : { duration: 0.2 }}
+            aria-hidden="true"
+            onClick={closeMenu}
+            className="fixed inset-x-0 bottom-0 top-0 z-40 h-auto bg-foreground/20 backdrop-blur-md lg:hidden"
+          />
+        ) : null}
         <div className="relative flex h-20 items-center justify-between lg:hidden">
           <div className="flex">
             <Brand compact />
           </div>
           <div
             ref={menuSlotRef}
-            className="absolute left-1/2 top-2 grid h-16 w-18 -translate-x-1/2 place-items-center sm:w-32 md:w-36"
+            className="absolute left-1/2 top-2 z-60 grid h-16 w-18 -translate-x-1/2 place-items-center sm:w-32 md:w-36"
           >
             <motion.div
               initial={false}
@@ -281,7 +314,7 @@ const Navbar = memo(function Navbar() {
                   ? { duration: 0.01 }
                   : { duration: MENU_DURATION, ease: EASE }
               }
-              className="absolute left-1/2 top-0 z-50 w-18 max-w-[calc(70vw-2rem)] sm:max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-full p-2 sm:w-32 md:w-36 md:rounded-[28px]"
+              className="absolute left-1/2 top-0 z-70 w-18 max-w-[calc(70vw-2rem)] sm:max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-full p-2 sm:w-32 md:w-36 md:rounded-[28px]"
             >
               <motion.div
                 initial={false}
@@ -368,7 +401,7 @@ const Navbar = memo(function Navbar() {
                                 closeMenu();
                                 handleAnchorClick(event, item.href);
                               }}
-                              className={`focus-ring flex min-h-11 w-full items-center rounded-md px-2 text-xl font-medium leading-tight tracking-tight transition-colors hover:text-brand ${current ? "text-brand" : "text-foreground"}`}
+                              className={`focus-ring flex min-h-11 w-full items-center rounded-md text-xl font-medium leading-tight tracking-tight transition-colors hover:text-brand ${current ? "text-brand" : "text-foreground"}`}
                             >
                               {item.label}
                             </Link>
@@ -436,7 +469,8 @@ const Navbar = memo(function Navbar() {
           </div>
         </div>
       </nav>
-    </header>
+      </header>
+    </>
   );
 });
 

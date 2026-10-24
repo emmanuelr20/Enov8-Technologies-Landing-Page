@@ -238,7 +238,6 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                       fill
                       preload
                       unoptimized
-                      // Match the capped container, sidebar, gaps and figure border.
                       sizes={index === 0
                         ? "(min-width: 1360px) 878px, (min-width: 1024px) calc(100vw - 482px), (min-width: 768px) calc(100vw - 98px), calc(100vw - 50px)"
                         : "(min-width: 1360px) 428px, (min-width: 1024px) calc(50vw - 252px), (min-width: 768px) calc(50vw - 60px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 50px)"}
@@ -253,13 +252,13 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                     key={item.heading}
                     className="border-t border-brand/70 pt-6"
                   >
-                    <h2 className="type-h3">{item.heading}</h2>
-                    <p className="mt-3 text-muted-foreground">{item.text}</p>
+                    <h2 className="type-h4">{item.heading}</h2>
+                    <p className="mt-3 type-body-lg text-muted-foreground">{item.text}</p>
                   </article>
                 ))}
               </MotionStagger>
               <div className="mt-16 border-t border-brand/70 pt-8">
-                <p className="type-label mb-4 !text-[#0066d6]">
+                <p className="type-label mb-4 text-[#0066d6]!">
                   Explore related capabilities
                 </p>
                 <MotionStagger className="grid gap-3 sm:grid-cols-3">
@@ -269,7 +268,7 @@ export default function ServicePageTemplate({ serviceId, partnerLogo }) {
                       href={`/services/${item.id}`}
                       className="focus-ring flex h-full flex-col rounded-lg border border-border p-4 transition-colors hover:border-brand/50 hover:bg-accent"
                     >
-                      <span className="font-medium">{item.title}</span>
+                      <span className="font-medium type-body-lg">{item.title}</span>
                       <ArrowRight
                         className="mt-4 h-4 w-4 text-brand"
                         aria-hidden="true"

@@ -24,7 +24,7 @@ export const metadata = {
     template: "%s | Enov8 Technologies",
   },
   description:
-    "Enov8 helps growing African businesses replace fragmented operations with connected, secure business systems through practical implementation and ongoing support.",
+    "Enov8 Technologies helps growing African businesses replace fragmented operations with connected, secure business systems through practical implementation and ongoing support.",
   keywords: [
     "business systems transformation",
     "operations automation",
@@ -62,7 +62,7 @@ export const metadata = {
     title:
       "Enov8 Technologies - Connected Business Systems for Growing African Businesses",
     description:
-      "Enov8 helps growing African businesses replace fragmented operations with connected, secure business systems.",
+      "Enov8 Technologies helps growing African businesses replace fragmented operations with connected, secure business systems.",
     url: "https://enov8technologies.com",
     siteName: "Enov8 Technologies",
     locale: "en_NG",
@@ -99,7 +99,7 @@ export const metadata = {
     title:
       "Enov8 Technologies - Connected Business Systems for Growing African Businesses",
     description:
-      "Enov8 helps growing African businesses replace fragmented operations with connected, secure business systems.",
+      "Enov8 Technologies helps growing African businesses replace fragmented operations with connected, secure business systems.",
     images: ["/brand/image.png"],
   },
 };
@@ -108,7 +108,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Enov8 Technologies",
-  alternateName: "Enov8 Tech",
+  alternateName: "Enov8 Technologies",
   url: "https://enov8technologies.com",
   logo: {
     "@type": "ImageObject",
@@ -118,7 +118,7 @@ const jsonLd = {
   },
   image: "https://enov8technologies.com/brand/image.png",
   description:
-    "Enov8 helps growing African businesses replace fragmented operations with connected, secure business systems.",
+    "Enov8 Technologies helps growing African businesses replace fragmented operations with connected, secure business systems.",
   foundingDate: "2020",
   slogan: "Connected systems for businesses ready to operate better",
   knowsAbout: [
