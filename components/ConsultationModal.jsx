@@ -52,7 +52,6 @@ const ConsultationModal = ({ trigger }) => {
                   sizes="(max-width: 640px) calc(100vw - 3rem), (max-width: 1024px) 40vw, 320px"
                   quality={75}
                   loading={open ? "eager" : "lazy"}
-                  preload
                   unoptimized
                   fetchPriority={open ? "high" : "auto"}
                   aria-hidden="true"
