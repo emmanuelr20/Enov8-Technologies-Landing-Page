@@ -42,12 +42,15 @@ export const viewport = {
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${site.name} — Software Development & IT Solutions in Lagos, Nigeria`,
+    default: `${site.name} — Connected Business Systems for Growing African Businesses`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
   applicationName: site.name,
   keywords: [
+    "business systems transformation",
+    "operations automation",
+    "systems integration",
     "software development company Nigeria",
     "IT solutions Lagos",
     "custom software development",
@@ -112,12 +115,12 @@ const orgJsonLd = {
       name: site.name,
       legalName: site.legalName,
       alternateName: "Enov8 Tech",
+      slogan: "Connected systems for businesses ready to operate better",
       url: SITE_URL,
       logo: { "@type": "ImageObject", url: absoluteUrl(site.logo), width: 300, height: 301 },
       image: absoluteUrl(site.ogImage),
       description: site.description,
       foundingDate: site.foundingDate,
-      slogan: "Building custom solutions that drive business growth",
       email: contact.email,
       telephone: contact.phoneE164,
       address: {
@@ -148,7 +151,14 @@ const orgJsonLd = {
         },
       ],
       sameAs: socials.map((s) => s.href),
-      knowsAbout: services.map((s) => s.title),
+      knowsAbout: [
+        "Business Systems Transformation",
+        "Operations Automation",
+        "ERP and Zoho Implementation",
+        "Secure Infrastructure",
+        "Software Modernization",
+        ...services.map((s) => s.title),
+      ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Technology Services",

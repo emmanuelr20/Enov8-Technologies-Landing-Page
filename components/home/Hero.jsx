@@ -6,7 +6,7 @@ import LagosClock from "@/components/home/LagosClock";
 import { heroSlides } from "@/lib/content";
 
 // Each word is its own span so the headline can "blur-rise" in sequence.
-const words = ["Software", "&", "IT", "solutions", "that", "move", "business"];
+const words = ["Turn", "fragmented", "operations", "into", "dependable"];
 
 export default function Hero() {
   return (
@@ -23,32 +23,32 @@ export default function Hero() {
         <div className="flex items-center justify-between gap-4">
           <p className="eyebrow fade-up">
             <span className="dot" />
-            <span className="hidden sm:inline">Enterprise software &amp; IT ·</span> Lagos, Nigeria
+            <span className="hidden sm:inline">Business systems partner ·</span> Lagos, Nigeria
           </p>
           <div className="fade-up hidden sm:block" style={{ "--d": "120ms" }}>
             <LagosClock />
           </div>
         </div>
 
-        <h1 id="hero-title" className="display-xl rise mt-8 max-w-[15ch] sm:mt-10">
+        <h1 id="hero-title" className="display-xl rise mt-8 max-w-[20ch] text-[clamp(2.6rem,0.6rem+6.4vw,7.75rem)] sm:mt-10">
           {words.map((w, i) => (
             <Fragment key={w}>
               <span style={{ "--i": i }}>{w}</span>{" "}
             </Fragment>
           ))}
           <span style={{ "--i": words.length }} className="serif text-neon">
-            forward.
+            business systems.
           </span>
         </h1>
 
         <div className="mt-10 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <p className="lede fade-up max-w-xl" style={{ "--d": "450ms" }}>
-            Enov8 Technologies engineers custom software, cyber security, AI, ERP and enterprise
-            infrastructure for ambitious organisations across Nigeria, Africa and beyond.
+            We help growing African businesses connect their workflows, platforms, and
+            infrastructure so they can operate with less friction and scale with confidence.
           </p>
           <div className="fade-up flex flex-wrap gap-3" style={{ "--d": "550ms" }}>
             <button type="button" data-open-contact data-magnetic className="btn btn-primary">
-              Start a project
+              Book a systems assessment
               <span className="btn-icon">
                 <ArrowUpRight />
               </span>

@@ -619,11 +619,13 @@ html.js [data-reveal].is-in {
 }
 
 /* FAQ accordions — smooth height with ::details-content where supported */
-.faq details {
+.faq details,
+details.bio {
   interpolate-size: allow-keywords;
 }
 
-.faq details::details-content {
+.faq details::details-content,
+details.bio::details-content {
   block-size: 0;
   overflow: hidden;
   transition:
@@ -631,7 +633,8 @@ html.js [data-reveal].is-in {
     content-visibility 0.5s allow-discrete;
 }
 
-.faq details[open]::details-content {
+.faq details[open]::details-content,
+details.bio[open]::details-content {
   block-size: auto;
 }
 

@@ -30,26 +30,40 @@ export default function ServicesPage() {
     <>
       <JsonLd data={itemListJsonLd} />
       <PageHero
-        eyebrow={`${services.length} service lines · one partner`}
+        eyebrow="Business systems capability"
         title={
           <>
-            Solutions that <span className="serif text-neon">scale</span> with you.
+            Unified operations for growing, <span className="serif text-neon">connected businesses.</span>
           </>
         }
-        description="We specialise in driving organisational change and digital transformation. Our experts partner with you to develop high-impact, practical solutions that solve real-world challenges."
+        description="We help growing African businesses replace disconnected tools and manual processes with dependable systems, from first assessment through implementation and support."
         crumbs={[{ name: "Services", href: "/services" }]}
         image="/sections/servicebackground.webp"
       >
         <button type="button" data-open-contact className="btn btn-primary" data-magnetic>
-          Talk to an expert
+          Book a systems assessment
           <span className="btn-icon">
             <ArrowUpRight />
           </span>
         </button>
       </PageHero>
 
-      <section aria-label="All services" className="section-y">
+      <section aria-labelledby="all-services-title" className="section-y">
         <div className="container-x">
+          <div className="mb-14 grid gap-6 lg:grid-cols-2 lg:items-end">
+            <div>
+              <p className="eyebrow" data-reveal>
+                <span className="dot" /> What we make work · {services.length} service lines
+              </p>
+              <h2 id="all-services-title" className="display-md mt-6" data-reveal style={{ "--d": "80ms" }}>
+                One operating model, connected from strategy to delivery.
+              </h2>
+            </div>
+            <p className="lede max-w-lg" data-reveal style={{ "--d": "140ms" }}>
+              Choose the part of your operation that needs to work better. We will bring together
+              the right platforms, software, infrastructure, and support around it.
+            </p>
+          </div>
           <ul className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {services.map((s, i) => (
               <li

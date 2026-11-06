@@ -32,19 +32,19 @@ export default function Footer() {
           <p className="eyebrow" data-reveal>
             <span className="dot" /> Contact
           </p>
-          <h2 id="contact-title" className="display-xl mt-6 max-w-5xl" data-reveal style={{ "--d": "80ms" }}>
-            Have an idea? <span className="serif text-neon">Let's talk.</span>
+          <h2 id="contact-title" className="display-lg mt-6 max-w-5xl" data-reveal style={{ "--d": "80ms" }}>
+            Let's make your next complex operation <span className="serif text-neon">easier to run.</span>
           </h2>
 
           <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
             <div data-reveal style={{ "--d": "120ms" }}>
               <p className="lede max-w-md">
-                Send us a message and we'll get back to you to discuss how we can help your
-                business grow — or skip the queue and book a call.
+                Start with a systems assessment of where your organisation is now, what is slowing
+                it down, and what needs to change next.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href={site.booking} target="_blank" rel="noopener noreferrer" className="btn btn-primary" data-magnetic>
-                  Book a discovery call
+                  Book a systems assessment
                   <span className="btn-icon">
                     <CalendarClock />
                   </span>
@@ -85,7 +85,7 @@ export default function Footer() {
               style={{ "--d": "180ms" }}
             >
               <div className="relative">
-                <p className="font-display text-2xl font-semibold tracking-tight">Tell us what you're building</p>
+                <p className="font-display text-2xl font-semibold tracking-tight">Tell us where operations are slowing down</p>
                 <p className="mt-1 text-sm text-muted">We read every message.</p>
                 <div className="mt-6">
                   <ContactForm />
@@ -198,7 +198,7 @@ export default function Footer() {
           <div className="relative flex flex-col gap-4 border-t border-white/10 py-8 text-sm text-muted md:flex-row md:items-center md:justify-between">
             <p>© {year} {site.legalName} All rights reserved.</p>
             <p className="flex flex-wrap items-center gap-x-4 gap-y-1">
-              <span>Trusted by 100+ businesses</span>
+              <span>Nigeria-based technology solutions</span>
               <span className="hidden size-1 rounded-full bg-white/30 md:inline-block" />
               <span>ISO 27001 Compliant</span>
             </p>

@@ -9,7 +9,7 @@ export default function ContactDialog() {
       href: site.booking,
       icon: CalendarClock,
       title: "Book a discovery call",
-      text: "Pick a slot for a free 30-minute consultation.",
+      text: "Schedule a focused 30-minute systems assessment.",
       external: true,
       primary: true,
     },
@@ -17,7 +17,7 @@ export default function ContactDialog() {
       href: `mailto:${contact.salesEmail}?subject=${encodeURIComponent("Project Inquiry - Enov8 Technologies")}`,
       icon: Mail,
       title: "Send an inquiry",
-      text: contact.salesEmail,
+      text: "Tell us what is slowing your operation down.",
     },
     {
       href: contact.whatsapp,
@@ -52,14 +52,14 @@ export default function ContactDialog() {
             </button>
           </form>
           <p className="eyebrow relative">
-            <span className="dot" /> Free 30-minute discovery call
+            <span className="dot" /> Connected systems for better operations
           </p>
           <h2 id="contact-dialog-title" className="display-md relative mt-4">
-            Start your <span className="serif text-neon">transformation</span>
+            Book a systems <span className="serif text-neon">assessment</span>
           </h2>
           <p className="relative mt-3 max-w-md text-fg-2">
-            Ready to bridge the gap between your operations and digital-first growth? Choose how
-            you'd like to reach our experts.
+            Tell us where operations are slowing down. We'll help you identify the clearest next
+            step and turn it into a practical plan.
           </p>
         </div>
         <ul className="grid gap-2 p-3 pt-0">

@@ -1,11 +1,12 @@
-import { ArrowUpRight, Compass, PencilRuler, Rocket, LifeBuoy } from "lucide-react";
+import { ArrowUpRight, Compass, PencilRuler, Rocket, ShieldCheck, LifeBuoy } from "lucide-react";
 import { process } from "@/lib/content";
 
 const looks = [
   { card: "bg-surface text-fg border", icon: Compass, accent: "text-brand" },
   { card: "bg-[#0057d1] text-white", icon: PencilRuler, accent: "text-white/75" },
   { card: "ink border border-white/10", icon: Rocket, accent: "text-brand" },
-  { card: "bg-[#ffe1d1] text-[#2a0e00] dark:bg-[#24100a] dark:text-[#ffe7da]", icon: LifeBuoy, accent: "text-[#b23800] dark:text-neon" },
+  { card: "bg-[#ffe1d1] text-[#2a0e00] dark:bg-[#24100a] dark:text-[#ffe7da]", icon: ShieldCheck, accent: "text-[#b23800] dark:text-neon" },
+  { card: "bg-neon text-[#140600]", icon: LifeBuoy, accent: "text-[#140600]/75" },
 ];
 
 // Sticky stacking cards: each card pins and the previous one recedes
@@ -16,17 +17,17 @@ export default function Process() {
       <div className="container-x grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <p className="eyebrow" data-reveal>
-            <span className="dot" /> How we work
+            <span className="dot" /> The Enov8 Systems Method
           </p>
-          <h2 id="process-title" className="display-lg mt-6" data-reveal style={{ "--d": "80ms" }}>
-            From first call to <span className="serif text-neon">always-on.</span>
+          <h2 id="process-title" className="display-md mt-6" data-reveal style={{ "--d": "80ms" }}>
+            A repeatable method from clarity to <span className="serif text-neon">supported operations.</span>
           </h2>
           <p className="lede mt-6 max-w-md" data-reveal style={{ "--d": "160ms" }}>
-            A clear, four-step engagement model that removes friction, so you can stay focused on
-            growth while we handle the complexity.
+            The Enov8 Technologies Systems Method turns a complex technology decision into a clear
+            plan, a working implementation, and an operating system your team can sustain.
           </p>
           <button type="button" data-open-contact className="btn btn-primary mt-8" data-reveal style={{ "--d": "220ms" }}>
-            Book a discovery call
+            Book a systems assessment
             <span className="btn-icon">
               <ArrowUpRight />
             </span>

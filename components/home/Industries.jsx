@@ -10,12 +10,17 @@ export default function Industries() {
       <div className="grid-bg absolute inset-0" aria-hidden="true" />
       <div className="container-x relative">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <h2 id="industries-title" className="display-md max-w-xl" data-reveal>
-            Trusted across the industries that <span className="serif text-neon">power</span> the economy.
-          </h2>
+          <div>
+            <p className="eyebrow" data-reveal>
+              <span className="dot" /> Built for complex work
+            </p>
+            <h2 id="industries-title" className="display-md mt-6 max-w-2xl" data-reveal>
+              One technology partner across the <span className="serif text-neon">transformation lifecycle.</span>
+            </h2>
+          </div>
           <p className="max-w-sm text-fg-2" data-reveal style={{ "--d": "100ms" }}>
-            Fintech to the public sector — solutions shaped by the regulations, scale and customers
-            of each sector we serve.
+            From fintech to enterprise, we shape each system around the regulations, scale and
+            customers of the sector it serves.
           </p>
         </div>
 

@@ -33,11 +33,11 @@ export default function Partners() {
       <div className="container-x">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <h2 id="partners-title" className="max-w-md font-display text-2xl font-semibold tracking-tight sm:text-3xl" data-reveal>
-            Built on technology from the world's most trusted vendors.
+            The right ecosystem for the system you need.
           </h2>
           <p className="max-w-sm text-sm text-muted" data-reveal style={{ "--d": "100ms" }}>
-            A curated network of {partners.length} technology partners lets us deliver bespoke
-            solutions that solve today's challenges and future-proof your business.
+            We stay platform-agnostic while bringing proven partners into the delivery when they
+            improve the outcome for your organisation.
           </p>
         </div>
       </div>

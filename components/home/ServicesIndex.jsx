@@ -13,15 +13,14 @@ export default function ServicesIndex() {
             <p className="eyebrow" data-reveal>
               <span className="dot" /> What we do · {services.length} service lines
             </p>
-            <h2 id="services-title" className="display-lg mt-6" data-reveal style={{ "--d": "80ms" }}>
-              Everything your business runs on, <span className="serif text-neon">engineered.</span>
+            <h2 id="services-title" className="display-md mt-6" data-reveal style={{ "--d": "80ms" }}>
+              Start with the operational problem, then build the <span className="serif text-neon">right system.</span>
             </h2>
           </div>
           <div data-reveal style={{ "--d": "160ms" }}>
             <p className="lede">
-              We specialise in navigating organisational change and digital evolution. Our experts
-              partner with you to architect concrete, high-performance solutions built for
-              real-world impact.
+              We bring the right platforms, software, infrastructure, and support together around
+              the way your organisation actually works.
             </p>
             <Link href="/services" className="btn btn-ghost mt-6">
               View all services

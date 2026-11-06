@@ -2,21 +2,23 @@ import Image from "next/image";
 import { ArrowUpRight, Award, Globe, Handshake, Lightbulb } from "lucide-react";
 import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
+import Team from "@/components/about/Team";
 import { pageMetadata } from "@/lib/seoMetadata";
 import { SITE_URL, absoluteUrl, site } from "@/lib/site";
 
 export const metadata = pageMetadata({
-  title: "About Us — Who We Are",
+  title: "About Us — Business Systems Transformation Partner",
   description:
-    "Enov8 Technologies Ltd. is a Lagos-based technology company delivering end-to-end digital solutions. Learn about our vision, mission and the values behind our work.",
+    "Learn how Enov8 Technologies helps growing African businesses replace fragmented operations with connected, secure business systems. Meet the leadership team behind our work.",
   path: "/about",
 });
 
 const stats = [
   { value: 5, suffix: "+", label: "Service verticals delivered" },
   { value: 50, suffix: "+", label: "Projects planned & deployed" },
+  { value: 3, suffix: "", label: "Showcase portfolio projects" },
   { value: 24, suffix: "/7", label: "Post-deployment support" },
-  { value: 15, suffix: "+", label: "Technology partners" },
+  { value: 6, suffix: "", label: "Technology partners" },
 ];
 
 const values = [
@@ -38,7 +40,7 @@ const values = [
   {
     title: "Excellence",
     icon: Globe,
-    text: "Building world-class digital solutions that are accessible, scalable, and built for the future of the continent's digital economy.",
+    text: "Building dependable business systems that help African organisations operate better and grow with confidence.",
   },
 ];
 
@@ -55,13 +57,13 @@ export default function AboutPage() {
     <>
       <JsonLd data={aboutJsonLd} />
       <PageHero
-        eyebrow="Company overview"
+        eyebrow="Systems transformation partner"
         title={
           <>
-            Built to last. <span className="serif text-neon">Designed to grow.</span>
+            Who we <span className="serif text-neon">are.</span>
           </>
         }
-        description="Enov8 Technologies Ltd. is a Nigerian-based technology company delivering end-to-end digital solutions. We are a forward-thinking team united by one purpose: turning complex technology challenges into competitive advantages for our clients."
+        description="Enov8 Technologies is a Nigerian-based systems partner for growing African businesses. We turn fragmented operations, disconnected tools, and complex technology decisions into dependable systems that help teams move forward."
         crumbs={[{ name: "About", href: "/about" }]}
         image="/sections/servicebackground.webp"
       />
@@ -71,21 +73,19 @@ export default function AboutPage() {
         <div className="container-x grid gap-14 lg:grid-cols-2 lg:gap-24">
           <div>
             <p className="eyebrow" data-reveal>
-              <span className="dot" /> Our story
+              <span className="dot" /> The problem we solve
             </p>
             <h2 id="story-title" className="display-md mt-6" data-reveal>
-              Who we are
+              Make the way your business works easier to depend on.
             </h2>
             <div className="lede mt-8 grid gap-6" data-reveal style={{ "--d": "100ms" }}>
               <p>
-                Founded on principles of quality, innovation, and client partnership, Enov8
-                Technologies serves clients across fintech, education, e-commerce, healthcare,
-                transport, and the public sector.
+                Growing organisations often outgrow spreadsheets, disconnected platforms, and manual
+                handoffs before they have the internal team to connect everything properly.
               </p>
               <p>
-                From a startup's first digital product to an enterprise's cloud migration, we deliver
-                technology across software development, managed IT services, hardware procurement,
-                cloud infrastructure, and licensing.
+                We help them understand the operating problem, choose the right system, implement it
+                properly, and stay close after launch.
               </p>
             </div>
             <ul className="mt-10 flex flex-wrap gap-2" data-reveal style={{ "--d": "160ms" }}>
@@ -107,7 +107,7 @@ export default function AboutPage() {
                 className="parallax object-cover"
               />
             </div>
-            <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[1.5rem] border bg-line">
+            <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[1.5rem] border bg-line [&>*:last-child]:col-span-2">
               {stats.map((s, i) => (
                 <div key={s.label} className="bg-bg p-6" data-reveal style={{ "--d": `${i * 80}ms` }}>
                   <dt className="text-xs uppercase tracking-[0.14em] text-muted">{s.label}</dt>
@@ -135,9 +135,8 @@ export default function AboutPage() {
             <p className="font-display text-[7rem] font-semibold leading-[0.8] tracking-[-0.06em] text-brand">V</p>
             <h2 className="mt-8 text-4xl">Our Vision</h2>
             <p className="mt-5 text-lg text-fg-2">
-              To be the most trusted technology partner for businesses across Africa, delivering
-              world-class digital solutions that are accessible, scalable, and built for the future
-              of the continent's digital economy.
+              To be the trusted systems partner for growing businesses across Africa, helping them
+              operate with clearer information, connected workflows, and dependable technology.
             </p>
             <blockquote className="mt-10 border-l-2 border-brand pl-6">
               <p className="serif text-2xl leading-snug text-fg">
@@ -163,12 +162,17 @@ export default function AboutPage() {
       <section aria-labelledby="values-title" className="section-y">
         <div className="container-x">
           <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
-            <h2 id="values-title" className="display-lg" data-reveal>
-              Our core <span className="serif text-neon">values.</span>
-            </h2>
+            <div>
+              <p className="eyebrow" data-reveal>
+                <span className="dot" /> The Enov8 Technologies Systems Method
+              </p>
+              <h2 id="values-title" className="display-lg mt-6" data-reveal>
+                Clarity first. <span className="serif text-neon">Dependable delivery next.</span>
+              </h2>
+            </div>
             <p className="lede max-w-lg" data-reveal style={{ "--d": "100ms" }}>
-              The foundational principles that guide our decisions, shape our culture, and define
-              how we partner with our clients.
+              Our process is designed to reduce risk between the first decision and the moment
+              your team relies on the system every day.
             </p>
           </div>
           <ul className="mt-14 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -203,6 +207,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <Team />
     </>
   );
 }

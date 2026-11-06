@@ -99,12 +99,12 @@ export default function Navbar() {
                         <i />
                       </div>
                       <div className="relative">
-                        <p className="eyebrow !text-white/70">Free · 30 minutes</p>
+                        <p className="eyebrow !text-white/70">Systems assessment · 30 min</p>
                         <p className="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight">
                           Not sure where to start?
                         </p>
                         <p className="mt-2 text-sm text-white/80">
-                          Book a discovery call and we'll map the fastest path to results.
+                          Book a systems assessment and we'll help you find the clearest next step.
                         </p>
                       </div>
                       <button

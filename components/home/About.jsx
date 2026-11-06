@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Download } from "lucide-react";
+import { Check, Download } from "lucide-react";
 import { pillars, stats } from "@/lib/content";
 import { site } from "@/lib/site";
 
 const manifesto =
-  "Enov8 Technologies is more than a service provider — we are architects of digital transformation. We merge IT consulting with precision software development to give your organisation a distinct competitive edge.";
+  "Enov8 Technologies helps growing businesses replace disconnected tools, manual work, and fragile processes with connected systems that people can actually use and teams can depend on.";
+
+const strengths = ["Scalable strategy", "Expert execution", "Secure foundations", "Practical support"];
 
 export default function About() {
   return (
@@ -47,7 +49,7 @@ export default function About() {
           {/* Text column */}
           <div>
             <h2 id="about-title" className="display-lg" data-reveal>
-              We design the <span className="serif text-neon">future</span> of your business.
+              Your technology should make the business <span className="serif text-neon">easier to run.</span>
             </h2>
 
             <p className="manifesto mt-10 font-display text-[clamp(1.5rem,1rem+1.6vw,2.4rem)] font-medium leading-[1.25] tracking-[-0.025em]">
@@ -58,11 +60,16 @@ export default function About() {
               ))}
             </p>
 
-            <p className="lede mt-8 max-w-2xl" data-reveal>
-              In a world of rapidly evolving tech, we help our clients bridge the gap between legacy
-              operations and digital-first growth. By harnessing AI and data-driven strategies, we
-              bring clarity to complexity.
-            </p>
+            <ul className="mt-10 grid gap-3 sm:grid-cols-2" data-reveal>
+              {strengths.map((s) => (
+                <li key={s} className="flex items-center gap-3 rounded-2xl border border-line-strong px-4 py-3 font-medium">
+                  <span className="grid size-7 shrink-0 place-items-center rounded-full bg-neon text-[#0a0b10]">
+                    <Check className="size-4" strokeWidth={2.5} />
+                  </span>
+                  {s}
+                </li>
+              ))}
+            </ul>
 
             {/* Number first, label under it, so the figures share one baseline
                 however many lines a label wraps to. */}
@@ -109,7 +116,7 @@ export default function About() {
                 </span>
               </a>
               <Link href="/about" className="btn btn-ghost">
-                More about us
+                See how we work
               </Link>
             </div>
           </div>
