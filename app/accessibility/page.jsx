@@ -1,26 +1,26 @@
-import { Card, CardContent } from "@/components/ui/card";
+import LegalPage from "@/components/LegalPage";
+import { pageMetadata } from "@/lib/seoMetadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Accessibility Statement",
-  description:
-    "Accessibility Statement for Enov8 Technologies - Our commitment to inclusivity.",
-};
+  description: "Enov8 Technologies' commitment to digital accessibility and inclusive design.",
+  path: "/accessibility",
+});
+
+const toc = [
+  { id: "commitment-to-accessibility", label: "1. Commitment to Accessibility" },
+  { id: "conformance-status", label: "2. Conformance Status" },
+  { id: "accessibility-features", label: "3. Accessibility Features" },
+  { id: "feedback", label: "4. Feedback" },
+  { id: "technical-specifications", label: "5. Technical Specifications" },
+];
 
 export default function Accessibility() {
   return (
-    <div className="min-h-screen pt-32 pb-20 bg-bg-light dark:bg-black">
-      <div className="container mx-auto px-6 max-w-4xl">
-        <h1 className="mb-8 dark:text-white uppercase tracking-tighter">
-          Accessibility Statement
-        </h1>
-        <p className="dark:text-white/90 mb-12">
-          Last updated: April 21, 2026
-        </p>
+    <LegalPage title="Accessibility Statement" updated="April 21, 2026" path="/accessibility" toc={toc}>
 
-        <Card className="rounded-none border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm mb-12">
-          <CardContent className="p-8 md:p-12 space-y-10 text-gray-700 dark:text-white/90">
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="commitment-to-accessibility">
+              <h2>
                 1. Commitment to Accessibility
               </h2>
               <p>
@@ -31,8 +31,8 @@ export default function Accessibility() {
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="conformance-status">
+              <h2>
                 2. Conformance Status
               </h2>
               <p>
@@ -44,15 +44,15 @@ export default function Accessibility() {
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="accessibility-features">
+              <h2>
                 3. Accessibility Features
               </h2>
-              <p className="mb-4">
+              <p>
                 We are implementing the following features to enhance
                 accessibility:
               </p>
-              <ul className="list-disc pl-6 space-y-2">
+              <ul>
                 <li>Descriptive alt text for all meaningful images</li>
                 <li>Keyboard-accessible navigation and focus states</li>
                 <li>Sufficient color contrast ratios for text readability</li>
@@ -61,26 +61,23 @@ export default function Accessibility() {
               </ul>
             </section>
 
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="feedback">
+              <h2>
                 4. Feedback
               </h2>
               <p>
                 We welcome your feedback on the accessibility of our website.
                 Please let us know if you encounter accessibility barriers by
                 emailing us at{" "}
-                <a
-                  href="mailto:accessibility@enov8technologies.com"
-                  className="text-light-primary hover:underline"
-                >
+                <a href="mailto:accessibility@enov8technologies.com">
                   accessibility@enov8technologies.com
                 </a>
                 . We try to respond to feedback within 5 business days.
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="technical-specifications">
+              <h2>
                 5. Technical Specifications
               </h2>
               <p>
@@ -90,9 +87,6 @@ export default function Accessibility() {
                 your computer: HTML, WAI-ARIA, CSS, and JavaScript.
               </p>
             </section>
-          </CardContent>
-        </Card>
-      </div>
-    </div>
+    </LegalPage>
   );
 }

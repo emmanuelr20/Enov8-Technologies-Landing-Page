@@ -1,26 +1,28 @@
-import { Card, CardContent } from "@/components/ui/card";
+import LegalPage from "@/components/LegalPage";
+import { pageMetadata } from "@/lib/seoMetadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Privacy Policy",
-  description:
-    "Privacy Policy for Enov8 Technologies - How we protect your data.",
-};
+  description: "How Enov8 Technologies collects, uses and protects your personal data.",
+  path: "/privacy-policy",
+});
+
+const toc = [
+  { id: "introduction", label: "1. Introduction" },
+  { id: "information-we-collect", label: "2. Information We Collect" },
+  { id: "how-we-use-your-information", label: "3. How We Use Your Information" },
+  { id: "data-security", label: "4. Data Security" },
+  { id: "your-privacy-rights", label: "5. Your Privacy Rights" },
+  { id: "cookies-and-tracking", label: "6. Cookies and Tracking" },
+  { id: "contact-us", label: "7. Contact Us" },
+];
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen pt-32 pb-20 bg-bg-light dark:bg-black">
-      <div className="container mx-auto px-6 max-w-4xl">
-        <h1 className="mb-8 dark:text-white uppercase tracking-tighter">
-          Privacy Policy
-        </h1>
-        <p className="dark:text-white/90 mb-12">
-          Last updated: April 21, 2026
-        </p>
+    <LegalPage title="Privacy Policy" updated="April 21, 2026" path="/privacy-policy" toc={toc}>
 
-        <Card className="rounded-none border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm mb-12">
-          <CardContent className="p-8 md:p-12 space-y-10 text-gray-700 dark:text-white/90">
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="introduction">
+              <h2>
                 1. Introduction
               </h2>
               <p>
@@ -31,16 +33,16 @@ export default function PrivacyPolicy() {
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="information-we-collect">
+              <h2>
                 2. Information We Collect
               </h2>
-              <p className="mb-4">
+              <p>
                 We collect personal information that you voluntarily provide to
                 us when you express an interest in obtaining information about
                 us or our products and services, including:
               </p>
-              <ul className="list-disc pl-6 space-y-2">
+              <ul>
                 <li>Contact Information (name, email address, phone number)</li>
                 <li>Business Information (company name, industry)</li>
                 <li>
@@ -50,15 +52,15 @@ export default function PrivacyPolicy() {
               </ul>
             </section>
 
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="how-we-use-your-information">
+              <h2>
                 3. How We Use Your Information
               </h2>
-              <p className="mb-4">
+              <p>
                 We use personal information collected via our website for a
                 variety of business purposes, including:
               </p>
-              <ul className="list-disc pl-6 space-y-2">
+              <ul>
                 <li>To provide and manage our services</li>
                 <li>To send administrative information and updates</li>
                 <li>To respond to user inquiries and offer support</li>
@@ -67,8 +69,8 @@ export default function PrivacyPolicy() {
               </ul>
             </section>
 
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="data-security">
+              <h2>
                 4. Data Security
               </h2>
               <p>
@@ -79,8 +81,8 @@ export default function PrivacyPolicy() {
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="your-privacy-rights">
+              <h2>
                 5. Your Privacy Rights
               </h2>
               <p>
@@ -92,8 +94,8 @@ export default function PrivacyPolicy() {
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="cookies-and-tracking">
+              <h2>
                 6. Cookies and Tracking
               </h2>
               <p>
@@ -104,25 +106,19 @@ export default function PrivacyPolicy() {
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="contact-us">
+              <h2>
                 7. Contact Us
               </h2>
               <p>
                 If you have questions or comments about this policy, you may
                 email us at{" "}
-                <a
-                  href="mailto:contact@enov8technologies.com"
-                  className="text-light-primary hover:underline"
-                >
+                <a href="mailto:contact@enov8technologies.com">
                   contact@enov8technologies.com
                 </a>
                 .
               </p>
             </section>
-          </CardContent>
-        </Card>
-      </div>
-    </div>
+    </LegalPage>
   );
 }

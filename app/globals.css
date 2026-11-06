@@ -1,250 +1,991 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
+/* ─────────────────────────────────────────────────────────────────────────────
+   DESIGN TOKENS
+   Light = warm paper, Dark = deep ink. `.ink` forces the dark palette locally
+   so heroes, nav and footer stay dark in both themes.
+   ──────────────────────────────────────────────────────────────────────────── */
 :root {
-  --light-primary: #0070f3;
-  --dark-primary: #1E90FF;
-  --light-accent: 	#00C8A0;
-  --dark-accent: 	#10B981;
-  --light-hover: 	#0057C2;
-  --dark-hover: 	#60A5FA;
-  --light-surface-card: #F9FAFB;
-  --dark-surface-card: 	#161B22;
-  --light-secondary-surface: 	#E5E7EB;
-  --dark-secondary-surface: 	#1F2937;
-  --primary-text: 	#111827;
-  --primary-text-dark: 	#F9FAFB;
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --bg: #f4f3ee;
+  --bg-2: #eae9e2;
+  --surface: #ffffff;
+  --surface-2: #f9f8f4;
+  --fg: #0a0b10;
+  --fg-2: #353843;
+  --muted: #646875;
+  --line: rgb(10 11 16 / 0.1);
+  --line-strong: rgb(10 11 16 / 0.18);
+  --brand: #0062d9;
+  --brand-bright: #0070f3;
+  --neon: #e64a00;
+  --neon-glow: transparent;
+  --brand-ink: #ffffff;
+  --glow: rgb(0 112 243 / 0.28);
+  --shadow: 0 1px 0 rgb(255 255 255 / 0.6) inset, 0 24px 60px -30px rgb(10 11 16 / 0.35);
+  --radius: 1.25rem;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  color-scheme: light;
+}
 
+.dark,
+.ink {
+  --bg: #06070b;
+  --bg-2: #0b0d13;
+  --surface: #0f1219;
+  --surface-2: #141822;
+  --fg: #f4f5f7;
+  --fg-2: #c3c7d1;
+  --muted: #8d92a0;
+  --line: rgb(255 255 255 / 0.09);
+  --line-strong: rgb(255 255 255 / 0.18);
+  --brand: #3b8cff;
+  --brand-bright: #0070f3;
+  --neon: #ff5f1f;
+  --neon-glow: rgb(255 95 31 / 0.45);
+  --glow: rgb(59 140 255 / 0.35);
+  --shadow: 0 1px 0 rgb(255 255 255 / 0.06) inset, 0 30px 80px -40px rgb(0 0 0 / 0.9);
+  color-scheme: dark;
+}
+
+@layer components {
+  .ink {
+    background-color: var(--bg);
+    color: var(--fg);
+  }
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-open-sans), ui-sans-serif, system-ui;
-  --font-mono: var(--font-geist-mono);
-  --font-open-sans: var(--font-open-sans);
-  --font-space: var(--font-open-sans);
-  --font-poppins: var(--font-open-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-fg-2: var(--fg-2);
   --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-brand: var(--brand);
+  --color-brand-bright: var(--brand-bright);
+  --color-neon: var(--neon);
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-geist), ui-sans-serif, sans-serif;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+  --ease-out-expo: var(--ease-out);
 }
 
-@theme {
-  --color-bg-light: 	oklch(100% 0 0);
-  --color-bg-dark: 	oklch(19.7% 0.019 270.3);
-  --color-light-primary: oklch(63.4% 0.267 259.5);
-  --color-dark-primary: var(--dark-primary);
-  --color-light-accent: var(--light-accent);
-  --color-dark-accent: var(--dark-accent);
-  --color-light-hover: var(--light-hover);
-  --color-dark-hover: var(--dark-hover);
-  --color-light-surface-card: var(--light-surface-card);
-  --color-dark-surface-card: var(--dark-surface-card);
-  --color-light-secondary-surface: var(--light-secondary-surface);
-  --color-dark-secondary-surface: var(--dark-secondary-surface);
-  --index-100: 100;
-  --index-200: 200;
-}
-
+/* ─────────────────────────────────────────────────────────────────────────────
+   BASE
+   ──────────────────────────────────────────────────────────────────────────── */
 @layer base {
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-medium tracking-tight dark:text-white;
+  *,
+  ::before,
+  ::after {
+    border-color: var(--line);
   }
 
-  h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl leading-[1.1] font-bold;
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
   }
 
-  h2 {
-    @apply text-2xl md:text-[35px] leading-tight font-bold;
-  }
-
-  h3 {
-    @apply text-xl md:text-2xl;
-  }
-
-  h4 {
-    @apply text-xl md:text-2xl;
-  }
-
-  h5 {
-    @apply text-lg md:text-xl;
-  }
-
-  h6 {
-    @apply text-base md:text-lg;
-  }
-}
-
-body {
-  font-family: var(--font-open-sans), sans-serif;
-  font-size: 1.0625rem;
-  line-height: 1.6;
-  font-weight: 400;
-  letter-spacing: -0.011em;
-}
-
-p {
-  font-weight: 400;
-  color: #656565;
-  @apply text-base md:text-[17px] xl:text-base;
-}
-
-.dark p {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-
-  }
   body {
-    @apply bg-background text-foreground;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    letter-spacing: -0.006em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
 
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+    color: var(--fg);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--brand-bright);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand-bright);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  img,
+  video {
+    max-width: 100%;
   }
 }
 
-html {
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-  max-width: 100%;
+/* ─────────────────────────────────────────────────────────────────────────────
+   TYPOGRAPHY
+   ──────────────────────────────────────────────────────────────────────────── */
+@utility display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 0.9rem + 8.4vw, 9.75rem);
+  line-height: 0.92;
+  letter-spacing: -0.042em;
+  font-weight: 600;
 }
 
-/* Fixes backface flashing in Chrome/Safari */
-video {
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
+@utility display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 1.2rem + 4.6vw, 6rem);
+  line-height: 0.98;
+  letter-spacing: -0.038em;
+  font-weight: 600;
+}
+
+@utility display-md {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.2rem + 2.6vw, 3.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.032em;
+  font-weight: 600;
+}
+
+@utility lede {
+  font-size: clamp(1.075rem, 0.95rem + 0.45vw, 1.3rem);
+  line-height: 1.6;
+  color: var(--fg-2);
+}
+
+@utility serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+/* Emphasis: solid neon orange, with a soft glow on dark surfaces */
+@utility text-neon {
+  color: var(--neon);
+  text-shadow: 0 0 0.6em var(--neon-glow);
+}
+
+@utility eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@utility container-x {
+  width: 100%;
+  max-width: 88rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+@utility section-y {
+  padding-block: clamp(5rem, 3rem + 8vw, 10rem);
+}
+
+.dot {
+  position: relative;
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--neon);
+  box-shadow: 0 0 0 0 color-mix(in oklab, var(--neon) 60%, transparent);
+  animation: dot-pulse 2.4s var(--ease-out) infinite;
+}
+
+@layer components {
+/* ─────────────────────────────────────────────────────────────────────────────
+   BUTTONS
+   ──────────────────────────────────────────────────────────────────────────── */
+.btn {
+  --btn-bg: var(--fg);
+  --btn-fg: var(--bg);
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  height: 3.5rem;
+  padding-inline: 1.6rem 0.5rem;
+  border-radius: 999px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-weight: 500;
+  font-size: 0.975rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.5s var(--ease-out),
+    box-shadow 0.5s var(--ease-out),
+    background-color 0.3s;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.9s var(--ease-out);
+}
+
+.btn:hover::before {
+  transform: translateX(120%);
+}
+
+.btn .btn-icon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: var(--btn-fg);
+  color: var(--btn-bg);
+  overflow: hidden;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.btn .btn-icon svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.btn:hover .btn-icon svg {
+  animation: arrow-out 0.6s var(--ease-out);
+}
+
+.btn-primary {
+  --btn-bg: var(--brand-bright);
+  --btn-fg: #fff;
+  box-shadow: 0 10px 40px -10px var(--glow);
+}
+
+.btn-primary .btn-icon {
+  background: #fff;
+  color: var(--brand-bright);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 18px 60px -12px var(--glow);
+}
+
+.btn-ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--fg);
+  padding-inline: 1.5rem;
+  border: 1px solid var(--line-strong);
+}
+
+.btn-ghost:hover {
+  background: color-mix(in oklab, var(--fg) 6%, transparent);
+}
+
+.btn-sm {
+  height: 2.75rem;
+  padding-inline: 1.15rem 0.35rem;
+  font-size: 0.9rem;
+}
+
+.btn-sm .btn-icon {
+  width: 2.05rem;
+  height: 2.05rem;
+}
+
+.link-underline {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0% 1px no-repeat;
+  transition: background-size 0.5s var(--ease-out);
+}
+
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SURFACES & DECOR
+   ──────────────────────────────────────────────────────────────────────────── */
+.card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.glass {
+  background: color-mix(in oklab, var(--surface) 55%, transparent);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid var(--line);
+}
+
+/* Faint engineering grid, faded at the edges */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 30%, transparent 75%);
+}
+
+/* Static film grain — a tiny inline SVG, no request */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Aurora: pre-blurred radial gradients moved with transforms only (GPU-cheap) */
+.aurora {
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.aurora > i {
+  position: absolute;
+  width: 55vmax;
+  height: 55vmax;
+  border-radius: 999px;
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.aurora > i:nth-child(1) {
+  top: -10%;
+  left: 5%;
+  background: radial-gradient(circle, rgb(0 112 243 / 0.75), transparent 62%);
+  animation: drift-a 22s ease-in-out infinite alternate;
+}
+
+.aurora > i:nth-child(2) {
+  top: 15%;
+  right: -10%;
+  background: radial-gradient(circle, rgb(255 95 31 / 0.4), transparent 62%);
+  animation: drift-b 26s ease-in-out infinite alternate;
+}
+
+.aurora > i:nth-child(3) {
+  bottom: -25%;
+  left: 30%;
+  background: radial-gradient(circle, rgb(0 87 209 / 0.45), transparent 62%);
+  animation: drift-c 30s ease-in-out infinite alternate;
+}
+
+/* Cursor-follow spotlight. --mx/--my are set by <Interactions/> */
+[data-spotlight] {
+  --mx: 50%;
+  --my: 50%;
+}
+
+[data-spotlight]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--mx) var(--my),
+    color-mix(in oklab, var(--brand-bright) 16%, transparent),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 0;
+}
+
+[data-spotlight]:hover::before {
+  opacity: 1;
+}
+
+/* Gradient hairline border that lights up on hover */
+.ring-glow {
+  position: relative;
+}
+
+.ring-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    400px circle at var(--mx, 50%) var(--my, 50%),
+    var(--brand-bright),
+    transparent 40%
+  );
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.ring-glow:hover::after {
+  opacity: 1;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   MOTION PRIMITIVES
+   ──────────────────────────────────────────────────────────────────────────── */
+
+/* Load-in "blur rise" — text is painted on the first frame (no opacity:0),
+   so it never delays Largest Contentful Paint. */
+.rise > * {
+  display: inline-block;
+  animation: blur-rise 1s var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 70ms + 60ms);
+}
+
+.settle {
+  animation: blur-rise 0.9s var(--ease-out) both;
+  animation-delay: var(--d, 0ms);
+}
+
+.slide-in {
+  animation: slide-in 0.8s var(--ease-out) both;
+}
+
+.fade-up {
+  animation: fade-up 1s var(--ease-out) both;
+  animation-delay: var(--d, 0ms);
+}
+
+/* Scroll reveal. Only hidden when JS is running, so content is always
+   visible to crawlers and no-JS visitors. */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 0.9s var(--ease-out),
+    transform 0.9s var(--ease-out);
+  transition-delay: var(--d, 0ms);
+}
+
+html.js [data-reveal="scale"] {
+  transform: scale(0.94);
+}
+
+html.js [data-reveal="left"] {
+  transform: translate3d(-36px, 0, 0);
+}
+
+html.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Infinite marquee */
+.marquee {
+  --gap: 3rem;
+  --duration: 40s;
+  display: flex;
+  gap: var(--gap);
+  overflow: hidden;
+  user-select: none;
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+.marquee-track {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  min-width: 100%;
+  justify-content: space-around;
+  animation: marquee var(--duration) linear infinite;
+}
+
+.marquee[data-reverse] .marquee-track {
+  animation-direction: reverse;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Partner logos: monochrome, colour on hover. Works for SVG, PNG and JPG. */
+.logo-mono {
+  filter: grayscale(1) contrast(1.5) brightness(1.08);
+  mix-blend-mode: multiply;
+  opacity: 0.6;
+  transition:
+    opacity 0.4s,
+    filter 0.4s;
+}
+
+.logo-mono:hover {
+  filter: none;
+  opacity: 1;
+}
+
+.dark .logo-mono {
+  filter: grayscale(1) invert(1) brightness(1.4);
+  mix-blend-mode: screen;
+}
+
+.dark .logo-mono:hover {
+  filter: grayscale(1) invert(1) brightness(2);
+}
+
+}
+
+/* Scroll progress bar — hidden unless scroll timelines are supported */
+.scroll-progress {
+  transform: scaleX(0);
+}
+
+/* Rotating text ring */
+.spin-slow {
+  animation: spin 18s linear infinite;
+}
+
+/* Scroll-driven enhancements (Chrome/Edge/Safari 26+). Static elsewhere. */
+@media (prefers-reduced-motion: no-preference) {
+@supports (animation-timeline: view()) {
+  .scroll-progress {
+    transform-origin: 0 50%;
+    animation: grow-x linear both;
+    animation-timeline: scroll(root);
+  }
+
+  .manifesto .w {
+    color: var(--muted);
+    animation: light-up linear both;
+    animation-timeline: view();
+    animation-range: cover 18% cover 42%;
+  }
+
+  .reel-grow {
+    animation: reel-grow linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 45%;
+  }
+
+  .stack-card {
+    animation: stack-shrink linear both;
+    animation-timeline: view();
+    animation-range: exit-crossing 0% exit-crossing 100%;
+  }
+
+  .parallax {
+    animation: parallax linear both;
+    animation-timeline: view();
+  }
+
+  .draw-line {
+    transform-origin: 50% 0;
+    animation: grow-y linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 60%;
+  }
+}
+}
+
+/* FAQ accordions — smooth height with ::details-content where supported */
+.faq details {
+  interpolate-size: allow-keywords;
+}
+
+.faq details::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition:
+    block-size 0.5s var(--ease-out),
+    content-visibility 0.5s allow-discrete;
+}
+
+.faq details[open]::details-content {
+  block-size: auto;
+}
+
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq .faq-icon {
+  transition: transform 0.5s var(--ease-out), background-color 0.3s;
+}
+
+.faq details[open] .faq-icon {
+  transform: rotate(45deg);
+  background: var(--brand-bright);
+  color: #fff;
+}
+
+/* Native <dialog> for the consultation modal */
+dialog.sheet {
+  margin: auto;
+  max-width: min(36rem, calc(100vw - 2rem));
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--fg);
+  opacity: 0;
+  transform: translateY(24px) scale(0.97);
+  transition:
+    opacity 0.45s var(--ease-out),
+    transform 0.45s var(--ease-out),
+    overlay 0.45s allow-discrete,
+    display 0.45s allow-discrete;
+}
+
+dialog.sheet[open] {
+  opacity: 1;
+  transform: none;
+}
+
+@starting-style {
+  dialog.sheet[open] {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+}
+
+dialog.sheet::backdrop {
+  background: rgb(3 4 8 / 0);
+  backdrop-filter: blur(0);
+  transition:
+    background-color 0.45s,
+    backdrop-filter 0.45s,
+    overlay 0.45s allow-discrete,
+    display 0.45s allow-discrete;
+}
+
+dialog.sheet[open]::backdrop {
+  background: rgb(3 4 8 / 0.7);
+  backdrop-filter: blur(8px);
+}
+
+@starting-style {
+  dialog.sheet[open]::backdrop {
+    background: rgb(3 4 8 / 0);
+    backdrop-filter: blur(0);
+  }
+}
+
+/* Floating form labels */
+.field {
+  position: relative;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  padding: 1.6rem 0 0.7rem;
+  color: var(--fg);
+  font-size: 1.05rem;
+  outline: none;
+  border-radius: 0;
+  transition: border-color 0.3s;
+}
+
+.field textarea {
+  resize: none;
+}
+
+.field label {
+  position: absolute;
+  left: 0;
+  top: 1.6rem;
+  color: var(--muted);
+  pointer-events: none;
+  transform-origin: 0 0;
+  transition:
+    transform 0.4s var(--ease-out),
+    color 0.3s;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--brand-bright);
+}
+
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label,
+.field textarea:focus + label,
+.field textarea:not(:placeholder-shown) + label {
+  transform: translateY(-1.35rem) scale(0.78);
+  color: var(--brand);
+}
+
+.field .bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: var(--brand-bright);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.field input:focus ~ .bar,
+.field textarea:focus ~ .bar {
+  transform: scaleX(1);
+}
+
+/* Long-form legal / prose content */
+.prose-legal h2 {
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 1.85rem);
+  margin-bottom: 1rem;
+  scroll-margin-top: 7rem;
+}
+
+.prose-legal p,
+.prose-legal li {
+  color: var(--fg-2);
+}
+
+.prose-legal ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.prose-legal li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.prose-legal li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 0.55rem;
+  height: 1px;
+  background: var(--brand-bright);
+}
+
+.prose-legal a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-legal section + section {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--line);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   KEYFRAMES
+   ──────────────────────────────────────────────────────────────────────────── */
+@keyframes blur-rise {
+  from {
+    transform: translate3d(0, 0.35em, 0) rotate(2deg);
+    filter: blur(10px);
+  }
+  to {
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translate3d(0, calc(100% + 2rem), 0);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes marquee {
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes dot-pulse {
   0% {
-    transform: translateX(0);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--neon) 70%, transparent);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 10px transparent;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes arrow-out {
+  0% {
+    transform: translate(0, 0);
+  }
+  45% {
+    transform: translate(140%, -140%);
+  }
+  46% {
+    transform: translate(-140%, 140%);
   }
   100% {
-    /* Precise math: translate by 50% of total width PLUS half the gap to maintain alignment */
-    transform: translateX(calc(-50% - 24px)); /* gap-12 = 48px, half = 24px */
+    transform: translate(0, 0);
   }
 }
 
-@media (min-width: 768px) {
-  @keyframes marquee {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(calc(-50% - 40px)); /* gap-20 = 80px, half = 40px */
-    }
+@keyframes drift-a {
+  to {
+    transform: translate3d(18%, 12%, 0) scale(1.15);
   }
 }
 
-@utility animate-marquee {
-  animation: marquee 35s linear infinite;
+@keyframes drift-b {
+  to {
+    transform: translate3d(-22%, 10%, 0) scale(0.9);
+  }
 }
 
-@keyframes heroProgress {
-  0% { width: 0%; background-color: rgba(255, 255, 255, 0.2); }
-  100% { width: 100%; background-color: rgba(255, 255, 255, 0.8); }
+@keyframes drift-c {
+  to {
+    transform: translate3d(-10%, -18%, 0) scale(1.2);
+  }
 }
 
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
 
+@keyframes grow-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes light-up {
+  to {
+    color: var(--fg);
+  }
+}
+
+@keyframes reel-grow {
+  from {
+    transform: scale(0.9);
+    border-radius: 2.5rem;
+  }
+  to {
+    transform: scale(1);
+    border-radius: 1.25rem;
+  }
+}
+
+@keyframes stack-shrink {
+  to {
+    transform: scale(0.92);
+    filter: brightness(0.7);
+  }
+}
+
+@keyframes parallax {
+  from {
+    transform: translate3d(0, -6%, 0) scale(1.12);
+  }
+  to {
+    transform: translate3d(0, 6%, 0) scale(1.12);
+  }
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   REDUCED MOTION — everything settles instantly
+   ──────────────────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .marquee-track {
+    animation: none !important;
+  }
+}

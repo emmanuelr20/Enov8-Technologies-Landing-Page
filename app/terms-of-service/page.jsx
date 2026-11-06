@@ -1,26 +1,28 @@
-import { Card, CardContent } from "@/components/ui/card";
+import LegalPage from "@/components/LegalPage";
+import { pageMetadata } from "@/lib/seoMetadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Terms of Service",
-  description:
-    "Terms of Service for Enov8 Technologies - The rules of our engagement.",
-};
+  description: "The terms that govern your use of the Enov8 Technologies website and services.",
+  path: "/terms-of-service",
+});
+
+const toc = [
+  { id: "agreement-to-terms", label: "1. Agreement to Terms" },
+  { id: "intellectual-property", label: "2. Intellectual Property" },
+  { id: "user-conduct", label: "3. User Conduct" },
+  { id: "limitation-of-liability", label: "4. Limitation of Liability" },
+  { id: "service-modifications", label: "5. Service Modifications" },
+  { id: "governing-law", label: "6. Governing Law" },
+  { id: "changes-to-terms", label: "7. Changes to Terms" },
+];
 
 export default function TermsOfService() {
   return (
-    <div className="min-h-screen pt-32 pb-20 bg-bg-light dark:bg-black">
-      <div className="container mx-auto px-6 max-w-4xl">
-        <h1 className="mb-8 dark:text-white uppercase tracking-tighter">
-          Terms of Service
-        </h1>
-        <p className="dark:text-white/90 mb-12">
-          Last updated: April 21, 2026
-        </p>
+    <LegalPage title="Terms of Service" updated="April 21, 2026" path="/terms-of-service" toc={toc}>
 
-        <Card className="rounded-none border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm mb-12">
-          <CardContent className="p-8 md:p-12 space-y-10 text-gray-700 dark:text-white/90">
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="agreement-to-terms">
+              <h2>
                 1. Agreement to Terms
               </h2>
               <p>
@@ -30,8 +32,8 @@ export default function TermsOfService() {
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="intellectual-property">
+              <h2>
                 2. Intellectual Property
               </h2>
               <p>
@@ -42,16 +44,16 @@ export default function TermsOfService() {
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="user-conduct">
+              <h2>
                 3. User Conduct
               </h2>
-              <p className="mb-4">
+              <p>
                 You agree not to use our services for any purpose that is
                 unlawful or prohibited by these Terms. This includes, but is not
                 limited to:
               </p>
-              <ul className="list-disc pl-6 space-y-2">
+              <ul>
                 <li>
                   Attempting to interfere with the proper working of the site
                 </li>
@@ -61,8 +63,8 @@ export default function TermsOfService() {
               </ul>
             </section>
 
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="limitation-of-liability">
+              <h2>
                 4. Limitation of Liability
               </h2>
               <p>
@@ -73,8 +75,8 @@ export default function TermsOfService() {
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="service-modifications">
+              <h2>
                 5. Service Modifications
               </h2>
               <p>
@@ -84,8 +86,8 @@ export default function TermsOfService() {
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="governing-law">
+              <h2>
                 6. Governing Law
               </h2>
               <p>
@@ -95,8 +97,8 @@ export default function TermsOfService() {
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-4 dark:text-white uppercase tracking-tight">
+            <section id="changes-to-terms">
+              <h2>
                 7. Changes to Terms
               </h2>
               <p>
@@ -106,9 +108,6 @@ export default function TermsOfService() {
                 bound by the revised terms.
               </p>
             </section>
-          </CardContent>
-        </Card>
-      </div>
-    </div>
+    </LegalPage>
   );
 }
