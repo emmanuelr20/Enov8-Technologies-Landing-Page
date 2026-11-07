@@ -4,39 +4,39 @@ A modern, responsive landing page for Enov8 Technologies - a leading software de
 
 ## 🚀 Features
 
-- **Responsive Design** - Optimized for all devices and screen sizes
-- **SEO Optimized** - Comprehensive SEO implementation with structured data
-- **Performance Focused** - Fast loading with Next.js optimization
-- **Modern UI/UX** - Clean design with smooth animations using ScrollReveal
-- **Dark Mode Support** - Toggle between light and dark themes
-- **PWA Ready** - Progressive Web App capabilities
-- **Accessibility** - WCAG compliant with proper ARIA labels
+- **Fully server-rendered** — every section is a React Server Component, so all copy is in the initial HTML for search engines
+- **SEO** — per-page canonical URLs, Open Graph/Twitter tags, generated 1200×630 social images, sitemap, and JSON-LD (Organization, WebSite, Service, BreadcrumbList, FAQPage, ItemList)
+- **Fast, CSS-first motion** — scroll reveals, marquees, scroll-driven effects and the cursor spotlight are CSS + one tiny client island (`components/Interactions.jsx`); no animation libraries
+- **Accessible** — semantic landmarks, skip link, native `<dialog>`, keyboard-operable menus, `prefers-reduced-motion` respected everywhere
+- **Light & dark themes** — no flash on load; preference stored per visitor
+- **Data-driven** — all services live in `lib/servicesData.js`; one dynamic route renders every service page
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Next.js 15.3.5
-- **Styling**: Tailwind CSS 4
-- **UI Components**: Radix UI primitives
-- **Icons**: Lucide React & React Icons
-- **Animations**: ScrollReveal
-- **Fonts**: Space Grotesk & Mulish (Google Fonts)
-- **Theme**: next-themes for dark mode
+- **Framework**: Next.js 16 (App Router, Turbopack)
+- **Styling**: Tailwind CSS 4 + design tokens in `app/globals.css`
+- **Fonts**: Bricolage Grotesque (display), Geist (body), Instrument Serif (accents) via `next/font`
+- **Icons**: Lucide
 
 ## 📁 Project Structure
 
 ```
 ├── app/
-│   ├── layouts/          # Page sections (Hero, About, Services, etc.)
-│   ├── globals.css       # Global styles
-│   ├── layout.jsx        # Root layout with SEO metadata
-│   ├── page.jsx          # Home page
-│   ├── sitemap.js        # Dynamic sitemap generation
-│   └── robots.txt        # Search engine directives
+│   ├── layout.jsx              # Root layout: fonts, metadata, Organization JSON-LD
+│   ├── page.jsx                # Home page (composes components/home/*)
+│   ├── services/[slug]/        # One statically generated page per service (+ OG image)
+│   ├── opengraph-image.jsx     # Default social share image
+│   └── sitemap.js
 ├── components/
-│   ├── ui/               # Reusable UI components
-│   └── Analytics.jsx     # Google Analytics component
-├── public/               # Static assets
-└── SEO_CHECKLIST.md     # SEO optimization checklist
+│   ├── home/                   # Home page sections
+│   ├── site/                   # Navbar, Footer, contact dialog & forms
+│   ├── Interactions.jsx        # Global reveal / spotlight / magnetic / dialog behaviour
+│   └── PageHero.jsx            # Shared inner-page hero with breadcrumbs
+└── lib/
+    ├── site.js                 # Brand, contact details, navigation (single source of truth)
+    ├── servicesData.js         # All service content
+    ├── content.js              # Testimonials, FAQs, stats, partners, process
+    └── seoMetadata.js
 ```
 
 ## 🚀 Getting Started
@@ -91,7 +91,6 @@ A modern, responsive landing page for Enov8 Technologies - a leading software de
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run start` - Start production server
-- `npm run lint` - Run ESLint
 
 ## 📈 SEO Features
 

@@ -1,26 +1,33 @@
-import Hero from "./layouts/Hero";
-import DynamicSections from "@/components/DynamicSections";
-import PerformanceMonitor from "@/components/PerformanceMonitor";
+import About from "@/components/home/About";
+import BigCta from "@/components/home/BigCta";
+import Faq from "@/components/home/Faq";
+import Hero from "@/components/home/Hero";
+import Industries from "@/components/home/Industries";
+import Partners from "@/components/home/Partners";
+import Process from "@/components/home/Process";
+import ServicesIndex from "@/components/home/ServicesIndex";
+import Tapes from "@/components/home/Tapes";
+import Testimonials from "@/components/home/Testimonials";
 
 export const metadata = {
-  title: "Enov8 Technologies - End-to-End Digital Solutions & IT Services",
-  description:
-    "Enov8 Technologies delivers world-class digital solutions across software development, managed IT services, hardware infrastructure, cloud platforms, and cybersecurity.",
-  openGraph: {
-    title:
-      "Enov8 Technologies - End-to-End Digital Solutions & IT Services",
-    description:
-      "Enov8 Technologies delivers world-class digital solutions across software development, managed IT services, hardware infrastructure, cloud platforms, and cybersecurity.",
-    type: "website",
-  },
+  alternates: { canonical: "/" },
 };
 
+// Fully server-rendered: every word of copy is in the initial HTML for search
+// engines. Only small interactive islands hydrate on the client.
 export default function Home() {
   return (
-    <main role="main">
-      <PerformanceMonitor />
+    <>
       <Hero />
-      <DynamicSections />
-    </main>
+      <Partners />
+      <About />
+      <Tapes />
+      <ServicesIndex />
+      <Process />
+      <Industries />
+      <Testimonials />
+      <Faq />
+      <BigCta />
+    </>
   );
 }
