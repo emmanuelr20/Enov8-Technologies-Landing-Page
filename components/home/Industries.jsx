@@ -15,7 +15,7 @@ export default function Industries() {
               <span className="dot" /> Built for complex work
             </p>
             <h2 id="industries-title" className="display-md mt-6 max-w-2xl" data-reveal>
-              One technology partner across the <span className="serif text-neon">transformation lifecycle.</span>
+              One technology partner across the <span className="serif text-accent">transformation lifecycle.</span>
             </h2>
           </div>
           <p className="max-w-sm text-fg-2" data-reveal style={{ "--d": "100ms" }}>

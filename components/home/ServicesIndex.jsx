@@ -14,7 +14,7 @@ export default function ServicesIndex() {
               <span className="dot" /> What we do · {services.length} service lines
             </p>
             <h2 id="services-title" className="display-md mt-6" data-reveal style={{ "--d": "80ms" }}>
-              Start with the operational problem, then build the <span className="serif text-neon">right system.</span>
+              Start with the operational problem, then build the <span className="serif text-accent">right system.</span>
             </h2>
           </div>
           <div data-reveal style={{ "--d": "160ms" }}>

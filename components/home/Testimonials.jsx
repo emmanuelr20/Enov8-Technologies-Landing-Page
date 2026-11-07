@@ -18,7 +18,7 @@ export default function Testimonials() {
               <span className="dot" /> Client stories
             </p>
             <h2 id="testimonials-title" className="display-lg mt-6 max-w-3xl" data-reveal style={{ "--d": "80ms" }}>
-              What our clients are <span className="serif text-neon">saying.</span>
+              What our clients are <span className="serif text-accent">saying.</span>
             </h2>
           </div>
           <p className="max-w-xs text-fg-2" data-reveal style={{ "--d": "160ms" }}>
@@ -26,31 +26,38 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <ul className="mt-16 columns-1 gap-5 md:columns-2 xl:columns-3 [&>li]:mb-5">
+        <ul className="mt-16 grid gap-5 md:grid-cols-2 xl:grid-cols-6">
           {testimonials.map((t, i) => (
-            <li key={t.name} className="break-inside-avoid" data-reveal style={{ "--d": `${(i % 3) * 90}ms` }}>
+            <li
+              key={t.name}
+              className={`${i >= 3 ? "xl:col-span-3" : "xl:col-span-2"} ${i === testimonials.length - 1 && testimonials.length % 2 ? "md:col-span-2" : ""}`}
+              data-reveal
+              style={{ "--d": `${(i % 3) * 90}ms` }}
+            >
               <figure
                 data-spotlight
-                className={`card ring-glow relative overflow-hidden p-7 sm:p-8 ${i === 2 ? "!bg-brand-bright !text-white" : ""}`}
+                className={`card ring-glow relative h-full overflow-hidden p-7 sm:p-8 ${i === 2 ? "!bg-brand-bright !text-white" : ""}`}
               >
-                <div className="relative">
+                <div className="relative flex h-full flex-col">
                   {t.metric ? (
-                    <p className="mb-6">
-                      <span className={`block font-display text-6xl font-semibold tracking-[-0.06em] ${i === 2 ? "text-white" : "text-neon"}`}>
+                    <p className="mb-6 min-h-[5.5rem]">
+                      <span className={`block font-display text-6xl font-semibold tracking-[-0.06em] ${i === 2 ? "text-white" : "text-accent"}`}>
                         {t.metric}
                       </span>
                       <span className={`mt-1 block text-sm ${i === 2 ? "text-white/75" : "text-muted"}`}>{t.metricLabel}</span>
                     </p>
                   ) : (
-                    <Quote className="mb-6 size-8 text-brand" aria-hidden="true" />
+                    <div className="mb-6 min-h-[5.5rem]">
+                      <Quote className="size-12 text-brand" aria-hidden="true" />
+                    </div>
                   )}
                   <blockquote className={`text-[1.02rem] leading-relaxed ${i === 2 ? "text-white/90" : "text-fg-2"}`}>
                     <p>“{t.quote}”</p>
                   </blockquote>
-                  <figcaption className="mt-7 flex items-center gap-3">
+                  <figcaption className="mt-auto flex items-center gap-3 pt-7">
                     <span
                       className={`grid size-11 place-items-center rounded-full font-display text-sm font-semibold ${
-                        i === 2 ? "bg-white text-brand-bright" : "bg-neon text-[#0a0b10]"
+                        i === 2 ? "bg-white text-brand-bright" : "bg-accent text-[#0a0b10]"
                       }`}
                       aria-hidden="true"
                     >

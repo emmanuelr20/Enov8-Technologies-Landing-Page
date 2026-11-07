@@ -50,7 +50,21 @@ export default function Interactions() {
     document
       .querySelectorAll("[data-reveal]:not(.is-in), [data-count]")
       .forEach((el) => io.observe(el));
-    return () => io.disconnect();
+
+    // Looping animations (marquees, spinning badge, pulsing dots) pause while
+    // their section is off screen, so they cost nothing when not visible.
+    const loops = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) e.target.classList.toggle("is-offscreen", !e.isIntersecting);
+      },
+      { rootMargin: "100px 0px" },
+    );
+    document.querySelectorAll("[data-loop]").forEach((el) => loops.observe(el));
+
+    return () => {
+      io.disconnect();
+      loops.disconnect();
+    };
   }, [pathname]);
 
   // Pointer effects + dialog delegation — registered once.

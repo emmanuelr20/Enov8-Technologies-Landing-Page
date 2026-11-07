@@ -20,7 +20,7 @@ export default function NotFound() {
         <p className="eyebrow">
           <span className="dot" /> Error 404
         </p>
-        <h1 className="mt-6 font-display text-[clamp(7rem,25vw,22rem)] font-bold leading-[0.8] tracking-[-0.07em] text-neon">
+        <h1 className="mt-6 font-display text-[clamp(7rem,25vw,22rem)] font-bold leading-[0.8] tracking-[-0.07em] text-accent">
           404
         </h1>
         <p className="display-md mt-6 max-w-2xl">

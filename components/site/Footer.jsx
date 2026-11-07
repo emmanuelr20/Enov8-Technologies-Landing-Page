@@ -33,7 +33,7 @@ export default function Footer() {
             <span className="dot" /> Contact
           </p>
           <h2 id="contact-title" className="display-lg mt-6 max-w-5xl" data-reveal style={{ "--d": "80ms" }}>
-            Let's make your next complex operation <span className="serif text-neon">easier to run.</span>
+            Let's make your next complex operation <span className="serif text-accent">easier to run.</span>
           </h2>
 
           <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
@@ -102,7 +102,7 @@ export default function Footer() {
           <div className="grid gap-12 lg:grid-cols-[1.3fr_2fr]">
             <div className="max-w-sm">
               <p className="font-display text-3xl font-semibold leading-tight tracking-tight">
-                Technology insights, <span className="serif text-neon">delivered.</span>
+                Technology insights, <span className="serif text-accent">delivered.</span>
               </p>
               <p className="mt-3 text-fg-2">
                 Expert articles on digital transformation, enterprise tech and industry trends. No
@@ -184,7 +184,7 @@ export default function Footer() {
             <p className="relative z-10 flex items-end justify-between gap-4 font-display font-bold leading-[0.78] tracking-[-0.07em] text-transparent text-[clamp(5rem,22vw,22rem)]"
               style={{
                 backgroundImage:
-                  "radial-gradient(380px circle at var(--mx) var(--my), var(--neon), color-mix(in oklab, var(--neon) 35%, transparent) 30%, transparent 60%), linear-gradient(rgb(255 255 255 / 0.07), rgb(255 255 255 / 0.07))",
+                  "radial-gradient(380px circle at var(--mx) var(--my), var(--accent), color-mix(in oklab, var(--accent) 35%, transparent) 30%, transparent 60%), linear-gradient(rgb(255 255 255 / 0.07), rgb(255 255 255 / 0.07))",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
               }}

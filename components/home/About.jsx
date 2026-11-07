@@ -49,12 +49,12 @@ export default function About() {
           {/* Text column */}
           <div>
             <h2 id="about-title" className="display-lg" data-reveal>
-              Your technology should make the business <span className="serif text-neon">easier to run.</span>
+              Your technology should make the business <span className="serif text-accent">easier to run.</span>
             </h2>
 
             <p className="manifesto mt-10 font-display text-[clamp(1.5rem,1rem+1.6vw,2.4rem)] font-medium leading-[1.25] tracking-[-0.025em]">
               {manifesto.split(" ").map((w, i) => (
-                <span key={i} className="w">
+                <span key={i} className="w" data-w={w}>
                   {w}{" "}
                 </span>
               ))}
@@ -63,7 +63,7 @@ export default function About() {
             <ul className="mt-10 grid gap-3 sm:grid-cols-2" data-reveal>
               {strengths.map((s) => (
                 <li key={s} className="flex items-center gap-3 rounded-2xl border border-line-strong px-4 py-3 font-medium">
-                  <span className="grid size-7 shrink-0 place-items-center rounded-full bg-neon text-[#0a0b10]">
+                  <span className="grid size-7 shrink-0 place-items-center rounded-full bg-accent text-[#0a0b10]">
                     <Check className="size-4" strokeWidth={2.5} />
                   </span>
                   {s}
@@ -111,7 +111,7 @@ export default function About() {
             <div className="mt-10 flex flex-wrap gap-3" data-reveal>
               <a href={site.brochure} download className="btn">
                 Download brochure
-                <span className="btn-icon">
+                <span className="btn-icon" data-dir="down">
                   <Download />
                 </span>
               </a>

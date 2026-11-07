@@ -33,7 +33,7 @@ export default function ServicesPage() {
         eyebrow="Business systems capability"
         title={
           <>
-            Unified operations for growing, <span className="serif text-neon">connected businesses.</span>
+            Unified operations for growing, <span className="serif text-accent">connected businesses.</span>
           </>
         }
         description="We help growing African businesses replace disconnected tools and manual processes with dependable systems, from first assessment through implementation and support."
@@ -86,7 +86,7 @@ export default function ServicesPage() {
                       className="object-cover transition-transform duration-[1.2s] ease-out-expo group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
-                    <span className="absolute left-4 top-4 grid size-11 place-items-center rounded-xl bg-white/90 text-[#0a0b10] backdrop-blur">
+                    <span className="absolute left-4 top-4 grid size-11 place-items-center rounded-xl bg-white/90 text-[#0a0b10]">
                       <ServiceIcon name={s.icon} className="size-5" />
                     </span>
                     <span className="absolute bottom-3 right-4 font-display text-sm text-white/80">

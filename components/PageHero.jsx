@@ -34,7 +34,6 @@ export default function PageHero({ eyebrow, title, description, crumbs = [], ima
         <i />
       </div>
       <div className="grid-bg absolute inset-0" aria-hidden="true" />
-      <div className="grain absolute inset-0" aria-hidden="true" />
 
       <div className="container-x relative">
         <nav aria-label="Breadcrumb" className="fade-up">

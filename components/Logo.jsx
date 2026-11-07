@@ -15,20 +15,13 @@ export default function Logo({ className = "" }) {
   return (
     <Link
       href="/"
-      className={`group inline-flex items-center gap-2.5 ${className}`}
-      aria-label="Enov8 Technologies — home"
+      className={`group inline-flex items-center gap-1.5 ${className}`}
+      aria-label="Enov8 Technologies home"
     >
-      <span className="relative grid size-9 place-items-center rounded-xl bg-brand-bright text-white transition-transform duration-500 ease-out-expo group-hover:rotate-[-8deg] group-hover:scale-105">
-        <LogoMark className="size-5" />
-      </span>
-      <span className="flex flex-col leading-none">
-        <span className="font-display text-[1.15rem] font-semibold tracking-[-0.04em]">
-          enov8
-        </span>
-        <span className="text-[0.62rem] uppercase tracking-[0.28em] text-muted">
-          technologies
-        </span>
-      </span>
+      {/* Original brand treatment: the bare mark in brand blue (white in dark
+          mode) followed by the name on one line. */}
+      <LogoMark className="size-9 text-brand-bright transition-colors dark:text-white" />
+      <span className="text-base font-medium text-fg">Enov8 Technologies</span>
     </Link>
   );
 }

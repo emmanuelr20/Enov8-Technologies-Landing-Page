@@ -55,7 +55,7 @@ export default function ContactDialog() {
             <span className="dot" /> Connected systems for better operations
           </p>
           <h2 id="contact-dialog-title" className="display-md relative mt-4">
-            Book a systems <span className="serif text-neon">assessment</span>
+            Book a systems <span className="serif text-accent">assessment</span>
           </h2>
           <p className="relative mt-3 max-w-md text-fg-2">
             Tell us where operations are slowing down. We'll help you identify the clearest next

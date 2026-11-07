@@ -19,8 +19,7 @@
   --line-strong: rgb(10 11 16 / 0.18);
   --brand: #0062d9;
   --brand-bright: #0070f3;
-  --neon: #e64a00;
-  --neon-glow: transparent;
+  --accent: #3b82f6;
   --brand-ink: #ffffff;
   --glow: rgb(0 112 243 / 0.28);
   --shadow: 0 1px 0 rgb(255 255 255 / 0.6) inset, 0 24px 60px -30px rgb(10 11 16 / 0.35);
@@ -43,8 +42,7 @@
   --line-strong: rgb(255 255 255 / 0.18);
   --brand: #3b8cff;
   --brand-bright: #0070f3;
-  --neon: #ff5f1f;
-  --neon-glow: rgb(255 95 31 / 0.45);
+  --accent: #7db4ff;
   --glow: rgb(59 140 255 / 0.35);
   --shadow: 0 1px 0 rgb(255 255 255 / 0.06) inset, 0 30px 80px -40px rgb(0 0 0 / 0.9);
   color-scheme: dark;
@@ -69,7 +67,7 @@
   --color-line-strong: var(--line-strong);
   --color-brand: var(--brand);
   --color-brand-bright: var(--brand-bright);
-  --color-neon: var(--neon);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-bricolage), var(--font-geist), ui-sans-serif, sans-serif;
   --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
@@ -178,12 +176,6 @@
   letter-spacing: -0.02em;
 }
 
-/* Emphasis: solid neon orange, with a soft glow on dark surfaces */
-@utility text-neon {
-  color: var(--neon);
-  text-shadow: 0 0 0.6em var(--neon-glow);
-}
-
 @utility eyebrow {
   display: inline-flex;
   align-items: center;
@@ -212,8 +204,15 @@
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 999px;
-  background: var(--neon);
-  box-shadow: 0 0 0 0 color-mix(in oklab, var(--neon) 60%, transparent);
+  background: var(--accent);
+}
+
+.dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--accent);
   animation: dot-pulse 2.4s var(--ease-out) infinite;
 }
 
@@ -283,6 +282,10 @@
   animation: arrow-out 0.6s var(--ease-out);
 }
 
+.btn:hover .btn-icon[data-dir="down"] svg {
+  animation-name: arrow-down;
+}
+
 .btn-primary {
   --btn-bg: var(--brand-bright);
   --btn-fg: #fff;
@@ -341,9 +344,7 @@
 }
 
 .glass {
-  background: color-mix(in oklab, var(--surface) 55%, transparent);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  background: color-mix(in oklab, var(--surface) 72%, transparent);
   border: 1px solid var(--line);
 }
 
@@ -356,18 +357,7 @@
   mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 30%, transparent 75%);
 }
 
-/* Static film grain — a tiny inline SVG, no request */
-.grain::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.07;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* Aurora: pre-blurred radial gradients moved with transforms only (GPU-cheap) */
+/* Aurora: static pre-blurred glow, painted once (no animation, no extra GPU layers) */
 .aurora {
   position: absolute;
   inset: -20%;
@@ -381,28 +371,24 @@
   height: 55vmax;
   border-radius: 999px;
   opacity: 0.55;
-  will-change: transform;
 }
 
 .aurora > i:nth-child(1) {
   top: -10%;
   left: 5%;
   background: radial-gradient(circle, rgb(0 112 243 / 0.75), transparent 62%);
-  animation: drift-a 22s ease-in-out infinite alternate;
 }
 
 .aurora > i:nth-child(2) {
   top: 15%;
   right: -10%;
-  background: radial-gradient(circle, rgb(255 95 31 / 0.4), transparent 62%);
-  animation: drift-b 26s ease-in-out infinite alternate;
+  background: radial-gradient(circle, rgb(125 180 255 / 0.32), transparent 62%);
 }
 
 .aurora > i:nth-child(3) {
   bottom: -25%;
   left: 30%;
   background: radial-gradient(circle, rgb(0 87 209 / 0.45), transparent 62%);
-  animation: drift-c 30s ease-in-out infinite alternate;
 }
 
 /* Cursor-follow spotlight. --mx/--my are set by <Interactions/> */
@@ -465,8 +451,8 @@
    MOTION PRIMITIVES
    ──────────────────────────────────────────────────────────────────────────── */
 
-/* Load-in "blur rise" — text is painted on the first frame (no opacity:0),
-   so it never delays Largest Contentful Paint. */
+/* Load-in rise — transform + opacity only, so it runs on the compositor.
+   Opacity never starts at 0, so the text still counts for LCP on frame one. */
 .rise > * {
   display: inline-block;
   animation: blur-rise 1s var(--ease-out) both;
@@ -517,9 +503,30 @@ html.js [data-reveal].is-in {
   --duration: 40s;
   display: flex;
   gap: var(--gap);
+  position: relative;
   overflow: hidden;
   user-select: none;
-  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+.marquee[data-fade]::before,
+.marquee[data-fade]::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  z-index: 1;
+  width: 10%;
+  pointer-events: none;
+  background: linear-gradient(to right, var(--bg), transparent);
+}
+
+.marquee[data-fade]::after {
+  right: 0;
+  transform: scaleX(-1);
+}
+
+.marquee[data-fade] .marquee-track {
+  isolation: isolate;
+  background: var(--bg);
 }
 
 .marquee-track {
@@ -530,6 +537,7 @@ html.js [data-reveal].is-in {
   min-width: 100%;
   justify-content: space-around;
   animation: marquee var(--duration) linear infinite;
+  will-change: transform;
 }
 
 .marquee[data-reverse] .marquee-track {
@@ -538,6 +546,11 @@ html.js [data-reveal].is-in {
 
 .marquee:hover .marquee-track {
   animation-play-state: paused;
+}
+
+[data-loop].is-offscreen,
+[data-loop].is-offscreen * {
+  animation-play-state: paused !important;
 }
 
 /* Partner logos: monochrome, colour on hover. Works for SVG, PNG and JPG. */
@@ -586,7 +599,16 @@ html.js [data-reveal].is-in {
   }
 
   .manifesto .w {
+    position: relative;
     color: var(--muted);
+  }
+
+  .manifesto .w::after {
+    content: attr(data-w);
+    position: absolute;
+    inset: 0;
+    color: var(--fg);
+    opacity: 0;
     animation: light-up linear both;
     animation-timeline: view();
     animation-range: cover 18% cover 42%;
@@ -599,8 +621,23 @@ html.js [data-reveal].is-in {
   }
 
   .stack-card {
+    view-timeline: --card;
     animation: stack-shrink linear both;
-    animation-timeline: view();
+    animation-timeline: --card;
+    animation-range: exit-crossing 0% exit-crossing 100%;
+  }
+
+  /* Dim with a black overlay's opacity rather than filter: brightness() */
+  .stack-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: #000;
+    opacity: 0;
+    pointer-events: none;
+    animation: stack-dim linear both;
+    animation-timeline: --card;
     animation-range: exit-crossing 0% exit-crossing 100%;
   }
 
@@ -689,23 +726,19 @@ dialog.sheet[open] {
 
 dialog.sheet::backdrop {
   background: rgb(3 4 8 / 0);
-  backdrop-filter: blur(0);
   transition:
     background-color 0.45s,
-    backdrop-filter 0.45s,
     overlay 0.45s allow-discrete,
     display 0.45s allow-discrete;
 }
 
 dialog.sheet[open]::backdrop {
-  background: rgb(3 4 8 / 0.7);
-  backdrop-filter: blur(8px);
+  background: rgb(3 4 8 / 0.78);
 }
 
 @starting-style {
   dialog.sheet[open]::backdrop {
     background: rgb(3 4 8 / 0);
-    backdrop-filter: blur(0);
   }
 }
 
@@ -827,11 +860,11 @@ dialog.sheet[open]::backdrop {
 @keyframes blur-rise {
   from {
     transform: translate3d(0, 0.35em, 0) rotate(2deg);
-    filter: blur(10px);
+    opacity: 0.08;
   }
   to {
     transform: none;
-    filter: blur(0);
+    opacity: 1;
   }
 }
 
@@ -863,17 +896,34 @@ dialog.sheet[open]::backdrop {
 
 @keyframes dot-pulse {
   0% {
-    box-shadow: 0 0 0 0 color-mix(in oklab, var(--neon) 70%, transparent);
+    transform: scale(1);
+    opacity: 0.6;
   }
   70%,
   100% {
-    box-shadow: 0 0 0 10px transparent;
+    transform: scale(3.2);
+    opacity: 0;
   }
 }
 
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes arrow-down {
+  0% {
+    transform: translate(0, 0);
+  }
+  45% {
+    transform: translate(0, 140%);
+  }
+  46% {
+    transform: translate(0, -140%);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }
 
@@ -889,24 +939,6 @@ dialog.sheet[open]::backdrop {
   }
   100% {
     transform: translate(0, 0);
-  }
-}
-
-@keyframes drift-a {
-  to {
-    transform: translate3d(18%, 12%, 0) scale(1.15);
-  }
-}
-
-@keyframes drift-b {
-  to {
-    transform: translate3d(-22%, 10%, 0) scale(0.9);
-  }
-}
-
-@keyframes drift-c {
-  to {
-    transform: translate3d(-10%, -18%, 0) scale(1.2);
   }
 }
 
@@ -930,25 +962,28 @@ dialog.sheet[open]::backdrop {
 
 @keyframes light-up {
   to {
-    color: var(--fg);
+    opacity: 1;
   }
 }
 
 @keyframes reel-grow {
   from {
     transform: scale(0.9);
-    border-radius: 2.5rem;
   }
   to {
     transform: scale(1);
-    border-radius: 1.25rem;
   }
 }
 
 @keyframes stack-shrink {
   to {
     transform: scale(0.92);
-    filter: brightness(0.7);
+  }
+}
+
+@keyframes stack-dim {
+  to {
+    opacity: 0.3;
   }
 }
 

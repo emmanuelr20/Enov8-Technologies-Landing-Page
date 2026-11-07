@@ -16,7 +16,7 @@ export function renderOg({ eyebrow, title, subtitle }) {
           padding: "64px 72px",
           backgroundColor: "#06070b",
           backgroundImage:
-            "radial-gradient(circle at 12% 0%, rgba(0,112,243,0.55), transparent 45%), radial-gradient(circle at 95% 30%, rgba(255,95,31,0.35), transparent 40%), radial-gradient(circle at 50% 120%, rgba(0,87,209,0.35), transparent 45%)",
+            "radial-gradient(circle at 12% 0%, rgba(0,112,243,0.55), transparent 45%), radial-gradient(circle at 95% 30%, rgba(125,180,255,0.3), transparent 40%), radial-gradient(circle at 50% 120%, rgba(0,87,209,0.35), transparent 45%)",
           color: "#f4f5f7",
           fontFamily: "Geist",
         }}
@@ -84,7 +84,7 @@ export function renderOg({ eyebrow, title, subtitle }) {
           }}
         >
           <span>enov8technologies.com</span>
-          <span style={{ color: "#ff5f1f" }}>Lagos · Nigeria · Worldwide</span>
+          <span style={{ color: "#7db4ff" }}>Lagos · Nigeria · Worldwide</span>
         </div>
       </div>
     ),
