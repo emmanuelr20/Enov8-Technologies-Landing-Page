@@ -60,7 +60,7 @@ export default function AboutPage() {
         eyebrow="Systems transformation partner"
         title={
           <>
-            Who we <span className="serif text-neon">are.</span>
+            Who we <span className="serif text-accent">are.</span>
           </>
         }
         description="Enov8 Technologies is a Nigerian-based systems partner for growing African businesses. We turn fragmented operations, disconnected tools, and complex technology decisions into dependable systems that help teams move forward."
@@ -146,7 +146,7 @@ export default function AboutPage() {
             </blockquote>
           </article>
           <article className="glass rounded-[2rem] p-8 sm:p-12" data-reveal style={{ "--d": "120ms" }}>
-            <p className="font-display text-[7rem] font-semibold leading-[0.8] tracking-[-0.06em] text-neon">M</p>
+            <p className="font-display text-[7rem] font-semibold leading-[0.8] tracking-[-0.06em] text-accent">M</p>
             <h2 className="mt-8 text-4xl">Our Mission</h2>
             <p className="mt-5 text-lg text-fg-2">
               To empower businesses and institutions with innovative, reliable, and tailored
@@ -167,7 +167,7 @@ export default function AboutPage() {
                 <span className="dot" /> The Enov8 Technologies Systems Method
               </p>
               <h2 id="values-title" className="display-lg mt-6" data-reveal>
-                Clarity first. <span className="serif text-neon">Dependable delivery next.</span>
+                Clarity first. <span className="serif text-accent">Dependable delivery next.</span>
               </h2>
             </div>
             <p className="lede max-w-lg" data-reveal style={{ "--d": "100ms" }}>

@@ -23,7 +23,7 @@ export default function Faq() {
             <span className="dot" /> FAQ
           </p>
           <h2 id="faq-title" className="display-lg mt-6" data-reveal style={{ "--d": "80ms" }}>
-            Questions, <span className="serif text-neon">answered.</span>
+            Questions, <span className="serif text-accent">answered.</span>
           </h2>
           <p className="lede mt-6 max-w-sm" data-reveal style={{ "--d": "160ms" }}>
             Can't find what you're looking for? Email{" "}

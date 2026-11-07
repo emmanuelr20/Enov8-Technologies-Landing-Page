@@ -8,7 +8,7 @@ function Phrase() {
         <ArrowUpRight className="size-1/2" />
       </span>
       <span className="serif font-normal text-brand">let's build what's next</span>
-      <span className="text-neon">✦</span>
+      <span className="text-accent">✦</span>
     </span>
   );
 }
@@ -16,7 +16,7 @@ function Phrase() {
 // A giant kinetic marquee that is itself the call-to-action.
 export default function BigCta() {
   return (
-    <section aria-label="Start a project" className="relative overflow-hidden py-16 sm:py-24">
+    <section aria-label="Start a project" data-loop className="relative overflow-hidden py-16 sm:py-24">
       <button
         type="button"
         data-open-contact

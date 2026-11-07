@@ -19,7 +19,7 @@ function Row({ items, reverse }) {
     </ul>
   );
   return (
-    <div className="marquee" style={{ "--gap": "1.5rem", "--duration": "55s" }} {...(reverse ? { "data-reverse": "" } : {})}>
+    <div className="marquee" data-fade style={{ "--gap": "1.5rem", "--duration": "55s" }} {...(reverse ? { "data-reverse": "" } : {})}>
       <Track />
       <Track hidden />
     </div>
@@ -29,7 +29,7 @@ function Row({ items, reverse }) {
 export default function Partners() {
   const half = Math.ceil(partners.length / 2);
   return (
-    <section aria-labelledby="partners-title" className="relative pb-8 pt-16 sm:pt-24">
+    <section aria-labelledby="partners-title" data-loop className="relative pb-8 pt-16 sm:pt-24">
       <div className="container-x">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <h2 id="partners-title" className="max-w-md font-display text-2xl font-semibold tracking-tight sm:text-3xl" data-reveal>

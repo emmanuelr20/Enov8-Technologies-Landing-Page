@@ -50,7 +50,7 @@ export default function Navbar() {
         <div
           className={`ink mx-auto flex h-16 max-w-7xl items-center justify-between rounded-full border pl-4 pr-2 transition-[background-color,box-shadow,border-color] duration-500 ${
             scrolled || open
-              ? "border-white/10 !bg-[rgb(8_10_16/0.78)] shadow-[0_20px_60px_-25px_rgb(0_0_0/0.8)] backdrop-blur-xl backdrop-saturate-150"
+              ? "border-white/10 !bg-[rgb(8_10_16/0.94)] shadow-[0_20px_60px_-25px_rgb(0_0_0/0.8)]"
               : "border-transparent !bg-transparent"
           }`}
         >
@@ -70,7 +70,7 @@ export default function Navbar() {
 
                 {/* Mega menu — pure CSS, opens on hover and keyboard focus */}
                 <div className="invisible absolute left-1/2 top-full w-[min(64rem,92vw)] -translate-x-1/2 pt-4 opacity-0 transition-[opacity,visibility,translate] duration-300 ease-out-expo translate-y-2 group-hover/mega:visible group-hover/mega:translate-y-0 group-hover/mega:opacity-100 group-focus-within/mega:visible group-focus-within/mega:translate-y-0 group-focus-within/mega:opacity-100">
-                  <div className="ink grid grid-cols-[1fr_17rem] gap-2 rounded-[1.75rem] border border-white/10 bg-[rgb(10_12_18/0.96)] p-2 shadow-[0_40px_120px_-30px_rgb(0_0_0/0.9)] backdrop-blur-xl">
+                  <div className="ink grid grid-cols-[1fr_17rem] gap-2 rounded-[1.75rem] border border-white/10 bg-[rgb(10_12_18/0.96)] p-2 shadow-[0_40px_120px_-30px_rgb(0_0_0/0.9)]">
                     <ul className="grid grid-cols-3 gap-1 p-2">
                       {services.map((s) => (
                         <li key={s.slug}>

@@ -20,7 +20,7 @@ export default function Team() {
               <span className="dot" /> Leadership
             </p>
             <h2 id="team-title" className="display-lg mt-6" data-reveal style={{ "--d": "80ms" }}>
-              Meet our <span className="serif text-neon">team.</span>
+              Meet our <span className="serif text-accent">team.</span>
             </h2>
           </div>
           <p className="lede max-w-lg" data-reveal style={{ "--d": "140ms" }}>
@@ -52,10 +52,10 @@ export default function Team() {
                         className="ink grid size-full place-items-center"
                       >
                         <div className="grid-bg absolute inset-0" aria-hidden="true" />
-                        <span className="serif relative text-[7rem] leading-none text-neon">{initials(m.name)}</span>
+                        <span className="serif relative text-[7rem] leading-none text-accent">{initials(m.name)}</span>
                       </div>
                     )}
-                    <span className="absolute left-3 top-3 rounded-full bg-[rgb(10_12_18/0.75)] px-3 py-1 text-xs font-medium text-white backdrop-blur">
+                    <span className="absolute left-3 top-3 rounded-full bg-[rgb(10_12_18/0.75)] px-3 py-1 text-xs font-medium text-white">
                       {m.role}
                     </span>
                   </div>
@@ -83,7 +83,7 @@ export default function Team() {
                     {more.length > 0 && (
                       <details className="bio group mt-4 max-w-3xl">
                         <summary className="inline-flex cursor-pointer list-none items-center gap-2 text-sm font-medium text-fg [&::-webkit-details-marker]:hidden">
-                          <span className="grid size-6 place-items-center rounded-full bg-neon text-[#0a0b10] transition-transform duration-300 group-open:rotate-45">
+                          <span className="grid size-6 place-items-center rounded-full bg-accent text-[#0a0b10] transition-transform duration-300 group-open:rotate-45">
                             <Plus className="size-3.5" strokeWidth={2.5} />
                           </span>
                           More about {first}

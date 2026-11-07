@@ -161,7 +161,7 @@ export default function HeroReel({ slides }) {
             type="button"
             onClick={() => setPlaying((p) => !p)}
             aria-label={playing ? "Pause video" : "Play video"}
-            className="grid size-10 place-items-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur transition-colors hover:bg-white/15"
+            className="grid size-10 place-items-center rounded-full border border-white/20 bg-black/30 text-white transition-colors hover:bg-white/15"
           >
             {playing ? <Pause className="size-4" /> : <Play className="size-4" />}
           </button>

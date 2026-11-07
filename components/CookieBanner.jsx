@@ -29,7 +29,7 @@ export default function CookieBanner() {
   return (
     <section
       aria-label="Cookie consent"
-      className="ink slide-in fixed inset-x-3 bottom-3 z-[60] mx-auto max-w-md rounded-3xl border border-white/10 !bg-[rgb(10_12_18/0.92)] p-5 shadow-2xl backdrop-blur-xl sm:inset-x-auto sm:left-5 sm:bottom-5"
+      className="ink slide-in fixed inset-x-3 bottom-3 z-[60] mx-auto max-w-md rounded-3xl border border-white/10 !bg-[rgb(10_12_18/0.92)] p-5 shadow-2xl sm:inset-x-auto sm:left-5 sm:bottom-5"
     >
       <div className="flex gap-4">
         <span className="grid size-10 shrink-0 place-items-center rounded-2xl bg-brand/15 text-brand">

@@ -20,7 +20,7 @@ export default function Tapes() {
   const a = services.slice(0, 6).map((s) => s.navTitle);
   const b = services.slice(6).map((s) => s.navTitle);
   return (
-    <div className="relative z-10 -my-4 overflow-hidden py-12 sm:py-16" aria-hidden="true">
+    <div data-loop className="relative z-10 -my-4 overflow-hidden py-12 sm:py-16" aria-hidden="true">
       <div className="ink absolute inset-x-[-5%] top-1/2 -translate-y-1/2 rotate-[2.5deg] border-y border-white/10 py-4">
         <div className="marquee [mask-image:none] font-display text-2xl font-semibold tracking-tight text-fg/60 sm:text-4xl" style={{ "--duration": "60s" }} data-reverse>
           <Track items={b} />

@@ -5,8 +5,8 @@ const looks = [
   { card: "bg-surface text-fg border", icon: Compass, accent: "text-brand" },
   { card: "bg-[#0057d1] text-white", icon: PencilRuler, accent: "text-white/75" },
   { card: "ink border border-white/10", icon: Rocket, accent: "text-brand" },
-  { card: "bg-[#ffe1d1] text-[#2a0e00] dark:bg-[#24100a] dark:text-[#ffe7da]", icon: ShieldCheck, accent: "text-[#b23800] dark:text-neon" },
-  { card: "bg-neon text-[#140600]", icon: LifeBuoy, accent: "text-[#140600]/75" },
+  { card: "bg-[#dbe8ff] text-[#06142e] dark:bg-[#0c1a33] dark:text-[#e3eeff]", icon: ShieldCheck, accent: "text-[#0057d1] dark:text-accent" },
+  { card: "bg-[#d1d5db] text-[#0a0b10]", icon: LifeBuoy, accent: "text-[#0a0b10]/70" },
 ];
 
 // Sticky stacking cards: each card pins and the previous one recedes
@@ -20,7 +20,7 @@ export default function Process() {
             <span className="dot" /> The Enov8 Systems Method
           </p>
           <h2 id="process-title" className="display-md mt-6" data-reveal style={{ "--d": "80ms" }}>
-            A repeatable method from clarity to <span className="serif text-neon">supported operations.</span>
+            A repeatable method from clarity to <span className="serif text-accent">supported operations.</span>
           </h2>
           <p className="lede mt-6 max-w-md" data-reveal style={{ "--d": "160ms" }}>
             The Enov8 Technologies Systems Method turns a complex technology decision into a clear

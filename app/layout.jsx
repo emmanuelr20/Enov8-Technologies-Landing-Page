@@ -208,7 +208,7 @@ export default function RootLayout({ children }) {
           Skip to content
         </a>
         <div
-          className="scroll-progress pointer-events-none fixed inset-x-0 top-0 z-[70] h-[2px] bg-neon"
+          className="scroll-progress pointer-events-none fixed inset-x-0 top-0 z-[70] h-[2px] bg-accent"
           aria-hidden="true"
         />
         <JsonLd data={orgJsonLd} />

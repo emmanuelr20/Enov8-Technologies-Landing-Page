@@ -211,7 +211,7 @@ export default async function ServicePage({ params }) {
         <div className="container-x">
           <div className="flex items-end justify-between gap-6 border-t border-line pt-12">
             <h2 id="related-title" className="display-md">
-              Explore more <span className="serif text-neon">services</span>
+              Explore more <span className="serif text-accent">services</span>
             </h2>
             <Link href="/services" className="btn btn-ghost hidden sm:inline-flex">
               All services

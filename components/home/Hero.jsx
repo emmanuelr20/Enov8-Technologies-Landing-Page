@@ -10,14 +10,13 @@ const words = ["Turn", "fragmented", "operations", "into", "dependable"];
 
 export default function Hero() {
   return (
-    <section aria-labelledby="hero-title" className="ink relative isolate overflow-hidden pb-6 pt-32 sm:pt-40">
+    <section aria-labelledby="hero-title" data-loop className="ink relative isolate overflow-hidden pb-6 pt-32 sm:pt-40">
       <div className="aurora" aria-hidden="true">
         <i />
         <i />
         <i />
       </div>
       <div className="grid-bg absolute inset-0" aria-hidden="true" />
-      <div className="grain absolute inset-0" aria-hidden="true" />
 
       <div className="container-x relative">
         <div className="flex items-center justify-between gap-4">
@@ -36,7 +35,7 @@ export default function Hero() {
               <span style={{ "--i": i }}>{w}</span>{" "}
             </Fragment>
           ))}
-          <span style={{ "--i": words.length }} className="serif text-neon">
+          <span style={{ "--i": words.length }} className="serif text-accent">
             business systems.
           </span>
         </h1>
