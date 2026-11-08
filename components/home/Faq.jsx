@@ -30,7 +30,6 @@ export default function Faq() {
             <a href={`mailto:${contact.salesEmail}`} className="text-fg underline underline-offset-4">
               {contact.salesEmail}
             </a>
-            .
           </p>
         </div>
 

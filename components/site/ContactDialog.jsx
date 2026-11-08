@@ -37,7 +37,7 @@ export default function ContactDialog() {
   return (
     <dialog id="contact-dialog" className="sheet" aria-labelledby="contact-dialog-title">
       <div className="ink relative overflow-hidden rounded-[1.75rem] border border-white/10 shadow-2xl">
-        <div className="relative overflow-hidden px-7 pb-8 pt-9">
+        <div className="relative overflow-hidden px-7 pb-8 pt-16">
           <div className="aurora" aria-hidden="true">
             <i />
             <i />
@@ -62,13 +62,13 @@ export default function ContactDialog() {
             step and turn it into a practical plan.
           </p>
         </div>
-        <ul className="grid gap-2 p-3 pt-0">
+        <ul className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-2 p-3 pt-0">
           {options.map(({ href, icon: Icon, title, text, external, primary }) => (
-            <li key={title}>
+            <li key={title} className="min-w-0">
               <a
                 href={href}
                 {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className={`group flex items-center gap-4 rounded-2xl border p-4 transition-colors ${
+                className={`group flex w-full min-w-0 items-center gap-4 rounded-2xl border p-4 transition-colors ${
                   primary
                     ? "border-transparent bg-brand-bright text-white"
                     : "border-white/10 bg-white/[0.03] hover:border-white/25 hover:bg-white/[0.06]"
