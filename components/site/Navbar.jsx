@@ -69,7 +69,7 @@ export default function Navbar() {
                 </Link>
 
                 {/* Mega menu — pure CSS, opens on hover and keyboard focus */}
-                <div className="invisible absolute left-1/2 top-full w-[min(64rem,92vw)] -translate-x-1/2 pt-4 opacity-0 transition-[opacity,visibility,translate] duration-300 ease-out-expo translate-y-2 group-hover/mega:visible group-hover/mega:translate-y-0 group-hover/mega:opacity-100 group-focus-within/mega:visible group-focus-within/mega:translate-y-0 group-focus-within/mega:opacity-100">
+                <div className="invisible fixed left-1/2 top-16 w-[min(64rem,calc(100vw-2rem))] -translate-x-1/2 pt-4 opacity-0 transition-[opacity,visibility,translate] duration-300 ease-out-expo translate-y-2 group-hover/mega:visible group-hover/mega:translate-y-0 group-hover/mega:opacity-100 group-focus-within/mega:visible group-focus-within/mega:translate-y-0 group-focus-within/mega:opacity-100">
                   <div className="ink grid grid-cols-[1fr_17rem] gap-2 rounded-[1.75rem] border border-white/10 bg-[rgb(10_12_18/0.96)] p-2 shadow-[0_40px_120px_-30px_rgb(0_0_0/0.9)]">
                     <ul className="grid grid-cols-3 gap-1 p-2">
                       {services.map((s) => (
@@ -79,7 +79,7 @@ export default function Navbar() {
                             className="group/item flex gap-3 rounded-2xl p-3 transition-colors hover:bg-white/6"
                           >
                             <span className="grid size-9 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/5 text-brand transition-colors group-hover/item:border-brand/50 group-hover/item:bg-brand group-hover/item:text-white">
-                              <ServiceIcon name={s.icon} className="size-[18px]" />
+                              <ServiceIcon name={s.icon} className="size-4.5" />
                             </span>
                             <span className="min-w-0">
                               <span className="block text-[0.9rem] font-medium leading-tight text-fg">
@@ -184,7 +184,7 @@ export default function Navbar() {
                     <Link
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className={`flex items-baseline justify-between border-b border-white/10 py-4 font-display text-4xl font-semibold tracking-tight transition-[translate,opacity] duration-700 ease-out-expo ${
+                      className={`flex items-baseline justify-between border-b border-white/10 py-3 font-display text-[clamp(1.15rem,3.4vw,1.45rem)] font-semibold tracking-tight transition-[translate,opacity] duration-700 ease-out-expo sm:py-3.5 ${
                         open ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
                       }`}
                       style={{ transitionDelay: open ? `${150 + i * 60}ms` : "0ms" }}
