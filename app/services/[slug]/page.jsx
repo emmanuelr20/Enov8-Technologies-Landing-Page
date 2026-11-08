@@ -219,8 +219,8 @@ export default async function ServicePage({ params }) {
           </div>
           <ul className="mt-10 grid gap-4 md:grid-cols-3">
             {related.map((r, i) => (
-              <li key={r.slug} data-reveal style={{ "--d": `${i * 80}ms` }}>
-                <Link href={`/services/${r.slug}`} className="card group flex h-full items-center gap-5 overflow-hidden p-2 pr-5">
+              <li key={r.slug} className="min-w-0" data-reveal style={{ "--d": `${i * 80}ms` }}>
+                <Link href={`/services/${r.slug}`} className="card group flex h-full min-w-0 items-center gap-5 overflow-hidden p-2 pr-5">
                   <span className="relative size-24 shrink-0 overflow-hidden rounded-[1rem]">
                     <Image
                       src={r.heroImage}

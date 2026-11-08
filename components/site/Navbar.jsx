@@ -161,7 +161,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div
         id="mobile-menu"
-        className={`ink fixed inset-0 z-40 overflow-y-auto transition-[clip-path] duration-700 ease-[var(--ease-in-out)] lg:hidden ${
+        className={`ink fixed inset-0 z-40 overflow-x-hidden overflow-y-auto transition-[clip-path] duration-700 ease-[var(--ease-in-out)] lg:hidden ${
           open ? "[clip-path:circle(150%_at_calc(100%-2.6rem)_2.6rem)]" : "pointer-events-none [clip-path:circle(0%_at_calc(100%-2.6rem)_2.6rem)]"
         }`}
         aria-hidden={!open}
