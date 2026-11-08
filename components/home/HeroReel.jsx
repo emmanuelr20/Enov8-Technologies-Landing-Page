@@ -148,8 +148,10 @@ export default function HeroReel({ slides }) {
                     className="absolute inset-0 origin-left rounded-full bg-white"
                     style={{
                       transform: i < active ? "scaleX(1)" : "scaleX(0)",
-                      animation:
-                        i === active && ready ? `progress ${SLIDE_MS}ms linear forwards` : "none",
+                      animationName: i === active && ready ? "progress" : "none",
+                      animationDuration: `${SLIDE_MS}ms`,
+                      animationTimingFunction: "linear",
+                      animationFillMode: "forwards",
                       animationPlayState: running ? "running" : "paused",
                     }}
                   />
