@@ -52,7 +52,7 @@ export default function About() {
               Your technology should make the business <span className="serif text-accent">easier to run.</span>
             </h2>
 
-            <p className="manifesto mt-10 font-display text-[clamp(1.5rem,1rem+1.6vw,2.4rem)] font-medium leading-[1.25] tracking-[-0.025em]">
+            <p className="manifesto mt-10 font-display text-[clamp(1rem,1rem+1.6vw,1.75rem)] font-medium leading-tight tracking-[-0.025em]">
               {manifesto.split(" ").map((w, i) => (
                 <span key={i} className="w" data-w={w}>
                   {w}{" "}
